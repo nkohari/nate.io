@@ -1,0 +1,46 @@
+.post-list
+  margin: 0
+  padding: 0
+
+  li
+    list-style-type: none
+
+  .post
+    display: flex
+    padding: $spacing-lg 0
+    align-items: center
+    color: $black
+    text-decoration: none
+    transition: background 250ms ease
+
+    &:hover
+      background: $red
+      .post-date-day
+        color: $white
+      h2
+        color: $white
+
+    .post-date
+      flex: none
+      width: 5em
+      margin-right: $spacing-md
+      text-align: center
+
+    .post-date-day
+      display: block
+      color: $red
+      font-size: $f5
+
+    .post-date-month
+      font-size: $f7
+
+    h1
+      margin: 0
+      font-size: $f4
+
+    h2
+      margin: 0
+      font-family: $font-normal
+      font-size: $f6
+      font-weight: 500
+      color: $mid-gray

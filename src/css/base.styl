@@ -1,0 +1,65 @@
+@import 'normalize.css/normalize.css'
+
+html
+  font-family: $font-normal
+
+body
+  background: $white
+  font-size: $f6
+  font-weight: 300
+  color: $near-black
+
+h1, h2, h3, h4, h5, h6
+  font-family: $font-title
+  font-weight: 500
+
+hr
+  margin: $spacing-lg 0
+  border: 0
+  border-top: 1px solid $light-silver
+  border-bottom: none
+
+blockquote
+  overflow: hidden
+  margin: $spacing-sm 0
+  padding: 0 $spacing-md
+  background: $near-white
+  color: $mid-gray
+  border-left: 5px solid $light-silver
+
+code
+  font-family: $font-monospace
+  font-size: $f7
+
+pre
+  font-family: $font-monospace
+  font-size: $f7
+
+del
+  color: $mid-gray
+  text-decoration: line-through
+  text-decoration-color: $silver
+
+table
+  overflow: hidden
+  width: 100%
+  margin: $spacing-sm 0
+  border-collapse: collapse
+
+  th
+    font-weight: 600
+    padding-right: $spacing-md
+
+  td
+    padding-right: $spacing-md
+
+article
+
+  a:link, a:visited
+    color: $blue
+    text-decoration-color: $light-blue
+    text-decoration-skip: ink
+    transition: color 250ms ease
+
+  a:hover, a:active
+    color: $dark-blue

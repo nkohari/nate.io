@@ -1,0 +1,41 @@
+.nav
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  background: $black
+  color: $white
+  font-size: $f5
+  font-family: $font-title
+
+  &.nav-enter
+    animation: nav-slide-down 100ms ease-out
+
+  &.nav-leave
+    animation: nav-slide-up 100ms linear
+
+  .nav-content
+    display: flex
+    padding: $spacing-md $spacing-lg
+    align-items: center
+
+    .logo
+      font-size: $f4
+      padding: 0 5px
+      margin-right: $spacing-lg
+
+  .progress
+    appearance: none
+    width: 100%
+
+    .progress-fill
+      height: 4px
+      background: $red
+
+@keyframes nav-slide-down
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+
+@keyframes nav-slide-up
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100%); }

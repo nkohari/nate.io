@@ -1,7 +1,9 @@
 ---
-title: Cache-and-Collect Lifecycle Management in Ninject 2.0
+title: Cache-and-Collect Lifecycle Management
+subtitle: Ninject 2 tries a new solution to an old problem.
 date: 2009-03-08 03:41:00
 category: ninject
+song: spotify:track:0iUano4euaiUETVUd1u0cx
 ---
 
 _Warning: unless you’re interested in the nuances of lifecycle management in inversion of control systems, this post might make your eyes glaze over. However, if you’re interested in new solutions to old, difficult problems, read on. :)_
@@ -10,7 +12,7 @@ _Warning: unless you’re interested in the nuances of lifecycle management in i
 
 As it is with most important features, lifecycle management is a complex problem, and one that’s very difficult to get correct. In Ninject 1, I assumed that this complexity was inevitable, and implemented a system of behaviors (`SingletonBehavior`, `OnePerRequestBehavior`, and so on). While this solution worked, it was difficult to customize and prone to errors.
 
-Ninject 2 introduces a feature that I’ve been working on for awhile, which I’m calling _cache-and-collect_ lifecycle management. Instead of creating a “manager” that controls the re-use of instances (like behaviors in Ninject 1), Ninject 2 associates all instances with a “scope” object. This object is just a POCO – that is, it doesn’t need to know anything about Ninject or that it’s involved in lifecycle management.
+Ninject 2 introduces a feature that I’ve been working on for awhile, which I’m calling _cache-and-collect_ lifecycle management. Instead of creating a “manager” that controls the re-use of instances (like behaviors in Ninject 1), Ninject 2 associates all instances with a “scope” object. This object is just a POCO -- that is, it doesn’t need to know anything about Ninject or that it’s involved in lifecycle management.
 
 Ninject 2 ships with the same four standard scopes (transient, singleton, one-per-thread, and one-per-request) that were available in Ninject 1. When Ninject receives a request, it has a callback associated with it that returns the scoping object for the request. The following table shows the correlation between the binding syntax and the callback that is used:
 
@@ -37,11 +39,11 @@ Remember that _you can use any object_ as a scope through the custom InScope() b
 
 Note that with cache-and-collect, instances are _not guaranteed_ to be deactivated immediately when the scope terminates. For example, instances activated in request scope will not be collected immediately at the end of web request, but when the HttpContext that was used to control the web request is garbage collected, the instances associated with it will be deactivated. However, they are guaranteed to _eventually_ be disposed.
 
-This just means that the normal rules apply to objects that hold scarce resources like file handles and database connections – either don’t couple the lifespan of the scarce resource to the lifespan of the object that holds it, or dispose of the holding object when you’re done with it!
+This just means that the normal rules apply to objects that hold scarce resources like file handles and database connections -- either don’t couple the lifespan of the scarce resource to the lifespan of the object that holds it, or dispose of the holding object when you’re done with it!
 
 Ninject does provide a way to get deterministic deactivation of your instances for custom scopes, if you’re willing to give up the POCO-ness if the scoping object. If your scope callback returns an object that implements `INotifyWhenDisposed` (an interface from Ninject), Ninject will immediately deactivate any instances associated with the object when you call object’s Dispose() method.
 
-There’s one final way of handling scope in Ninject2, through _activation blocks_. Blocks are a way to override the scope that was declared on a binding, and instead associate the activated instances with the block itself. Since the activation block that is returned implements `INotifyWhenDisposed`, any instances activated via the block are immediately deactivated when the block is disposed. The block object implements all of the same methods available on the kernel itself – such as Get() – but instead of executing them, it simply delegates any requset it receives to the kernel that created it.
+There’s one final way of handling scope in Ninject2, through _activation blocks_. Blocks are a way to override the scope that was declared on a binding, and instead associate the activated instances with the block itself. Since the activation block that is returned implements `INotifyWhenDisposed`, any instances activated via the block are immediately deactivated when the block is disposed. The block object implements all of the same methods available on the kernel itself -- such as Get() -- but instead of executing them, it simply delegates any requset it receives to the kernel that created it.
 
 Here’s an example of using an activation block:
 

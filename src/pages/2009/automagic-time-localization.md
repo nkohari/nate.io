@@ -1,7 +1,9 @@
 ---
 title: Automagic Time Localization
+subtitle: Does anybody really know what time it is? Does anybody really care?
 date: 2009-06-16 19:54:00
 category: javascript
+song: spotify:track:6nAD4H0ujyEeBTxbXZkZeC
 ---
 
 <span class='drop-cap'>One of the most</span> often-overlooked and easy to fix things encountered when developing a hosted software application is the management of local time. First and foremost, you should be storing timestamps in your database in UTC. I don’t care if your users are all in the same time zone now, or your app is just a local deployment, or whatever other excuse you have for storing time as local time. _Always store timestamps in UTC._ Do it now, and pat yourself on the back a year from now when you realize whatever reason you had for storing it as local time was irrelevant or has changed. :)

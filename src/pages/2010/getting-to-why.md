@@ -1,7 +1,9 @@
 ---
 title: Getting to Why
+subtitle: What you're selling isn't nearly as important as why you're selling it.
 date: 2010-11-22 18:21:00
 category: product design
+song: spotify:track:3HGaAiNXw4Yoq2KlIhfsbo
 ---
 
 <span class='drop-cap'>Earlier this year</span>, a [TED talk by Simon Sinek](http://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action.html) made its rounds on the internet. In it, Simon compares the marketing strategy of companies like Apple to the rest of the industry. Niki and I saw the video if the talk right after we'd closed the acquisition deal selling AgileZen to Rally, and it codified a lot of the ideas that we'd had while launching the business.
@@ -12,7 +14,7 @@ The same effect can be seen in the rise of Audi, whose car line was once conside
 
 When I first saw Simon's talk, I immediately recognized that the same motivation can be found not just in marketing techniques, but also in product development and the creation of a startup.
 
-We didn't do it deliberately, but I think this is the reason we've seen a good deal of success with Zen. When we first started talking about the idea that would eventually become Zen, we were primarily motivated by the idea that all of our competitors' products were too complex to serve a the massive small-to-midsize business market. We decided at a very early stage that we were in business to convince others that _less software is better_. It was this idea that led us to creating a simple, approachable tool for managing work - the _what_ resulted from the _why_, rather than the other way around.
+We didn't do it deliberately, but I think this is the reason we've seen a good deal of success with Zen. When we first started talking about the idea that would eventually become Zen, we were primarily motivated by the idea that all of our competitors' products were too complex to serve a the massive small-to-midsize business market. We decided at a very early stage that we were in business to convince others that _less software is better_. It was this idea that led us to creating a simple, approachable tool for managing work -- the _what_ resulted from the _why_, rather than the other way around.
 
 Since features inevitably lead to complexity, we actually focused on implementing as few features as possible. In a feature-to-feature comparison, we'd lose against many of our competitors, but we don't want to sell a product. We want to sell an idea - that most software is much too complex, and the majority of features simply add noise to the signal. Our customers may not realize it, but this is why they buy Zen. Being less of a product has given us double-digit revenue growth every month since we launched without a sales staff and without much of a marketing budget.
 

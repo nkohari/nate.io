@@ -1,7 +1,9 @@
 ---
 title: Generic Variance in C# 4.0
+subtitle: The CLR type system gets even more powerful.
 date: 2008-10-30 00:34:00
 category: dotnet
+song: spotify:track:68BfPDbBYWylghSi4zbCTO
 ---
 
 <span class='drop-cap'>Although I'm not cool enough</span> to actually go to PDC, I've been watching some of the things that have been announced. One of the things I'm most excited about is co- and contra-variance in generics, which is something that the CLR has lacked since generics were first introduced in 2.0. (Note: some of the examples on here are pulled from the [excellent description](http://code.msdn.microsoft.com/csharpfuture) of new features release by Microsoft.)

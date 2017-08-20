@@ -1,0 +1,46 @@
+.related-posts
+  padding: 0
+  background: $moon-gray
+  border-radius: 10px
+  margin: $spacing-lg 0 0 $spacing-lg
+  padding-bottom: 1.8rem
+
+  .header
+    height: 1.8rem
+    line-height: 2rem
+    font-family: $font-title
+    font-size: $f7
+    font-weight: 700
+    font-style: italic
+    text-transform: uppercase
+    text-align: center
+
+  li
+    list-style-type: none
+
+  .post
+    display: block
+    text-decoration: none
+    padding: $spacing-sm $spacing-md
+    background: $near-white
+
+    &:hover
+      background: $red
+      .post-title
+        color: $white
+      .post-date
+        color: $white
+
+    .post-title
+      display: block
+      font-family: $font-title
+      font-size: $f6
+      color: $black
+      margin: 0
+
+    .post-date
+      display: block
+      font-size: $f8
+      font-weight: 400
+      color: $mid-gray
+      margin-bottom: $spacing-xs

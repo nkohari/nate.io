@@ -1,16 +1,55 @@
 .footer
   display: flex
-  margin-top: $spacing-xl
   padding: $spacing-lg
+  align-items: center
   background: $black
-  color: $white
+  color: $light-silver
 
-  .profile
-    width: 120px
-    height: 120px
-    transition: all 250ms ease
-    &:hover
-      transform: rotate(-4deg)
+  .picture
+    width: 140px
+    height: 140px
 
-  p
+  .content
     margin-left: $spacing-lg
+    font-size: $f7
+
+    p
+      margin-top: 0
+
+      a
+        color: $white
+        font-weight: 600
+        text-decoration: none
+        &:hover
+          color: $red
+          text-decoration: underline
+
+    ul
+      display: flex
+      flex-direction: row
+      margin: 0 0 $spacing-md 0
+      padding: 0
+
+    li
+      list-style-type: none
+      margin-right: $spacing-md
+
+      a
+        svg
+          width: 2rem
+          height: 2rem
+          fill: $white
+          transition: all 250ms ease
+        &:hover
+          svg
+            fill: $red
+
+    .copyright
+      font-size: $f8
+      color: $mid-gray
+      .license
+        color: $mid-gray
+        text-decoration: none
+        &:hover
+          color: $light-silver
+          text-decoration: underline

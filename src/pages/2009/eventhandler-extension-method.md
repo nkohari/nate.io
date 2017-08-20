@@ -1,7 +1,9 @@
 ---
 title: EventHandler Extension Method
+subtitle: Just a random trick I found useful to avoid excessive null checking.
 date: 2009-02-09 08:44:00
 category: dotnet
+song: spotify:track:2dbYXLChy4M8DeaqdFXhA0
 ---
 
 <span class='drop-cap'>I just wrote</span> just wrote an interesting extension method, and thought I’d share it. If you’re using the `EventHandler<T>` delegate that was introduced back in .NET framework 2.0, this method might come in handy:

@@ -1,5 +1,14 @@
 .post
 
+  main
+    display: flex
+    flex-direction: column
+    @media $viewport-lg
+      flex-direction: row
+
+  p:first-child
+    margin-top: 0
+
   .content
     margin: $spacing-lg
     max-width: $measure-wide
@@ -9,7 +18,35 @@
     text-transform: uppercase
     font-weight: 600
 
-  header
+  .song
+    border: 0
+    width: 320px
+    height: 80px
+    margin: $spacing-lg 0 0 $spacing-lg
+
+  sup
+    display: inline-block
+    top: -0.15em
+    line-height: 1
+    a.footnote-ref
+      display: block
+      padding: 4px 8px
+      border-radius: 50%
+      font-size: $f8
+      font-weight: 800
+      background: $silver
+      color: $white
+      text-decoration: none
+      &:hover
+        background: $red
+
+  .footnotes
+    font-size: $f7
+    li
+      p
+        display: inline
+
+  .post-header
     padding: $spacing-lg
     background: $near-white
 

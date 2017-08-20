@@ -30,6 +30,7 @@ blockquote
 code
   font-family: $font-monospace
   font-size: $f7
+  font-weight: 400
 
 pre
   font-family: $font-monospace
@@ -53,13 +54,15 @@ table
   td
     padding-right: $spacing-md
 
+a
+  transition: all 250ms ease
+
 article
 
-  a:link, a:visited
+  a, a:visited
     color: $blue
     text-decoration-color: $light-blue
     text-decoration-skip: ink
-    transition: color 250ms ease
 
   a:hover, a:active
     color: $dark-blue

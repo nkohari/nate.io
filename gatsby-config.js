@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'nate.io',
+    title: 'Discord&Rhyme',
     author: 'Nate Kohari',
   },
   plugins: [

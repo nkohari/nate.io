@@ -1,10 +1,12 @@
 ---
 title: Ninject Forever
+subtitle: Ninject 2.0 is live!
 date: 2010-02-27 03:00:00
 category: ninject
+song: spotify:track:2hZC4u7TtYVPQuz3Wy0D5v
 ---
 
-I’m happy to announce that after quite a while in beta, [Ninject 2](http://ninject.org/) is finally official! It was actually one year ago today that I [announced](http://kohari.org/2009/02/25/ninject-2-reaches-beta/) the beta version of Ninject 2. I had originally planned to release no later than March of last year, but in the meantime I had this crazy idea to launch a [startup](http://agilezen.com/).
+<span class='drop-cap'>I’m happy to announce</span> that after quite a while in beta, [Ninject 2](http://ninject.org/) is finally official! It was actually one year ago today that I [announced](/2009/ninject-2-reaches-beta/) the beta version of Ninject 2. I had originally planned to release no later than March of last year, but in the meantime I had this crazy idea to launch a [startup](http://agilezen.com/).
 
 As you might imagine, I quickly found that running a business has a tendency to sap your free time.
 

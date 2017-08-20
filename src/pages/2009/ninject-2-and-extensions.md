@@ -1,10 +1,12 @@
 ---
 title: Ninject 2 and Extensions
+subtitle: Keeping the core small and streamlined.
 date: 2009-03-19 23:02:00
 category: ninject
+song: spotify:track:1xb0WhEGZkofL1y0kYcx7d
 ---
 
-<span class='drop-cap'>As I've mentioned</span> before, while developing Ninject 2, I applied an obsessive minimization process to the development. Ninject 2 was largely a rewrite of Ninject 1, but using most of the same concepts – just re-written as necessary to be as small as absolutely possible. This minimization, along with leveraging stuff like LINQ and lambdas, has resulted in a very sleek and compact distribution, currently hovering around 82KB when compiled for release.
+<span class='drop-cap'>As I've mentioned</span> before, while developing Ninject 2, I applied an obsessive minimization process to the development. Ninject 2 was largely a rewrite of Ninject 1, but using most of the same concepts -- just re-written as necessary to be as small as absolutely possible. This minimization, along with leveraging stuff like LINQ and lambdas, has resulted in a very sleek and compact distribution, currently hovering around 82KB when compiled for release.
 
 However, it’s also meant that I’ve had to cut features from the core, which in turn means that extensions are now of the utmost importance in Ninject 2. I’d like to adopt a model similar to the one used in jQuery, in that I handle development and maintenance of the core, and outsource the development of extensions to the community. This means if you have an idea for a cool extension to Ninject, you’ll just be able to write it, and publish it to the Ninject website (eventually).
 

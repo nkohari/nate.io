@@ -1,14 +1,16 @@
 ---
 title: Fast Late-Bound Invocation with Expression Trees
+subtitle: Tinkering with the new toys in the latest version of the .NET framework.
 date: 2009-03-07 22:35:00
 category: dotnet
+song: spotify:track:2yxkvnyno37480Hv1wuAee
 ---
 
 _(Note: After working with expression trees further, I've found that generating CIL by hand is dramatically faster than using expression trees. Still, this is an interesting concept, and I've kept this post here for posterity.)_
 
 <span class='drop-cap'>The implementation</span> of Ninject has some solutions to interesting problems. One in particular is somewhat sticky: how do we call any method, without knowing what methods will be called, nor their signatures, until runtime? The easiest way to do this is via `MethodInfo.Invoke()`, but reflection-based invocation is _extremely_ expensive in comparison to normal invocation. Fortunately, we can solve this problem through the use of anonymous delegates and runtime code generation.
 
-In order to do this, we need some sort of late-binding system. In Ninject 1, I used `DynamicMethod` and System.Runtime.Emit to emit CIL at runtime. This solution worked well, but was very complex, difficult to understand, and didn’t support medium trust scenarios. Ninject 2 instead leverages expression trees to accomplish the same thing – and actually, under the hood, the solutions are identical, since expression trees are translated into CIL opcodes when you compile the `Expression<TDelegate>`. From a code perspective, however, using expression trees is a much cleaner solution because it offloads the heavy lifting to the types in the BCL.
+In order to do this, we need some sort of late-binding system. In Ninject 1, I used `DynamicMethod` and System.Runtime.Emit to emit CIL at runtime. This solution worked well, but was very complex, difficult to understand, and didn’t support medium trust scenarios. Ninject 2 instead leverages expression trees to accomplish the same thing -- and actually, under the hood, the solutions are identical, since expression trees are translated into CIL opcodes when you compile the `Expression<TDelegate>`. From a code perspective, however, using expression trees is a much cleaner solution because it offloads the heavy lifting to the types in the BCL.
 
 Basically, what I’m talking about is taking any method and creating a delegate for it with this signature:
 

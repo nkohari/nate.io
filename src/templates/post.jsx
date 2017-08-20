@@ -1,22 +1,42 @@
 import React from 'react';
 import moment from 'moment';
 import Header from '../components/header';
+import RelatedPosts from '../components/related-posts';
 import '../css/post.styl';
 
 class PostTemplate extends React.Component {
 
   render() {
-    const { data } = this.props;
-    const article = data.markdownRemark;
-    const { title, subtitle, date, category } = article.frontmatter;
+    const { article, site, allMarkdownRemark } = this.props.data;
+    const { title, subtitle, date, category, song, related } = article.frontmatter;
+
     const time = moment(date);
     const readingTime = `${article.timeToRead} minute${article.timeToRead === 1 ? '' : 's'}`;
 
+    let spotify;
+    if (song) {
+      spotify = (
+        <iframe className='song' src={`https://open.spotify.com/embed?uri=${song}&theme=white`} />
+      );
+    }
+
+    let relatedPosts;
+    if (related) {
+      const posts = related.map(slug => {
+        const edge = allMarkdownRemark.edges.find(edge => edge.node.fields.slug === slug);
+        if (!edge) {
+          throw new Error(`Couldn't resolve related post with slug ${slug}`);
+        }
+        return edge.node;
+      });
+      relatedPosts = <RelatedPosts posts={posts} />;
+    }
+
     return (
       <div className='main'>
-        <Header site={data.site} article={article} />
+        <Header site={site} article={article} />
         <article className='post'>
-          <header>
+          <header className='post-header'>
             <div className='byline'>
               {category && <span className='category'>On: {category}</span>}
               <time dateTime={time.toISOString()}>{time.format('MMMM D, YYYY')}</time>
@@ -25,7 +45,13 @@ class PostTemplate extends React.Component {
             <h1>{title}</h1>
             {subtitle && <h2>{subtitle}</h2>}
           </header>
-          <section className='content' dangerouslySetInnerHTML={{ __html: article.html }} />
+          <main>
+            <section className='content' dangerouslySetInnerHTML={{ __html: article.html }} />
+            <aside>
+              {spotify}
+              {relatedPosts}
+            </aside>
+          </main>
         </article>
       </div>
     );
@@ -42,7 +68,7 @@ export const pageQuery = graphql`
         author
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    article: markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       html
       timeToRead
@@ -51,7 +77,25 @@ export const pageQuery = graphql`
         subtitle
         date
         category
+        song
+        related
+      }
+    }
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            subtitle
+            date
+          }
+        }
       }
     }
   }
-`
+`;

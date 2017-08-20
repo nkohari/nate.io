@@ -10,7 +10,7 @@ class Header extends React.Component {
     const { site, article } = this.props;
     const title = article ? article.frontmatter.title : site.siteMetadata.title;
     return (
-      <header className='header'>
+      <header className='site-header'>
         <Helmet>
           <title>{title}</title>
         </Helmet>

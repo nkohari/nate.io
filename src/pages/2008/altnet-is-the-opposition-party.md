@@ -1,7 +1,9 @@
 ---
 title: ALT.NET is the Opposition Party
+subtitle: And we should carry ourselves as such.
 date: 2008-12-19 21:56:00
 category: open source
+song: spotify:track:18oWEPapjNt32E6sCM6VLb
 ---
 
 <span class='drop-cap'>In case</span> you don't read any blogs or follow any .NET developers on Twitter, [Oxite](http://codeplex.com/oxite) is a new open-source CMS recently released by Microsoft. It was offered as a "real world example" of a project written with the new ASP.NET MVC framework. Soon after it was released, lots of .NET developers (including myself) started calling out Oxite as an example of a very bad application. Many of the people bashing Oxite align themselves with the so-called "ALT.NET" movement. There quickly developed a backlash against people who were saying bad things about Oxite, and ALT.NET was the primary target.

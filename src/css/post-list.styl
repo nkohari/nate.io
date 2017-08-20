@@ -7,13 +7,14 @@
 
   .post
     display: flex
-    padding: $spacing-lg 0
+    padding: $spacing-lg $spacing-md
     align-items: center
     color: $black
     text-decoration: none
     transition: background 250ms ease
 
     &:hover
+      color: $white
       background: $red
       .post-date-day
         color: $white
@@ -33,14 +34,15 @@
 
     .post-date-month
       font-size: $f7
+      font-weight: 400
 
     h1
-      margin: 0
+      margin: 0 0 $spacing-xs 0
       font-size: $f4
 
     h2
       margin: 0
       font-family: $font-normal
       font-size: $f6
-      font-weight: 500
-      color: $mid-gray
+      font-weight: 300
+      color: $silver

@@ -1,7 +1,9 @@
 ---
 title: Convenience Kills
+subtitle: With software, maintenance is the real cost.
 date: 2008-08-19 21:43:00
 category: software
+song: spotify:track:36HA2woC1glnLa4vqWY3IC
 ---
 
 <span class='drop-cap'>A rather heated discussion</span> erupted last week on Twitter and IRC concerning so-called "drag-and-drop demos" -- point-and-click demonstrations of "software development" that just involve dragging controls around on a graphical designer without a lot of actual coding involved. Being entirely unable to resist joining in on debates, I had to chime in and give my two cents.

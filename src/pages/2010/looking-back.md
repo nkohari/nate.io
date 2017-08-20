@@ -3,6 +3,7 @@ title: Looking Back
 subtitle: A few lessons learned from the short life of our startup.
 date: 2010-08-26 07:14:00
 category: agilezen
+song: spotify:track:2gcqVTesDy08DOB2rV2Odt
 ---
 
 <span class='drop-cap'>For those who don't know</span>, our startup was acquired by [Rally Software](http://rallydev.com/) at the end of March. As things started to calm down a bit, I remembered that I had a blog, and decided I should look back on my time as a co-founder of a startup.

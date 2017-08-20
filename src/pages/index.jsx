@@ -7,10 +7,11 @@ class BlogIndex extends React.Component {
 
   render() {
     const { site, allMarkdownRemark } = this.props.data;
+    const posts = allMarkdownRemark.edges.map(edge => edge.node);
     return (
       <div>
         <Header site={site} />
-        <PostList posts={allMarkdownRemark.edges} />
+        <PostList posts={posts} />
       </div>
     );
   }
@@ -45,4 +46,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

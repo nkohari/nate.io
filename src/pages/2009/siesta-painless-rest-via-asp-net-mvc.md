@@ -1,7 +1,9 @@
 ---
 title: "Siesta: Painless REST via ASP.NET MVC"
+subtitle: Just a random idea pulled from the Zen codebase.
 date: 2009-08-12 01:26:00
 category: dotnet
+song: spotify:track:0j4qZmspume3BzExQW3pJz
 ---
 
 [Zen](http://agilezen.com/) uses quite a few open source libraries, and I feel a sense of responsibility to contribute back where I can. To that end, I’m releasing the basic infrastructure that powers the Zen API under the name [Siesta](http://github.com/enkari/siesta/tree/master).
@@ -10,7 +12,7 @@ Siesta is a simple and flexible [REST](http://en.wikipedia.org/wiki/REST) system
 
 The basic idea behind Siesta is to communicate only using models within your application, and allow the infrastructure to handle the serialization and de-serialization, similar to how a view engine manipulates `ViewModels` or `ViewData`. Models are just POCOs, and serialization is controlled the `[DataContract]` and `[DataMember]` attributes in `System.Runtime.Serialization` (so yes, this requires .NET 3.5).
 
-Siesta also uses the (sweet-with-extra-awesomesauce) [JSON.NET](http://www.codeplex.com/Json) library from [James Newton-King](http://james.newtonking.com/). There’s a `DataContractJsonSerializer` in the BCL now, but as far as I could tell, it doesn’t support indentation. JSON.NET supports both, so it’s a great fit. I’ve also been using it forever, so I’m just used to it – if you deal with JSON formatting, it’s definitely worth a look.
+Siesta also uses the (sweet-with-extra-awesomesauce) [JSON.NET](http://www.codeplex.com/Json) library from [James Newton-King](http://james.newtonking.com/). There’s a `DataContractJsonSerializer` in the BCL now, but as far as I could tell, it doesn’t support indentation. JSON.NET supports both, so it’s a great fit. I’ve also been using it forever, so I’m just used to it -- if you deal with JSON formatting, it’s definitely worth a look.
 
 The wire (serialization) format is based on MIME types, and Siesta comes with XML and JSON built-in. However, it’s also extensible by implementing a new `IModelSerializer`. Speaking of which, if someone wants to implement one for YAML, it would be greatly appreciated. ;)
 
@@ -66,4 +68,4 @@ Don't worry, `SiestaControllerBase` is just a simple base controller which provi
 
 In contrast to the Siesta example, in Zen, we actually have separate models (which act as [DTOs](http://en.wikipedia.org/wiki/Data_Transfer_Object), and are serialized to/from a wire format) and entities (which are persisted to the database). The example doesn’t show this because it requires a whole separate mapping step, which can get tricky. I would highly recommend that if you use this in a real-world app, you create a separate type hierarchy and map between them.
 
-Anyhow, you can grab the Siesta bits on [GitHub](http://github.com/enkari/siesta/tree/master), including the full version of this (simple) example. If you have feedback, by all means let me know! There’s actually quite a bit of stuff in Zen that I’d like to release as OSS – it’s just a matter of getting the time to split the code off the product and wrap it up.
+Anyhow, you can grab the Siesta bits on [GitHub](http://github.com/enkari/siesta/tree/master), including the full version of this (simple) example. If you have feedback, by all means let me know! There’s actually quite a bit of stuff in Zen that I’d like to release as OSS -- it’s just a matter of getting the time to split the code off the product and wrap it up.

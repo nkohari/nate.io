@@ -11,11 +11,7 @@ Well, we eat a meal, and then we put the dishes in the dishwasher. When the dish
 
 *(At this point I feel that I need to interject and say yes, obviously I know that what I need to do is unload the damn dishwasher. I’m not here to talk about why I’m too dense to put the clean dishes away, I’m using it as an allegory for a larger point thankyouverymuch. Sheesh!)*
 
-Awhile back, it occurred to me that the real problem doesn’t start with a sink full of dishes. It’s the first dirty dish that gets put in the sink. Once one dish is in there, it’s so much easier to put another, and another, until the sink is full of dirty dishes.
-
-<aside>
-I'm happy to say that, four years after I wrote this, I (mostly) don't do this anymore.
-</aside>
+Awhile back, it occurred to me that the real problem doesn’t start with a sink full of dishes. It’s the first dirty dish that gets put in the sink. Once one dish is in there, it’s so much easier to put another, and another, until the sink is full of dirty dishes. [^Now, four years after I originally wrote this, I'm happy to say that I (mostly) don't do this anymore.]
 
 Turns out that this deviant behavior of mine is explained by a simple psychological theory called the broken windows theory. It suggests that the presence of broken windows in a neighborhood leads to higher crime, in particular vandalism, even in neighborhoods that are not typically predisposed to criminal behavior. Once that first window is broken  -- or that dirty dish is put into the sink  --  psychologically, we are much more likely to lower our standards and accept disarray as the state of affairs.
 

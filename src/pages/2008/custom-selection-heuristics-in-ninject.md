@@ -1,7 +1,9 @@
 ---
 title: Custom Selection Heuristics in Ninject
+subtitle: More customization options in deciding which items to inject.
 date: 2008-10-14 05:50:00
 category: ninject
+song: spotify:track:15JHH5FBawCL7DmCcUxlUp
 ---
 
 <span class='drop-cap'>I haven't blogged</span> about Ninject for awhile, but that doesn't mean that the project is entirely dormant. :) Version 1.5 will be coming out relatively soon, but I wanted to give a preview of a new feature that I think is pretty damn cool. It's currently available in the [Subversion trunk](http://ninject.googlecode.com/svn/trunk/) if you'd like to flex the bytes yourself.
@@ -17,7 +19,7 @@ Ninject 1.5 builds on this idea by moving to a _collection_ of heuristics rather
 
 When examining a member, the member is first tested with the global heuristics, and then with the binding-level heuristics for the binding that is being used to activate the instance.
 
-Heuristics are specific to the type of member they inspect. The types of members that Ninject considers are constructors, properties, methods, and fields, and each has a matching type of heuristic. When a property is considered for injection, Ninject will only test it using all applicable `IHeuristic<PropertyInfo>`s, but won't consider `IHeuristic<ConstructorInfo>`s, for example.
+Heuristics are specific to the type of member they inspect. The types of members that Ninject considers are constructors, properties, methods, and fields, and each has a matching type of heuristic. When a property is considered for injection, Ninject will only test it using all applicable `IHeuristic<PropertyInfo>` instances, but won't consider `IHeuristic<ConstructorInfo>` instances, for example.
 
 The easiest way to control heuristics _en masse_ is by defining your own `IMemberSelector`. By default, Ninject uses the `StandardMemberSelector`, which registers heuristics that look for the `[Inject]` attribute on the members -- or, if you've overridden the attribute via `KernelOptions`, it will examine that. However, if you prefer a more conventions-based approach, you can use the `ConventionMemberSelector`:
 

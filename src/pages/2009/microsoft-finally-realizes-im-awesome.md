@@ -1,7 +1,9 @@
 ---
 title: Microsoft Finally Realizes I’m Awesome
+subtitle: I was selected as a Microsoft MVP for my open source .NET work!
 date: 2009-07-05 20:03:00
 category: meta
+song: spotify:track:3DjS3YvziBLYInH4yx4ZgS
 ---
 
 <span class='drop-cap'>July 1st</span> came with a great surprise, as I was named a [Microsoft C# MVP](http://mvp.support.microsoft.com/) for 2009! If you’re not familiar with the award, here’s a blurb from their website:

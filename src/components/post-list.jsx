@@ -8,18 +8,16 @@ class PostList extends React.Component {
   render() {
     const { posts } = this.props;
 
-    const items = posts.filter(post => post.node.path !== '/404/').map(post => {
-      const { slug } = post.node.fields;
-      const { frontmatter } = post.node;
-      const title = frontmatter.title || slug;
-      const subtitle = frontmatter.subtitle;
-      const date = moment(frontmatter.date);
+    const items = posts.filter(post => post.path !== '/404/').map(post => {
+      const { slug } = post.fields;
+      const { title, subtitle, date } = post.frontmatter;
+      const time = moment(date);
       return (
         <li key={slug}>
           <Link to={slug} className='post'>
-            <time className='post-date' dateTime={date.toISOString()}>
-              <span className='post-date-day'>{date.format('Do')}</span>
-              <span className='post-date-month'>{date.format('MMM YYYY')}</span>
+            <time className='post-date' dateTime={time.toISOString()}>
+              <span className='post-date-day'>{time.format('Do')}</span>
+              <span className='post-date-month'>{time.format('MMM YYYY')}</span>
             </time>
             <div className='post-summary'>
               <h1>{title}</h1>

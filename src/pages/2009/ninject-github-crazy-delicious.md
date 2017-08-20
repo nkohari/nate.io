@@ -1,5 +1,6 @@
 ---
 title: Ninject + GitHub = Crazy Delicious
+subtitle: I've moved the project over to the new hotness.
 date: 2009-03-14 19:42
 category: ninject
 ---

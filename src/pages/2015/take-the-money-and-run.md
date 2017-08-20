@@ -3,6 +3,12 @@ title: Take the Money and Run
 subtitle: For our company, it was the end of the beginning, and the beginning of the end.
 date: 2015-07-05 12:00:00
 category: agilezen
+song: spotify:track:6xxnV3f3aTcz8VYHPakPxx
+related:
+  - /2009/zen-and-the-art-of-project-management
+  - /2009/zen-is-live
+  - /2009/a-few-lessons-learned
+  - /2010/looking-back
 ---
 
 <span class='drop-cap'>It was January</span>, and the weather was fucking bleak. It'd been freezing and overcast for as

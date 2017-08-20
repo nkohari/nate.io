@@ -1,7 +1,9 @@
 ---
 title: Joining the Telligenti
+subtitle: Taking the next step in my career.
 date: 2008-08-22 19:53:00
 category: meta
+song: spotify:track:4wLtsL9o9tjbLG8WSGIqKT
 ---
 
 <span class='drop-cap'>When I first</span> graduated from college, the job market was pretty bad, and most companies were cutting back rather than hiring new employees. A few months before I graduated, I sent out over 100 copies of my resume to various IT and software shops around the area. I got only one call back, and it was from CTI, where I've now worked for most of my career. They took a chance on me when I was greener than grass, and challenged me with some very interesting and difficult projects. I've learned a tremendous amount about software development and business in my time here, and while there have been ups and downs, the experience I've gained has been invaluable. However, a couple of months ago I decided that it was time for the company and I to part ways.

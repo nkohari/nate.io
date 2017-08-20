@@ -1,21 +1,5 @@
 const { parse, resolve } = require('path');
 
-const loadPosts = graphql => graphql(`{
-  entries: allMarkdownRemark(limit: 1000) {
-    edges {
-      node {
-        fields {
-          slug
-        }
-        frontmatter {
-          tags
-          template
-        }
-      }
-    }
-  }
-}`);
-
 const getSlug = fileNode => {
   const { dir, name } = parse(fileNode.relativePath);
   if (dir !== '' && name !== 'index') {
@@ -35,16 +19,32 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   }
 };
 
+const allPostsQuery = `{
+  allMarkdownRemark(limit: 1000) {
+    edges {
+      node {
+        fields {
+          slug
+        }
+        frontmatter {
+          template
+        }
+      }
+    }
+  }
+}`;
+
 exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators;
-  return loadPosts(graphql).then(result => {
+  const { createPage, createNodeField } = boundActionCreators;
+  return graphql(allPostsQuery).then(result => {
     if (result.errors) {
       throw new Error('Errors loading nodes: ' + result.errors);
     }
-    const items = result.data.entries.edges;
-    items.forEach(item => {
-      const { slug } = item.node.fields;
-      const template = item.node.frontmatter.template || 'post';
+    const { edges } = result.data.allMarkdownRemark;
+    edges.forEach(edge => {
+      const { node } = edge;
+      const { slug } = node.fields;
+      const template = node.frontmatter.template || 'post';
       createPage({
         path: slug,
         component: resolve(__dirname, `./src/templates/${template}.jsx`),

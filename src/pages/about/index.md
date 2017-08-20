@@ -3,11 +3,11 @@ title: About Me
 template: page
 ---
 
-**Hi, I'm Nate Kohari**. I've been writing software since I was nine years old, and making money doing it for the last ten years. Most recently, I co-founded [TaskTorch](http://tasktorch.com) with my wife and partner-in-crime [Niki](http://nikibeth.com).
+**Hi, I'm Nate Kohari**. I've been writing software since I was nine years old, and making money doing it for the last fourteen years. I've built dozens of products, and even shipped a few. I've started two companies, and sold one.
 
-We live in Raleigh, North Carolina, but we're originally from Akron, Ohio.
+I moved to Raleigh, North Carolina with my wife and partner-in-crime [Niki](http://twitter.com/nikibeth) after we sold our first company, but for 27 years before that we lived in Akron, Ohio.
 
-![Akron](media/akron.png)
+![media/akron.png](media/akron.png)
 
 Throughout most of the 20th century, Akron was the "rubber capital of the world" and a seat of industry, home to Goodyear, B.F. Goodrich, and Firestone. The neighborhood I grew up in was called [Goodyear Heights](http://en.wikipedia.org/wiki/Neighborhoods_in_Akron,_Ohio#Goodyear_Heights), and was originally built specifically to house people that worked at the Goodyear factories. I attended Seiberling Elementary School (named for a president of Goodyear), and later Goodyear Middle School.
 
@@ -47,7 +47,7 @@ If a group of kids from Sedona could do it, why not a kid from Akron?
 
 At the beginning of summer vacation in 1998, my best friend Pete invited me to see the new Godzilla remake. We'd been friends since kindergaten, but he'd switched schools a few years back, and he wanted to introduce me to some of his friends. One of the people that there that night was a girl named Nicole Walters.
 
-![](media/godzilla.jpg)
+![media/godzilla.jpg](media/godzilla.jpg)
 
 The movie was terrible, but Niki and I immediately hit it off. She was hard-working, determined, and beautiful, and she was head-and-shoulders smarter than me.
 

@@ -1,10 +1,12 @@
 ---
-title: Working from home
+title: Working From Home
+subtitle: It's great, but requires a lot of discipline.
 date: 2008-10-12 07:11:00
 category: meta
+song: spotify:track:0fsuyQqz1nuYtfosExYeeY
 ---
 
-<span class='drop-cap'>Today ended</span>oday ended my sixth week working for [Telligent](http://telligent.com). Like most of the other members of the product development team, I'm working remotely from home. It's been a very interesting adjustment, and I figured I'd share my experiences.
+<span class='drop-cap'>Today ended</span> my sixth week working for [Telligent](http://telligent.com). Like most of the other members of the product development team, I'm working remotely from home. It's been a very interesting adjustment, and I figured I'd share my experiences.
 
 First, the good stuff:
 

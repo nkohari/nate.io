@@ -27,12 +27,14 @@ class RelatedPosts extends React.Component {
     });
 
     return (
-      <ul className='related-posts'>
+      <div className='related-posts'>
         <header className='header'>
-          You might also like
+          You may also like
         </header>
-        {items}
-      </ul>
+        <ul>
+          {items}
+        </ul>
+      </div>
     );
   }
 

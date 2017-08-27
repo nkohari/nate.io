@@ -1,5 +1,6 @@
 ---
 title: Come Hear Me Ramble
+subtitle: I was selected to speak at Cleveland Day of .NET!
 date: 2008-04-27 05:19:00
 category: meta
 ---

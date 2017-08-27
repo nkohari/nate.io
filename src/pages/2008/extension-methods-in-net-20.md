@@ -1,5 +1,6 @@
 ---
 title: Extension Methods in .NET 2.0
+subtitle: A quick hack if you can't use .NET 3.5 yet.
 date: 2008-04-05 17:25:00
 category: dotnet
 ---

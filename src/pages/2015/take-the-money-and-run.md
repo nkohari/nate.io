@@ -11,6 +11,8 @@ related:
   - /2010/looking-back
 ---
 
+![](media/winter.jpg)
+
 <span class='drop-cap'>It was January</span>, and the weather was fucking bleak. It'd been freezing and overcast for as
 long as I could remember. Sometimes during winter in Akron, it feels like the sun sets
 in November and doesn't rise until March.

@@ -5,6 +5,8 @@ date: 2013-02-17 12:00:00
 category: the psychology of software
 ---
 
+![](media/graffiti.jpg)
+
 <span class='drop-cap'>I’m terrible at cleaning</span> the kitchen. Much to my wife’s chagrin, I tend to leave dirty dishes in the sink for days at a time. I’m not the most organized person ever, but I have standards: I don’t leave dirty dishes laying around the house. So why is it so hard for me to keep the kitchen clean?
 
 Well, we eat a meal, and then we put the dishes in the dishwasher. When the dishwasher is full, I run it to clean them. Everything to this point is fine. The problem is, when the dishwasher is done running, I don’t immediately unload the dishes. Then, as we generate new dirty dishes, they go into the sink. Eventually we’re taking clean dishes out of the dishwasher when we need them, and the sink is full of dirty dishes.

@@ -1,5 +1,6 @@
 ---
 title: Cardboard Computers
+subtitle: The birth of a programmer.
 date: 2008-06-07 18:25:00
 category: meta
 ---

@@ -1,5 +1,6 @@
 ---
 title: Playing Nice With Service Locators
+subtitle: An easy way to start using a dependency injection framework.
 date: 2008-06-19 22:08:00
 category: ninject
 ---

@@ -1,5 +1,6 @@
 ---
 title: Announcing Ninject Contrib!
+subtitle: A new way to contribute extensions to Ninject.
 date: 2008-04-21 05:50:00
 category: ninject
 ---

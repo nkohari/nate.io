@@ -1,5 +1,6 @@
 ---
 title: Conventions-Based Binding
+subtitle: I added a new feature added to Ninject.
 date: 2008-07-06 22:03:00
 category: ninject
 ---

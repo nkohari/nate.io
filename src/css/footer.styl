@@ -1,8 +1,9 @@
 .footer
   display: flex
+  margin-top: $spacing-lg
   padding: $spacing-lg
-  align-items: center
   background: $black
+  align-items: center
   color: $light-silver
 
   .picture
@@ -13,36 +14,44 @@
     margin-left: $spacing-lg
     font-size: $f7
 
-    p
-      margin-top: 0
+  .pages
+    margin-bottom: $spacing-md
 
-      a
-        color: $white
-        font-weight: 600
-        text-decoration: none
-        &:hover
-          color: $red
-          text-decoration: underline
+  p
+    margin-top: 0
 
-    ul
-      display: flex
-      flex-direction: row
-      margin: 0 0 $spacing-md 0
-      padding: 0
+  a
+    color: $white
+    font-weight: 500
+    text-decoration: none
+    &:hover
+      color: $red
+      text-decoration: underline
 
-    li
-      list-style-type: none
-      margin-right: $spacing-md
+  ul
+    display: flex
+    flex-direction: row
+    margin: 0
+    padding: 0
 
-      a
+  li
+    list-style-type: none
+    margin-right: $spacing-md
+
+  .bottom
+    display: flex
+    flex-direction: row
+
+    a
+      font-weight: 400
+      svg
+        width: 2rem
+        height: 2rem
+        fill: $white
+        transition: all 250ms ease
+      &:hover
         svg
-          width: 2rem
-          height: 2rem
-          fill: $white
-          transition: all 250ms ease
-        &:hover
-          svg
-            fill: $red
+          fill: $red
 
     .copyright
       font-size: $f8

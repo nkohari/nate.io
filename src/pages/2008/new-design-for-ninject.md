@@ -1,5 +1,6 @@
 ---
 title: New Design for Ninject
+subtitle: Now with 10x more ninjas.
 date: 2008-04-04 06:38:00
 category: ninject
 ---

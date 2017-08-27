@@ -1,5 +1,6 @@
 ---
 title: Cleveland Day of .NET Aftermath
+subtitle: It was a great time!
 date: 2008-05-20 06:56:00
 category: meta
 ---

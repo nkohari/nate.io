@@ -1,5 +1,6 @@
 ---
 title: Bait-and-Switch and Software Licenses
+subtitle: My thoughts on ExtJS's decision to suddenly change their licensing.
 date: 2008-05-02 18:18:00
 category: open source
 ---

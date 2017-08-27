@@ -17,7 +17,7 @@ class Header extends React.Component {
         <Link to='/' className='logo'>
           <span>Discord</span><span className='amp'>&</span><span>Rhyme</span>
         </Link>
-        <Nav site={site} article={article} />
+        {article && <Nav site={site} article={article} />}
       </header>
     );
   }

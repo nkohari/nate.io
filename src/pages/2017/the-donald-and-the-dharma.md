@@ -22,9 +22,11 @@ Like pretty much everyone else, I was convinced that it would be a strong victor
 
 I was also pretty convinced that Donald Trump was a narcissitic lunatic that at best would be completely inept, and at worst would be the first truly fascist president in American history. It was obvious to me who to vote for, and it seemed obvious to me who should win.
 
-And, like pretty much everyone else, I couldn't believe what was happening as the votes were tallied and the talking heads -- who were all exasperated themselves -- called state after state for Trump.
+And, like pretty much everyone else, I couldn't believe what was happening as the votes were tallied and the talking heads -- exasperated themselves -- called state after state for Trump.
 
-At this point, you probably think I'm going to go on a tirade about the dangers of American fascism or say mean things about Trump or the people who voted for him. Instead, I want to talk about *bodhicitta*.
+At this point, you probably think I'm going to go on a tirade about the dangers of American fascism or say mean things about Trump or the people who voted for him. But I'm sure you've heard all that before.
+
+Instead, I'd rather talk about *bodhicitta*.
 
 ---
 
@@ -32,14 +34,17 @@ Stumbling through the darkened house, I found my way to bed and laid down next t
 
 "So what happened?" she asked, still groggy.
 
-"It looks like it's going to be President Trump," I replied. The words felt foreign, like I was speaking some language that was invented in the last couple of hours.
+"It looks like it's going to be President Trump," I replied. The words felt foreign, like I was speaking some new language that had just been invented that evening as the election results were announced.
 
 She sat upright. "You're fucking kidding me." She grabbed her iPad to check for herself. She knows I'm fond of trying to play these kinds of jokes on her. They never work, of course, but they always make me giggle like an idiot.
 
 This time I wasn't laughing.
 
-I laid back on my pillow, but in spite of being exhausted and more than a little drunk, sleep didn't come. My mind was racing, but eventually landed on a singular thought, and once it stuck in my brain it couldn't be un-stuck.
+I laid back on my pillow, but in spite of being exhausted and more than a little drunk, sleep didn't come. My mind raced, eventually landing on a singular thought that stuck to my brain like superglue.
 
-*How the fuck did we not see this coming?*
+*How in the world did I not see this coming?*
+
+I'd followed the entire awful, shit-stained, mud-raking, rather-rip-your-eyes-out-than-watch-another-moment campaign. I'd digested every news clip, watched every debate, and read the spin and counter-spin on every talking point. But somehow, I'd missed something critical. Staring at the ceiling that night, I needed to understand what I'd missed.
 
 ---
+

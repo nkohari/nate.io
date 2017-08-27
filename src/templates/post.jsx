@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import Header from '../components/header';
+import SpotifyWidget from '../components/spotify-widget';
 import RelatedPosts from '../components/related-posts';
 import '../css/post.styl';
 
@@ -15,9 +16,7 @@ class PostTemplate extends React.Component {
 
     let spotify;
     if (song) {
-      spotify = (
-        <iframe className='song' src={`https://open.spotify.com/embed?uri=${song}&theme=white`} />
-      );
+      spotify = <SpotifyWidget song={song} />;
     }
 
     let relatedPosts;
@@ -82,7 +81,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
+      sort: { fields: [frontmatter___date], order: ASC }
     ) {
       edges {
         node {

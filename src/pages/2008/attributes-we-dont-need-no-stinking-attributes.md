@@ -1,5 +1,6 @@
 ---
 title: Attributes? We Don't Need No Stinkin' Attributes
+subtitle: A new alternative for marking items for injection.
 date: 2008-06-09 23:51:00
 category: ninject
 ---

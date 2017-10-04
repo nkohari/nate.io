@@ -6,12 +6,12 @@
   "license": "MIT",
   "scripts": {
     "dev": "gatsby develop",
-    "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "build": "gatsby build --prefix-paths",
+    "deploy": "s3-deploy './public/**' --cwd './public/' --gzip --immutable --region us-east-1 --bucket nate.io"
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "gatsby": "^1.6.5",
+    "gatsby": "^1.9.0",
     "gatsby-link": "^1.6.5",
     "gatsby-plugin-google-analytics": "^1.0.0",
     "gatsby-plugin-manifest": "^1.0.0",
@@ -20,7 +20,7 @@
     "gatsby-plugin-preact": "^1.0.0",
     "gatsby-plugin-react-helmet": "^1.0.0",
     "gatsby-plugin-sharp": "^1.6.1",
-    "gatsby-plugin-stylus": "^1.1.1",
+    "gatsby-plugin-stylus": "^1.1.6",
     "gatsby-remark-copy-linked-files": "^1.5.0",
     "gatsby-remark-images": "^1.5.0",
     "gatsby-remark-prismjs": "^1.2.0",
@@ -39,7 +39,7 @@
     "react-waypoint": "^7.0.4"
   },
   "devDependencies": {
-    "gh-pages": "^0.12.0",
-    "prettier": "^1.5.3"
+    "prettier": "^1.5.3",
+    "s3-deploy": "^0.7.5"
   }
 }

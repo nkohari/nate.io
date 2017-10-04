@@ -18,7 +18,7 @@ class Html extends React.Component {
       css = (
         <style
           id="gatsby-inlined-css"
-          dangerouslySetInnerHTML={{ __html: stylesStr }}
+          dangerouslySetInnerHTML={{ __html: styles }}
         />
       );
     }

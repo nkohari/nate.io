@@ -1,22 +1,17 @@
 import React from 'react';
-import Link from 'gatsby-link'
-import Header from '../components/header';
-import PostList from '../components/post-list';
+import { graphql } from 'gatsby';
+import { Header, PostList } from '../components';
 
-class BlogIndex extends React.Component {
-
-  render() {
-    const { site, allMarkdownRemark } = this.props.data;
-    const posts = allMarkdownRemark.edges.map(edge => edge.node).filter(post => !post.frontmatter.draft);
-    return (
-      <div>
-        <Header site={site} />
-        <PostList posts={posts} />
-      </div>
-    );
-  }
-
-}
+const BlogIndex = props => {
+  const site = props.data.site;
+  const posts = props.data.allMarkdownRemark.edges.map(edge => edge.node).filter(post => !post.frontmatter.draft);
+  return (
+    <div>
+      <Header site={site} />
+      <PostList posts={posts} />
+    </div>
+  );
+};
 
 export default BlogIndex;
 

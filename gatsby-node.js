@@ -11,8 +11,8 @@ const getSlug = fileNode => {
   }
 }
 
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
-  const { createNodeField } = boundActionCreators;
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
   if (node.internal.type === 'MarkdownRemark') {
     const fileNode = getNode(node.parent);
     createNodeField({ node, name: 'slug', value: getSlug(fileNode) });
@@ -34,8 +34,8 @@ const allPostsQuery = `{
   }
 }`;
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage, createNodeField } = boundActionCreators;
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions;
   return graphql(allPostsQuery).then(result => {
     if (result.errors) {
       throw new Error('Errors loading nodes: ' + result.errors);

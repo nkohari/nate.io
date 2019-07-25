@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Header } from '../components';
-import '../css/page.styl';
+import { Header, Footer } from '../components';
+import './page.styl';
 
 const PageTemplate = props => {
   const site = props.data.site;
@@ -12,6 +12,7 @@ const PageTemplate = props => {
       <article className="page">
         <section className="content" dangerouslySetInnerHTML={{ __html: article.html }} />
       </article>
+      <Footer />
     </div>
   );
 };

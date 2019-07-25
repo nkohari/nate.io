@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import moment from 'moment';
-import '../css/related-posts.styl';
+import './RelatedPosts.styl';
 
 export const RelatedPosts = props => {
   const items = props.posts

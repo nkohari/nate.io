@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'gatsby-link';
 import moment from 'moment';
-import '../css/post-list.styl';
+import './PostList.styl';
 
 export const PostList = props => {
   const items = props.posts

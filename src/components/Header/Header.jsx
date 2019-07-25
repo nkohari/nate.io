@@ -1,8 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
-import { Nav } from './Nav';
-import '../css/header.styl';
+import { Nav } from '../Nav/Nav';
+import './Header.styl';
 
 export const Header = props => {
   const { site, article } = props;

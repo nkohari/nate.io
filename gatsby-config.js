@@ -19,7 +19,7 @@ module.exports = {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 680,
-              linkImagesToOriginal: false
+              linkImagesToOriginal: false,
             },
           },
           {
@@ -45,10 +45,18 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-stylus',
       options: {
-        import: [`${__dirname}/src/css/vars.styl`]
-      }
+        import: [`${__dirname}/src/theme.styl`],
+      },
     },
     'gatsby-plugin-offline',
-    'gatsby-plugin-react-helmet'
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        typekit: {
+          id: 'dff8dgc',
+        },
+      },
+    },
   ],
-}
+};

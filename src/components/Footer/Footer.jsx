@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'gatsby-link';
-import '../css/footer.styl';
+import './Footer.styl';
 
 export const Footer = () => {
   return (
     <footer className="footer">
       <Link to="/about">
-        <img alt="Nate Kohari" className="picture" src={require('../../static/nate.jpg')} />
+        <img alt="Nate Kohari" className="picture" src={require('../../../static/nate.jpg')} />
       </Link>
       <div className="content">
         <p>

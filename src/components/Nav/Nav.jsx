@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Link from 'gatsby-link';
 import { debounce } from 'lodash';
-import '../css/nav.styl';
+import './Nav.styl';
 
 export const Nav = props => {
   const [progress, setProgress] = useState({ visible: false, percent: 0 });

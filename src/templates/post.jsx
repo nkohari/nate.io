@@ -1,8 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import moment from 'moment';
-import { Header, SpotifyWidget, RelatedPosts } from '../components';
-import '../css/post.styl';
+import { Header, Footer, SpotifyWidget, RelatedPosts } from '../components';
+import './post.styl';
 
 const PostTemplate = props => {
   const { article, site, allMarkdownRemark } = props.data;
@@ -49,6 +49,7 @@ const PostTemplate = props => {
           </aside>
         </main>
       </article>
+      <Footer />
     </div>
   );
 };

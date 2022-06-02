@@ -1,0 +1,15 @@
+import { Link } from './Link';
+
+export type AttributionProps = {
+  href: string;
+  name: string;
+};
+
+export const Attribution = ({ href, name }: AttributionProps) => (
+  <div className="py-1 italic text-xs text-right text-slate-500">
+    Image by{' '}
+    <Link href={href} type="subtle" className="font-semibold">
+      {name}
+    </Link>
+  </div>
+);

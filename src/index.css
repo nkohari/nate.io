@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+}
+
+@layer base {
+  html {
+    margin-left: calc(100vw - 100%);
+    margin-right: 0;
+    padding: 0;
+  }
+
+  body {
+    @apply p-0 m-0 text-lg leading-relaxed text-black dark:text-slate-50 bg-white dark:bg-slate-800 transition-colors;
+  }
+
+  #root {
+    @apply flex flex-col;
+  }
+}
+
+@layer utilities {
+  .line-numbers-group {
+    counter-reset: line-numbers;
+  }
+  .line-numbers {
+    counter-increment: line-numbers 1;
+  }
+  .line-numbers:before {
+    --tw-content: counter(line-numbers);
+  }
+  .three-d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  .bg-checkerboard {
+    background: repeating-conic-gradient(#cbd5e1 0% 25%, #fff 0% 50%) 50% / 20px 20px;
+  }
+}

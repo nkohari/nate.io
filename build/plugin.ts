@@ -1,17 +1,16 @@
-import fs from 'fs';
 import path from 'path';
-import chokidar, { FSWatcher } from 'chokidar';
 import { ResolvedConfig } from 'vite';
+import { CatalogBuilder } from './CatalogBuilder';
 import { ArticleFactory } from './ArticleFactory';
 import { MarkdocParser } from './MarkdocParser';
-import { Article, MarkdocTagRegistration, MetadataPlugin } from './types';
+import { MarkdocTagRegistration, MetadataPlugin } from './types';
 import * as templates from './templates';
 
-const ARTICLES_MODULE_ID = 'virtual:nateio/articles';
-const VIRTUAL_MODULES_RESOLVE_PREFIX = '/@nateio/';
+const CATALOG_MODULE_ID = 'virtual:nateio/articles';
+const VIRTUAL_MODULE_PREFIX = '/@nateio/';
 const ARTICLE_FILENAME_PATTERN = /\.md/;
 
-const prefix = (moduleName: string) => VIRTUAL_MODULES_RESOLVE_PREFIX + moduleName;
+const prefix = (moduleName: string) => VIRTUAL_MODULE_PREFIX + moduleName;
 
 export type MarkdocPluginOptions = {
   componentsPath: string;
@@ -21,80 +20,72 @@ export type MarkdocPluginOptions = {
 };
 
 export function nateio(options: MarkdocPluginOptions) {
-  let articleWatcher: FSWatcher = null;
+  let catalogBuilder: CatalogBuilder = null;
   let config: ResolvedConfig = null;
-  let invalidateArticlesModule = null;
+  let invalidateCatalogModule = null;
   let reactRefreshPlugin = null;
 
   const basePath = process.cwd();
   const componentsPath = path.resolve(basePath, options.componentsPath) + '/';
   const contentPath = path.resolve(basePath, options.contentPath) + '/';
 
-  const articleFactory = new ArticleFactory(contentPath, options.metadataPlugins);
-  const markdoc = new MarkdocParser(options.tags);
-
-  const articles: Record<string, Article> = {};
+  const markdocParser = new MarkdocParser({ tags: options.tags });
+  const articleFactory = new ArticleFactory({
+    contentPath,
+    markdocParser,
+    metadataPlugins: options.metadataPlugins,
+  });
 
   return {
     name: 'vite-plugin-nateio',
     configResolved(resolvedConfig: ResolvedConfig) {
       config = resolvedConfig;
       reactRefreshPlugin = config.plugins.find((plugin) => plugin.name === 'vite:react-babel');
+
+      catalogBuilder = new CatalogBuilder({
+        contentPath,
+        articleFactory,
+        watchForChanges: config.command === 'serve',
+      });
+
+      if (config.command === 'serve') {
+        const handleCatalogChange = () => {
+          if (invalidateCatalogModule) invalidateCatalogModule();
+        };
+        catalogBuilder.on('add', handleCatalogChange);
+        catalogBuilder.on('change', handleCatalogChange);
+        catalogBuilder.on('remove', handleCatalogChange);
+      }
     },
     async buildStart() {
-      const updateArticle = async (filename: string) => {
-        const { id } = await this.resolve(filename);
-
-        const text = await fs.promises.readFile(id, { encoding: 'utf8' });
-        const ast = markdoc.parse(text);
-        const article = articleFactory.createArticle(id, ast);
-
-        const previous = articles[article.path];
-        const changed = !previous || previous.hash !== article.hash;
-
-        articles[article.path] = article;
-
-        if (invalidateArticlesModule && changed) {
-          invalidateArticlesModule();
-        }
-      };
-
-      return new Promise<void>((resolve) => {
-        articleWatcher = chokidar.watch(`${contentPath}**/*.md`, {
-          persistent: config.command === 'serve',
-        });
-
-        articleWatcher.on('add', updateArticle);
-        articleWatcher.on('change', updateArticle);
-        articleWatcher.on('ready', resolve);
-      });
+      return catalogBuilder.start();
     },
-    buildEnd() {
-      articleWatcher?.close();
+    async buildEnd() {
+      return catalogBuilder?.stop();
     },
     configureServer({ watcher, moduleGraph }) {
-      invalidateArticlesModule = () => {
-        const moduleName = prefix(ARTICLES_MODULE_ID);
-        const articlesModule = moduleGraph.getModuleById(moduleName);
-        if (articlesModule) {
-          moduleGraph.invalidateModule(articlesModule);
+      invalidateCatalogModule = () => {
+        const moduleName = prefix(CATALOG_MODULE_ID);
+        const catalogModule = moduleGraph.getModuleById(moduleName);
+        if (catalogModule) {
+          moduleGraph.invalidateModule(catalogModule);
           watcher.emit('change', moduleName);
         }
       };
     },
     resolveId(id: string) {
-      if (id === ARTICLES_MODULE_ID) return prefix(ARTICLES_MODULE_ID);
+      if (id === CATALOG_MODULE_ID) return prefix(CATALOG_MODULE_ID);
     },
     async load(id: string) {
-      if (id === prefix(ARTICLES_MODULE_ID)) {
-        return templates.articleManifest({ articles, basePath });
+      if (id === prefix(CATALOG_MODULE_ID)) {
+        return templates.catalog({ articles: catalogBuilder.read() });
       }
     },
     async transform(text: string, id: string) {
       if (!ARTICLE_FILENAME_PATTERN.test(id)) return;
 
-      const ast = markdoc.parse(text);
-      const content = markdoc.transform(ast);
+      const ast = markdocParser.parse(text);
+      const content = markdocParser.transform(ast);
       const code = templates.article({ componentsPath, content });
 
       // HACK: @vitejs/plugin-react automatically supports Fast Refresh for all modules which

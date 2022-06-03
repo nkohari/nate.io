@@ -1,2 +1,2 @@
 export * from './article';
-export * from './articleManifest';
+export * from './catalog';

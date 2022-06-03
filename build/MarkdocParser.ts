@@ -1,12 +1,16 @@
 import { MarkdocTagRegistration } from './types';
 import Markdoc, { Config, Node, Tokenizer } from '@markdoc/markdoc';
 
+type MarkdocParserConfig = {
+  tags: Record<string, MarkdocTagRegistration>;
+};
+
 export class MarkdocParser {
   config: Config;
   tokenizer: Tokenizer;
 
-  constructor(tags: Record<string, MarkdocTagRegistration>) {
-    this.config = this.buildMarkdocConfig(tags);
+  constructor(config: MarkdocParserConfig) {
+    this.config = this.buildMarkdocConfig(config.tags);
     this.tokenizer = new Markdoc.Tokenizer({ typographer: true });
   }
 

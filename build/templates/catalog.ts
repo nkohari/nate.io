@@ -1,22 +1,31 @@
 import toSource from 'to-source';
 import { Article } from '../types';
 
-const buildModulesHash = (articles: Record<string, Article>) => {
-  const imports = Object.entries(articles).map(
-    ([path, article]) => `'${path}': () => import('${article.id}'),`
+const buildArticlesHash = (articles: Article[]): string => {
+  return toSource(
+    articles.reduce((hash, article) => {
+      const { metadata, path } = article;
+      hash[path] = { metadata, path };
+      return hash;
+    }, {})
+  );
+};
+
+const buildModulesHash = (articles: Article[]): string => {
+  const imports = articles.map(
+    (article) => `'${article.path}': () => import('${article.filename}'),`
   );
   return ['{', ...imports, '}'].join('\n');
 };
 
 type ArticleManifestTemplateProps = {
-  articles: Record<string, Article>;
-  basePath: string;
+  articles: Article[];
 };
 
-export const articleManifest = ({ articles, basePath }: ArticleManifestTemplateProps) =>
+export const catalog = ({ articles }: ArticleManifestTemplateProps) =>
   `import { useReducer } from 'react';
 
-  export let __articles__ = ${toSource(articles)};
+  export let __articles__ = ${buildArticlesHash(articles)};
   export let __modules__ = ${buildModulesHash(articles)};
 
   export let useArticles = () => __articles__;

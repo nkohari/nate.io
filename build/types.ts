@@ -1,10 +1,11 @@
 import { Node, NodeType } from '@markdoc/markdoc';
 
 export type Article = {
-  id: string;
-  path: string;
+  ast: Node;
+  filename: string;
   hash: string;
   metadata: Record<string, any>;
+  path: string;
 };
 
 export type MetadataPluginProps = {

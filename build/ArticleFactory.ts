@@ -1,22 +1,36 @@
+import fs from 'fs';
 import crypto from 'crypto';
 import yaml from 'js-yaml';
 import { Node } from '@markdoc/markdoc';
-import { MetadataPlugin } from './types';
+import { MarkdocParser } from './MarkdocParser';
+import { Article, MetadataPlugin } from './types';
+
+type ArticleManifestBuilderConfig = {
+  contentPath: string;
+  markdocParser: MarkdocParser;
+  metadataPlugins: MetadataPlugin[];
+};
 
 export class ArticleFactory {
   contentPath: string;
+  markdocParser: MarkdocParser;
   metadataPlugins: MetadataPlugin[];
 
-  constructor(contentPath: string, metadataPlugins: MetadataPlugin[]) {
-    this.contentPath = contentPath;
-    this.metadataPlugins = metadataPlugins;
+  constructor(config: ArticleManifestBuilderConfig) {
+    this.contentPath = config.contentPath;
+    this.markdocParser = config.markdocParser;
+    this.metadataPlugins = config.metadataPlugins;
   }
 
-  createArticle(id: string, ast: Node) {
+  async create(filename: string): Promise<Article> {
+    const text = await fs.promises.readFile(filename, { encoding: 'utf8' });
+    const ast = this.markdocParser.parse(text);
+
     const metadata = this.getMetadata(ast);
     const hash = this.getHash(ast, metadata);
-    const path = this.getPath(id);
-    return { id, path, hash, metadata };
+    const path = this.getPath(filename);
+
+    return { ast, filename, path, hash, metadata };
   }
 
   private getHash(ast: Node, metadata: any) {

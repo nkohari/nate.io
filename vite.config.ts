@@ -20,9 +20,6 @@ export default defineConfig({
       plugins: [tailwind(tailwindConfig)],
     },
   },
-  optimizeDeps: {
-    entries: './content/**/*.md',
-  },
   plugins: [
     nateio({
       componentsPath: './src/components',

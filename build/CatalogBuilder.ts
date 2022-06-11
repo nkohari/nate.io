@@ -1,36 +1,47 @@
 import { EventEmitter } from 'events';
 import chokidar, { FSWatcher } from 'chokidar';
+import glob from 'fast-glob';
 import { ArticleFactory } from './ArticleFactory';
 import { Article } from './types';
 
 type CatalogBuilderConfig = {
   contentPath: string;
   articleFactory: ArticleFactory;
-  watchForChanges: boolean;
 };
 
 export class CatalogBuilder extends EventEmitter {
   contentPath: string;
   articleFactory: ArticleFactory;
+  globPattern: string;
   fsWatcher: FSWatcher;
-  watchForChanges: boolean;
-
   articles: Record<string, Article>;
 
   constructor(config: CatalogBuilderConfig) {
     super();
-
     this.contentPath = config.contentPath;
     this.articleFactory = config.articleFactory;
-    this.watchForChanges = config.watchForChanges;
-
-    this.articles = {};
+    this.globPattern = `${this.contentPath}**/*.md`;
   }
 
-  start() {
+  async read() {
+    if (!this.articles) {
+      const filenames = await glob(this.globPattern, { absolute: true });
+
+      this.articles = {};
+      for (const filename of filenames) {
+        const article = await this.articleFactory.create(filename);
+        this.articles[article.filename] = article;
+      }
+    }
+
+    return Object.values(this.articles);
+  }
+
+  async startWatching() {
     return new Promise<void>((resolve) => {
-      this.fsWatcher = chokidar.watch(`${this.contentPath}**/*.md`, {
-        persistent: this.watchForChanges,
+      this.fsWatcher = chokidar.watch(this.globPattern, {
+        persistent: true,
+        ignoreInitial: true,
       });
 
       this.fsWatcher.on('add', (filename) => this.addArticle(filename));
@@ -40,12 +51,8 @@ export class CatalogBuilder extends EventEmitter {
     });
   }
 
-  stop() {
+  async stopWatching() {
     return this.fsWatcher?.close();
-  }
-
-  read(): Article[] {
-    return Object.values(this.articles);
   }
 
   private async addArticle(filename: string) {

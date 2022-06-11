@@ -15,6 +15,9 @@ import {
 import * as tags from './src/tags';
 
 export default defineConfig({
+  build: {
+    manifest: true,
+  },
   css: {
     postcss: {
       plugins: [tailwind(tailwindConfig)],

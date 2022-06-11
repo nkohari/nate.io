@@ -22,7 +22,6 @@ export type MarkdocPluginOptions = {
 export function nateio(options: MarkdocPluginOptions) {
   let catalogBuilder: CatalogBuilder = null;
   let config: ResolvedConfig = null;
-  let invalidateCatalogModule = null;
   let reactRefreshPlugin = null;
 
   const basePath = process.cwd();
@@ -41,30 +40,13 @@ export function nateio(options: MarkdocPluginOptions) {
     configResolved(resolvedConfig: ResolvedConfig) {
       config = resolvedConfig;
       reactRefreshPlugin = config.plugins.find((plugin) => plugin.name === 'vite:react-babel');
-
-      catalogBuilder = new CatalogBuilder({
-        contentPath,
-        articleFactory,
-        watchForChanges: config.command === 'serve',
-      });
-
-      if (config.command === 'serve') {
-        const handleCatalogChange = () => {
-          if (invalidateCatalogModule) invalidateCatalogModule();
-        };
-        catalogBuilder.on('add', handleCatalogChange);
-        catalogBuilder.on('change', handleCatalogChange);
-        catalogBuilder.on('remove', handleCatalogChange);
-      }
-    },
-    async buildStart() {
-      return catalogBuilder.start();
+      catalogBuilder = new CatalogBuilder({ contentPath, articleFactory });
     },
     async buildEnd() {
-      return catalogBuilder?.stop();
+      return catalogBuilder.stopWatching();
     },
     configureServer({ watcher, moduleGraph }) {
-      invalidateCatalogModule = () => {
+      const invalidateCatalogModule = () => {
         const moduleName = prefix(CATALOG_MODULE_ID);
         const catalogModule = moduleGraph.getModuleById(moduleName);
         if (catalogModule) {
@@ -72,13 +54,20 @@ export function nateio(options: MarkdocPluginOptions) {
           watcher.emit('change', moduleName);
         }
       };
+
+      catalogBuilder.on('add', invalidateCatalogModule);
+      catalogBuilder.on('change', invalidateCatalogModule);
+      catalogBuilder.on('remove', invalidateCatalogModule);
+
+      catalogBuilder.startWatching();
     },
     resolveId(id: string) {
       if (id === CATALOG_MODULE_ID) return prefix(CATALOG_MODULE_ID);
     },
     async load(id: string) {
       if (id === prefix(CATALOG_MODULE_ID)) {
-        return templates.catalog({ articles: catalogBuilder.read() });
+        const articles = await catalogBuilder.read();
+        return templates.catalog({ articles });
       }
     },
     async transform(text: string, id: string) {

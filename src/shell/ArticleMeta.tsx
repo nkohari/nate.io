@@ -10,9 +10,11 @@ const createModulePrefetchLink = (path: string) => {
   const { getManifestEntry } = useManifest();
 
   const article = useArticle(path);
+  console.log({ path, article });
   if (!article) return null;
 
   const entry = getManifestEntry(article.filename);
+  console.log({ path, entry });
   if (!entry) return null;
 
   return <link key={path} rel="prefetch" as="script" href={entry.file} />;

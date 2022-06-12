@@ -4,8 +4,8 @@ import { Article } from '../types';
 const buildArticlesHash = (articles: Article[]): string => {
   return toSource(
     articles.reduce((hash, article) => {
-      const { metadata, path } = article;
-      hash[path] = { metadata, path };
+      const { filename, metadata, path } = article;
+      hash[path] = { filename, metadata, path };
       return hash;
     }, {})
   );
@@ -13,7 +13,7 @@ const buildArticlesHash = (articles: Article[]): string => {
 
 const buildModulesHash = (articles: Article[]): string => {
   const imports = articles.map(
-    (article) => `'${article.path}': () => import('${article.filename}'),`
+    (article) => `'${article.path}': () => import('${article.absoluteFilename}'),`
   );
   return ['{', ...imports, '}'].join('\n');
 };

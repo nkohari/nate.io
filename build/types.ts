@@ -1,6 +1,7 @@
 import { Node, NodeType } from '@markdoc/markdoc';
 
 export type Article = {
+  absoluteFilename: string;
   ast: Node;
   filename: string;
   hash: string;

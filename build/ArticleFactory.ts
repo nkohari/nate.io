@@ -22,15 +22,23 @@ export class ArticleFactory {
     this.metadataPlugins = config.metadataPlugins;
   }
 
-  async create(filename: string): Promise<Article> {
-    const text = await fs.promises.readFile(filename, { encoding: 'utf8' });
+  async create(absoluteFilename: string): Promise<Article> {
+    const text = await fs.promises.readFile(absoluteFilename, { encoding: 'utf8' });
     const ast = this.markdocParser.parse(text);
 
+    const filename = absoluteFilename.replace(this.contentPath, '');
     const metadata = this.getMetadata(ast);
     const hash = this.getHash(ast, metadata);
     const path = this.getPath(filename);
 
-    return { ast, filename, path, hash, metadata };
+    return {
+      absoluteFilename,
+      ast,
+      filename,
+      hash,
+      metadata,
+      path,
+    };
   }
 
   private getHash(ast: Node, metadata: any) {
@@ -51,8 +59,8 @@ export class ArticleFactory {
     }, frontmatter);
   }
 
-  private getPath(id: string) {
-    const tokens = id.replace(this.contentPath, '').replace('.md', '').split('/');
+  private getPath(filename: string) {
+    const tokens = filename.replace('.md', '').split('/');
     const isIndex = tokens[tokens.length - 1] === 'index';
     const pathTokens = isIndex ? tokens.slice(0, -1) : tokens;
     return '/' + pathTokens.join('/');

@@ -6,18 +6,16 @@ import { useManifest } from './ManifestProvider';
 import { ArticleMetadata } from '../types';
 import { getImageUrl } from '../util';
 
-const createModulePrefetchLink = (path: string) => {
+const createModulePreloadLink = (path: string) => {
   const { getManifestEntry } = useManifest();
 
   const article = useArticle(path);
-  console.log({ path, article });
   if (!article) return null;
 
   const entry = getManifestEntry(article.chunkId);
-  console.log({ path, entry });
   if (!entry) return null;
 
-  return <link key={path} rel="prefetch" as="script" href={entry.file} />;
+  return <link key={path} rel="modulepreload" href={entry.file} />;
 };
 
 type ArticleMetaProps = {
@@ -43,9 +41,8 @@ export const ArticleMeta = ({ metadata }: ArticleMetaProps) => {
   if (metadata.outgoingLinks) {
     outgoingLinks = metadata.outgoingLinks
       .filter((url) => url.startsWith('/'))
-      .map(createModulePrefetchLink);
+      .map(createModulePreloadLink);
   }
-  console.log(outgoingLinks);
 
   return (
     <Helmet>

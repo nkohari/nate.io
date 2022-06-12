@@ -43,6 +43,7 @@ export const ArticleMeta = ({ metadata }: ArticleMetaProps) => {
       .filter((url) => url.startsWith('/'))
       .map(createModulePrefetchLink);
   }
+  console.log(outgoingLinks);
 
   return (
     <Helmet>

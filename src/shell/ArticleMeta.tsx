@@ -13,7 +13,7 @@ const createModulePrefetchLink = (path: string) => {
   console.log({ path, article });
   if (!article) return null;
 
-  const entry = getManifestEntry(article.filename);
+  const entry = getManifestEntry(article.chunkId);
   console.log({ path, entry });
   if (!entry) return null;
 

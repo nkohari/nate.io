@@ -21,7 +21,7 @@ export type ArticleMetadata = {
 };
 
 export type Article = {
-  filename: string;
+  chunkId: string;
   metadata: ArticleMetadata;
   path: string;
 };

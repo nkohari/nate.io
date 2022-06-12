@@ -1,8 +1,8 @@
 import { Node, NodeType } from '@markdoc/markdoc';
 
 export type Article = {
-  absoluteFilename: string;
   ast: Node;
+  chunkId: string;
   filename: string;
   hash: string;
   metadata: Record<string, any>;

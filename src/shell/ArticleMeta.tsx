@@ -1,22 +1,10 @@
 import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
-import { useArticle } from 'virtual:nateio/articles';
+import { useArticles } from 'virtual:nateio/articles';
 import { useManifest } from './ManifestProvider';
 import { ArticleMetadata } from '../types';
 import { getImageUrl } from '../util';
-
-const createModulePreloadLink = (path: string) => {
-  const { getManifestEntry } = useManifest();
-
-  const article = useArticle(path);
-  if (!article) return null;
-
-  const entry = getManifestEntry(article.chunkId);
-  if (!entry) return null;
-
-  return <link key={path} rel="modulepreload" href={entry.file} />;
-};
 
 type ArticleMetaProps = {
   metadata: ArticleMetadata;
@@ -25,6 +13,18 @@ type ArticleMetaProps = {
 export const ArticleMeta = ({ metadata }: ArticleMetaProps) => {
   const title = metadata.title ? `${metadata.title} — Nate Kohari` : 'Nate Kohari';
   const location = useLocation();
+  const articles = useArticles();
+  const { getManifestEntry } = useManifest();
+
+  const createModulePreloadLink = (path: string) => {
+    const article = articles[path];
+    if (!article) return null;
+
+    const entry = getManifestEntry(article.chunkId);
+    if (!entry) return null;
+
+    return <link key={path} rel="modulepreload" href={entry.file} />;
+  };
 
   useEffect(() => {
     document.title = title;

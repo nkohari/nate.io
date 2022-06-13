@@ -6,11 +6,11 @@ import { useManifest } from './ManifestProvider';
 import { ArticleMetadata } from '../types';
 import { getImageUrl } from '../util';
 
-type ArticleMetaProps = {
+type MetaProps = {
   metadata: ArticleMetadata;
 };
 
-export const ArticleMeta = ({ metadata }: ArticleMetaProps) => {
+export const Meta = ({ metadata }: MetaProps) => {
   const title = metadata.title ? `${metadata.title} — Nate Kohari` : 'Nate Kohari';
   const location = useLocation();
   const articles = useArticles();

@@ -3,18 +3,18 @@ import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
 import { ThemeSelector } from './ThemeSelector';
 
-export const NAVIGATION_LINKS = [
+const SECTIONS = [
   { text: 'About', href: '/' },
   { text: 'Now', href: '/now' },
   { text: 'Work', href: '/work' },
   { text: 'Writing', href: '/writing' },
 ];
 
-type OverlayMenuProps = {
+type MobileNavigationOverlayProps = {
   onClose: () => unknown;
 };
 
-const OverlayMenu = ({ onClose }: OverlayMenuProps) => {
+const MobileNavigationOverlay = ({ onClose }: MobileNavigationOverlayProps) => {
   const getClasses = ({ isActive }: { isActive: boolean }) => {
     return classNames('text-lg mb-12', {
       'font-bold': isActive,
@@ -28,7 +28,7 @@ const OverlayMenu = ({ onClose }: OverlayMenuProps) => {
         </svg>
       </a>
       <nav className="flex flex-col">
-        {NAVIGATION_LINKS.map(({ href, text }) => (
+        {SECTIONS.map(({ href, text }) => (
           <NavLink key={href} to={href} className={getClasses} onClick={onClose}>
             {text}
           </NavLink>
@@ -38,7 +38,7 @@ const OverlayMenu = ({ onClose }: OverlayMenuProps) => {
   );
 };
 
-const OverlayMenuToggle = () => {
+const MobileNavigationOverlayToggle = () => {
   const [overlayVisible, setOverlayVisible] = useState(false);
   const toggleOverlayVisible = () => setOverlayVisible((value) => !value);
 
@@ -51,14 +51,41 @@ const OverlayMenuToggle = () => {
           <path d="M8 74H92C95.3137 74 98 76.6863 98 80C98 83.3137 95.3137 86 92 86H8C4.68629 86 2 83.3137 2 80C2 76.6863 4.68629 74 8 74Z"></path>
         </svg>
       </a>
-      {overlayVisible && <OverlayMenu onClose={toggleOverlayVisible} />}
+      {overlayVisible && <MobileNavigationOverlay onClose={toggleOverlayVisible} />}
     </React.Fragment>
   );
 };
 
-export const MobileNavigation = () => (
-  <div className="flex items-center md:hidden">
-    <OverlayMenuToggle />
-    <ThemeSelector />
-  </div>
+const DesktopNavigationLinks = () => {
+  const getClasses = ({ isActive }: { isActive: boolean }) => {
+    return classNames(
+      'inline-block ml-2 px-2 py-0.5 rounded-lg transition-[background] hover:bg-slate-200 dark:hover:bg-slate-600',
+      {
+        'font-bold': isActive,
+      }
+    );
+  };
+
+  return (
+    <nav className="flex items-center">
+      {SECTIONS.map(({ href, text }) => (
+        <NavLink key={href} to={href} className={getClasses}>
+          {text}
+        </NavLink>
+      ))}
+    </nav>
+  );
+};
+
+export const SiteNavigation = () => (
+  <React.Fragment>
+    <div className="flex items-center md:hidden">
+      <MobileNavigationOverlayToggle />
+      <ThemeSelector />
+    </div>
+    <div className="hidden md:flex items-center">
+      <DesktopNavigationLinks />
+      <ThemeSelector />
+    </div>
+  </React.Fragment>
 );

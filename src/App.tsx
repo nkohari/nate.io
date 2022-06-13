@@ -1,20 +1,14 @@
 import { Route, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { useArticles } from 'virtual:nateio/articles';
-import {
-  ArticleBody,
-  ManifestProvider,
-  ScrollController,
-  SiteHeader,
-  ThemeProvider,
-} from './shell';
+import { Body, ManifestProvider, ScrollController, SiteHeader, ThemeProvider } from './shell';
 
 const ArticleRoutes = () => {
   const articles = useArticles();
   return (
     <Routes>
       {Object.values(articles).map(({ path }) => (
-        <Route key={path} path={path} element={<ArticleBody path={path} />} />
+        <Route key={path} path={path} element={<Body path={path} />} />
       ))}
     </Routes>
   );

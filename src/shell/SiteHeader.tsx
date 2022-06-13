@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { DesktopNavigation } from './DesktopNavigation';
-import { MobileNavigation } from './MobileNavigation';
+import { SiteNavigation } from './SiteNavigation';
 
 type EndlessKnotProps = {
   className: string;
@@ -21,7 +20,6 @@ export const SiteHeader = () => (
         <div>Professional Bit-shifter</div>
       </div>
     </NavLink>
-    <DesktopNavigation />
-    <MobileNavigation />
+    <SiteNavigation />
   </div>
 );

@@ -1,6 +1,7 @@
 export * from './attribution';
 export * from './avatar-cards';
 export * from './blockquote';
+export * from './callout';
 export * from './chip';
 export * from './code';
 export * from './divider';

@@ -15,7 +15,7 @@ const FooterLink = ({ href, icon, text }: FooterLinkProps) => (
   </li>
 );
 
-export const ArticleFooter = () => {
+export const Footer = () => {
   return (
     <div className="flex flex-col md:flex-row text-sm border-t border-slate-300 dark:border-slate-600 mt-24 pt-6 text-slate-500 dark:text-slate-400">
       <div className="flex-1">

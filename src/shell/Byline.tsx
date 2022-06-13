@@ -3,32 +3,13 @@ import classNames from 'classnames';
 import { DateTime, Duration } from 'luxon';
 import { Link } from '../components';
 import { ArticleMetadata } from '../types';
-import { ordinal } from '../util';
+import { ContentStats } from './ContentStats';
 
-type ArticleContentStatsProps = {
+type BylineProps = {
   metadata: ArticleMetadata;
 };
 
-const ArticleContentStats = ({ metadata }: ArticleContentStatsProps) => {
-  const { counts, gradeLevel, type } = metadata;
-
-  if (!counts || !gradeLevel) {
-    return null;
-  }
-
-  return (
-    <span className="ml-1 before:content-['—'] before:mr-1">
-      {counts.words.toLocaleString()} words, written in {type} style, at the{' '}
-      {gradeLevel > 12 ? 'college' : `${ordinal(gradeLevel)} grade`} reading level
-    </span>
-  );
-};
-
-type ArticleBylineProps = {
-  metadata: ArticleMetadata;
-};
-
-const ArticleByline = ({ metadata }: ArticleBylineProps) => {
+export const Byline = ({ metadata }: BylineProps) => {
   const [expanded, setExpanded] = useState(false);
 
   const toggleExpanded = () => setExpanded((currentValue) => !currentValue);
@@ -58,7 +39,7 @@ const ArticleByline = ({ metadata }: ArticleBylineProps) => {
         <Link role="button" type="subtle" onClick={toggleExpanded}>
           a {minutes} min read
         </Link>
-        {expanded && <ArticleContentStats metadata={metadata} />}
+        {expanded && <ContentStats metadata={metadata} />}
       </React.Fragment>
     );
   }
@@ -68,25 +49,5 @@ const ArticleByline = ({ metadata }: ArticleBylineProps) => {
       {date}
       {readingTime}
     </div>
-  );
-};
-
-type ArticleHeaderProps = {
-  metadata: ArticleMetadata;
-};
-
-export const ArticleHeader = ({ metadata }: ArticleHeaderProps) => {
-  const { title, subtitle, type } = metadata;
-
-  if (!title) {
-    return null;
-  }
-
-  return (
-    <header className="mb-6">
-      {title && <h1 className="text-3xl font-extrabold">{title}</h1>}
-      {subtitle && <h2 className="text-lg text-gray-600 dark:text-gray-400">{subtitle}</h2>}
-      {type !== 'page' && <ArticleByline metadata={metadata} />}
-    </header>
   );
 };

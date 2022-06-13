@@ -2,6 +2,7 @@ import { Node, NodeType } from '@markdoc/markdoc';
 
 export type Article = {
   ast: Node;
+  chunkId: string;
   filename: string;
   hash: string;
   metadata: Record<string, any>;

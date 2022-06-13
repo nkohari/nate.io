@@ -4,8 +4,8 @@ import { Article } from '../types';
 const buildArticlesHash = (articles: Article[]): string => {
   return toSource(
     articles.reduce((hash, article) => {
-      const { metadata, path } = article;
-      hash[path] = { metadata, path };
+      const { chunkId, metadata, path } = article;
+      hash[path] = { chunkId, metadata, path };
       return hash;
     }, {})
   );

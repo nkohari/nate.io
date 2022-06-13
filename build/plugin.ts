@@ -30,6 +30,7 @@ export function nateio(options: MarkdocPluginOptions) {
 
   const markdocParser = new MarkdocParser({ tags: options.tags });
   const articleFactory = new ArticleFactory({
+    basePath,
     contentPath,
     markdocParser,
     metadataPlugins: options.metadataPlugins,

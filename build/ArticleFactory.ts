@@ -6,17 +6,20 @@ import { MarkdocParser } from './MarkdocParser';
 import { Article, MetadataPlugin } from './types';
 
 type ArticleManifestBuilderConfig = {
+  basePath: string;
   contentPath: string;
   markdocParser: MarkdocParser;
   metadataPlugins: MetadataPlugin[];
 };
 
 export class ArticleFactory {
+  basePath: string;
   contentPath: string;
   markdocParser: MarkdocParser;
   metadataPlugins: MetadataPlugin[];
 
   constructor(config: ArticleManifestBuilderConfig) {
+    this.basePath = config.basePath;
     this.contentPath = config.contentPath;
     this.markdocParser = config.markdocParser;
     this.metadataPlugins = config.metadataPlugins;
@@ -26,11 +29,19 @@ export class ArticleFactory {
     const text = await fs.promises.readFile(filename, { encoding: 'utf8' });
     const ast = this.markdocParser.parse(text);
 
+    const chunkId = filename.replace(`${this.basePath}/`, '');
     const metadata = this.getMetadata(ast);
     const hash = this.getHash(ast, metadata);
     const path = this.getPath(filename);
 
-    return { ast, filename, path, hash, metadata };
+    return {
+      ast,
+      chunkId,
+      filename,
+      hash,
+      metadata,
+      path,
+    };
   }
 
   private getHash(ast: Node, metadata: any) {
@@ -51,8 +62,8 @@ export class ArticleFactory {
     }, frontmatter);
   }
 
-  private getPath(id: string) {
-    const tokens = id.replace(this.contentPath, '').replace('.md', '').split('/');
+  private getPath(filename: string) {
+    const tokens = filename.replace(this.contentPath, '').replace('.md', '').split('/');
     const isIndex = tokens[tokens.length - 1] === 'index';
     const pathTokens = isIndex ? tokens.slice(0, -1) : tokens;
     return '/' + pathTokens.join('/');

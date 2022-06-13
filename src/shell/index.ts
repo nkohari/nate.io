@@ -2,6 +2,7 @@ export * from './ArticleBody';
 export * from './ArticleFooter';
 export * from './ArticleHeader';
 export * from './DesktopNavigation';
+export * from './ManifestProvider';
 export * from './MobileNavigation';
 export * from './ScrollController';
 export * from './SiteHeader';

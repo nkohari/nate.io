@@ -34,10 +34,11 @@ const AvatarImage = ({ flip = false, src }: AvatarImageProps) => {
 };
 
 type AvatarCardProps = {
+  position: number;
   urls: string[];
 };
 
-const AvatarCard = ({ urls }: AvatarCardProps) => {
+const AvatarCard = ({ position, urls }: AvatarCardProps) => {
   const [visibleFace, setVisibleFace] = useState('front');
   const [frontUrl, setFrontUrl] = useState(randomArrayElement(urls));
   const [backUrl, setBackUrl] = useState(randomArrayElement(urls));
@@ -47,6 +48,16 @@ const AvatarCard = ({ urls }: AvatarCardProps) => {
     if (visibleFace === 'front') setVisibleFace('back');
     else setVisibleFace('front');
   };
+
+  useEffect(() => {
+    const handleKeypress = (event: KeyboardEvent) => {
+      if (event.code === `Digit${position}`) {
+        flipCard();
+      }
+    };
+    document.addEventListener('keypress', handleKeypress);
+    return () => document.removeEventListener('keypress', handleKeypress);
+  });
 
   useEffect(() => {
     setTimeout(() => {
@@ -87,8 +98,8 @@ export const AvatarCards = ({ count = 1 }: AvatarCardsProps) => {
 
   return (
     <div className="flex flex-row mb-8 bg-checkerboard">
-      {[...Array(count).keys()].map((num) => (
-        <AvatarCard key={num} urls={urls} />
+      {[...Array(count).keys()].map((index) => (
+        <AvatarCard key={index} position={index + 1} urls={urls} />
       ))}
     </div>
   );

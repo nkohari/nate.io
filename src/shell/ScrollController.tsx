@@ -10,7 +10,7 @@ export const ScrollController = ({ children }: ScrollControllerProps) => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0 });
-  }, [location]);
+  }, [location.key]);
 
   return <React.Fragment>{children}</React.Fragment>;
 };

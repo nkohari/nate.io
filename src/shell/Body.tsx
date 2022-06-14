@@ -1,5 +1,5 @@
-import React, { Suspense } from 'react';
-import { getArticleModule, useArticle } from 'virtual:nateio/articles';
+import { Suspense } from 'react';
+import { getArticleContent, useArticle } from 'virtual:nateio/articles';
 import { Callout } from 'src/components';
 import { Footer, Header, Meta } from 'src/shell';
 
@@ -17,7 +17,7 @@ type BodyProps = {
 
 export const Body = ({ path }: BodyProps) => {
   const article = useArticle(path);
-  const Content = React.lazy(getArticleModule(path));
+  const Content = getArticleContent(path);
 
   return (
     <main className="flex-1 flex flex-col w-full">

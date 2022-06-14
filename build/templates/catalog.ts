@@ -24,7 +24,7 @@ type ArticleManifestTemplateProps = {
 };
 
 export const catalog = ({ articles }: ArticleManifestTemplateProps) =>
-  `import { useReducer } from 'react';
+  `import { lazy, useReducer } from 'react';
 
   export let __articles__ = ${buildArticlesHash(articles)};
   export let __modules__ = ${buildModulesHash(articles)};
@@ -36,8 +36,8 @@ export const catalog = ({ articles }: ArticleManifestTemplateProps) =>
     return articles[path];
   };
 
-  export const getArticleModule = (path) => {
-    return __modules__[path];
+  export const getArticleContent = (path) => {
+    return lazy(__modules__[path]);
   };
 
   if (import.meta.hot) {

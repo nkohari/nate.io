@@ -13,6 +13,19 @@
     "email": "nkohari@gmail.com",
     "url": "http://nate.io/"
   },
+  "dependencies": {
+    "@headlessui/react": "^1.6.2",
+    "@markdoc/markdoc": "^0.1.2",
+    "classnames": "^2.3.1",
+    "escape-string-regexp": "^5.0.0",
+    "luxon": "^2.4.0",
+    "prismjs": "^1.28.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-helmet-async": "^1.3.0",
+    "react-router-dom": "^6.3.0",
+    "spotify-web-api-js": "^1.5.2"
+  },
   "devDependencies": {
     "@types/js-yaml": "^4.0.5",
     "@types/luxon": "^2.3.2",
@@ -44,18 +57,5 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
-  },
-  "dependencies": {
-    "@headlessui/react": "^1.6.2",
-    "@markdoc/markdoc": "^0.1.2",
-    "classnames": "^2.3.1",
-    "escape-string-regexp": "^5.0.0",
-    "luxon": "^2.4.0",
-    "prismjs": "^1.28.0",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-helmet-async": "^1.3.0",
-    "react-router-dom": "^6.3.0",
-    "spotify-web-api-js": "^1.5.2"
   }
 }

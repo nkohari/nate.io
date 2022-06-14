@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { useArticles } from 'virtual:nateio/articles';
-import { Body, ManifestProvider, ScrollController, SiteHeader, ThemeProvider } from './shell';
+import { Body, ManifestProvider, ScrollController, SiteHeader, ThemeProvider } from 'src/shell';
 
 const ArticleRoutes = () => {
   const articles = useArticles();

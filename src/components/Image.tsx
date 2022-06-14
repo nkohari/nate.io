@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { getImageUrl } from '../util';
+import { getImageUrl } from 'src/util';
 
 export type ImageFilter = 'grayscale' | 'sepia';
 
@@ -34,7 +34,10 @@ export const Image = ({
     }
   }
 
-  const containerClasses = classNames('mb-6 w-full rounded', className);
+  const containerClasses = classNames(
+    'mb-6 w-full rounded bg-slate-200 dark:bg-slate-700',
+    className
+  );
   const imageClasses = classNames(filter, {
     'rounded-full': circle,
   });

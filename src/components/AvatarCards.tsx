@@ -6,7 +6,7 @@ import {
   randomInteger,
   useInterval,
   useReducedMotion,
-} from '../util';
+} from 'src/util';
 
 const MIN_FLIP_TIME = 7500;
 const MAX_FLIP_TIME = 15000;

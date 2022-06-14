@@ -1,4 +1,4 @@
-import { Icon, IconType, Link } from '../components';
+import { Icon, IconType, Link } from 'src/components';
 
 type FooterLinkProps = {
   href: string;

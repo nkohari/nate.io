@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import { useArticles } from 'virtual:nateio/articles';
-import { useManifest } from './ManifestProvider';
-import { ArticleMetadata } from '../types';
-import { getImageUrl } from '../util';
+import { useManifest } from 'src/shell';
+import { ArticleMetadata } from 'src/types';
+import { getImageUrl } from 'src/util';
 
 type MetaProps = {
   metadata: ArticleMetadata;

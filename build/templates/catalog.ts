@@ -1,17 +1,18 @@
 import toSource from 'to-source';
-import { Article } from '../types';
+import { Article } from '../../src/types';
+import { ArticleBuildInfo } from '../types';
 
-const buildArticlesHash = (articles: Article[]): string => {
+const buildArticlesHash = (articles: ArticleBuildInfo[]): string => {
   return toSource(
     articles.reduce((hash, article) => {
       const { chunkId, metadata, path } = article;
       hash[path] = { chunkId, metadata, path };
       return hash;
-    }, {})
+    }, {} as Record<string, Article>)
   );
 };
 
-const buildModulesHash = (articles: Article[]): string => {
+const buildModulesHash = (articles: ArticleBuildInfo[]): string => {
   const imports = articles.map(
     (article) => `'${article.path}': () => import('${article.filename}'),`
   );
@@ -19,7 +20,7 @@ const buildModulesHash = (articles: Article[]): string => {
 };
 
 type ArticleManifestTemplateProps = {
-  articles: Article[];
+  articles: ArticleBuildInfo[];
 };
 
 export const catalog = ({ articles }: ArticleManifestTemplateProps) =>

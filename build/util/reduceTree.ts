@@ -1,5 +1,5 @@
 import { Node } from '@markdoc/markdoc';
-import { NodeReducer } from './types';
+import { NodeReducer } from '../types';
 
 export function reduceTree<T>(node: Node, reducer: NodeReducer<T>, input: T) {
   let current = reducer(input, node);

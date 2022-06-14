@@ -1,5 +1,4 @@
-import { Icon } from './Icon';
-import { Link, LINK_CLASSES } from './Link';
+import { Icon, Link } from 'src/components';
 
 export type NoteProps = {
   children: React.ReactNode;

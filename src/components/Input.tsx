@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import classNames from 'classnames';
-import { Icon, IconType } from './Icon';
+import { Icon, IconType } from 'src/components';
 
 export enum InputIconPosition {
   Left = 'left',

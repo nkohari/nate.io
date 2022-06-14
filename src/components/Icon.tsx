@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import * as ICONS from './icons';
+import * as ICONS from 'src/components/icons';
 
 export type IconType = keyof typeof ICONS;
 export type IconSize = 'small' | 'medium' | 'large';

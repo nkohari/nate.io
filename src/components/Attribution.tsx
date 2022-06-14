@@ -1,4 +1,4 @@
-import { Link } from './Link';
+import { Link } from 'src/components';
 
 export type AttributionProps = {
   href: string;

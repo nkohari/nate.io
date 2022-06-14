@@ -1,13 +1,9 @@
 import { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useArticles } from 'virtual:nateio/articles';
-import { ArticleMetadata } from '../types';
-import { search } from '../util';
-import { Badge } from './Badge';
-import { Date } from './Date';
-import { Input } from './Input';
-import { Link } from './Link';
-import { Toggle } from './Toggle';
+import { ArticleMetadata } from 'src/types';
+import { Badge, Date, Input, Link, Toggle } from 'src/components';
+import { search } from 'src/util';
 
 type AbstractProps = {
   metadata: ArticleMetadata;

@@ -1,3 +1,3 @@
-import { getDefaultTheme, setThemeClassOnDocumentElement } from './shell';
+import { getDefaultTheme, setThemeClassOnDocumentElement } from 'src/shell';
 
 setThemeClassOnDocumentElement(getDefaultTheme());

@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { SiteNavigation } from './SiteNavigation';
+import { SiteNavigation } from 'src/shell';
 
 type EndlessKnotProps = {
   className: string;

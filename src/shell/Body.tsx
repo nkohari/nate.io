@@ -1,9 +1,7 @@
 import React, { Suspense } from 'react';
-import { Callout } from '../components';
 import { getArticleModule, useArticle } from 'virtual:nateio/articles';
-import { Footer } from './Footer';
-import { Header } from './Header';
-import { Meta } from './Meta';
+import { Callout } from 'src/components';
+import { Footer, Header, Meta } from 'src/shell';
 
 const ArticleArchivedWarning = () => (
   <Callout type="info">

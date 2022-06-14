@@ -3,29 +3,29 @@ import crypto from 'crypto';
 import yaml from 'js-yaml';
 import { Node } from '@markdoc/markdoc';
 import { MarkdocParser } from './MarkdocParser';
-import { Article, MetadataPlugin } from './types';
+import { ArticleBuildInfo, MetadataPlugin } from './types';
 
-type ArticleManifestBuilderConfig = {
+type ArticleBuildInfoFactoryConfig = {
   basePath: string;
   contentPath: string;
   markdocParser: MarkdocParser;
   metadataPlugins: MetadataPlugin[];
 };
 
-export class ArticleFactory {
+export class ArticleBuildInfoFactory {
   basePath: string;
   contentPath: string;
   markdocParser: MarkdocParser;
   metadataPlugins: MetadataPlugin[];
 
-  constructor(config: ArticleManifestBuilderConfig) {
+  constructor(config: ArticleBuildInfoFactoryConfig) {
     this.basePath = config.basePath;
     this.contentPath = config.contentPath;
     this.markdocParser = config.markdocParser;
     this.metadataPlugins = config.metadataPlugins;
   }
 
-  async create(filename: string): Promise<Article> {
+  async create(filename: string): Promise<ArticleBuildInfo> {
     const text = await fs.promises.readFile(filename, { encoding: 'utf8' });
     const ast = this.markdocParser.parse(text);
 
@@ -59,7 +59,7 @@ export class ArticleFactory {
       } else {
         return metadata;
       }
-    }, frontmatter);
+    }, frontmatter as Record<string, any>);
   }
 
   private getPath(filename: string) {

@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { Icon, IconType } from './Icon';
+import { Icon, IconType } from 'src/components';
 
 export type BadgeProps = {
   className?: string;

@@ -1,43 +1,42 @@
 import { EventEmitter } from 'events';
 import chokidar, { FSWatcher } from 'chokidar';
 import glob from 'fast-glob';
-import { ArticleFactory } from './ArticleFactory';
-import { Article } from './types';
+import { ArticleBuildInfoFactory } from './ArticleBuildInfoFactory';
+import { ArticleBuildInfo } from './types';
 
 type CatalogBuilderConfig = {
   contentPath: string;
-  articleFactory: ArticleFactory;
+  articleBuildInfoFactory: ArticleBuildInfoFactory;
 };
 
 export class CatalogBuilder extends EventEmitter {
   contentPath: string;
-  articleFactory: ArticleFactory;
+  articleBuildInfoFactory: ArticleBuildInfoFactory;
   globPattern: string;
-  fsWatcher: FSWatcher;
-  articles: Record<string, Article>;
+  articles: Record<string, ArticleBuildInfo>;
+  initialScanComplete: boolean;
+  fsWatcher?: FSWatcher;
 
   constructor(config: CatalogBuilderConfig) {
     super();
     this.contentPath = config.contentPath;
-    this.articleFactory = config.articleFactory;
+    this.articleBuildInfoFactory = config.articleBuildInfoFactory;
     this.globPattern = `${this.contentPath}**/*.md`;
+    this.articles = {};
+    this.initialScanComplete = false;
   }
 
   async read() {
-    if (!this.articles) {
-      const filenames = await glob(this.globPattern, { absolute: true });
-
-      this.articles = {};
-      for (const filename of filenames) {
-        const article = await this.articleFactory.create(filename);
-        this.articles[article.filename] = article;
-      }
+    if (!this.initialScanComplete) {
+      await this.performInitialScan();
     }
 
     return Object.values(this.articles);
   }
 
   async startWatching() {
+    await this.performInitialScan();
+
     return new Promise<void>((resolve) => {
       this.fsWatcher = chokidar.watch(this.globPattern, {
         persistent: true,
@@ -55,14 +54,25 @@ export class CatalogBuilder extends EventEmitter {
     return this.fsWatcher?.close();
   }
 
+  private async performInitialScan() {
+    const filenames = await glob(this.globPattern, { absolute: true });
+
+    for (const filename of filenames) {
+      const article = await this.articleBuildInfoFactory.create(filename);
+      this.articles[article.filename] = article;
+    }
+
+    this.initialScanComplete = true;
+  }
+
   private async addArticle(filename: string) {
-    const article = await this.articleFactory.create(filename);
+    const article = await this.articleBuildInfoFactory.create(filename);
     this.articles[article.filename] = article;
     this.emit('add', article);
   }
 
   private async updateArticle(filename: string) {
-    const article = await this.articleFactory.create(filename);
+    const article = await this.articleBuildInfoFactory.create(filename);
 
     const previous = this.articles[article.filename];
     const changed = !previous || previous.hash !== article.hash;

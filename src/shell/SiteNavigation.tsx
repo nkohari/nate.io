@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { NavLink } from 'react-router-dom';
-import { ThemeSelector } from './ThemeSelector';
+import { ThemeSelector } from 'src/shell';
 
 const SECTIONS = [
   { text: 'About', href: '/' },

@@ -1,7 +1,7 @@
 import { Node } from '@markdoc/markdoc';
-import { NodePredicate } from './types';
+import { NodePredicate } from '../types';
 
-export function findNode(node: Node, predicate: NodePredicate) {
+export function findNode(node: Node, predicate: NodePredicate): Node | null {
   if (predicate(node)) {
     return node;
   }

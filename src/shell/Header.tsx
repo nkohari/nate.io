@@ -1,5 +1,5 @@
-import { ArticleMetadata } from '../types';
-import { Byline } from './Byline';
+import { Byline } from 'src/shell';
+import { ArticleMetadata } from 'src/types';
 
 type HeaderProps = {
   metadata: ArticleMetadata;

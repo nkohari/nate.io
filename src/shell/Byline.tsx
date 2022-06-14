@@ -1,9 +1,28 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import { DateTime, Duration } from 'luxon';
-import { Link } from '../components';
-import { ArticleMetadata } from '../types';
-import { ContentStats } from './ContentStats';
+import { Link } from 'src/components';
+import { ArticleMetadata } from 'src/types';
+import { ordinal } from 'src/util';
+
+type ContentStatsProps = {
+  metadata: ArticleMetadata;
+};
+
+const ContentStats = ({ metadata }: ContentStatsProps) => {
+  const { counts, gradeLevel, type } = metadata;
+
+  if (!counts || !gradeLevel) {
+    return null;
+  }
+
+  return (
+    <span className="ml-1 before:content-['—'] before:mr-1">
+      {counts.words.toLocaleString()} words, written in {type} style, at the{' '}
+      {gradeLevel > 12 ? 'college' : `${ordinal(gradeLevel)} grade`} reading level
+    </span>
+  );
+};
 
 type BylineProps = {
   metadata: ArticleMetadata;

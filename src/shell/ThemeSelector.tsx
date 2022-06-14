@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { Theme, useTheme } from './ThemeProvider';
+import { Theme, useTheme } from 'src/shell';
 
 export const ThemeSelector = () => {
   const { theme, setPreferredTheme } = useTheme();

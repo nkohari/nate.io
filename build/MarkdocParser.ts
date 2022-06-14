@@ -1,5 +1,5 @@
-import { MarkdocTagRegistration } from './types';
 import Markdoc, { Config, Node, Tokenizer } from '@markdoc/markdoc';
+import { MarkdocTagRegistration } from './types';
 
 type MarkdocParserConfig = {
   tags: Record<string, MarkdocTagRegistration>;

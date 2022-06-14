@@ -1,11 +1,12 @@
 import { Node, NodeType } from '@markdoc/markdoc';
+import { ArticleMetadata } from '../src/types';
 
-export type Article = {
+export type ArticleBuildInfo = {
   ast: Node;
   chunkId: string;
   filename: string;
   hash: string;
-  metadata: Record<string, any>;
+  metadata: ArticleMetadata;
   path: string;
 };
 
@@ -21,3 +22,6 @@ export type MarkdocTagRegistration = {
   tag?: string;
   render?: string;
 };
+
+export type NodePredicate = (node: Node) => boolean;
+export type NodeReducer<T> = (state: T, node: Node) => T;

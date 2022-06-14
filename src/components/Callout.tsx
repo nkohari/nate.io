@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { Icon } from './Icon';
+import { Icon } from 'src/components';
 
 export type CalloutType = 'info' | 'warning';
 

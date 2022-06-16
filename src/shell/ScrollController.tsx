@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 export type ScrollControllerProps = {
@@ -7,10 +7,14 @@ export type ScrollControllerProps = {
 
 export const ScrollController = ({ children }: ScrollControllerProps) => {
   const location = useLocation();
+  const [previousLocation, setPreviousLocation] = useState(location);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0 });
-  }, [location.key]);
+  useLayoutEffect(() => {
+    if (location.pathname !== previousLocation.pathname) {
+      window.scrollTo({ top: 0, left: 0 });
+    }
+    setPreviousLocation(location);
+  }, [location]);
 
   return <React.Fragment>{children}</React.Fragment>;
 };

@@ -79,7 +79,7 @@ const DesktopNavigationLinks = () => {
 
 export const SiteNavigation = () => (
   <React.Fragment>
-    <div className="flex items-center md:hidden">
+    <div className="flex md:hidden items-center">
       <MobileNavigationOverlayToggle />
       <ThemeSelector />
     </div>

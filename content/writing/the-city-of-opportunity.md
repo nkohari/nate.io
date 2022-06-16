@@ -65,5 +65,5 @@ Free-Nets, which provided communities free dial-up access to the Internet via a 
 {% /note %}
 
 {% note #2 %}
-Ironically, the model wasn't that dissimilar to cloud computing, just for industrial computation!
+Ironically, the model wasn't that dissimilar to cloud computing, just for industrial computation.
 {% /note %}

@@ -1,6 +1,6 @@
 {% avatar-cards count=4 /%}
 
-**Hi, I'm Nate**. I'm a software engineer and occasionally an entrepreneur. I'm the technical lead for the Docs organization at [Stripe](https://stripe.com/), leading the engineering of [Stripe's documentation](https://stripe.com/docs).
+**Hi, I'm Nate**. I'm a software engineer and occasionally an entrepreneur. Right now, I'm the engineering lead for Docs at [Stripe](https://stripe.com/), working on the platform and UX of [Stripe's documentation](https://stripe.com/docs).
 
 I've been writing software since I was nine, and somehow I've managed to convince people to pay me to do so for the last {% duration since="2004-06-01" /%}. For most of my career, I've been focused on building software that helps other engineers become more efficient and happier at work. I've built dozens of products, and even shipped a few of them. I've founded two companies, and [sold one](/writing/take-the-money-and-run).
 

@@ -17,7 +17,7 @@ const FooterLink = ({ href, icon, text }: FooterLinkProps) => (
 
 export const Footer = () => {
   return (
-    <div className="flex flex-col md:flex-row text-sm border-t border-slate-300 dark:border-slate-600 mt-24 pt-6 text-slate-500 dark:text-slate-400">
+    <div className="flex flex-col md:flex-row text-sm border-t border-slate-300 dark:border-slate-600 mt-24 py-6 text-slate-500 dark:text-slate-400">
       <div className="flex-1">
         <div>Copyright &copy; 2006-2022 Nate Kohari.</div>
         <div>

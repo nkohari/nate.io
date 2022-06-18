@@ -1,12 +1,12 @@
 import { Icon, IconType, Link } from 'src/components';
 
-type FooterLinkProps = {
+type SiteFooterLinkProps = {
   href: string;
   icon?: IconType;
   text: string;
 };
 
-const FooterLink = ({ href, icon, text }: FooterLinkProps) => (
+const SiteFooterLink = ({ href, icon, text }: SiteFooterLinkProps) => (
   <li className="flex items-center mb-1.5">
     {icon && <Icon type={icon} size="medium" className="mr-2" />}
     <Link href={href} type="subtle">
@@ -15,7 +15,7 @@ const FooterLink = ({ href, icon, text }: FooterLinkProps) => (
   </li>
 );
 
-export const Footer = () => {
+export const SiteFooter = () => {
   return (
     <div className="flex flex-col md:flex-row text-sm border-t border-slate-300 dark:border-slate-600 mt-24 py-6 text-slate-500 dark:text-slate-400">
       <div className="flex-1">
@@ -39,16 +39,16 @@ export const Footer = () => {
       </div>
       <div className="flex-none w-48 mt-4 md:mt-0 grid grid-cols-2">
         <ul>
-          <FooterLink href="/" text="About" />
-          <FooterLink href="/now" text="Now" />
-          <FooterLink href="/work" text="Work" />
-          <FooterLink href="/writing" text="Writing" />
+          <SiteFooterLink href="/" text="About" />
+          <SiteFooterLink href="/now" text="Now" />
+          <SiteFooterLink href="/work" text="Work" />
+          <SiteFooterLink href="/writing" text="Writing" />
         </ul>
         <ul>
-          <FooterLink icon="twitter" href="https://twitter.com/nkohari" text="Twitter" />
-          <FooterLink icon="github" href="https://github.com/nkohari" text="GitHub" />
-          <FooterLink icon="linkedin" href="https://linkedin.com/in/nkohari" text="LinkedIn" />
-          <FooterLink icon="email" href="mailto:nkohari@gmail.com" text="Email" />
+          <SiteFooterLink icon="twitter" href="https://twitter.com/nkohari" text="Twitter" />
+          <SiteFooterLink icon="github" href="https://github.com/nkohari" text="GitHub" />
+          <SiteFooterLink icon="linkedin" href="https://linkedin.com/in/nkohari" text="LinkedIn" />
+          <SiteFooterLink icon="email" href="mailto:nkohari@gmail.com" text="Email" />
         </ul>
       </div>
     </div>

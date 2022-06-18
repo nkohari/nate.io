@@ -1,7 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { useArticles } from 'virtual:nateio/articles';
-import { Body, ManifestProvider, ScrollController, SiteHeader, ThemeProvider } from 'src/shell';
+import {
+  Body,
+  ManifestProvider,
+  NotFound,
+  ScrollController,
+  SiteFooter,
+  SiteHeader,
+  ThemeProvider,
+} from 'src/shell';
 
 const ArticleRoutes = () => {
   const articles = useArticles();
@@ -10,6 +18,7 @@ const ArticleRoutes = () => {
       {Object.values(articles).map(({ path }) => (
         <Route key={path} path={path} element={<Body path={path} />} />
       ))}
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
@@ -23,6 +32,7 @@ export const App = () => (
             <div className="flex-1 flex flex-col w-full max-w-[850px]">
               <SiteHeader />
               <ArticleRoutes />
+              <SiteFooter />
             </div>
           </div>
         </ScrollController>

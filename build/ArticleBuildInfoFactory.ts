@@ -59,7 +59,7 @@ export class ArticleBuildInfoFactory {
       } else {
         return metadata;
       }
-    }, frontmatter as Record<string, any>);
+    }, frontmatter as any);
   }
 
   private getPath(filename: string) {

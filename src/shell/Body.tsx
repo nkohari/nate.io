@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { getArticleContent, useArticle } from 'virtual:nateio/articles';
 import { Callout } from 'src/components';
-import { Footer, Header, Meta } from 'src/shell';
+import { Headline, Meta } from 'src/shell';
 
 const ArticleArchivedWarning = () => (
   <Callout type="info">
@@ -22,12 +22,11 @@ export const Body = ({ path }: BodyProps) => {
   return (
     <main className="flex-1 flex flex-col w-full">
       <Meta metadata={article.metadata} />
-      <Header metadata={article.metadata} />
+      <Headline metadata={article.metadata} />
       {article.metadata.state === 'archived' && <ArticleArchivedWarning />}
       <Suspense fallback={<div>Loading...</div>}>
         <Content />
       </Suspense>
-      {article.metadata.footer !== false && <Footer />}
     </main>
   );
 };

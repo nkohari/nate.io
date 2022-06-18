@@ -1,11 +1,11 @@
 import { Byline } from 'src/shell';
 import { ArticleMetadata } from 'src/types';
 
-type HeaderProps = {
+type HeadlineProps = {
   metadata: ArticleMetadata;
 };
 
-export const Header = ({ metadata }: HeaderProps) => {
+export const Headline = ({ metadata }: HeadlineProps) => {
   const { title, subtitle, type } = metadata;
 
   // If the article doesn't have a title, don't try to show a header.

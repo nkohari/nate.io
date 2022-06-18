@@ -12,10 +12,10 @@ export type ArticleBuildInfo = {
 
 export type MetadataPluginProps = {
   ast: Node;
-  metadata: Record<string, any>;
+  metadata: Partial<ArticleMetadata>;
 };
 
-export type MetadataPlugin = (props: MetadataPluginProps) => Record<string, any>;
+export type MetadataPlugin = (props: MetadataPluginProps) => Partial<ArticleMetadata>;
 
 export type MarkdocTagRegistration = {
   node?: NodeType;

@@ -75,7 +75,7 @@ const AvatarCard = ({ position, urls }: AvatarCardProps) => {
   );
 
   const classes = classNames(
-    'block relative flex-none w-1/4 aspect-square three-d transition-transform duration-500',
+    'block relative flex-none w-full aspect-square three-d transition-transform duration-500',
     {
       'rotate-y-180': visibleFace === 'back',
     }
@@ -97,7 +97,7 @@ export const AvatarCards = ({ count = 1 }: AvatarCardsProps) => {
   const urls = getAvatarUrls().sort(() => Math.random());
 
   return (
-    <div className="flex flex-row mb-8 bg-checkerboard">
+    <div className="grid grid-cols-2 sm:grid-cols-4 mb-8 bg-checkerboard">
       {[...Array(count).keys()].map((index) => (
         <AvatarCard key={index} position={index + 1} urls={urls} />
       ))}

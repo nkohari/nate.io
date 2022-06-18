@@ -17,14 +17,26 @@ const SiteFooterLink = ({ href, icon, text }: SiteFooterLinkProps) => (
 
 export const SiteFooter = () => {
   return (
-    <div className="flex flex-col md:flex-row text-sm border-t border-slate-300 dark:border-slate-600 mt-24 py-6 text-slate-500 dark:text-slate-400">
+    <div className="flex flex-col sm:flex-row text-sm border-t border-slate-300 dark:border-slate-600 mt-24 py-6 text-slate-500 dark:text-slate-400">
       <div className="flex-1">
         <div>Copyright &copy; 2006-2022 Nate Kohari.</div>
         <div>
           Licensed under{' '}
-          <Link href="http://creativecommons.org/licenses/by/4.0/" type="subtle">
-            Creative Commons Attribution (CC-BY) 4.0.
+          <Link
+            className="hidden sm:inline"
+            href="http://creativecommons.org/licenses/by/4.0/"
+            type="subtle"
+          >
+            Creative Commons Attribution (CC-BY) 4.0
           </Link>
+          <Link
+            className="sm:hidden"
+            href="http://creativecommons.org/licenses/by/4.0/"
+            type="subtle"
+          >
+            CC-BY 4.0
+          </Link>
+          .
         </div>
         <div>
           <Link href="https://github.com/nkohari/nate.io" type="subtle">
@@ -37,7 +49,7 @@ export const SiteFooter = () => {
           .{' '}
         </div>
       </div>
-      <div className="flex-none w-48 mt-4 md:mt-0 grid grid-cols-2">
+      <div className="flex-none w-48 mt-4 sm:mt-0 grid grid-cols-2">
         <ul>
           <SiteFooterLink href="/" text="About" />
           <SiteFooterLink href="/now" text="Now" />

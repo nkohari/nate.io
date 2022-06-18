@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { Link } from 'src/components';
 
 const SadComputer = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => {
-  const classes = classNames(`absolute w-auto h-48 -rotate-[7deg]`, className);
+  const classes = classNames(`absolute h-full -rotate-[7deg]`, className);
   return (
     <svg {...props} viewBox="0 0 100 100" className={classes}>
       <g>
@@ -21,12 +21,12 @@ const SadComputer = ({ className, ...props }: React.SVGProps<SVGSVGElement>) => 
 export const NotFound = () => {
   return (
     <main className="flex-1 flex items-center justify-center">
-      <div className="flex flex-row items-center">
-        <div className="relative w-48 h-48">
+      <div className="flex flex-col md:flex-row items-center">
+        <div className="relative w-32 h-32 md:w-48 md:h-48">
           <SadComputer className="-translate-x-1.5 translate-y-1.5 fill-red-400" />
           <SadComputer />
         </div>
-        <div className="flex-1 pl-20">
+        <div className="flex-1 text-center pt-8 md:text-left md:pl-20 md:pt-0">
           <div className="text-6xl font-mono font-bold pb-4">404</div>
           <p>I can't find what you're looking for!</p>
           <p>

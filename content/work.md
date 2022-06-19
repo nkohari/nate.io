@@ -11,11 +11,11 @@ Technical lead for the Docs organization, a cross-functional group of engineers,
 {% /work %}
 
 {% work from="2018" to="2019" job="Senior Software Engineer at Auth0" note="acq. Okta" location="Raleigh, NC (Remote)" %}
-Frontend development lead for Extend, a serverless computing product that never made it out of private beta. After it was discontinued, joined the Extensibility team to work on Webtask, the serverless infrastructure that allows Auth0's customers to extend the Auth0 platform using custom code.
+Frontend development lead for Extend, a serverless computing product that never made it out of private beta. After [it was discontinued](https://auth0.com/blog/we-are-sunsetting-extend/), joined the Extensibility team to work on Webtask, the serverless infrastructure that allows Auth0's customers to extend the Auth0 platform using custom code.
 {% /work %}
 
 {% work from="2016" to="2018" job="Software Engineering Consultant" location="Raleigh, NC (Remote)" %}
-Freelance consultant primarily focused on React and Node.js. Various projects including re-engineering a high-traffic documentation site, building a user analytics product end-to-end (including frontend, API, data warehouse, and ETL), and adding live real-time bidding to an ad server.
+Freelance consultant primarily focused on React and Node.js. Projects included re-engineering a high-traffic documentation site, building a user analytics product end-to-end (including frontend, API, data warehouse, and ETL), and adding live real-time bidding to an ad server.
 {% /work %}
 
 {% work from="2014" to="2016" job="Co-Founder of TaskTorch" location="Raleigh, NC" %}
@@ -31,19 +31,19 @@ Technical leader of AgileZen, operating as a business unit within [Rally Softwar
 {% /work %}
 
 {% work from="2009" to="2010" job="Co-Founder of AgileZen" note="acq. Rally Software" location="Akron, OH" %}
-Designed and developed AgileZen, the first web-based SaaS kanban tool (like Trello, before Trello). Raised $20K in local grant funding. Grew quickly after launch, with double-digit month-over-month growth in both users and revenue. Acquired by Rally Software in 2010, and began running AgileZen as a business unit within the company.
+Designed and developed AgileZen, the first web-based SaaS kanban tool (like Trello, before Trello). Raised $20K in local grant funding. Grew quickly after launch, with double-digit month-over-month growth in both users and revenue. [Acquired](/writing/take-the-money-and-run) by Rally Software in 2010, and began running AgileZen as a business unit within the company.
 {% /work %}
 
 {% work from="2008" to="2009" job="Senior Software Engineer at Telligent Systems" note="acq. Verint" location="Akron, OH (Remote)" %}
-Contributed to Community Server, a white-labeled community platform which powered Microsoft's developer community forums and MSDN blogs.
+Contributed to [Community Server](https://community.telligent.com/), a white-labeled community platform which powered Microsoft's developer community forums and MSDN blogs.
 {% /work %}
 
 {% work from="2007" to="2008" job="Software Architect at CTI" location="Akron, OH" %}
-Built Accelerated Analytics, a SaaS business intelligence system built on top of Microsoft Reporting Services, and participated in the construction of data warehouses using Microsoft Analysis Services. Hired and mentored junior engineers, and provided architectural feedback and support on several projects for other teams.
+Built [Accelerated Analytics](https://acceleratedanalytics.com), a SaaS business intelligence system built on top of Microsoft Reporting Services, and participated in the construction of data warehouses using Microsoft Analysis Services. Hired and mentored junior engineers, and provided architectural feedback and support on several projects for other teams.
 {% /work %}
 
 {% work from="2007" to="2008" job="Software Developer II at Merge Healthcare" note="acq. IBM" location="Akron, OH" %}
-Contributed to FUSION RIS, an imaging product for radiologists. Built the Genesis Framework, a library which allowed new components built in C# to interact with existing legacy components built in VB6 using interfaces and dependency injection rather than working with COM interop directly.
+Contributed to [FUSION RIS](https://www.ibm.com/products/merge-ris), an imaging product for radiologists. Built the Genesis Framework, a library which allowed new components built in C# to interact with existing legacy components built in VB6 using interfaces and dependency injection rather than working with COM interop directly.
 {% /work %}
 
 {% work from="2007" to="2008" job="Software Engineer at CTI" location="Akron, OH" %}

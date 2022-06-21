@@ -46,24 +46,3 @@
   font-style: normal;
   font-weight: 800;
 }
-
-@font-face {
-  font-family: 'Noto Sans Mono';
-  src: url('../media/fonts/noto-sans-mono/NotoSansMono-Regular.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: 'Noto Sans Mono';
-  src: url('../media/fonts/noto-sans-mono/NotoSansMono-SemiBold.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: 'Noto Sans Mono';
-  src: url('../media/fonts/noto-sans-mono/NotoSansMono-Bold.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 700;
-}

@@ -23,7 +23,8 @@ export const Meta = ({ metadata }: MetaProps) => {
     const entry = getManifestEntry(article.chunkId);
     if (!entry) return null;
 
-    return <link key={path} rel="modulepreload" href={entry.file} />;
+    const href = `/${entry.file}`;
+    return <link key={path} rel="prefetch" as="script" href={href} crossOrigin="anonymous" />;
   };
 
   useEffect(() => {

@@ -1,5 +1,6 @@
 ---
 title: The City of Opportunity
+subtitle: On growing up in the former rubber capital of the world.
 type: narrative
 date: 2022-05-26T20:53:00
 ---
@@ -8,7 +9,7 @@ date: 2022-05-26T20:53:00
 
 {% image src="akron.webp" alt="An old map of Akron, the City of Opportunity" /%}
 
-Throughout the late 19th and most of the 20th century, Akron was a seat of industry. As the home to Goodyear Tire & Rubber, B.F. Goodrich, Firestone Tire & Rubber, and General Tire, it was the "rubber capital of the world." I grew up in a neighborhood called [Goodyear Heights](http://en.wikipedia.org/wiki/Neighborhoods_in_Akron,_Ohio#Goodyear_Heights), which was originally built specifically to house Goodyear factory employees. My wife grew up in [Firestone Park](https://en.wikipedia.org/wiki/Neighborhoods_in_Akron,_Ohio#Firestone_Park). I attended [Seiberling Elementary School](https://seiberlingclc.akronschools.com/) (named for the founder of Goodyear), and later [Goodyear Middle School](https://www.flickr.com/photos/pyathia/sets/72157644726552273/).
+Throughout the late 19th and most of the 20th century, Akron was a seat of industry. As the home to Goodyear, Firestone, B.F. Goodrich, and General Tire, it was the "rubber capital of the world." I grew up in a neighborhood called [Goodyear Heights](http://en.wikipedia.org/wiki/Neighborhoods_in_Akron,_Ohio#Goodyear_Heights), which was originally built specifically to house Goodyear factory employees. My wife grew up in [Firestone Park](https://en.wikipedia.org/wiki/Neighborhoods_in_Akron,_Ohio#Firestone_Park). I attended [Seiberling Elementary School](https://seiberlingclc.akronschools.com/) (named for the founder of Goodyear), and later [Goodyear Middle School](https://www.flickr.com/photos/pyathia/sets/72157644726552273/).
 
 You get the picture. Akron was a city built on rubber.
 
@@ -18,13 +19,15 @@ Like his father before him, my father worked for years --- many of them on the n
 
 {% image src="tirebuilder.webp" alt="A guest column from the Akron Beacon Journal written by my father" /%}
 
-In the years that followed, Akron became part of the [Rust Belt](https://en.wikipedia.org/wiki/Rust_Belt), a wide and long swath of burned-out post-industrial towns that cuts through the American midwest from Detroit to Buffalo. My father was able to begin a new career, but many others weren't as fortunate. The city has yet to recover.
+In the years that followed, Akron became part of the [Rust Belt](https://en.wikipedia.org/wiki/Rust_Belt), a wide and long swath of burned-out post-industrial towns that cuts through the American midwest from Detroit to Buffalo. My father was able to begin a new career, but many others weren't as fortunate.
+
+The city has yet to recover, and 24% of Akronites live below the poverty line. During the 90s, the greater Akron area was the methamphetamine capital of Ohio. Then, after the turn of the century, Northeast Ohio was "ground zero" for the nation's opioid crisis.
 
 I was too young to understand any of this at the time. But when I grew a little older, it taught me how quickly the status quo can change, the value of a healthy distrust of authority, and the power of being in control of your own destiny. I'm also immensely proud of my dad to reinvent himself like he did.
 
-Incidentally, the Black Keys --- who also hail from Akron --- recorded their album _Rubber Factory_ in one of the abandoned factories, which gives it a raw, gritty vibe. Give it a listen; it sounds like the city.
+Incidentally, the Black Keys --- who also hail from Akron --- recorded their album [Rubber Factory](https://en.wikipedia.org/wiki/Rubber_Factory) in one of the abandoned factories, which gives it a raw, gritty vibe. Give it a listen; it sounds like the city.
 
-In 2010, the factory was demolished.
+In 2010, the factory where they recorded was demolished.
 
 ---
 
@@ -54,7 +57,7 @@ I got one call back.
 
 It was from a company called [Commercial Timesharing](https://comtime.com), which was founded back in the 70s to sell timeshares of processing time on minicomputers. {% note #2 /%} And, in true Akron form, their main product was a control system for tire testing machines.
 
-I took the job because it was the only opportunity I had, but it ended up being a fantastic chance to get my hands dirty with all sorts of software, everything from websites to embedded systems to data warehouses. I ended up staying a couple of years, leaving, and then coming back for awhile.
+I took the job because it was the only opportunity I had, but it ended up being a fantastic chance to get my hands dirty with all sorts of software, everything from websites to embedded systems to data warehouses. I ended up staying a couple of years, leaving for awhile, and then coming back.
 
 Eventually, my career in software led me away from Ohio, and Raleigh is our home now. I can't envision us moving back, but I'm proud to be from Akron, and the city will always be a part of me.
 

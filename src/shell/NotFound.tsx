@@ -25,7 +25,7 @@ export const NotFound = () => {
           <SadComputer />
         </div>
         <div className="flex-1 text-center pt-8 md:text-left md:pl-20 md:pt-0">
-          <div className="text-6xl font-mono font-bold pb-4">404</div>
+          <div className="text-6xl font-bold pb-4">404</div>
           <p>I can't find what you're looking for!</p>
           <p>
             You should go back <Link href="/">home</Link>, or{' '}

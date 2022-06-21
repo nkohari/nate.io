@@ -27,7 +27,7 @@ Led the development of an advertising API platform used by companies such as Red
 {% /work %}
 
 {% work from="2010" to="2012" job="Engineering Manager at Rally Software" note="acq. Broadcom" location="Raleigh, NC" %}
-Technical leader of AgileZen, operating as a business unit within [Rally Software](https://rallydev.com/). Led the engineering effort to create AgileZen 2.0, including a rewrite of large parts of the UI in CoffeeScript and a new API using Node.js. Grew the team from 2 to 10, including 5 engineers.
+Technical leader of AgileZen, operating as a business unit within [Rally Software](https://rallydev.com/). Led the engineering effort to create AgileZen 2.0, including a rewrite of large parts of the UI in CoffeeScript and a new API using Node.js. Grew the team from 2 people to 10, including 5 engineers.
 {% /work %}
 
 {% work from="2009" to="2010" job="Co-Founder of AgileZen" note="acq. Rally Software" location="Akron, OH" %}
@@ -42,11 +42,11 @@ Contributed to [Community Server](https://community.telligent.com/), a white-lab
 Built [Accelerated Analytics](https://acceleratedanalytics.com), a SaaS business intelligence system built on top of Microsoft Reporting Services, and participated in the construction of data warehouses using Microsoft Analysis Services. Hired and mentored junior engineers, and provided architectural feedback and support on several projects for other teams.
 {% /work %}
 
-{% work from="2007" to="2008" job="Software Developer II at Merge Healthcare" note="acq. IBM" location="Akron, OH" %}
+{% work from="2006" to="2007" job="Software Developer II at Merge Healthcare" note="acq. IBM" location="Akron, OH" %}
 Contributed to [FUSION RIS](https://www.ibm.com/products/merge-ris), an imaging product for radiologists. Built the Genesis Framework, a library which allowed new components built in C# to interact with existing legacy components built in VB6 using interfaces and dependency injection rather than working with COM interop directly.
 {% /work %}
 
-{% work from="2007" to="2008" job="Software Engineer at CTI" location="Akron, OH" %}
+{% work from="2004" to="2006" job="Software Engineer at CTI" location="Akron, OH" %}
 Built Goodyear TireTracker, a logistics support system which tracked NASCAR racing tires through their lifecycle. Tire techs used handheld scanners running a custom .NET Compact Framework app to scan passive RFID chips embedded in the sidewalls of the tires. To allow it to be used at racetracks, the system was portable and designed to be eventually consistent, without requiring a stable wifi signal.
 {% /work %}
 

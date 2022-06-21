@@ -41,7 +41,7 @@ export const Input = ({
 
   return (
     <div className={containerClasses} onClick={handleClick}>
-      {icon && <Icon type={icon} size="medium" />}
+      {icon && <Icon type={icon} />}
       <input
         ref={inputRef}
         type="text"

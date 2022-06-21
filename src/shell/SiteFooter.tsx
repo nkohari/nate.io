@@ -1,3 +1,4 @@
+import { DateTime } from 'luxon';
 import { Icon, IconType, Link } from 'src/components';
 
 type SiteFooterLinkProps = {
@@ -8,7 +9,7 @@ type SiteFooterLinkProps = {
 
 const SiteFooterLink = ({ href, icon, text }: SiteFooterLinkProps) => (
   <li className="flex items-center mb-1.5">
-    {icon && <Icon type={icon} size="medium" className="mr-2" />}
+    {icon && <Icon type={icon} className="mr-2" />}
     <Link href={href} type="subtle">
       {text}
     </Link>
@@ -19,7 +20,7 @@ export const SiteFooter = () => {
   return (
     <div className="flex flex-col sm:flex-row text-sm border-t border-slate-300 dark:border-slate-600 mt-24 py-6 text-slate-500 dark:text-slate-400">
       <div className="flex-1">
-        <div>Copyright &copy; 2006-2022 Nate Kohari.</div>
+        <div>Copyright &copy; 2006-{DateTime.now().year} Nate Kohari.</div>
         <div>
           Licensed under{' '}
           <Link

@@ -5,13 +5,13 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 import tailwind from 'tailwindcss';
 import tailwindConfig from './tailwind.config.js';
 import {
+  ContentPlugin,
   getArticleState,
   getArticleType,
   getContentStats,
   getExcerpt,
   getImages,
   getOutgoingLinks,
-  nateio,
   MarkdocTagRegistration,
 } from './build';
 import * as tags from './src/tags';
@@ -27,7 +27,7 @@ export default defineConfig({
   },
   plugins: [
     tsconfigPaths(),
-    nateio({
+    ContentPlugin({
       componentsPath: './src/components',
       contentPath: './content',
       metadataPlugins: [
@@ -38,7 +38,7 @@ export default defineConfig({
         getImages,
         getOutgoingLinks,
       ],
-      tags: tags as Record<string, MarkdocTagRegistration>,
+      tags: Object.values(tags) as MarkdocTagRegistration[],
     }),
     react(),
     imagemin(),

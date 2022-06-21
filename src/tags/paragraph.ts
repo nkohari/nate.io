@@ -1,4 +1,4 @@
-export const paragraph = {
+export default {
   node: 'paragraph',
   render: 'Paragraph',
 };

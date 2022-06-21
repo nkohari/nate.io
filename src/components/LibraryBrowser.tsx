@@ -15,8 +15,8 @@ const Abstract = ({ metadata, path }: AbstractProps) => {
     <Link
       role="listitem"
       href={path}
-      type="button"
-      className="flex group mb-4 -mx-5 px-4 py-4 rounded-md border-x-4 border-transparent hover:border-blue-500 hover:bg-slate-100 dark:hover:bg-slate-700"
+      type="unstyled"
+      className="flex group mb-4 -mx-5 px-4 py-4 border-l-4 border-transparent hover:border-blue-500 hover:bg-slate-100 dark:hover:bg-slate-700"
     >
       <div>
         <h3 className="text-xl">{metadata.title}</h3>

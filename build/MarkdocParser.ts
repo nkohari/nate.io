@@ -1,17 +1,36 @@
 import Markdoc, { Config, Node, Tokenizer } from '@markdoc/markdoc';
 import { MarkdocTagRegistration } from './types';
 
-type MarkdocParserConfig = {
-  tags: Record<string, MarkdocTagRegistration>;
+export type MarkdocParserProps = {
+  tags: MarkdocTagRegistration[];
 };
 
 export class MarkdocParser {
   config: Config;
   tokenizer: Tokenizer;
 
-  constructor(config: MarkdocParserConfig) {
-    this.config = this.buildMarkdocConfig(config.tags);
+  constructor({ tags }: MarkdocParserProps) {
     this.tokenizer = new Markdoc.Tokenizer({ typographer: true });
+
+    this.config = {
+      tags: {},
+      nodes: {},
+      partials: {},
+    };
+
+    for (const tag of tags) {
+      this.register(tag);
+    }
+  }
+
+  register(registration: MarkdocTagRegistration) {
+    const { node, tag, ...schema } = registration;
+    if (node) {
+      this.config.nodes![node] = schema;
+    }
+    if (tag) {
+      this.config.tags![tag] = schema;
+    }
   }
 
   parse(text: string) {
@@ -20,25 +39,5 @@ export class MarkdocParser {
 
   transform(ast: Node) {
     return Markdoc.transform(ast, this.config);
-  }
-
-  private buildMarkdocConfig(tags: Record<string, MarkdocTagRegistration>): Config {
-    const config: Config = {
-      tags: {},
-      nodes: {},
-      partials: {},
-    };
-
-    for (const name in tags) {
-      const { node, tag, ...schema } = tags[name];
-
-      if (node) {
-        config.nodes![node] = schema;
-      }
-
-      config.tags![tag || name] = schema;
-    }
-
-    return config;
   }
 }

@@ -10,7 +10,6 @@ export * from './Divider';
 export * from './Document';
 export * from './Duration';
 export * from './Heading';
-export * from './Group';
 export * from './Icon';
 export * from './Image';
 export * from './Input';

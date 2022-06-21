@@ -12,14 +12,14 @@ const ARTICLE_FILENAME_PATTERN = /\.md/;
 
 const prefix = (moduleName: string) => VIRTUAL_MODULE_PREFIX + moduleName;
 
-export type PluginOptions = {
+export type ContentPluginOptions = {
   componentsPath: string;
   contentPath: string;
-  tags: Record<string, MarkdocTagRegistration>;
+  tags: MarkdocTagRegistration[];
   metadataPlugins: MetadataPlugin[];
 };
 
-export function nateio(options: PluginOptions): Plugin {
+export function ContentPlugin(options: ContentPluginOptions): Plugin {
   let config: ResolvedConfig;
   let reactRefreshPlugin: Plugin | undefined;
 
@@ -37,7 +37,7 @@ export function nateio(options: PluginOptions): Plugin {
   const catalogBuilder = new CatalogBuilder({ contentPath, articleBuildInfoFactory });
 
   return {
-    name: 'vite-plugin-nateio',
+    name: 'vite-plugin-nateio-content',
     configResolved(resolvedConfig) {
       config = resolvedConfig;
       reactRefreshPlugin = config.plugins.find((plugin) => plugin.name === 'vite:react-babel');

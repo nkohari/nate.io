@@ -1,4 +1,4 @@
-export const avatarCards = {
+export default {
   tag: 'avatar-cards',
   render: 'AvatarCards',
   attributes: {

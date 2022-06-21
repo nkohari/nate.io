@@ -1,6 +1,7 @@
 import Markdoc, { Config, Node } from '@markdoc/markdoc';
 
-export const note = {
+export default {
+  tag: 'note',
   render: 'Note',
   attributes: {
     id: { type: String },

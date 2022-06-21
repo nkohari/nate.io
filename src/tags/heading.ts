@@ -1,4 +1,4 @@
-export const heading = {
+export default {
   node: 'heading',
   render: 'Heading',
   attributes: {

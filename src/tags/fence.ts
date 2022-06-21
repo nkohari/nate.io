@@ -45,7 +45,7 @@ function* transformPrismToken(token: Prism.Token | string): Generator<Tag | 'new
   }
 }
 
-export const fence = {
+export default {
   node: 'fence',
   render: 'CodeBlock',
   attributes: {

@@ -1,5 +1,5 @@
 export * from './archived';
-export * from './clock';
+export * from './close';
 export * from './draft';
 export * from './email';
 export * from './jumpBack';

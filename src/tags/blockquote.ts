@@ -1,4 +1,4 @@
-export const blockquote = {
+export default {
   node: 'blockquote',
   render: 'Blockquote',
 };

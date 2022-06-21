@@ -1,4 +1,4 @@
-export const code = {
+export default {
   node: 'code',
   render: 'Code',
   attributes: {

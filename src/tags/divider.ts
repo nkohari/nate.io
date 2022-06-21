@@ -1,4 +1,4 @@
-export const divider = {
+export default {
   node: 'hr',
   render: 'Divider',
 };

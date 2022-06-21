@@ -1,4 +1,4 @@
-import { Node, NodeType } from '@markdoc/markdoc';
+import { Node, NodeType, Schema } from '@markdoc/markdoc';
 import { ArticleMetadata } from '../src/types';
 
 export type ArticleBuildInfo = {
@@ -15,12 +15,11 @@ export type MetadataPluginProps = {
   metadata: Partial<ArticleMetadata>;
 };
 
-export type MetadataPlugin = (props: MetadataPluginProps) => Partial<ArticleMetadata>;
+export type MetadataPlugin = (props: MetadataPluginProps) => Partial<ArticleMetadata> | undefined;
 
-export type MarkdocTagRegistration = {
+export type MarkdocTagRegistration = Schema & {
   node?: NodeType;
   tag?: string;
-  render?: string;
 };
 
 export type NodePredicate = (node: Node) => boolean;

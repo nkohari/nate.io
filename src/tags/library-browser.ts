@@ -1,4 +1,4 @@
-export const libraryBrowser = {
+export default {
   tag: 'library-browser',
   render: 'LibraryBrowser',
 };

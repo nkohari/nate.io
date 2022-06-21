@@ -1,7 +1,9 @@
 import imageSize from 'image-size';
 import Markdoc, { Config, Node } from '@markdoc/markdoc';
 
-export const image = {
+export default {
+  node: 'image',
+  tag: 'image',
   render: 'Image',
   attributes: {
     src: { type: String },

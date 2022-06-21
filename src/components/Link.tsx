@@ -1,15 +1,17 @@
 import classNames from 'classnames';
 import { Link as RouterLink } from 'react-router-dom';
 
-export const LINK_CLASSES: Record<LinkType, string> = {
-  button: '',
-  normal:
-    'font-semibold hover:underline text-blue-500 dark:text-blue-300 underline-offset-2 decoration-2',
-  subtle:
-    'hover:underline text-current hover:text-blue-500 dark:hover:text-blue-400 underline-offset-2 decoration-2',
-};
+export type LinkType = 'unstyled' | 'block' | 'normal' | 'subtle';
 
-export type LinkType = 'button' | 'normal' | 'subtle';
+export const LINK_CLASSES: Record<LinkType, string> = {
+  unstyled: '',
+  block:
+    'transition transition-colors font-semibold bg-slate-200 dark:bg-slate-600 hover:bg-blue-600 dark:hover:bg-blue-400 hover:text-white',
+  normal:
+    'transition transition-all font-semibold underline underline-offset-1 text-blue-500 dark:text-blue-300 hover:text-blue-600 decoration-transparent hover:decoration-blue-600 hover:dark:decoration-blue-300',
+  subtle:
+    'transition transition-all hover:underline underline underline-offset-1 decoration-transparent hover:text-blue-600 hover:decoration-blue-600 dark:hover:text-blue-400 dark:hover:decoration-blue-400',
+};
 
 export type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   type?: LinkType;

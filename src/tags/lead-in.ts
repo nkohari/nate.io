@@ -1,4 +1,4 @@
-export const leadIn = {
+export default {
   tag: 'lead-in',
   render: 'LeadIn',
 };

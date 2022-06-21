@@ -1,4 +1,4 @@
-export const attribution = {
+export default {
   tag: 'attribution',
   render: 'Attribution',
   attributes: {

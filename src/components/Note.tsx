@@ -8,13 +8,14 @@ export type NoteProps = {
 export const Note = ({ children, id }: NoteProps) => {
   if (!children) {
     return (
-      <span className="group text-slate-500">
-        [
-        <Link id={`note-ref-${id}`} href={`#note-${id}`} type="subtle">
-          {id}
-        </Link>
-        ]
-      </span>
+      <Link
+        id={`note-ref-${id}`}
+        href={`#note-${id}`}
+        type="block"
+        className="text-sm px-1.5 rounded-full"
+      >
+        {id}
+      </Link>
     );
   }
 
@@ -25,7 +26,7 @@ export const Note = ({ children, id }: NoteProps) => {
       </a>
       <p className="flex-1">
         {children}
-        <Link href={`#note-ref-${id}`} className="ml-1" type="subtle">
+        <Link href={`#note-ref-${id}`} className="inline-flex items-center ml-1" type="subtle">
           <Icon type="jumpBack" size="small" />
         </Link>
       </p>

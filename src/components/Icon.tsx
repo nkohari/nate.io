@@ -1,8 +1,8 @@
 import classNames from 'classnames';
-import * as ICONS from 'src/components/icons';
+import * as ICONS from '../icons';
 
 export type IconType = keyof typeof ICONS;
-export type IconSize = 'small' | 'medium' | 'large';
+export type IconSize = 'default' | 'small' | 'medium' | 'large';
 
 export type IconProps = {
   className?: string;
@@ -10,14 +10,15 @@ export type IconProps = {
   size?: IconSize;
 };
 
-export const Icon = ({ className, type, size = 'medium' }: IconProps) => {
-  const SvgComponent = ICONS[type] as React.FunctionComponent;
+export const Icon = ({ className, type, size = 'default' }: IconProps) => {
+  const SvgComponent = ICONS[type] as React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
 
   if (!SvgComponent) {
     throw new Error(`Unknown icon with type ${type}`);
   }
 
   const sizeClasses = {
+    default: 'w-[1em]',
     small: 'w-3',
     medium: 'w-4',
     large: 'w-8',
@@ -25,9 +26,5 @@ export const Icon = ({ className, type, size = 'medium' }: IconProps) => {
 
   const classes = classNames('inline-block fill-current', className, sizeClasses[size]);
 
-  return (
-    <span className={classes}>
-      <SvgComponent />
-    </span>
-  );
+  return <SvgComponent className={classes} />;
 };

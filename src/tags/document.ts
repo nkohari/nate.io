@@ -1,4 +1,4 @@
-export const document = {
+export default {
   node: 'document',
   render: 'Document',
 };

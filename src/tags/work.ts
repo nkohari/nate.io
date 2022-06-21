@@ -1,4 +1,5 @@
-export const work = {
+export default {
+  tag: 'work',
   render: 'Work',
   attributes: {
     from: { type: String },

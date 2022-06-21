@@ -1,4 +1,4 @@
-export const listItem = {
+export default {
   node: 'item',
   render: 'ListItem',
 };

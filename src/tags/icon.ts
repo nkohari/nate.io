@@ -1,4 +1,5 @@
-export const icon = {
+export default {
+  tag: 'icon',
   render: 'Icon',
   attributes: {
     type: { type: String },

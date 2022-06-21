@@ -56,7 +56,7 @@ It was from a company called [Commercial Timesharing](https://comtime.com), whic
 
 I took the job because it was the only opportunity I had, but it ended up being a fantastic chance to get my hands dirty with all sorts of software, everything from websites to embedded systems to data warehouses. I ended up staying a couple of years, leaving, and then coming back for awhile.
 
-Eventually, my career in software led me away from Ohio. Raleigh is our home now, and I can't envision us moving back. It might not be the City of Opportunity anymore, but I'm proud to be from Akron, and the city will always be a part of me.
+Eventually, my career in software led me away from Ohio, and Raleigh is our home now. I can't envision us moving back, but I'm proud to be from Akron, and the city will always be a part of me.
 
 ---
 

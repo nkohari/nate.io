@@ -39,7 +39,7 @@ Contributed to [Community Server](https://community.telligent.com/), a white-lab
 {% /work %}
 
 {% work from="2007" to="2008" job="Software Architect at CTI" location="Akron, OH" %}
-Built [Accelerated Analytics](https://acceleratedanalytics.com), a SaaS business intelligence system built on top of Microsoft Reporting Services, and participated in the construction of data warehouses using Microsoft Analysis Services. Hired and mentored junior engineers, and provided architectural feedback and support on several projects for other teams.
+Built the UI for [Accelerated Analytics](https://acceleratedanalytics.com), a SaaS business intelligence system built on top of Microsoft Reporting Services, and participated in the construction of data warehouses using Microsoft Analysis Services. Hired and mentored junior engineers, and provided architectural feedback and support on several projects for other teams.
 {% /work %}
 
 {% work from="2006" to="2007" job="Software Developer II at Merge Healthcare" note="acq. IBM" location="Akron, OH" %}

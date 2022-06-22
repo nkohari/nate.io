@@ -23,7 +23,7 @@ In the years that followed, Akron became part of the [Rust Belt](https://en.wiki
 
 The city has yet to recover, and 24% of Akronites live below the poverty line. During the 90s, the greater Akron area was the methamphetamine capital of Ohio. Then, after the turn of the century, Northeast Ohio was "ground zero" for the nation's opioid crisis.
 
-I was too young to understand any of this at the time. But when I grew a little older, it taught me how quickly the status quo can change, the value of a healthy distrust of authority, and the power of being in control of your own destiny. I'm also immensely proud of my dad to reinvent himself like he did.
+I was too young to understand any of this at the time, and much to their credit, my parents were able to shield my sister and I from any of it. But when I grew a little older, it taught me how quickly the status quo can change, the value of a healthy distrust of authority, and the power of being in control of your own destiny. I'm also immensely proud of my dad to reinvent himself like he did.
 
 Incidentally, the Black Keys --- who also hail from Akron --- recorded their album [Rubber Factory](https://en.wikipedia.org/wiki/Rubber_Factory) in one of the abandoned factories, which gives it a raw, gritty vibe. Give it a listen; it sounds like the city.
 

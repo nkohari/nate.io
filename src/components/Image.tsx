@@ -34,11 +34,8 @@ export const Image = ({
     }
   }
 
-  const containerClasses = classNames(
-    'mb-6 w-full rounded bg-slate-200 dark:bg-slate-700',
-    className
-  );
-  const imageClasses = classNames(filter, {
+  const containerClasses = classNames('mb-6 w-full', className);
+  const imageClasses = classNames(filter, 'bg-slate-200 dark:bg-slate-700', {
     'rounded-full': circle,
   });
 

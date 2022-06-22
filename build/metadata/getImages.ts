@@ -6,7 +6,9 @@ export function getImages({ ast }: MetadataPluginProps) {
     (node) => node.attributes.src
   );
 
+  const heroImage = images.find((im) => im.id === 'hero');
+
   if (images.length > 0) {
-    return { images };
+    return { heroImage, images };
   }
 }

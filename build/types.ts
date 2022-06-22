@@ -15,7 +15,9 @@ export type MetadataPluginProps = {
   metadata: Partial<ArticleMetadata>;
 };
 
-export type MetadataPlugin = (props: MetadataPluginProps) => Partial<ArticleMetadata> | undefined;
+export type MetadataPlugin = (
+  props: MetadataPluginProps
+) => Promise<Partial<ArticleMetadata> | undefined> | Partial<ArticleMetadata> | undefined;
 
 export type MarkdocTagRegistration = Schema & {
   node?: NodeType;

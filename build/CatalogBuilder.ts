@@ -26,6 +26,14 @@ export class CatalogBuilder extends EventEmitter {
     this.initialScanComplete = false;
   }
 
+  async get(id: string) {
+    if (!this.initialScanComplete) {
+      await this.performInitialScan();
+    }
+
+    return this.articles[id];
+  }
+
   async read() {
     if (!this.initialScanComplete) {
       await this.performInitialScan();

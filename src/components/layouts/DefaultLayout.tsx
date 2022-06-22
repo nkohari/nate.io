@@ -1,6 +1,5 @@
 import React from 'react';
-import { Callout } from 'src/components';
-import { Byline } from 'src/shell';
+import { Byline, Callout, Subtitle, Title } from 'src/components';
 import { ArticleMetadata } from 'src/types';
 
 const ArticleArchivedWarning = () => (
@@ -11,24 +10,23 @@ const ArticleArchivedWarning = () => (
   </Callout>
 );
 
-type HeadlineProps = {
+type DefaultLayoutProps = {
+  children: React.ReactNode;
   metadata: ArticleMetadata;
 };
 
-export const Headline = ({ metadata }: HeadlineProps) => {
-  const { title, subtitle, state, type } = metadata;
-
-  // If the article doesn't have a title, don't try to show a header.
-  if (!title) return null;
+export const DefaultLayout = ({ children, metadata }: DefaultLayoutProps) => {
+  const { type, title, state, subtitle } = metadata;
 
   return (
-    <React.Fragment>
+    <div className="flex-1 flex flex-col">
       <header className="mb-6">
-        {title && <h1 className="text-3xl font-extrabold">{title}</h1>}
-        {subtitle && <h2 className="text-lg text-gray-600 dark:text-gray-400">{subtitle}</h2>}
+        {title && <Title>{title}</Title>}
+        {subtitle && <Subtitle>{subtitle}</Subtitle>}
         {type !== 'page' && <Byline metadata={metadata} />}
       </header>
       {state === 'archived' && <ArticleArchivedWarning />}
-    </React.Fragment>
+      {children}
+    </div>
   );
 };

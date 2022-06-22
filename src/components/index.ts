@@ -1,6 +1,7 @@
 export * from './AvatarCards';
 export * from './Badge';
 export * from './Blockquote';
+export * from './Byline';
 export * from './Callout';
 export * from './Code';
 export * from './CodeBlock';
@@ -20,5 +21,16 @@ export * from './List';
 export * from './ListItem';
 export * from './Note';
 export * from './Paragraph';
+export * from './Subtitle';
+export * from './Title';
 export * from './Toggle';
 export * from './Work';
+
+export * from './layouts/DefaultLayout';
+export * from './layouts/MusicLayout';
+
+export * from './music/AlbumTrackList';
+export * from './music/ArtistList';
+export * from './music/MusicGrid';
+export * from './music/MusicSidebar';
+export * from './music/PoweredBySpotify';

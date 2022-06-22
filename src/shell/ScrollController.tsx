@@ -11,7 +11,7 @@ export const ScrollController = ({ children }: ScrollControllerProps) => {
 
   useLayoutEffect(() => {
     if (location.pathname !== previousLocation.pathname) {
-      window.scrollTo({ top: 0, left: 0 });
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     }
     setPreviousLocation(location);
   }, [location]);

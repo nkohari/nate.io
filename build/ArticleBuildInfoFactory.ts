@@ -4,6 +4,7 @@ import yaml from 'js-yaml';
 import { Node } from '@markdoc/markdoc';
 import { MarkdocParser } from './MarkdocParser';
 import { ArticleBuildInfo, MetadataPlugin } from './types';
+import { ArticleMetadata } from '../src/types';
 
 type ArticleBuildInfoFactoryConfig = {
   basePath: string;
@@ -30,7 +31,7 @@ export class ArticleBuildInfoFactory {
     const ast = this.markdocParser.parse(text);
 
     const chunkId = filename.replace(`${this.basePath}/`, '');
-    const metadata = this.getMetadata(ast);
+    const metadata = await this.getMetadata(ast);
     const hash = this.getHash(ast, metadata);
     const path = this.getPath(filename);
 
@@ -49,17 +50,22 @@ export class ArticleBuildInfoFactory {
     return crypto.createHash('sha256').update(text).digest('hex').substring(0, 8);
   }
 
-  private getMetadata(ast: Node) {
-    const frontmatter = ast.attributes.frontmatter ? yaml.load(ast.attributes.frontmatter) : {};
+  private async getMetadata(ast: Node) {
+    let metadata: any = {};
 
-    return this.metadataPlugins.reduce((metadata, plugin) => {
-      const values = plugin({ ast, metadata });
+    if (ast.attributes.frontmatter) {
+      const frontmatter = yaml.load(ast.attributes.frontmatter) as any;
+      metadata = { ...frontmatter };
+    }
+
+    for (const plugin of this.metadataPlugins) {
+      const values = await plugin({ ast, metadata });
       if (values) {
-        return { ...metadata, ...values };
-      } else {
-        return metadata;
+        metadata = { ...metadata, ...values };
       }
-    }, frontmatter as any);
+    }
+
+    return metadata;
   }
 
   private getPath(filename: string) {

@@ -1,26 +1,40 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames';
-import {
-  getAvatarUrls,
-  randomArrayElement,
-  randomInteger,
-  useInterval,
-  useReducedMotion,
-} from 'src/util';
+import { motion, useAnimationControls, useReducedMotion } from 'framer-motion';
+import { getAvatarUrls, randomArrayElement, randomInteger, useInterval } from 'src/util';
 
 const MIN_FLIP_TIME = 7500;
 const MAX_FLIP_TIME = 15000;
 
+const cardVariants = {
+  front: {
+    scale: 1,
+    rotateY: 0,
+    transition: { type: 'spring', stiffness: 100, mass: 0.5 },
+  },
+  back: {
+    scale: 1,
+    rotateY: 180,
+    transition: { type: 'spring', stiffness: 100, mass: 0.5 },
+  },
+  hover: (position: number) => ({
+    scale: 1.15,
+    rotate: position % 2 === 0 ? 3 : -3,
+    transition: { type: 'spring', stiffness: 150, damping: 8, mass: 0.8 },
+  }),
+};
+
 type AvatarImageProps = {
-  flip?: boolean;
   src: string;
+  flip?: boolean;
 };
 
 const AvatarImage = ({ flip = false, src }: AvatarImageProps) => {
   const classes = classNames(
-    'absolute shadow shadow-md shadow-slate-300 dark:shadow-none backface-hidden',
+    'absolute rounded-md shadow-md backface-hidden',
     flip && 'rotate-y-180'
   );
+
   return (
     <img
       src={src}
@@ -39,6 +53,7 @@ type AvatarCardProps = {
 };
 
 const AvatarCard = ({ position, urls }: AvatarCardProps) => {
+  const controls = useAnimationControls();
   const [visibleFace, setVisibleFace] = useState('front');
   const [frontUrl, setFrontUrl] = useState(randomArrayElement(urls));
   const [backUrl, setBackUrl] = useState(randomArrayElement(urls));
@@ -48,6 +63,10 @@ const AvatarCard = ({ position, urls }: AvatarCardProps) => {
     if (visibleFace === 'front') setVisibleFace('back');
     else setVisibleFace('front');
   };
+
+  useEffect(() => {
+    controls.start(visibleFace);
+  }, [visibleFace]);
 
   useEffect(() => {
     const handleKeypress = (event: KeyboardEvent) => {
@@ -74,18 +93,21 @@ const AvatarCard = ({ position, urls }: AvatarCardProps) => {
     [reducedMotion]
   );
 
-  const classes = classNames(
-    'block relative flex-none w-full aspect-square three-d transition-transform duration-500',
-    {
-      'rotate-y-180': visibleFace === 'back',
-    }
-  );
-
   return (
-    <a role="button" aria-roledescription="avatar card" onClick={flipCard} className={classes}>
+    <motion.div
+      role="button"
+      aria-roledescription="avatar card"
+      onClick={flipCard}
+      className="relative aspect-square w-1/4 three-d z-1 hover:z-10"
+      initial={false}
+      animate={visibleFace}
+      whileHover="hover"
+      variants={cardVariants}
+      custom={position}
+    >
       <AvatarImage src={frontUrl} />
       <AvatarImage src={backUrl} flip />
-    </a>
+    </motion.div>
   );
 };
 
@@ -97,7 +119,7 @@ export const AvatarCards = ({ count = 1 }: AvatarCardsProps) => {
   const urls = getAvatarUrls().sort(() => Math.random());
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 mb-8 bg-checkerboard">
+    <div className="flex flex-row space-x-4 mb-8">
       {[...Array(count).keys()].map((index) => (
         <AvatarCard key={index} position={index + 1} urls={urls} />
       ))}

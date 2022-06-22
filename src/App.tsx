@@ -1,5 +1,6 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { AnimatePresence } from 'framer-motion';
 import { useArticles } from 'virtual:nateio/articles';
 import {
   Body,
@@ -13,13 +14,16 @@ import {
 
 const ArticleRoutes = () => {
   const articles = useArticles();
+  const location = useLocation();
   return (
-    <Routes>
-      {Object.values(articles).map(({ path }) => (
-        <Route key={path} path={path} element={<Body path={path} />} />
-      ))}
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <AnimatePresence exitBeforeEnter>
+      <Routes key={location.pathname} location={location}>
+        {Object.values(articles).map(({ path }) => (
+          <Route key={path} path={path} element={<Body path={path} />} />
+        ))}
+        <Route key="*" path="*" element={<NotFound />} />
+      </Routes>
+    </AnimatePresence>
   );
 };
 

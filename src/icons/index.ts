@@ -1,4 +1,7 @@
+export * from './album';
 export * from './archived';
+export * from './back';
+export * from './backUp';
 export * from './close';
 export * from './draft';
 export * from './email';
@@ -7,7 +10,9 @@ export * from './github';
 export * from './info';
 export * from './linkedin';
 export * from './menu';
+export * from './music';
 export * from './search';
+export * from './spotify';
 export * from './theme';
 export * from './twitter';
 export * from './warning';

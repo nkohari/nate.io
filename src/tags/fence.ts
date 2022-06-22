@@ -1,5 +1,6 @@
-import Markdoc, { Config, Node, Tag, RenderableTreeNode } from '@markdoc/markdoc';
+import Markdoc, { Node, Tag, RenderableTreeNode } from '@markdoc/markdoc';
 import Prism from 'prismjs';
+import { MarkdocTransformConfig } from 'src/types';
 
 // NB: This is a (still pretty-hacky) experiment in pulling Prism tokens out and treating
 // them more like Markdoc nodes. I wouldn't recommend this approach, at least until I can
@@ -52,7 +53,7 @@ export default {
     content: { type: String },
     language: { type: String },
   },
-  transform(node: Node, config: Config) {
+  transform(node: Node, config: MarkdocTransformConfig) {
     const attributes = node.transformAttributes(config);
 
     // TODO: language

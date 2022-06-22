@@ -15,6 +15,7 @@ export { default as libraryBrowser } from './library-browser';
 export { default as link } from './link';
 export { default as list } from './list';
 export { default as listItem } from './list-item';
+export { default as musicGrid } from './music-grid';
 export { default as note } from './note';
 export { default as paragraph } from './paragraph';
 export { default as work } from './work';

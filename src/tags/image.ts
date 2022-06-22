@@ -1,5 +1,6 @@
 import imageSize from 'image-size';
-import Markdoc, { Config, Node } from '@markdoc/markdoc';
+import Markdoc, { Node } from '@markdoc/markdoc';
+import { MarkdocTransformConfig } from 'src/types';
 
 export default {
   node: 'image',
@@ -11,7 +12,7 @@ export default {
     circle: { type: Boolean },
     filter: { type: String, matches: ['grayscale', 'sepia'] },
   },
-  transform(node: Node, config: Config) {
+  transform(node: Node, config: MarkdocTransformConfig) {
     const attributes = node.transformAttributes(config);
     const children = node.transformChildren(config);
     const { height, width, type: format } = imageSize(`media/images/${attributes.src}`);

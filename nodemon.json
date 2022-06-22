@@ -1,0 +1,5 @@
+{
+  "watch": ["src/api"],
+  "ext": "ts",
+  "exec": "npm run api-build && NODE_ENV=development node ./dist/server.js"
+}

@@ -4,3 +4,4 @@ export * from './getContentStats';
 export * from './getExcerpt';
 export * from './getImages';
 export * from './getOutgoingLinks';
+export * from './getSpotifyData';

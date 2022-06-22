@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
+import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import { Icon } from 'src/components';
 import { ThemeSelector } from 'src/shell';
@@ -8,6 +9,7 @@ const SECTIONS = [
   { text: 'About', href: '/' },
   { text: 'Now', href: '/now' },
   { text: 'Work', href: '/work' },
+  { text: 'Music', href: '/music' },
   { text: 'Writing', href: '/writing' },
 ];
 
@@ -51,25 +53,47 @@ const MobileNavigationOverlayToggle = () => {
   );
 };
 
-const DesktopNavigationLinks = () => {
+type DesktopNavigationLinkProps = {
+  href: string;
+  text: string;
+};
+
+const DesktopNavigationLink = ({ href, text }: DesktopNavigationLinkProps) => {
+  const [hover, setHover] = useState(false);
+
   const getClasses = ({ isActive }: { isActive: boolean }) => {
-    return classNames(
-      'inline-block ml-2 px-2 py-0.5 rounded-lg transition-[background] hover:bg-slate-200 dark:hover:bg-slate-600',
-      {
-        'font-bold': isActive,
-      }
-    );
+    return classNames('relative inline-flex justify-center px-2.5', {
+      'font-bold': isActive,
+    });
   };
 
   return (
-    <nav className="flex items-center">
-      {SECTIONS.map(({ href, text }) => (
-        <NavLink key={href} to={href} className={getClasses}>
-          {text}
-        </NavLink>
-      ))}
-    </nav>
+    <NavLink
+      key={href}
+      to={href}
+      className={getClasses}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      <span className="relative z-10">{text}</span>
+      {hover && (
+        <motion.div
+          layoutId="navigation"
+          initial={false}
+          animate={{ top: 0, x: 0 }}
+          transition={{ type: 'spring', stiffness: 120, damping: 10, mass: 0.6 }}
+          className="absolute z-1 h-full w-full rounded-md bg-slate-200 dark:bg-slate-700"
+        />
+      )}
+    </NavLink>
   );
+};
+
+const DesktopNavigation = () => {
+  const links = SECTIONS.map(({ href, text }) => (
+    <DesktopNavigationLink key={href} href={href} text={text} />
+  ));
+  return <nav className="flex items-center">{links}</nav>;
 };
 
 export const SiteNavigation = () => (
@@ -79,7 +103,7 @@ export const SiteNavigation = () => (
       <ThemeSelector />
     </div>
     <div className="hidden md:flex items-center">
-      <DesktopNavigationLinks />
+      <DesktopNavigation />
       <ThemeSelector />
     </div>
   </React.Fragment>

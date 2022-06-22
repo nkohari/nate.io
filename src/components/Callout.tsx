@@ -10,19 +10,21 @@ const TYPE_CLASSES: Record<CalloutType, string> = {
 };
 
 export type CalloutProps = {
-  type: CalloutType;
+  className?: string;
   children: React.ReactNode;
+  type: CalloutType;
 };
 
-export const Callout = ({ children, type }: CalloutProps) => {
+export const Callout = ({ children, className, type }: CalloutProps) => {
   const classes = classNames(
+    className,
     'flex justify-begin text-base leading-normal rounded-md border-b-2 p-4 mb-6',
     TYPE_CLASSES[type]
   );
 
   return (
     <div className={classes} role="alert">
-      <div className="mr-4">
+      <div className="flex flex-col flex-none pt-1 mr-4">
         <Icon type={type} />
       </div>
       <div>{children}</div>

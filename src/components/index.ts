@@ -1,4 +1,3 @@
-export * from './Attribution';
 export * from './AvatarCards';
 export * from './Badge';
 export * from './Blockquote';
@@ -12,6 +11,7 @@ export * from './Duration';
 export * from './Heading';
 export * from './Icon';
 export * from './Image';
+export * from './ImageAttribution';
 export * from './Input';
 export * from './LeadIn';
 export * from './LibraryBrowser';

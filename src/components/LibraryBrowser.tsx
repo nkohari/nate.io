@@ -61,12 +61,12 @@ export const LibraryBrowser = () => {
 
   const query = urlParams.get('query') || '';
   const showArchived = urlParams.get('archived') !== '0';
-  const catalogCards = useMemo(
+  const matchingArticles = useMemo(
     () => search(Object.values(articles), query, showArchived),
     [articles, query, showArchived]
   );
 
-  const abstracts = catalogCards.map(({ metadata, path }) => {
+  const abstracts = matchingArticles.map(({ metadata, path }) => {
     if (metadata.type === 'page') {
       return null;
     } else {

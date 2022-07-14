@@ -29,7 +29,7 @@ export const MusicLayout = ({ children, metadata }: MusicLayoutProps) => {
               icon="spotify"
               iconPosition="right"
               iconSpacing={2}
-              className="hover:text-[#1db954] hover:decoration-[#1db954]"
+              className="hover:text-[#1db954] hover:decoration-[#1db954] dark:hover:text-[#1db954] dark:hover:decoration-[#1db954]"
             >
               {metadata.title || track.name}
             </Link>

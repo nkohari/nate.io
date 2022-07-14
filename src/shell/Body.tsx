@@ -36,21 +36,21 @@ export const Body = ({ path }: BodyProps) => {
   }
 
   return (
-    <motion.main
-      className="flex-1 flex flex-col w-full"
-      initial="initial"
-      animate="visible"
-      exit="exit"
-      variants={variants}
-    >
-      <MetadataProvider metadata={article.metadata}>
-        <Meta metadata={article.metadata} />
-        <Layout metadata={article.metadata}>
-          <Suspense fallback={<div className="min-h-screen" />}>
+    <Suspense fallback={<div className="flex-1 min-h-screen" />}>
+      <motion.main
+        className="flex-1 flex flex-col w-full"
+        initial="initial"
+        animate="visible"
+        exit="exit"
+        variants={variants}
+      >
+        <MetadataProvider metadata={article.metadata}>
+          <Meta metadata={article.metadata} />
+          <Layout metadata={article.metadata}>
             <Content />
-          </Suspense>
-        </Layout>
-      </MetadataProvider>
-    </motion.main>
+          </Layout>
+        </MetadataProvider>
+      </motion.main>
+    </Suspense>
   );
 };

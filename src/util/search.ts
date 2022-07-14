@@ -1,17 +1,10 @@
 import escapeStringForRegexp from 'escape-string-regexp';
 import { Article } from 'src/types';
 
-export const search = (
-  articles: Article[],
-  query: string | null,
-  includeArchived: boolean
-): Article[] => {
+export const search = (articles: Article[], query: string | null): Article[] => {
   const isMatch = (article: Article) => {
-    // Never match page articles.
-    if (article.metadata.type === 'page') return false;
-
-    // If archived articles are not supposed to be included, don't match them.
-    if (!includeArchived && article.metadata.state === 'archived') return false;
+    // Never match page or music articles.
+    if (article.metadata.type === 'page' || article.metadata.type === 'music') return false;
 
     // If a query string was provided, use it to match.
     if (query && query.length > 0) {

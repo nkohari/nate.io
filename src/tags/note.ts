@@ -1,4 +1,5 @@
-import Markdoc, { Config, Node } from '@markdoc/markdoc';
+import Markdoc, { Node } from '@markdoc/markdoc';
+import { MarkdocTransformConfig } from 'src/types';
 
 export default {
   tag: 'note',
@@ -6,7 +7,7 @@ export default {
   attributes: {
     id: { type: String },
   },
-  transform(node: Node, config: Config) {
+  transform(node: Node, config: MarkdocTransformConfig) {
     const attributes = node.transformAttributes(config);
 
     let children = node.transformChildren(config);

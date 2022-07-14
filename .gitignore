@@ -1,4 +1,6 @@
+.cache
 .DS_Store
+.env
 dist
 node_modules
 content/writing/drafts

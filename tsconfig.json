@@ -15,7 +15,8 @@
     "skipLibCheck": false,
     "strict": true,
     "target": "ESNext",
+    "types": ["vite/client"],
     "useDefineForClassFields": true
   },
-  "include": ["./build", "./src"]
+  "include": ["./api", "./build", "./lib", "./src"]
 }

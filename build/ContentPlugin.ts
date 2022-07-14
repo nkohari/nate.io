@@ -1,9 +1,19 @@
 import path from 'path';
-import { Plugin, ResolvedConfig } from 'vite';
+import { Plugin } from 'vite';
+import { config } from '../lib/config';
 import { ArticleBuildInfoFactory } from './ArticleBuildInfoFactory';
 import { CatalogBuilder } from './CatalogBuilder';
 import { MarkdocParser } from './MarkdocParser';
-import { MarkdocTagRegistration, MetadataPlugin } from './types';
+import {
+  getArticleState,
+  getArticleType,
+  getContentStats,
+  getExcerpt,
+  getImages,
+  getOutgoingLinks,
+  getSpotifyData,
+} from './metadata';
+import { MarkdocTagRegistration } from './types';
 import * as templates from './templates';
 
 const CATALOG_MODULE_ID = 'virtual:nateio/articles';
@@ -16,31 +26,40 @@ export type ContentPluginOptions = {
   componentsPath: string;
   contentPath: string;
   tags: MarkdocTagRegistration[];
-  metadataPlugins: MetadataPlugin[];
 };
 
 export function ContentPlugin(options: ContentPluginOptions): Plugin {
-  let config: ResolvedConfig;
   let reactRefreshPlugin: Plugin | undefined;
 
   const basePath = process.cwd();
+  const cachePath = path.resolve(basePath, '.cache') + '/';
   const componentsPath = path.resolve(basePath, options.componentsPath) + '/';
   const contentPath = path.resolve(basePath, options.contentPath) + '/';
 
   const markdocParser = new MarkdocParser({ tags: options.tags });
+  const metadataPlugins = [
+    getArticleState,
+    getArticleType,
+    getContentStats,
+    getExcerpt,
+    getImages,
+    getOutgoingLinks,
+    getSpotifyData(config, cachePath),
+  ];
+
   const articleBuildInfoFactory = new ArticleBuildInfoFactory({
     basePath,
     contentPath,
     markdocParser,
-    metadataPlugins: options.metadataPlugins,
+    metadataPlugins,
   });
+
   const catalogBuilder = new CatalogBuilder({ contentPath, articleBuildInfoFactory });
 
   return {
     name: 'vite-plugin-nateio-content',
-    configResolved(resolvedConfig) {
-      config = resolvedConfig;
-      reactRefreshPlugin = config.plugins.find((plugin) => plugin.name === 'vite:react-babel');
+    configResolved(viteConfig) {
+      reactRefreshPlugin = viteConfig.plugins.find((plugin) => plugin.name === 'vite:react-babel');
     },
     async buildEnd() {
       return catalogBuilder.stopWatching();
@@ -74,7 +93,8 @@ export function ContentPlugin(options: ContentPluginOptions): Plugin {
       if (!ARTICLE_FILENAME_PATTERN.test(id)) return;
 
       const ast = markdocParser.parse(text);
-      const content = markdocParser.transform(ast);
+      const articleBuildInfo = await catalogBuilder.get(id);
+      const content = markdocParser.transform(ast, articleBuildInfo.metadata);
       const code = templates.article({ componentsPath, content });
 
       // HACK: @vitejs/plugin-react automatically supports Fast Refresh for all modules which

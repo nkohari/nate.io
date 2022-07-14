@@ -1,4 +1,5 @@
 import Markdoc, { Config, Node, Tokenizer } from '@markdoc/markdoc';
+import { ArticleMetadata } from '../src/types';
 import { MarkdocTagRegistration } from './types';
 
 export type MarkdocParserProps = {
@@ -37,7 +38,7 @@ export class MarkdocParser {
     return Markdoc.parse(this.tokenizer.tokenize(text));
   }
 
-  transform(ast: Node) {
-    return Markdoc.transform(ast, this.config);
+  transform(ast: Node, metadata: ArticleMetadata) {
+    return Markdoc.transform(ast, { ...this.config, metadata });
   }
 }

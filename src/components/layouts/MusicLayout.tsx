@@ -18,7 +18,7 @@ export const MusicLayout = ({ children, metadata }: MusicLayoutProps) => {
             type="subtle"
             icon="backUp"
             href="/music"
-            className="mb-6 text-sm text-slate-500 dark:text-slate-400"
+            className="mb-6 text-sm text-slate-600 dark:text-slate-400"
           >
             The Music That Made Me
           </Link>

@@ -8,11 +8,11 @@ export type LinkType = 'unstyled' | 'block' | 'normal' | 'subtle';
 export const LINK_CLASSES: Record<LinkType, string> = {
   unstyled: '',
   block:
-    'transition transition-colors font-semibold bg-slate-200 dark:bg-slate-600 hover:bg-blue-600 dark:hover:bg-blue-400 hover:text-white',
+    'transition transition-colors bg-slate-200 dark:bg-slate-600 hover:bg-blue-600 dark:hover:bg-blue-400 hover:text-white',
   normal:
-    'transition transition-all font-semibold hover:underline underline-offset-1 decoration-transparent text-blue-500 dark:text-blue-300 hover:text-blue-600 hover:decoration-blue-600 hover:dark:decoration-blue-300',
+    'transition transition-all duration-200 underline underline-offset-1 text-slate-700 decoration-slate-400 dark:text-slate-300 dark:decoration-slate-500 hover:text-blue-600 hover:dark:text-blue-300 hover:decoration-blue-600 hover:dark:decoration-blue-300',
   subtle:
-    'transition transition-all hover:underline underline-offset-1 decoration-transparent hover:text-blue-600 hover:decoration-blue-600 dark:hover:text-blue-400 dark:hover:decoration-blue-400',
+    'transition transition-all duration-200 hover:underline underline-offset-1 decoration-transparent hover:text-blue-600 hover:decoration-blue-600 dark:hover:text-blue-400 dark:hover:decoration-blue-400',
 };
 
 export type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {

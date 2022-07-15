@@ -7,7 +7,7 @@ _Have Love Will Travel_ was originally [a doo-wop song](https://open.spotify.com
 
 But in 2001, Dan Auerbach cranked the feedback knob on his guitar to 11, Patrick Carney set up a shitty eight-track recorder in his basement, and together they made the song their own.
 
-If I had to choose one "favorite" band, it'd be The Black Keys. They're [also from Akron](/writing/the-city-of-opportunity), and their mix of raw, gritty, bluesy rock is just right. Way back, they'd do shows at the [Civic Theatre](https://en.wikipedia.org/wiki/Akron_Civic_Theatre), and my biggest musical regret is not seeing them there when I had the chance.
+If I had to choose one "favorite" band, it'd be The Black Keys. They're [also from Akron](/writing/the-city-of-opportunity), and if the city had a sound, it'd be their mix of raw, gritty, bluesy rock. Way back, they'd do shows at the [Civic Theatre](https://en.wikipedia.org/wiki/Akron_Civic_Theatre), and my biggest musical regret is not seeing them there when I had the chance.
 
 Trying to come up with a name for the album, Dan and Patrick drove around Akron. Wandering into a Super K-Mart, they found a jar of pomade, and history was made.
 

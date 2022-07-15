@@ -89,7 +89,9 @@ export const AlbumTrackList = ({ album, highlightedTrack }: AlbumTrackListProps)
   return (
     <div className="flex flex-col">
       <div className="pb-2 text-center border-b border-slate-300 dark:border-slate-700">
-        {album.name} ({album.releaseYear})
+        <Link type="subtle" href={album.url}>
+          {album.name} ({album.releaseYear})
+        </Link>
       </div>
       <AnimatePresence>{items}</AnimatePresence>
       {showMoreLink}

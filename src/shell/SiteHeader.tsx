@@ -24,9 +24,9 @@ const EndlessKnot = (props: React.SVGProps<SVGSVGElement>) => (
 export const SiteHeader = () => (
   <div className="flex justify-between mb-8">
     <motion.div initial={false} animate="visible" whileHover="hover">
-      <NavLink to="/" className="flex group space-x-2 leading-6">
+      <NavLink to="/" className="flex-1 flex flex-row items-center">
         <EndlessKnot />
-        <div className="flex flex-col">
+        <div className="ml-1.5 flex flex-col leading-6 whitespace-nowrap">
           <div className="font-extrabold">Nate Kohari</div>
           <div>Professional Bit-shifter</div>
         </div>

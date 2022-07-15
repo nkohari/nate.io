@@ -3,7 +3,7 @@ type: music
 spotifyId: 739S7OQbZ5njYP1Z0ECggL
 ---
 
-I'm usually not a big fan of live recordings. I enjoy live music, but _recordings_ of live music always strike me as someone telling you how great the party was last week, and that you _totally_ should have been there because everyone had so much fun.
+I'm usually not a big fan of live recordings. I enjoy live music, but _recordings_ of live music always strike me as someone telling you how great the party was last week, and how you _totally_ should have been there because it was _so much fun_.
 
 But, _Golden_ is the exception that proves the rule. My Morning Jacket's music is usually more complex, but _Golden_ is just Jim James on stage by himself with an acoustic guitar.
 

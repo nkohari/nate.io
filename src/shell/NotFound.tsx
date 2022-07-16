@@ -9,9 +9,9 @@ const variants = {
   },
   boing: (index: number) => ({
     x: index * 12,
-    y: index * -16,
+    y: 10 + index * -16,
     rotate: -7,
-    transition: { type: 'spring', stiffness: 100, damping: 2, mass: 1 },
+    transition: { type: 'spring', stiffness: 100, damping: 2, mass: 1, delay: 0.75 },
   }),
 };
 
@@ -46,7 +46,7 @@ export const NotFound = () => {
   return (
     <main className="flex-1 flex items-center justify-center">
       <div className="flex flex-col md:flex-row items-center">
-        <div className="relative w-32 h-32 md:w-48 md:h-48 translate-y-10">
+        <div className="relative w-32 h-32 md:w-48 md:h-48">
           <SadComputer index={0} className="fill-blue-300" />
           <SadComputer index={1} className="fill-emerald-300" />
           <SadComputer index={2} className="fill-rose-300" />

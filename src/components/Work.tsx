@@ -17,7 +17,7 @@ export const Work = ({ children, from, job, note, location, to }: WorkProps) => 
         {job}{' '}
         {note && <span className="font-normal text-slate-600 dark:text-slate-400">({note})</span>}
       </div>
-      <div className="italic text-sm text-slate-600 dark:text-slate-400">{location}</div>
+      <div className="italic text-base text-slate-600 dark:text-slate-400">{location}</div>
       <div className="mt-3">{children}</div>
     </div>
   </section>

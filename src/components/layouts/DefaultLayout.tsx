@@ -18,13 +18,20 @@ type DefaultLayoutProps = {
 export const DefaultLayout = ({ children, metadata }: DefaultLayoutProps) => {
   const { type, title, state, subtitle } = metadata;
 
-  return (
-    <div className="flex-1 flex flex-col">
+  let header;
+  if (title) {
+    header = (
       <header className="mb-6">
-        {title && <Title>{title}</Title>}
+        <Title>{title}</Title>
         {subtitle && <Subtitle>{subtitle}</Subtitle>}
         {type !== 'page' && <Byline metadata={metadata} />}
       </header>
+    );
+  }
+
+  return (
+    <div className="flex-1 flex flex-col">
+      {header}
       {state === 'archived' && <ArticleArchivedWarning />}
       {children}
     </div>

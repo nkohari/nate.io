@@ -2,12 +2,23 @@
 title: My Work
 ---
 
-I've spent the last few years at later-stage startups. Before that, I spent most of my career working for smaller companies, or starting my own. I've held pretty much every position in software from engineer to executive, and also spent a few years as an independent consultant.
+**I'm an internet engineer**. I build thoughtful, polished web interfaces and scalable, high-performance APIs. I care deeply about creating user experiences that are surprisingly great.
 
-## Experience
+I've spent the last few years at later-stage startups. Before that, I spent most of my career working for smaller companies, or starting my own. Over the {% duration since="2004-06-01" /%} of my career, I've held a wide range of roles from engineer to executive, and I also spent a few years as an independent consultant.
+
+## My Principles
+
+1. **Be better than yesterday.** Everything is a work-in-progress, including ourselves. However, if we make [small improvements](https://en.wikipedia.org/wiki/Kaizen) every day, they'll result in dramatic changes. The value of incremental and directionally-correct improvements compounds over time, just like interest on savings.
+2. **Feedback is a gift.** Every viewpoint is unique, and striving to understanding them is an opportunity for us to improve and better understand ourselves, our work, and the world around us. Give and receive feedback freely, as long as it's truthful, necessary, timely, and kind.
+3. **Invest in long levers.** Work that makes other people more efficient, happier, or better at their jobs is the highest-leverage work an engineer can do. Your time and energy is limited; be on the lookout for opportunities to amplify your effort.
+4. **Design is leverage.** Spending the right amount of time --- not too little, not too much --- on design and architecture often yield huge dividends later by unlocking efficiencies you didn't expect. Avoid excessive future-proofing, but keep an eye on the horizon for what might come next.
+5. **Always be shipping.** Good quality software that's in the user's hands always beats better-quality software that's still in development. Focus on the fundamentals, cut everything else, and deliver the rest incrementally.
+6. **Embrace impermanence.** Users don't care about software; they care about the impact it has on their lives and what it enables them to do. Avoid becoming attached to the code you write, and celebrate the day when it's replaced by something better.
+
+## My Experience
 
 {% work from="2019" to="now" job="Staff Software Engineer at Stripe" location="Raleigh, NC (Remote)" %}
-Technical lead for the Docs organization, a cross-functional group of engineers, designers, and technical writers responsible for [Stripe's documentation](https://stripe.com/docs). Lead the development of a new platform for Stripe's docs powered by React and [Markdoc](https://markdoc.io), paying down years of technical debt and providing a ~4x speedup over the legacy system.
+Technical lead for the Docs organization, a cross-functional group of engineers, writers, and designers responsible for [Stripe's documentation](https://stripe.com/docs). Lead the development of a new platform for Stripe's docs powered by React and [Markdoc](https://markdoc.io), paying down years of technical debt and providing a ~4x speedup over the legacy system.
 {% /work %}
 
 {% work from="2018" to="2019" job="Senior Software Engineer at Auth0" note="acq. Okta" location="Raleigh, NC (Remote)" %}

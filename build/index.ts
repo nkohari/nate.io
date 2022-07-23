@@ -1,5 +1,5 @@
 export * from './ContentPlugin';
 
-export * from './metadata';
+export * from './plugins/metadata';
 export * from './types';
 export * from './util';

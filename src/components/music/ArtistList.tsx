@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'src/components';
 import { Reference } from 'lib/spotify';
 
@@ -35,5 +34,5 @@ export const ArtistList = ({ artists }: ArtistListProps) => {
     }, [] as React.ReactNode[]);
   }
 
-  return <React.Fragment>{content}</React.Fragment>;
+  return <>{content}</>;
 };

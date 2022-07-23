@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 import { Config } from 'lib/config';
-import { MetadataPluginProps } from '../types';
-import { SpotifyClient, DiskCache } from '../../lib/spotify';
+import { MetadataPluginProps } from '../../types';
+import { SpotifyClient, DiskCache } from '../../../lib/spotify';
 
 export function getSpotifyData(config: Config, cachePath: string) {
   const cache = new DiskCache(resolve(cachePath, 'spotify'));

@@ -11,8 +11,10 @@ import {
   getExcerpt,
   getImages,
   getOutgoingLinks,
+  getSections,
   getSpotifyData,
-} from './metadata';
+} from './plugins/metadata';
+import { generateHeadingIds } from './plugins/parser';
 import { MarkdocTagRegistration } from './types';
 import * as templates from './templates';
 
@@ -36,22 +38,25 @@ export function ContentPlugin(options: ContentPluginOptions): Plugin {
   const componentsPath = path.resolve(basePath, options.componentsPath) + '/';
   const contentPath = path.resolve(basePath, options.contentPath) + '/';
 
-  const markdocParser = new MarkdocParser({ tags: options.tags });
-  const metadataPlugins = [
-    getArticleState,
-    getArticleType,
-    getContentStats,
-    getExcerpt,
-    getImages,
-    getOutgoingLinks,
-    getSpotifyData(config, cachePath),
-  ];
+  const markdocParser = new MarkdocParser({
+    tags: options.tags,
+    plugins: [generateHeadingIds],
+  });
 
   const articleBuildInfoFactory = new ArticleBuildInfoFactory({
     basePath,
     contentPath,
     markdocParser,
-    metadataPlugins,
+    metadataPlugins: [
+      getArticleState,
+      getArticleType,
+      getContentStats,
+      getExcerpt,
+      getImages,
+      getOutgoingLinks,
+      getSections,
+      getSpotifyData(config, cachePath),
+    ],
   });
 
   const catalogBuilder = new CatalogBuilder({ contentPath, articleBuildInfoFactory });

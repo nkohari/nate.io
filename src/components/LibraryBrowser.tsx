@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useArticles } from 'virtual:nateio/articles';
 import { ArticleMetadata } from 'src/types';

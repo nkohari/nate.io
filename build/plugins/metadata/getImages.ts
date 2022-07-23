@@ -1,5 +1,5 @@
-import { MetadataPluginProps } from '../types';
-import { findAllNodes } from '../util';
+import { MetadataPluginProps } from '../../types';
+import { findAllNodes } from '../../util';
 
 export function getImages({ ast }: MetadataPluginProps) {
   const images = findAllNodes(ast, (node) => node.tag === 'image').map(

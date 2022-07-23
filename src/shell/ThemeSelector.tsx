@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { Icon } from 'src/components';
 import { Theme, useTheme } from 'src/shell';

@@ -4,14 +4,21 @@ import { Album, Track } from 'lib/spotify';
 export type ArticleType = 'instructional' | 'narrative' | 'page' | 'vignette' | 'music';
 export type ArticleState = 'archived' | 'draft' | 'live';
 
+export type ArticleSection = {
+  id: string;
+  level: number;
+  text: string;
+};
+
 export type ArticleMetadata = {
   type: ArticleType;
   state: ArticleState;
+  sections: ArticleSection[];
   title?: string;
+  subtitle?: string;
   heroImage?: string;
   images?: string[];
   outgoingLinks?: string[];
-  subtitle?: string;
   excerpt?: string;
   date?: Date;
   footer?: boolean;

@@ -1,4 +1,3 @@
-import React from 'react';
 import { ArtistList, Link, MusicSidebar } from 'src/components';
 import { ArticleMetadata } from 'src/types';
 

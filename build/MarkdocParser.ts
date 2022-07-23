@@ -1,16 +1,19 @@
 import Markdoc, { Config, Node, Tokenizer } from '@markdoc/markdoc';
 import { ArticleMetadata } from '../src/types';
-import { MarkdocTagRegistration } from './types';
+import { MarkdocTagRegistration, ParserPlugin } from './types';
 
 export type MarkdocParserProps = {
+  plugins?: ParserPlugin[];
   tags: MarkdocTagRegistration[];
 };
 
 export class MarkdocParser {
   config: Config;
+  plugins: ParserPlugin[];
   tokenizer: Tokenizer;
 
-  constructor({ tags }: MarkdocParserProps) {
+  constructor({ plugins, tags }: MarkdocParserProps) {
+    this.plugins = plugins || [];
     this.tokenizer = new Markdoc.Tokenizer({ typographer: true });
 
     this.config = {
@@ -35,7 +38,8 @@ export class MarkdocParser {
   }
 
   parse(text: string) {
-    return Markdoc.parse(this.tokenizer.tokenize(text));
+    const node = Markdoc.parse(this.tokenizer.tokenize(text));
+    return this.plugins.reduce((ast, plugin) => plugin({ ast }), node);
   }
 
   transform(ast: Node, metadata: ArticleMetadata) {

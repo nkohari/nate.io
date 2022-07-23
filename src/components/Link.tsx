@@ -1,5 +1,4 @@
-import classNames from 'classnames';
-import React from 'react';
+import cx from 'classnames';
 import { Link as RouterLink } from 'react-router-dom';
 import { Icon, IconType } from 'src/components';
 
@@ -39,22 +38,22 @@ export const Link = ({
   type = 'normal',
   ...props
 }: LinkProps) => {
-  const linkClasses = classNames(LINK_CLASSES[type], className, {
-    [`inline-flex flex-row items-center`]: !!icon,
-    'flex-row-reverse': !!icon && iconPosition === 'right',
-  });
-
-  const iconClasses = ICON_SPACING_CLASSES[iconPosition][iconSpacing];
+  const linkClasses = cx(
+    LINK_CLASSES[type],
+    icon && 'inline-flex flex-row items-center',
+    icon && iconPosition === 'right' && 'flex-row-reverse',
+    className
+  );
 
   let content;
   if (!icon) {
     content = children;
   } else {
     content = (
-      <React.Fragment>
-        <Icon type={icon} className={iconClasses} />
+      <>
+        <Icon type={icon} className={ICON_SPACING_CLASSES[iconPosition][iconSpacing]} />
         <span>{children}</span>
-      </React.Fragment>
+      </>
     );
   }
 

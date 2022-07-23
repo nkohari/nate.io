@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cx from 'classnames';
 import './CodeBlock.css';
 
 export type CodeBlockTokenProps = {
@@ -8,7 +8,7 @@ export type CodeBlockTokenProps = {
 };
 
 export const CodeBlockToken = ({ children, content, type }: CodeBlockTokenProps) => {
-  return <span className={classNames('token', type)}>{content || children}</span>;
+  return <span className={cx('token', type)}>{content || children}</span>;
 };
 
 export type CodeBlockLineProps = {
@@ -16,14 +16,19 @@ export type CodeBlockLineProps = {
   number: number;
 };
 
-export const CodeBlockLine = ({ children, number }: CodeBlockLineProps) => {
-  const classes = `h-5 line-numbers first:h-7 first:before:pt-2 last:h-7 last:before:pb-2 before:inline-block before:w-8 before:px-1 before:mr-4 before:text-right before:text-slate-300 before:bg-slate-600`;
-  return (
-    <div data-line-number={number} className={classes}>
-      {children}
-    </div>
-  );
-};
+export const CodeBlockLine = ({ children, number }: CodeBlockLineProps) => (
+  <div
+    data-line-number={number}
+    className={cx(
+      'h-5 line-numbers',
+      'first:h-7 first:before:pt-2',
+      'last:h-7 last:before:pb-2',
+      'before:inline-block before:w-8 before:px-1 before:mr-4 before:text-right before:text-slate-300 before:bg-slate-600'
+    )}
+  >
+    {children}
+  </div>
+);
 
 export type CodeBlockProps = {
   content: string;
@@ -35,7 +40,10 @@ export const CodeBlock = ({ content, children, language }: CodeBlockProps) => {
   return (
     <pre
       data-language={language}
-      className="font-mono text-white text-sm mb-6 border-2 min-h-[40px] border-slate-600 bg-slate-700 bg-clip-border rounded-md line-numbers-group overflow-x-auto"
+      className={cx(
+        'overflow-x-auto min-h-[40px] mb-6 bg-slate-700 bg-clip-border border-2 border-slate-600 rounded-md',
+        'font-mono text-white text-sm line-numbers-group'
+      )}
     >
       {children}
     </pre>

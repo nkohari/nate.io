@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import cx from 'classnames';
 
 export type ListProps = {
   children: React.ReactNode;
@@ -8,11 +8,7 @@ export type ListProps = {
 
 export const List = ({ children, className, ordered }: ListProps) => {
   const Component = ordered ? 'ol' : 'ul';
-  const classes = classNames(
-    'ml-6 mb-6 list-outside',
-    ordered ? 'list-decimal' : 'list-disc',
-    className
-  );
+  const classes = cx('ml-6 mb-6 list-outside', ordered ? 'list-decimal' : 'list-disc', className);
 
   return <Component className={classes}>{children}</Component>;
 };

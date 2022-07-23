@@ -1,5 +1,4 @@
-import React from 'react';
-import { Byline, Callout, Subtitle, Title } from 'src/components';
+import { Byline, Callout, RightGutter, Subtitle, Title } from 'src/components';
 import { ArticleMetadata } from 'src/types';
 
 const ArticleArchivedWarning = () => (
@@ -30,10 +29,13 @@ export const DefaultLayout = ({ children, metadata }: DefaultLayoutProps) => {
   }
 
   return (
-    <div className="flex-1 flex flex-col">
-      {header}
-      {state === 'archived' && <ArticleArchivedWarning />}
-      {children}
-    </div>
+    <>
+      <div className="flex-1 flex flex-col">
+        {header}
+        {state === 'archived' && <ArticleArchivedWarning />}
+        {children}
+      </div>
+      <RightGutter />
+    </>
   );
 };

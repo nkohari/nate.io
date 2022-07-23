@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import classNames from 'classnames';
+import cx from 'classnames';
 import { motion, useAnimationControls, useReducedMotion } from 'framer-motion';
 import { getAvatarUrls, randomArrayElement, randomInteger, useInterval } from 'src/util';
 
@@ -29,23 +29,16 @@ type AvatarImageProps = {
   flip?: boolean;
 };
 
-const AvatarImage = ({ flip = false, src }: AvatarImageProps) => {
-  const classes = classNames(
-    'absolute rounded-md shadow-md backface-hidden',
-    flip && 'rotate-y-180'
-  );
-
-  return (
-    <img
-      src={src}
-      className={classes}
-      height={280}
-      width={280}
-      draggable={false}
-      alt="A picture of me (Nate)"
-    />
-  );
-};
+const AvatarImage = ({ flip = false, src }: AvatarImageProps) => (
+  <img
+    src={src}
+    className={cx('absolute rounded-md shadow-md backface-hidden', flip && 'rotate-y-180')}
+    height={280}
+    width={280}
+    draggable={false}
+    alt="A picture of me (Nate)"
+  />
+);
 
 type AvatarCardProps = {
   position: number;
@@ -119,7 +112,7 @@ export const AvatarCards = ({ count = 1 }: AvatarCardsProps) => {
   const urls = getAvatarUrls().sort(() => Math.random());
 
   return (
-    <div className="flex flex-row space-x-4 mb-8">
+    <div className="flex flex-row space-x-4 mt-4 mb-12">
       {[...Array(count).keys()].map((index) => (
         <AvatarCard key={index} position={index + 1} urls={urls} />
       ))}

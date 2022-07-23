@@ -1,5 +1,4 @@
-import React from 'react';
-import classNames from 'classnames';
+import cx from 'classnames';
 import { getImageUrl } from 'src/util';
 
 export type ImageFilter = 'grayscale' | 'sepia';
@@ -34,17 +33,12 @@ export const Image = ({
     }
   }
 
-  const containerClasses = classNames('mb-6 w-full', className);
-  const imageClasses = classNames(filter, 'bg-slate-200 dark:bg-slate-700', {
-    'rounded-full': circle,
-  });
-
   return (
-    <div className={containerClasses}>
+    <div className={cx('mb-6 w-full', className)}>
       <img
         src={imageUrl || undefined}
         alt={alt}
-        className={imageClasses}
+        className={cx('bg-slate-200 dark:bg-slate-700', filter, circle && 'rounded-full')}
         height={height}
         width={width}
         data-image-format={format}

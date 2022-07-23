@@ -16,7 +16,7 @@ export const Document = ({ children }: DocumentProps) => {
       const el = document.getElementById(location.hash.substring(1));
       el?.scrollIntoView({ behavior: 'smooth' });
     }
-  }, [location]);
+  }, [location.hash]);
 
   return <article className="flex-1 w-full">{children}</article>;
 };

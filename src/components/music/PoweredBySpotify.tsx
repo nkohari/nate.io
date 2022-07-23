@@ -1,5 +1,4 @@
-import React from 'react';
-import classNames from 'classnames';
+import cx from 'classnames';
 import { Link } from 'src/components';
 
 const SpotifyLogo = (props: React.SVGProps<SVGSVGElement>) => (
@@ -12,14 +11,18 @@ type PoweredBySpotifyProps = {
   className?: string;
 };
 
-export const PoweredBySpotify = ({ className }: PoweredBySpotifyProps) => {
-  const classes = classNames(
-    className,
-    'flex flex-row items-center transition transition-all font-semibold text-sm text-slate-400 underline underline-offset-1 decoration-transparent hover:text-[#1db954] hover:decoration-[#1db954]'
-  );
-  return (
-    <Link type="unstyled" href="https://spotify.com/" className={classes}>
-      Powered by <SpotifyLogo className="ml-1.5 h-5 fill-current" />
-    </Link>
-  );
-};
+export const PoweredBySpotify = ({ className }: PoweredBySpotifyProps) => (
+  <Link
+    type="unstyled"
+    href="https://spotify.com/"
+    className={cx(
+      'flex flex-row items-center',
+      'transition transition-all',
+      'font-semibold text-sm text-slate-400 hover:text-[#1db954]',
+      'underline underline-offset-1 decoration-transparent hover:decoration-[#1db954]',
+      className
+    )}
+  >
+    Powered by <SpotifyLogo className="ml-1.5 h-5 fill-current" />
+  </Link>
+);

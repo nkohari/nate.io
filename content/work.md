@@ -15,7 +15,7 @@ I've spent the last few years at later-stage startups. Before that, I spent most
 5. **Always be shipping.** Good quality software that's in the user's hands always beats better-quality software that's still in development. Focus on the fundamentals, cut everything else, and deliver the rest incrementally.
 6. **Embrace impermanence.** Users don't care about software; they care about the impact it has on their lives and what it enables them to do. Avoid becoming attached to the code you write, and celebrate the day when it's replaced by something better.
 
-## My Experience
+## My Career
 
 {% work from="2019" to="now" job="Staff Software Engineer at Stripe" location="Raleigh, NC (Remote)" %}
 Technical lead for the Docs organization, a cross-functional group of engineers, writers, and designers responsible for [Stripe's documentation](https://stripe.com/docs). Lead the development of a new platform for Stripe's docs powered by React and [Markdoc](https://markdoc.io), paying down years of technical debt and providing a ~4x speedup over the legacy system.
@@ -61,6 +61,4 @@ Contributed to [FUSION RIS](https://www.ibm.com/products/merge-ris), an imaging 
 Built Goodyear TireTracker, a logistics support system which tracked NASCAR racing tires through their lifecycle. Tire techs used handheld scanners running a custom .NET Compact Framework app to scan passive RFID chips embedded in the sidewalls of the tires. To allow it to be used at racetracks, the system was portable and designed to be eventually consistent, without requiring a stable wifi signal.
 {% /work %}
 
-## Education
-
-Attended [The University of Akron](https://uakron.edu) with a full scholarship, and graduated summa cum laude in 2004 with a B.S. in Computer Science.
+I attended [The University of Akron](https://uakron.edu) with a full scholarship, and graduated summa cum laude in 2004 with a B.S. in Computer Science.

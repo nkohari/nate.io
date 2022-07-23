@@ -88,7 +88,7 @@ export const MusicGrid = () => {
   const tiles = musicArticles.map((article) => <MusicTile key={article.path} article={article} />);
 
   return (
-    <div>
+    <div className="mt-6">
       <motion.div
         initial="hidden"
         animate="visible"

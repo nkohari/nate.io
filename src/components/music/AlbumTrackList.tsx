@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import classNames from 'classnames';
+import cx from 'classnames';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Duration } from 'luxon';
 import { Link } from 'src/components';
@@ -7,15 +7,17 @@ import { Album, AlbumTrack, Reference } from 'lib/spotify';
 
 const MAX_TRACKS = 10;
 
-const trackVariants = {
-  hidden: {
-    y: -50,
-    opacity: 0,
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: { type: 'spring', duration: 0.4 },
+const variants = {
+  track: {
+    hidden: {
+      y: -50,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: 'spring', duration: 0.4 },
+    },
   },
 };
 
@@ -25,32 +27,28 @@ type AlbumTrackListItemProps = {
   track: AlbumTrack;
 };
 
-const AlbumTrackListItem = ({ isExtra, isHighlighted, track }: AlbumTrackListItemProps) => {
-  const duration = Duration.fromMillis(track.duration).toFormat('m:ss');
-
-  const classes = classNames(
-    'flex flex-row relative text-sm border-b border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800',
-    isHighlighted && 'font-bold bg-slate-100 dark:bg-slate-900',
-    isExtra ? 'z-1' : 'z-10'
-  );
-
-  return (
-    <motion.div
-      initial={isExtra ? 'hidden' : false}
-      animate="visible"
-      variants={trackVariants}
-      className={classes}
-    >
-      <div className="p-1 flex-0 w-7 text-right">{track.number}.</div>
-      <div className="p-1 flex-1 overflow-hidden truncate text-ellipsis">
-        <Link type="subtle" href={track.url}>
-          {track.name}
-        </Link>
-      </div>
-      <div className="p-1 flex-0">{duration}</div>
-    </motion.div>
-  );
-};
+const AlbumTrackListItem = ({ isExtra, isHighlighted, track }: AlbumTrackListItemProps) => (
+  <motion.div
+    initial={isExtra ? 'hidden' : false}
+    animate="visible"
+    variants={variants.track}
+    className={cx(
+      'flex flex-row relative',
+      'bg-white dark:bg-slate-800 border-b border-slate-300 dark:border-slate-700',
+      'text-sm',
+      isHighlighted && 'font-bold bg-slate-100 dark:bg-slate-900',
+      isExtra ? 'z-1' : 'z-10'
+    )}
+  >
+    <div className="p-1 flex-0 w-7 text-right">{track.number}.</div>
+    <div className="p-1 flex-1 overflow-hidden truncate text-ellipsis">
+      <Link type="subtle" href={track.url}>
+        {track.name}
+      </Link>
+    </div>
+    <div className="p-1 flex-0">{Duration.fromMillis(track.duration).toFormat('m:ss')}</div>
+  </motion.div>
+);
 
 type AlbumTrackListProps = {
   album: Album;
@@ -78,7 +76,10 @@ export const AlbumTrackList = ({ album, highlightedTrack }: AlbumTrackListProps)
       <Link
         type="subtle"
         role="button"
-        className="text-sm py-1 pl-8 text-slate-500 dark:text-slate-400 border-b border-slate-300 dark:border-slate-700"
+        className={cx(
+          'border-b border-slate-300 dark:border-slate-700 py-1 pl-8',
+          'text-sm text-slate-500 dark:text-slate-400'
+        )}
         onClick={() => setExpanded(true)}
       >
         and {album.tracks.length - MAX_TRACKS} more...
@@ -88,7 +89,7 @@ export const AlbumTrackList = ({ album, highlightedTrack }: AlbumTrackListProps)
 
   return (
     <div className="flex flex-col">
-      <div className="pb-2 text-center border-b border-slate-300 dark:border-slate-700">
+      <div className={cx('border-b border-slate-300 dark:border-slate-700 pb-2 text-center')}>
         <Link type="subtle" href={album.url}>
           {album.name} ({album.releaseYear})
         </Link>

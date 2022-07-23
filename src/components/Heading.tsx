@@ -1,13 +1,14 @@
 import React from 'react';
-import classNames from 'classnames';
+import cx from 'classnames';
 
 export type HeadingProps = {
   className?: string;
   children: React.ReactNode;
+  id: string;
   level: number;
 };
 
-export const Heading = ({ className, children, level }: HeadingProps) => {
+export const Heading = ({ className, children, id, level }: HeadingProps) => {
   const tag = `h${level}`;
 
   const levelClasses: Record<number, string> = {
@@ -17,7 +18,10 @@ export const Heading = ({ className, children, level }: HeadingProps) => {
     4: 'text-xl',
   };
 
-  const classes = classNames('mb-4', levelClasses[level], className);
+  const props = {
+    className: cx('mb-4', levelClasses[level], className),
+    id,
+  };
 
-  return React.createElement(tag, { className: classes }, children);
+  return React.createElement(tag, props, children);
 };

@@ -17,7 +17,7 @@ const SiteFooterLink = ({ href, icon, text }: SiteFooterLinkProps) => (
 
 export const SiteFooter = () => {
   return (
-    <div className="flex flex-col sm:flex-row text-sm border-t border-slate-300 dark:border-slate-600 mt-24 py-6 text-slate-500 dark:text-slate-400">
+    <div className="flex flex-col sm:flex-row mt-16 py-6 text-sm text-slate-500 dark:text-slate-400 border-t border-slate-300 dark:border-slate-600">
       <div className="flex-1">
         <div>Copyright &copy; 2006-{DateTime.now().year} Nate Kohari.</div>
         <div>

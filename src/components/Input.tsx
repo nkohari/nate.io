@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import classNames from 'classnames';
+import { useRef } from 'react';
+import cx from 'classnames';
 import { Icon, IconType } from 'src/components';
 
 export type InputProps = {
@@ -26,27 +26,28 @@ export const Input = ({
     if (onChange) onChange(event.currentTarget.value);
   };
 
-  const containerClasses = classNames(
-    className,
-    'flex flex-row items-center px-2 py-0.5 rounded-md cursor-text bg-white dark:bg-slate-500 border-2 border-slate-300 dark:border-slate-400 focus-within:border-blue-500 transition-colors ease-in-out',
-    {
-      'flex-row-reverse': iconPosition === 'right',
-    }
-  );
-
-  const inputClasses = classNames(
-    'bg-transparent ml-2 placeholder:italic placeholder:text-base placeholder:text-slate-300 focus:outline-none'
-  );
-
   return (
-    <div className={containerClasses} onClick={handleClick}>
+    <div
+      className={cx(
+        'flex flex-row items-center',
+        iconPosition === 'right' && 'flex-row-reverse',
+        'px-2 py-0.5 rounded-md bg-white dark:bg-slate-500 border-2 border-slate-300 dark:border-slate-400 focus-within:border-blue-500',
+        'transition-colors ease-in-out',
+        'cursor-text',
+        className
+      )}
+      onClick={handleClick}
+    >
       {icon && <Icon type={icon} />}
       <input
         ref={inputRef}
         type="text"
         placeholder={placeholder}
         value={value}
-        className={inputClasses}
+        className={cx(
+          'bg-transparent ml-2 focus:outline-none',
+          'placeholder:italic placeholder:text-base placeholder:text-slate-300'
+        )}
         onChange={handleChange}
       />
     </div>

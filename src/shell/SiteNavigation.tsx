@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import classNames from 'classnames';
+import { useState } from 'react';
+import cx from 'classnames';
 import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import { Icon } from 'src/components';
@@ -19,10 +19,9 @@ type MobileNavigationOverlayProps = {
 
 const MobileNavigationOverlay = ({ onClose }: MobileNavigationOverlayProps) => {
   const getClasses = ({ isActive }: { isActive: boolean }) => {
-    return classNames('text-lg mb-12', {
-      'font-bold': isActive,
-    });
+    return cx('text-lg mb-12', isActive && 'font-bold');
   };
+
   return (
     <div className="fixed z-10 inset-0 p-8 bg-white dark:bg-slate-800">
       <a role="button" onClick={onClose} className="absolute w-5 top-8 right-8">
@@ -44,12 +43,12 @@ const MobileNavigationOverlayToggle = () => {
   const toggleOverlayVisible = () => setOverlayVisible((value) => !value);
 
   return (
-    <React.Fragment>
+    <>
       <a className="flex md:hidden items-center w-5" role="button" onClick={toggleOverlayVisible}>
         <Icon type="menu" />
       </a>
       {overlayVisible && <MobileNavigationOverlay onClose={toggleOverlayVisible} />}
-    </React.Fragment>
+    </>
   );
 };
 
@@ -62,9 +61,7 @@ const DesktopNavigationLink = ({ href, text }: DesktopNavigationLinkProps) => {
   const [hover, setHover] = useState(false);
 
   const getClasses = ({ isActive }: { isActive: boolean }) => {
-    return classNames('relative inline-flex justify-center px-2.5', {
-      'font-bold': isActive,
-    });
+    return cx('relative inline-flex justify-center px-2.5', isActive && 'font-bold');
   };
 
   return (
@@ -97,7 +94,7 @@ const DesktopNavigation = () => {
 };
 
 export const SiteNavigation = () => (
-  <React.Fragment>
+  <>
     <div className="flex md:hidden items-center">
       <MobileNavigationOverlayToggle />
       <ThemeSelector />
@@ -106,5 +103,5 @@ export const SiteNavigation = () => (
       <DesktopNavigation />
       <ThemeSelector />
     </div>
-  </React.Fragment>
+  </>
 );

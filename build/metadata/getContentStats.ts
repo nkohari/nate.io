@@ -1,7 +1,7 @@
 import readingTime from 'reading-time';
 import readability from 'text-readability';
-import { MetadataPluginProps } from '../../types';
-import { getRawText } from '../../util';
+import { MetadataPluginProps } from '../types';
+import { getRawText } from '../util';
 
 export function getContentStats({ metadata, ast }: MetadataPluginProps) {
   if (metadata.type === 'music') return;

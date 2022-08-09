@@ -13,8 +13,7 @@ import {
   getOutgoingLinks,
   getSections,
   getSpotifyData,
-} from './plugins/metadata';
-import { generateHeadingIds } from './plugins/parser';
+} from './metadata';
 import { MarkdocTagRegistration } from './types';
 import * as templates from './templates';
 
@@ -38,11 +37,7 @@ export function ContentPlugin(options: ContentPluginOptions): Plugin {
   const componentsPath = path.resolve(basePath, options.componentsPath) + '/';
   const contentPath = path.resolve(basePath, options.contentPath) + '/';
 
-  const markdocParser = new MarkdocParser({
-    tags: options.tags,
-    plugins: [generateHeadingIds],
-  });
-
+  const markdocParser = new MarkdocParser({ tags: options.tags });
   const articleBuildInfoFactory = new ArticleBuildInfoFactory({
     basePath,
     contentPath,

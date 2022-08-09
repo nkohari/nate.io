@@ -1,19 +1,16 @@
-import Markdoc, { Config, Node, Tokenizer } from '@markdoc/markdoc';
+import Markdoc, { transformer, Config, Node, Tokenizer } from '@markdoc/markdoc';
 import { ArticleMetadata } from '../src/types';
-import { MarkdocTagRegistration, ParserPlugin } from './types';
+import { MarkdocTagRegistration } from './types';
 
 export type MarkdocParserProps = {
-  plugins?: ParserPlugin[];
   tags: MarkdocTagRegistration[];
 };
 
 export class MarkdocParser {
   config: Config;
-  plugins: ParserPlugin[];
   tokenizer: Tokenizer;
 
-  constructor({ plugins, tags }: MarkdocParserProps) {
-    this.plugins = plugins || [];
+  constructor({ tags }: MarkdocParserProps) {
     this.tokenizer = new Markdoc.Tokenizer({ typographer: true });
 
     this.config = {
@@ -38,8 +35,27 @@ export class MarkdocParser {
   }
 
   parse(text: string) {
-    const node = Markdoc.parse(this.tokenizer.tokenize(text));
-    return this.plugins.reduce((ast, plugin) => plugin({ ast }), node);
+    const document = Markdoc.parse(this.tokenizer.tokenize(text));
+
+    const callMutators = (node: Node) => {
+      if (node.children) {
+        for (const child of node.children) {
+          callMutators(child);
+        }
+      }
+
+      const schema = transformer.findSchema(node, this.config) as MarkdocTagRegistration;
+
+      if (schema && schema.mutators) {
+        for (const mutator of schema.mutators) {
+          mutator(node, schema);
+        }
+      }
+    };
+
+    callMutators(document);
+
+    return document;
   }
 
   transform(ast: Node, metadata: ArticleMetadata) {

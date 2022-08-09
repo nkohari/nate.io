@@ -1,3 +1,5 @@
+import { generateId } from '../../build/mutators';
+
 export default {
   node: 'heading',
   render: 'Heading',
@@ -5,4 +7,5 @@ export default {
     id: { type: String },
     level: { type: Number, required: true, default: 1 },
   },
+  mutators: [generateId],
 };

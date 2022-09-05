@@ -46,3 +46,10 @@
   font-style: normal;
   font-weight: 800;
 }
+
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('../media/fonts/nunito-sans/NunitoSans-Black.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 900;
+}

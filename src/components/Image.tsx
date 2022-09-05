@@ -38,7 +38,7 @@ export const Image = ({
       <img
         src={imageUrl || undefined}
         alt={alt}
-        className={cx('bg-slate-200 dark:bg-slate-700', filter, circle && 'rounded-full')}
+        className={cx('w-full bg-slate-200 dark:bg-slate-700', filter, circle && 'rounded-full')}
         height={height}
         width={width}
         data-image-format={format}

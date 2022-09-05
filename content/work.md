@@ -2,7 +2,7 @@
 title: My Work
 ---
 
-**I'm an internet engineer**. I build thoughtful, polished web interfaces and scalable, high-performance APIs. I care deeply about creating user experiences that are surprisingly great.
+{% lead-in %}I'm an internet engineer.{% /lead-in %} I build thoughtful, polished web interfaces and scalable, high-performance APIs. I care deeply about creating user experiences that are surprisingly great.
 
 I've spent the last few years at later-stage startups. Before that, I spent most of my career working for smaller companies, or starting my own. Over the {% duration since="2004-06-01" /%} of my career, I've held a wide range of roles from engineer to executive, and I also spent a few years as an independent consultant.
 

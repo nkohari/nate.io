@@ -25,6 +25,12 @@ export type MarkdocTagRegistration = Schema & {
   mutators?: NodeMutator[];
 };
 
+export type NodeMutatorProps = {
+  node: Node;
+  schema: MarkdocTagRegistration;
+};
+
+export type NodeMutator = (props: NodeMutatorProps) => void;
+
 export type NodePredicate = (node: Node) => boolean;
 export type NodeReducer<T> = (state: T, node: Node) => T;
-export type NodeMutator = (node: Node, schema: Schema) => void;

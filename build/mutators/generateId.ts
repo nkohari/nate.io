@@ -1,8 +1,7 @@
-import { Node } from '@markdoc/markdoc';
-import { MarkdocTagRegistration } from '../types';
+import { NodeMutatorProps } from '../types';
 import { getRawText } from '../util';
 
-export function generateId(node: Node, schema: MarkdocTagRegistration) {
+export function generateId({ node }: NodeMutatorProps) {
   if (!node.attributes.id) {
     node.attributes.id = getRawText(node)
       .toLowerCase()

@@ -48,7 +48,7 @@ export class MarkdocParser {
 
       if (schema && schema.mutators) {
         for (const mutator of schema.mutators) {
-          mutator(node, schema);
+          mutator({ node, schema });
         }
       }
     };

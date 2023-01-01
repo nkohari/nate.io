@@ -112,7 +112,7 @@ export const AvatarCards = ({ count = 1 }: AvatarCardsProps) => {
   const urls = getAvatarUrls().sort(() => Math.random());
 
   return (
-    <div className="flex flex-row space-x-4 mt-4 mb-12">
+    <div className="flex flex-row space-x-4 mb-12">
       {[...Array(count).keys()].map((index) => (
         <AvatarCard key={index} position={index + 1} urls={urls} />
       ))}

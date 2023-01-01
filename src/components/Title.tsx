@@ -3,5 +3,5 @@ type TitleProps = {
 };
 
 export const Title = ({ children }: TitleProps) => (
-  <h1 className="text-3xl font-extrabold">{children}</h1>
+  <h1 className="text-4xl font-extrabold">{children}</h1>
 );

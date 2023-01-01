@@ -66,7 +66,7 @@ export const Byline = ({ metadata }: BylineProps) => {
   }
 
   return (
-    <div className="flex mt-4 italic text-sm text-gray-600 dark:text-gray-400">
+    <div className="flex mt-4 text-sm uppercase text-gray-600 dark:text-gray-400">
       {date}
       {readingTime}
     </div>

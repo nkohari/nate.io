@@ -32,8 +32,8 @@ export const App = () => (
     <ThemeProvider>
       <ManifestProvider>
         <ScrollController>
-          <div className="flex flex-col items-center min-h-screen p-8">
-            <div className="flex-1 flex flex-col w-full max-w-[850px]">
+          <div className="flex flex-col items-center min-h-screen px-12 py-8">
+            <div className="flex-1 flex flex-col w-full">
               <SiteHeader />
               <ArticleRoutes />
               <SiteFooter />

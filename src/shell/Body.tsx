@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { getArticleContent, useArticle } from 'virtual:nateio/articles';
 import { DefaultLayout, MusicLayout } from 'src/components';
 import { Meta, MetadataProvider } from 'src/shell';
+import { ArticleMetadata } from 'src/types';
 
 const variants = {
   initial: {
@@ -20,6 +21,19 @@ const variants = {
   },
 };
 
+type LayoutProps = {
+  children: React.ReactNode;
+  metadata: ArticleMetadata;
+};
+
+const Layout = (props: LayoutProps) => {
+  if (props.metadata.type === 'music') {
+    return <MusicLayout {...props} />;
+  } else {
+    return <DefaultLayout {...props} />;
+  }
+};
+
 type BodyProps = {
   path: string;
 };
@@ -28,17 +42,10 @@ export const Body = ({ path }: BodyProps) => {
   const article = useArticle(path);
   const Content = getArticleContent(path);
 
-  let Layout;
-  if (article.metadata.type === 'music') {
-    Layout = MusicLayout;
-  } else {
-    Layout = DefaultLayout;
-  }
-
   return (
     <Suspense fallback={<div className="flex-1 min-h-screen" />}>
       <motion.main
-        className="flex-1 flex flex-col w-full"
+        className="flex-1 flex flex-col w-full max-w-[850px]"
         initial="initial"
         animate="visible"
         exit="exit"

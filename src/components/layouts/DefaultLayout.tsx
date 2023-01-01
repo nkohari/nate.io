@@ -20,7 +20,7 @@ export const DefaultLayout = ({ children, metadata }: DefaultLayoutProps) => {
   let header;
   if (title) {
     header = (
-      <header className="mb-6">
+      <header className="mb-8">
         <Title>{title}</Title>
         {subtitle && <Subtitle>{subtitle}</Subtitle>}
         {type !== 'page' && <Byline metadata={metadata} />}

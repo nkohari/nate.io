@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 import cx from 'classnames';
-import { motion, useAnimationControls, useReducedMotion } from 'framer-motion';
-import { getAvatarUrls, randomArrayElement, randomInteger, useInterval } from 'src/util';
+import {motion, useAnimationControls, useReducedMotion} from 'framer-motion';
+import {getAvatarUrls, randomArrayElement, randomInteger, useInterval} from 'src/util';
 
 const MIN_FLIP_TIME = 7500;
 const MAX_FLIP_TIME = 15000;
@@ -10,17 +10,17 @@ const cardVariants = {
   front: {
     scale: 1,
     rotateY: 0,
-    transition: { type: 'spring', stiffness: 100, mass: 0.5 },
+    transition: {type: 'spring', stiffness: 100, mass: 0.5},
   },
   back: {
     scale: 1,
     rotateY: 180,
-    transition: { type: 'spring', stiffness: 100, mass: 0.5 },
+    transition: {type: 'spring', stiffness: 100, mass: 0.5},
   },
   hover: (position: number) => ({
     scale: 1.15,
     rotate: position % 2 === 0 ? 3 : -3,
-    transition: { type: 'spring', stiffness: 150, damping: 8, mass: 0.8 },
+    transition: {type: 'spring', stiffness: 150, damping: 8, mass: 0.8},
   }),
 };
 
@@ -29,7 +29,7 @@ type AvatarImageProps = {
   flip?: boolean;
 };
 
-const AvatarImage = ({ flip = false, src }: AvatarImageProps) => (
+const AvatarImage = ({flip = false, src}: AvatarImageProps) => (
   <img
     src={src}
     className={cx('absolute rounded-md shadow-md backface-hidden', flip && 'rotate-y-180')}
@@ -45,7 +45,7 @@ type AvatarCardProps = {
   urls: string[];
 };
 
-const AvatarCard = ({ position, urls }: AvatarCardProps) => {
+const AvatarCard = ({position, urls}: AvatarCardProps) => {
   const controls = useAnimationControls();
   const [visibleFace, setVisibleFace] = useState('front');
   const [frontUrl, setFrontUrl] = useState(randomArrayElement(urls));
@@ -108,14 +108,11 @@ export type AvatarCardsProps = {
   count?: number;
 };
 
-export const AvatarCards = ({ count = 1 }: AvatarCardsProps) => {
-  const urls = getAvatarUrls().sort(() => Math.random());
+export const AvatarCards = ({count = 1}: AvatarCardsProps) => {
+  const items = [...Array(count).keys()].map((index) => {
+    const urls = getAvatarUrls().sort(() => Math.random());
+    return <AvatarCard key={index} position={index + 1} urls={urls} />;
+  });
 
-  return (
-    <div className="flex flex-row space-x-4 mb-12">
-      {[...Array(count).keys()].map((index) => (
-        <AvatarCard key={index} position={index + 1} urls={urls} />
-      ))}
-    </div>
-  );
+  return <div className="flex flex-row space-x-4 mb-8">{items}</div>;
 };

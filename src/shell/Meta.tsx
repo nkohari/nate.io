@@ -1,26 +1,26 @@
-import { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { useLocation } from 'react-router-dom';
-import { useArticles } from 'virtual:nateio/articles';
-import { useManifest } from 'src/shell';
-import { ArticleMetadata } from 'src/types';
-import { getImageUrl } from 'src/util';
+import {useEffect} from 'react';
+import {Helmet} from 'react-helmet-async';
+import {useLocation} from 'react-router-dom';
+import {useCatalog} from '@nkohari/apocrypha/catalog';
+import {useManifest} from 'src/shell';
+import {Metadata} from 'src/types';
+import {getImageUrl} from 'src/util';
 
 type MetaProps = {
-  metadata: ArticleMetadata;
+  metadata: Metadata;
 };
 
-export const Meta = ({ metadata }: MetaProps) => {
+export const Meta = ({metadata}: MetaProps) => {
   const title = metadata.title ? `${metadata.title} — Nate Kohari` : 'Nate Kohari';
   const location = useLocation();
-  const articles = useArticles();
-  const { getManifestEntry } = useManifest();
+  const articles = useCatalog();
+  const {getManifestEntry} = useManifest();
 
   const createModulePreloadLink = (path: string) => {
     const article = articles[path];
     if (!article) return null;
 
-    const entry = getManifestEntry(article.chunkId);
+    const entry = getManifestEntry(article.manifestId);
     if (!entry) return null;
 
     const href = `/${entry.file}`;

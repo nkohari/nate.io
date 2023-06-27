@@ -1,25 +1,27 @@
-import { resolve } from 'path';
-import { Config } from 'lib/config';
-import { MetadataPluginProps } from '../types';
-import { SpotifyClient, DiskCache } from '../../lib/spotify';
+import path from 'path';
+import {MetadataPluginParams} from '@nkohari/apocrypha';
+import {Metadata} from '../../src/types';
+import {Config} from '../config';
+import {DiskCache, SpotifyClient} from '../spotify';
 
 export function getSpotifyData(config: Config, cachePath: string) {
-  const cache = new DiskCache(resolve(cachePath, 'spotify'));
+  const cache = new DiskCache(path.resolve(cachePath, 'spotify'));
   const spotify = new SpotifyClient(config);
 
-  return async ({ metadata }: MetadataPluginProps) => {
-    const trackId = metadata.spotifyId;
+  return async ({frontmatter}: MetadataPluginParams<Metadata>) => {
+    const trackId = frontmatter.spotifyId;
     if (!trackId) return;
 
     const track = await cache.readThrough(`tracks/${trackId}`, () => spotify.getTrack(trackId));
     if (!track) return;
 
-    const albumId = track.album.id;
-    const album = await cache.readThrough(`albums/${albumId}`, () => spotify.getAlbum(albumId));
+    const album = await cache.readThrough(`albums/${track.album.id}`, () =>
+      spotify.getAlbum(track.album.id)
+    );
     if (!album) return;
 
     return {
-      spotify: { album, track },
+      spotify: {album, track},
     };
   };
 }

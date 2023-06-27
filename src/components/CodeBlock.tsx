@@ -7,7 +7,7 @@ export type CodeBlockTokenProps = {
   type: string;
 };
 
-export const CodeBlockToken = ({ children, content, type }: CodeBlockTokenProps) => {
+export const CodeBlockToken = ({children, content, type}: CodeBlockTokenProps) => {
   return <span className={cx('token', type)}>{content || children}</span>;
 };
 
@@ -16,7 +16,7 @@ export type CodeBlockLineProps = {
   number: number;
 };
 
-export const CodeBlockLine = ({ children, number }: CodeBlockLineProps) => (
+export const CodeBlockLine = ({children, number}: CodeBlockLineProps) => (
   <div
     data-line-number={number}
     className={cx(
@@ -36,7 +36,7 @@ export type CodeBlockProps = {
   language: string;
 };
 
-export const CodeBlock = ({ content, children, language }: CodeBlockProps) => {
+export const CodeBlock = ({content, children, language}: CodeBlockProps) => {
   return (
     <pre
       data-language={language}

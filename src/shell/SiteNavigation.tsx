@@ -1,24 +1,24 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import cx from 'classnames';
-import { motion } from 'framer-motion';
-import { NavLink } from 'react-router-dom';
-import { Icon } from 'src/components';
-import { ThemeSelector } from 'src/shell';
+import {motion} from 'framer-motion';
+import {NavLink} from 'react-router-dom';
+import {Icon} from 'src/components';
+import {ThemeSelector} from 'src/shell';
 
 const SECTIONS = [
-  { text: 'About', href: '/' },
-  { text: 'Now', href: '/now' },
-  { text: 'Work', href: '/work' },
-  { text: 'Music', href: '/music' },
-  { text: 'Writing', href: '/writing' },
+  {text: 'About', href: '/'},
+  {text: 'Now', href: '/now'},
+  {text: 'Work', href: '/work'},
+  {text: 'Music', href: '/music'},
+  {text: 'Writing', href: '/writing'},
 ];
 
 type MobileNavigationOverlayProps = {
   onClose: () => unknown;
 };
 
-const MobileNavigationOverlay = ({ onClose }: MobileNavigationOverlayProps) => {
-  const getClasses = ({ isActive }: { isActive: boolean }) => {
+const MobileNavigationOverlay = ({onClose}: MobileNavigationOverlayProps) => {
+  const getClasses = ({isActive}: {isActive: boolean}) => {
     return cx('text-lg mb-12', isActive && 'font-bold');
   };
 
@@ -28,7 +28,7 @@ const MobileNavigationOverlay = ({ onClose }: MobileNavigationOverlayProps) => {
         <Icon type="close" />
       </a>
       <nav className="flex flex-col">
-        {SECTIONS.map(({ href, text }) => (
+        {SECTIONS.map(({href, text}) => (
           <NavLink key={href} to={href} className={getClasses} onClick={onClose}>
             {text}
           </NavLink>
@@ -57,10 +57,10 @@ type DesktopNavigationLinkProps = {
   text: string;
 };
 
-const DesktopNavigationLink = ({ href, text }: DesktopNavigationLinkProps) => {
+const DesktopNavigationLink = ({href, text}: DesktopNavigationLinkProps) => {
   const [hover, setHover] = useState(false);
 
-  const getClasses = ({ isActive }: { isActive: boolean }) => {
+  const getClasses = ({isActive}: {isActive: boolean}) => {
     return cx('relative inline-flex justify-center px-2.5', isActive && 'font-bold');
   };
 
@@ -77,8 +77,8 @@ const DesktopNavigationLink = ({ href, text }: DesktopNavigationLinkProps) => {
         <motion.div
           layoutId="navigation"
           initial={false}
-          animate={{ top: 0, x: 0 }}
-          transition={{ type: 'spring', stiffness: 120, damping: 10, mass: 0.6 }}
+          animate={{top: 0, x: 0}}
+          transition={{type: 'spring', stiffness: 120, damping: 10, mass: 0.6}}
           className="absolute z-1 h-full w-full rounded-md bg-slate-200 dark:bg-slate-700"
         />
       )}
@@ -87,7 +87,7 @@ const DesktopNavigationLink = ({ href, text }: DesktopNavigationLinkProps) => {
 };
 
 const DesktopNavigation = () => {
-  const links = SECTIONS.map(({ href, text }) => (
+  const links = SECTIONS.map(({href, text}) => (
     <DesktopNavigationLink key={href} href={href} text={text} />
   ));
   return <nav className="flex items-center">{links}</nav>;

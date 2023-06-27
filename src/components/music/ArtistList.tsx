@@ -1,11 +1,11 @@
-import { Link } from 'src/components';
-import { Reference } from 'lib/spotify';
+import {Link} from 'src/components';
+import {Reference} from 'lib/spotify';
 
 type ArtistListItemProps = {
   artist: Reference;
 };
 
-const ArtistListItem = ({ artist }: ArtistListItemProps) => (
+const ArtistListItem = ({artist}: ArtistListItemProps) => (
   <Link type="subtle" href={artist.url}>
     {artist.name}
   </Link>
@@ -15,7 +15,7 @@ type ArtistListProps = {
   artists: Reference[];
 };
 
-export const ArtistList = ({ artists }: ArtistListProps) => {
+export const ArtistList = ({artists}: ArtistListProps) => {
   let content;
   if (artists.length === 1) {
     content = <ArtistListItem artist={artists[0]} />;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 
 export function useReducedMotion(defaultSetting = false) {
   const [reducedMotion, setReducedMotion] = useState(defaultSetting);

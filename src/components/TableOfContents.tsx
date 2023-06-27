@@ -1,11 +1,11 @@
-import { Link } from 'src/components';
-import { ArticleSection } from 'src/types';
+import {Link} from 'src/components';
+import {ArticleSection} from 'src/types';
 
 type SectionListItemProps = {
   section: ArticleSection;
 };
 
-const SectionListItem = ({ section }: SectionListItemProps) => (
+const SectionListItem = ({section}: SectionListItemProps) => (
   <div className="mb-1">
     <Link href={`#${section.id}`}>{section.text}</Link>
   </div>
@@ -15,7 +15,7 @@ export type TableOfContentsProps = {
   sections: ArticleSection[];
 };
 
-export const TableOfContents = ({ sections }: TableOfContentsProps) => {
+export const TableOfContents = ({sections}: TableOfContentsProps) => {
   const items = sections
     .filter((section) => section.level === 2)
     .map((section) => <SectionListItem section={section} />);

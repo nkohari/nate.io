@@ -1,16 +1,16 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import cx from 'classnames';
-import { DateTime, Duration } from 'luxon';
-import { Link } from 'src/components';
-import { ArticleMetadata } from 'src/types';
-import { ordinal } from 'src/util';
+import {DateTime, Duration} from 'luxon';
+import {Link} from 'src/components';
+import {Metadata} from 'src/types';
+import {ordinal} from 'src/util';
 
 type ContentStatsProps = {
-  metadata: ArticleMetadata;
+  metadata: Metadata;
 };
 
-const ContentStats = ({ metadata }: ContentStatsProps) => {
-  const { counts, gradeLevel, type } = metadata;
+const ContentStats = ({metadata}: ContentStatsProps) => {
+  const {counts, gradeLevel, type} = metadata;
 
   if (!counts || !gradeLevel) {
     return null;
@@ -25,10 +25,10 @@ const ContentStats = ({ metadata }: ContentStatsProps) => {
 };
 
 type BylineProps = {
-  metadata: ArticleMetadata;
+  metadata: Metadata;
 };
 
-export const Byline = ({ metadata }: BylineProps) => {
+export const Byline = ({metadata}: BylineProps) => {
   const [expanded, setExpanded] = useState(false);
 
   const toggleExpanded = () => setExpanded((currentValue) => !currentValue);

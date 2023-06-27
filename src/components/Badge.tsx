@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { Icon, IconType } from 'src/components';
+import {Icon, IconType} from 'src/components';
 
 export type BadgeProps = {
   className?: string;
@@ -7,7 +7,7 @@ export type BadgeProps = {
   text: string;
 };
 
-export const Badge = ({ className, icon, text }: BadgeProps) => {
+export const Badge = ({className, icon, text}: BadgeProps) => {
   let iconElement;
   if (icon) {
     iconElement = <Icon type={icon} size="medium" />;

@@ -7,7 +7,7 @@ type WorkProps = {
   to: string;
 };
 
-export const Work = ({ children, from, job, note, location, to }: WorkProps) => (
+export const Work = ({children, from, job, note, location, to}: WorkProps) => (
   <section className="flex flex-col md:flex-row">
     <div className="flex-none italic w-28 mb-0.5 md:mb-0 md:mr-6">
       {from}&mdash;{to}

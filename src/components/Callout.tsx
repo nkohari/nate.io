@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { Icon } from 'src/components';
+import {Icon} from 'src/components';
 
 export type CalloutType = 'info' | 'warning';
 
@@ -20,7 +20,7 @@ export type CalloutProps = {
   type: CalloutType;
 };
 
-export const Callout = ({ children, className, type }: CalloutProps) => (
+export const Callout = ({children, className, type}: CalloutProps) => (
   <div
     role="alert"
     className={cx(

@@ -1,20 +1,20 @@
-import { motion } from 'framer-motion';
-import { Icon } from 'src/components';
-import { Theme, useTheme } from 'src/shell';
+import {motion} from 'framer-motion';
+import {Icon} from 'src/components';
+import {Theme, useTheme} from 'src/shell';
 
 const variants = {
   light: {
     rotate: 0,
-    transition: { type: 'spring', duration: 0.05 },
+    transition: {type: 'spring', duration: 0.05},
   },
   dark: {
     rotate: 180,
-    transition: { type: 'spring', duration: 0.05 },
+    transition: {type: 'spring', duration: 0.05},
   },
 };
 
 export const ThemeSelector = () => {
-  const { theme, setPreferredTheme } = useTheme();
+  const {theme, setPreferredTheme} = useTheme();
 
   const onThemeChanged = () => {
     setPreferredTheme(theme === Theme.Dark ? Theme.Light : Theme.Dark);

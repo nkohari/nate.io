@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
-import { NavLink } from 'react-router-dom';
-import { SiteNavigation } from 'src/shell';
+import {motion} from 'framer-motion';
+import {NavLink} from 'react-router-dom';
+import {SiteNavigation} from 'src/shell';
 
 const variants = {
   visible: {
@@ -8,7 +8,7 @@ const variants = {
   },
   hover: {
     rotate: 180,
-    transition: { type: 'spring', stiffness: 100 },
+    transition: {type: 'spring', stiffness: 100},
   },
 };
 
@@ -21,7 +21,7 @@ const EndlessKnot = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export const SiteHeader = () => (
-  <div className="flex justify-between mb-12">
+  <div className="flex justify-between mb-8">
     <motion.div initial={false} animate="visible" whileHover="hover">
       <NavLink to="/" className="flex-1 flex flex-row items-center">
         <EndlessKnot />

@@ -1,16 +1,14 @@
-import { MetadataPluginProps } from '../types';
-import { findAllNodes, getRawText } from '../util';
-import { ArticleSection } from '../../src/types';
+import {AstWalker, MetadataPluginParams} from '@nkohari/apocrypha';
+import {ArticleSection, Metadata} from '../../src/types';
+import {getRawText} from '../util';
 
-export function getSections({ ast }: MetadataPluginProps) {
-  const nodes = findAllNodes(ast, (node) => node.type === 'heading');
-
-  const sections: ArticleSection[] = nodes.map((node) => {
+export function getSections({ast}: MetadataPluginParams<Metadata>) {
+  const sections = AstWalker.findNodes(ast, 'heading').map((node) => {
     const text = getRawText(node);
     const level = node.attributes.level;
     const id = node.attributes.id;
-    return { id, level, text };
+    return {id, level, text} as ArticleSection;
   });
 
-  return { sections };
+  return {sections};
 }

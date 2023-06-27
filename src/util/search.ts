@@ -1,8 +1,12 @@
 import escapeStringForRegexp from 'escape-string-regexp';
-import { Article } from 'src/types';
+import {Article} from '@nkohari/apocrypha';
+import {Metadata} from 'src/types';
 
-export const search = (articles: Article[], query: string | null): Article[] => {
-  const isMatch = (article: Article) => {
+export const search = (
+  articles: Article<Metadata>[],
+  query: string | null
+): Article<Metadata>[] => {
+  const isMatch = (article: Article<Metadata>) => {
     // Never match page or music articles.
     if (article.metadata.type === 'page' || article.metadata.type === 'music') return false;
 

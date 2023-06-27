@@ -1,8 +1,9 @@
-import { useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { useArticles } from 'virtual:nateio/articles';
-import { Link, PoweredBySpotify } from 'src/components';
-import { Article } from 'src/types';
+import {useMemo} from 'react';
+import {motion} from 'framer-motion';
+import {Article} from '@nkohari/apocrypha';
+import {useCatalog} from '@nkohari/apocrypha/catalog';
+import {Link, PoweredBySpotify} from 'src/components';
+import {Metadata} from 'src/types';
 
 const containerVariants = {
   hidden: {
@@ -10,7 +11,7 @@ const containerVariants = {
   },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.025 },
+    transition: {staggerChildren: 0.025},
   },
 };
 
@@ -33,7 +34,7 @@ const albumVariants = {
   hover: () => ({
     scale: 1.25,
     rotate: Math.random() > 0.5 ? 3 : -3,
-    transition: { type: 'spring', stiffness: 120, damping: 5, mass: 0.5 },
+    transition: {type: 'spring', stiffness: 120, damping: 5, mass: 0.5},
   }),
 };
 
@@ -45,16 +46,16 @@ const poweredByVariants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: { delay: 1 },
+    transition: {delay: 1},
   },
 };
 
 type MusicTileProps = {
-  article: Article;
+  article: Article<Metadata>;
 };
 
-const MusicTile = ({ article }: MusicTileProps) => {
-  const { spotify } = article.metadata;
+const MusicTile = ({article}: MusicTileProps) => {
+  const {spotify} = article.metadata;
   return (
     <motion.div variants={tileVariants} className="relative">
       <motion.div
@@ -73,7 +74,7 @@ const MusicTile = ({ article }: MusicTileProps) => {
 };
 
 export const MusicGrid = () => {
-  const articles = useArticles();
+  const articles = useCatalog<Metadata>();
 
   const musicArticles = useMemo(
     () =>

@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import {createContext, useContext, useEffect, useState} from 'react';
 
 export enum Theme {
   Light = 'light',
@@ -39,7 +39,7 @@ type ThemeProviderProps = {
   children: React.ReactNode;
 };
 
-export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+export const ThemeProvider = ({children}: ThemeProviderProps) => {
   const [theme, setTheme] = useState(getDefaultTheme());
 
   useEffect(() => setThemeClassOnDocumentElement(theme), [theme]);

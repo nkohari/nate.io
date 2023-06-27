@@ -1,12 +1,12 @@
-import { MetadataPluginProps } from '../types';
-import { findAllNodes } from '../util';
+import {AstWalker, MetadataPluginParams} from '@nkohari/apocrypha';
+import {Metadata} from '../../src/types';
 
-export function getOutgoingLinks({ ast }: MetadataPluginProps) {
-  const outgoingLinks = findAllNodes(ast, (node) => node.type === 'link').map(
+export function getOutgoingLinks({ast}: MetadataPluginParams<Metadata>) {
+  const outgoingLinks: string[] = AstWalker.findNodes(ast, 'link').map(
     (node) => node.attributes.href
   );
 
   if (outgoingLinks.length > 0) {
-    return { outgoingLinks };
+    return {outgoingLinks};
   }
 }

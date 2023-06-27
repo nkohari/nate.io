@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { Link } from 'src/components';
+import {Link} from 'src/components';
 
 const SpotifyLogo = (props: React.SVGProps<SVGSVGElement>) => (
   <svg {...props} viewBox="0 0 559 168">
@@ -11,7 +11,7 @@ type PoweredBySpotifyProps = {
   className?: string;
 };
 
-export const PoweredBySpotify = ({ className }: PoweredBySpotifyProps) => (
+export const PoweredBySpotify = ({className}: PoweredBySpotifyProps) => (
   <Link
     type="unstyled"
     href="https://spotify.com/"

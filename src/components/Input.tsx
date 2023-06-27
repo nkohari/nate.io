@@ -1,6 +1,6 @@
-import { useRef } from 'react';
+import {useRef} from 'react';
 import cx from 'classnames';
-import { Icon, IconType } from 'src/components';
+import {Icon, IconType} from 'src/components';
 
 export type InputProps = {
   className?: string;

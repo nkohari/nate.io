@@ -1,8 +1,8 @@
 import cx from 'classnames';
 import debounce from 'lodash/debounce';
-import { useEffect } from 'react';
-import { motion, useAnimationControls } from 'framer-motion';
-import { Link } from 'src/components';
+import {useEffect} from 'react';
+import {motion, useAnimationControls} from 'framer-motion';
+import {Link} from 'src/components';
 
 const SCROLL_DISTANCE_PIXELS = 200;
 const SCROLL_DEBOUNCE_DELAY_MS = 50;
@@ -11,12 +11,12 @@ const backVariants = {
   hidden: {
     opacity: 0,
     x: 50,
-    transition: { type: 'spring', duration: 0.5 },
+    transition: {type: 'spring', duration: 0.5},
   },
   visible: {
     opacity: 1,
     x: 0,
-    transition: { type: 'spring', duration: 0.5 },
+    transition: {type: 'spring', duration: 0.5},
   },
 };
 
@@ -24,7 +24,7 @@ const BackToTop = () => {
   const controls = useAnimationControls();
 
   const handleBackClicked = () => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
   };
 
   const handleWindowScroll = debounce(() => {

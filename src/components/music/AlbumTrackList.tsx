@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import cx from 'classnames';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Duration } from 'luxon';
-import { Link } from 'src/components';
-import { Album, AlbumTrack, Reference } from 'lib/spotify';
+import {AnimatePresence, motion} from 'framer-motion';
+import {Duration} from 'luxon';
+import {Link} from 'src/components';
+import {Album, AlbumTrack, Reference} from 'lib/spotify';
 
 const MAX_TRACKS = 10;
 
@@ -16,7 +16,7 @@ const variants = {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { type: 'spring', duration: 0.4 },
+      transition: {type: 'spring', duration: 0.4},
     },
   },
 };
@@ -27,7 +27,7 @@ type AlbumTrackListItemProps = {
   track: AlbumTrack;
 };
 
-const AlbumTrackListItem = ({ isExtra, isHighlighted, track }: AlbumTrackListItemProps) => (
+const AlbumTrackListItem = ({isExtra, isHighlighted, track}: AlbumTrackListItemProps) => (
   <motion.div
     initial={isExtra ? 'hidden' : false}
     animate="visible"
@@ -55,7 +55,7 @@ type AlbumTrackListProps = {
   highlightedTrack: Reference;
 };
 
-export const AlbumTrackList = ({ album, highlightedTrack }: AlbumTrackListProps) => {
+export const AlbumTrackList = ({album, highlightedTrack}: AlbumTrackListProps) => {
   const indexOfHighlightedTrack = album.tracks.findIndex((t) => t.id === highlightedTrack.id);
   const expandByDefault = indexOfHighlightedTrack >= MAX_TRACKS;
   const [expanded, setExpanded] = useState(expandByDefault);

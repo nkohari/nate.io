@@ -1,6 +1,6 @@
 import cx from 'classnames';
-import { motion } from 'framer-motion';
-import { Link } from 'src/components';
+import {motion} from 'framer-motion';
+import {Link} from 'src/components';
 
 const variants = {
   initial: {
@@ -10,7 +10,7 @@ const variants = {
     x: index * 12,
     y: 10 + index * -16,
     rotate: -7,
-    transition: { type: 'spring', stiffness: 100, damping: 2, mass: 1, delay: 0.75 },
+    transition: {type: 'spring', stiffness: 100, damping: 2, mass: 1, delay: 0.75},
   }),
 };
 
@@ -19,7 +19,7 @@ type SadComputerProps = {
   index: number;
 };
 
-const SadComputer = ({ index, className }: SadComputerProps) => (
+const SadComputer = ({index, className}: SadComputerProps) => (
   <motion.svg
     viewBox="0 0 100 100"
     variants={variants}

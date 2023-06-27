@@ -1,7 +1,7 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
-import { AnimatePresence } from 'framer-motion';
-import { useArticles } from 'virtual:nateio/articles';
+import {Route, Routes, useLocation} from 'react-router-dom';
+import {HelmetProvider} from 'react-helmet-async';
+import {AnimatePresence} from 'framer-motion';
+import {useCatalog} from '@nkohari/apocrypha/catalog';
 import {
   Body,
   ManifestProvider,
@@ -13,12 +13,12 @@ import {
 } from 'src/shell';
 
 const ArticleRoutes = () => {
-  const articles = useArticles();
+  const articles = useCatalog();
   const location = useLocation();
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence mode="wait">
       <Routes key={location.pathname} location={location}>
-        {Object.values(articles).map(({ path }) => (
+        {Object.values(articles).map(({path}) => (
           <Route key={path} path={path} element={<Body path={path} />} />
         ))}
         <Route key="*" path="*" element={<NotFound />} />
@@ -33,7 +33,7 @@ export const App = () => (
       <ManifestProvider>
         <ScrollController>
           <div className="flex flex-col items-center min-h-screen px-12 py-8">
-            <div className="flex-1 flex flex-col w-full">
+            <div className="flex-1 flex flex-col w-full max-w-[850px]">
               <SiteHeader />
               <ArticleRoutes />
               <SiteFooter />

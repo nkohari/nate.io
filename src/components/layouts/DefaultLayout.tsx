@@ -1,5 +1,5 @@
-import { Byline, Callout, RightGutter, Subtitle, Title } from 'src/components';
-import { ArticleMetadata } from 'src/types';
+import {Byline, Callout, RightGutter, Subtitle, Title} from 'src/components';
+import {Metadata} from 'src/types';
 
 const ArticleArchivedWarning = () => (
   <Callout type="info">
@@ -11,11 +11,11 @@ const ArticleArchivedWarning = () => (
 
 type DefaultLayoutProps = {
   children: React.ReactNode;
-  metadata: ArticleMetadata;
+  metadata: Metadata;
 };
 
-export const DefaultLayout = ({ children, metadata }: DefaultLayoutProps) => {
-  const { type, title, state, subtitle } = metadata;
+export const DefaultLayout = ({children, metadata}: DefaultLayoutProps) => {
+  const {type, title, state, subtitle} = metadata;
 
   let header;
   if (title) {

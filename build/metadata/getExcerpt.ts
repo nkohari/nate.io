@@ -1,10 +1,11 @@
-import { MetadataPluginProps } from '../types';
-import { findNode, getRawText } from '../util';
+import {AstWalker, MetadataPluginParams} from '@nkohari/apocrypha';
+import {Metadata} from '../../src/types';
+import {getRawText} from '../util';
 
-export function getExcerpt({ ast }: MetadataPluginProps) {
-  const firstParagraph = findNode(ast, (node) => node.type === 'paragraph');
+export function getExcerpt({ast}: MetadataPluginParams<Metadata>) {
+  const firstParagraph = AstWalker.findNode(ast, 'paragraph');
 
   if (firstParagraph) {
-    return { excerpt: getRawText(firstParagraph) };
+    return {excerpt: getRawText(firstParagraph)};
   }
 }

@@ -1,11 +1,11 @@
-import { Icon, Link } from 'src/components';
+import {Icon, Link} from 'src/components';
 
 export type NoteProps = {
   children: React.ReactNode;
   id: string;
 };
 
-export const Note = ({ children, id }: NoteProps) => {
+export const Note = ({children, id}: NoteProps) => {
   if (!children) {
     return (
       <Link

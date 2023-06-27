@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import {createContext, useCallback, useContext, useEffect, useState} from 'react';
 
 export type Manifest = Record<string, ManifestEntry>;
 export type ManifestEntry = {
@@ -20,7 +20,7 @@ type ManifestProviderProps = {
   children: React.ReactNode;
 };
 
-export const ManifestProvider = ({ children }: ManifestProviderProps) => {
+export const ManifestProvider = ({children}: ManifestProviderProps) => {
   const [manifest, setManifest] = useState<Manifest>({});
 
   useEffect(() => {

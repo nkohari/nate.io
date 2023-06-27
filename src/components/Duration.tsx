@@ -1,10 +1,10 @@
-import { DateTime } from 'luxon';
+import {DateTime} from 'luxon';
 
 type DurationProps = {
   since: string;
 };
 
-export const Duration = ({ since }: DurationProps) => {
+export const Duration = ({since}: DurationProps) => {
   const now = DateTime.now();
   const then = DateTime.fromISO(since);
   const duration = now.diff(then);

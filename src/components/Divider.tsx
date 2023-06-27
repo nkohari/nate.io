@@ -4,7 +4,7 @@ export type DividerProps = {
   className?: string;
 };
 
-export const Divider = ({ className }: DividerProps) => (
+export const Divider = ({className}: DividerProps) => (
   <hr
     className={cx(
       'border-0 h-px my-12',

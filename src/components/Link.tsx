@@ -1,6 +1,6 @@
 import cx from 'classnames';
-import { Link as RouterLink } from 'react-router-dom';
-import { Icon, IconType } from 'src/components';
+import {Link as RouterLink} from 'react-router-dom';
+import {Icon, IconType} from 'src/components';
 
 export type LinkType = 'unstyled' | 'block' | 'normal' | 'subtle';
 

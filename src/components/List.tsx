@@ -6,7 +6,7 @@ export type ListProps = {
   ordered?: boolean;
 };
 
-export const List = ({ children, className, ordered }: ListProps) => {
+export const List = ({children, className, ordered}: ListProps) => {
   const Component = ordered ? 'ol' : 'ul';
   const classes = cx('ml-6 mb-6 list-outside', ordered ? 'list-decimal' : 'list-disc', className);
 

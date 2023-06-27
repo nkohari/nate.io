@@ -1,13 +1,13 @@
-import { ArtistList, Link, MusicSidebar } from 'src/components';
-import { ArticleMetadata } from 'src/types';
+import {ArtistList, Link, MusicSidebar} from 'src/components';
+import {Metadata} from 'src/types';
 
 type MusicLayoutProps = {
   children: React.ReactNode;
-  metadata: ArticleMetadata;
+  metadata: Metadata;
 };
 
-export const MusicLayout = ({ children, metadata }: MusicLayoutProps) => {
-  const { album, track } = metadata.spotify!;
+export const MusicLayout = ({children, metadata}: MusicLayoutProps) => {
+  const {album, track} = metadata.spotify!;
   return (
     <div className="flex flex-row flex-row-reverse">
       <MusicSidebar album={album} track={track} />

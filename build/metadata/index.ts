@@ -1,5 +1,4 @@
-export * from './getArticleState';
-export * from './getArticleType';
+export * from './getBasicMetadata';
 export * from './getContentStats';
 export * from './getExcerpt';
 export * from './getImages';

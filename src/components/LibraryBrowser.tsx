@@ -1,9 +1,9 @@
-import { useMemo, useState } from 'react';
-import { motion } from 'framer-motion';
-import { useArticles } from 'virtual:nateio/articles';
-import { ArticleMetadata } from 'src/types';
-import { Badge, Date, Input, Link, Toggle } from 'src/components';
-import { search } from 'src/util';
+import {useMemo, useState} from 'react';
+import {motion} from 'framer-motion';
+import {useCatalog} from '@nkohari/apocrypha/catalog';
+import {Metadata} from 'src/types';
+import {Badge, Date, Input, Link, Toggle} from 'src/components';
+import {search} from 'src/util';
 
 const abstractVariants = {
   visible: {
@@ -11,16 +11,16 @@ const abstractVariants = {
   },
   hover: {
     scale: 1.05,
-    transition: { type: 'spring', stiffness: 120, damping: 8, mass: 0.6 },
+    transition: {type: 'spring', stiffness: 120, damping: 8, mass: 0.6},
   },
 };
 
 type AbstractProps = {
-  metadata: ArticleMetadata;
+  metadata: Metadata;
   path: string;
 };
 
-const Abstract = ({ metadata, path }: AbstractProps) => {
+const Abstract = ({metadata, path}: AbstractProps) => {
   return (
     <motion.div initial={false} animate="visible" whileHover="hover" variants={abstractVariants}>
       <Link
@@ -62,7 +62,7 @@ const NoResults = () => (
 );
 
 export const LibraryBrowser = () => {
-  const articles = useArticles();
+  const articles = useCatalog();
   const [query, setQuery] = useState<string>('');
 
   const matchingArticles = useMemo(() => search(Object.values(articles), query), [articles, query]);
@@ -71,7 +71,7 @@ export const LibraryBrowser = () => {
   if (matchingArticles.length === 0) {
     content = <NoResults />;
   } else {
-    content = matchingArticles.map(({ metadata, path }) => (
+    content = matchingArticles.map(({metadata, path}) => (
       <Abstract key={path} path={path} metadata={metadata} />
     ));
   }

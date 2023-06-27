@@ -17,7 +17,7 @@ export type IconProps = {
   size?: IconSize;
 };
 
-export const Icon = ({ className, type, size = 'default' }: IconProps) => {
+export const Icon = ({className, type, size = 'default'}: IconProps) => {
   const SvgComponent = ICONS[type] as React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
 
   if (!SvgComponent) {

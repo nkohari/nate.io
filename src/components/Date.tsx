@@ -1,4 +1,4 @@
-import { DateTime } from 'luxon';
+import {DateTime} from 'luxon';
 
 const FORMATS = {
   'full-date': DateTime.DATE_FULL,
@@ -12,7 +12,7 @@ export type DateProps = {
   format?: DateFormat;
 };
 
-export const Date = ({ className, date, format = 'full-date' }: DateProps) => {
+export const Date = ({className, date, format = 'full-date'}: DateProps) => {
   return (
     <time dateTime={date.toISOString()} className={className}>
       {DateTime.fromJSDate(date).toLocaleString(FORMATS[format])}

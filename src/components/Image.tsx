@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import { getImageUrl } from 'src/util';
+import {getImageUrl} from 'src/util';
 
 export type ImageFilter = 'grayscale' | 'sepia';
 

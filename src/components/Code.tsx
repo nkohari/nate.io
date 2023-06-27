@@ -3,7 +3,7 @@ export type CodeProps = {
   language: string;
 };
 
-export const Code = ({ content, language }: CodeProps) => {
+export const Code = ({content, language}: CodeProps) => {
   return (
     <code className="font-mono font-semibold text-base" data-language={language}>
       {content}

@@ -5,36 +5,31 @@ import {useCatalog} from '@nkohari/apocrypha/catalog';
 import {Link, PoweredBySpotify} from 'src/components';
 import {Metadata} from 'src/types';
 
-const containerVariants = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: {staggerChildren: 0.025},
-  },
-};
-
 const tileVariants = {
   hidden: {
     opacity: 0,
-    scale: 0.25,
+    rotate: 15,
+    scale: 0.5,
   },
   visible: {
     opacity: 1,
+    rotate: 0,
     scale: 1,
+    transition: {type: 'spring', stiffness: 120, damping: 10, mass: 0.5},
   },
 };
 
 const albumVariants = {
   visible: {
-    scale: 1,
     rotate: 0,
+    scale: 1,
+    zIndex: 1,
   },
   hover: () => ({
-    scale: 1.25,
     rotate: Math.random() > 0.5 ? 3 : -3,
-    transition: {type: 'spring', stiffness: 120, damping: 5, mass: 0.5},
+    scale: 1.25,
+    zIndex: 10,
+    transition: {type: 'spring', stiffness: 120, damping: 10, mass: 0.5},
   }),
 };
 
@@ -52,19 +47,14 @@ const poweredByVariants = {
 
 type MusicTileProps = {
   article: Article<Metadata>;
+  index: number;
 };
 
-const MusicTile = ({article}: MusicTileProps) => {
+const MusicTile = ({article, index}: MusicTileProps) => {
   const {spotify} = article.metadata;
   return (
-    <motion.div variants={tileVariants} className="relative">
-      <motion.div
-        variants={albumVariants}
-        initial={false}
-        animate="visible"
-        whileHover="hover"
-        className="hover:absolute hover:z-10 rounded-md shadow-md"
-      >
+    <motion.div variants={tileVariants} className="hover:z-10 w-1/3 md:w-1/5 p-1">
+      <motion.div initial={false} animate="visible" whileHover="hover" variants={albumVariants}>
         <Link type="unstyled" href={article.path}>
           <img width={300} height={300} src={spotify!.album.images.medium} className="rounded-md" />
         </Link>
@@ -86,19 +76,21 @@ export const MusicGrid = () => {
     [articles]
   );
 
-  const tiles = musicArticles.map((article) => <MusicTile key={article.path} article={article} />);
+  const tiles = musicArticles.map((article, index) => (
+    <MusicTile key={article.path} article={article} index={index} />
+  ));
 
   return (
     <div className="mt-6">
       <motion.div
+        className="flex flex-row flex-wrap"
         initial="hidden"
         animate="visible"
-        variants={containerVariants}
-        className="grid grid-cols-3 md:grid-cols-6 space-x-1 space-y-1"
+        transition={{staggerChildren: 0.025}}
       >
         {tiles}
       </motion.div>
-      <motion.div initial="hidden" animate="visible" variants={poweredByVariants}>
+      <motion.div variants={poweredByVariants}>
         <PoweredBySpotify className="mt-6" />
       </motion.div>
     </div>

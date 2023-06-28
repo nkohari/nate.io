@@ -9,8 +9,9 @@ const SECTIONS = [
   {text: 'About', href: '/'},
   {text: 'Now', href: '/now'},
   {text: 'Work', href: '/work'},
-  {text: 'Music', href: '/music'},
   {text: 'Writing', href: '/writing'},
+  {text: 'Music', href: '/music'},
+  {text: 'Art', href: '/art'},
 ];
 
 type MobileNavigationOverlayProps = {
@@ -78,8 +79,8 @@ const DesktopNavigationLink = ({href, text}: DesktopNavigationLinkProps) => {
           layoutId="navigation"
           initial={false}
           animate={{top: 0, x: 0}}
-          transition={{type: 'spring', stiffness: 120, damping: 10, mass: 0.6}}
-          className="absolute z-1 h-full w-full rounded-md bg-slate-200 dark:bg-slate-700"
+          transition={{type: 'spring', stiffness: 120, damping: 10, mass: 0.4}}
+          className="absolute z-1 h-full w-full rounded-full bg-slate-200 dark:bg-slate-700"
         />
       )}
     </NavLink>

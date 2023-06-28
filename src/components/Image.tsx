@@ -9,6 +9,7 @@ export type ImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
   filter?: ImageFilter;
   format: string;
   height: number;
+  thumbnail?: string;
   width: number;
 };
 
@@ -21,6 +22,7 @@ export const Image = ({
   format,
   height,
   src,
+  thumbnail,
   width,
   ...props
 }: ImageProps) => {

@@ -49,13 +49,16 @@ export const SiteFooter = () => {
           .{' '}
         </div>
       </div>
-      <div className="flex-none w-48 mt-4 sm:mt-0 grid grid-cols-2">
+      <div className="flex-none mt-4 w-56 sm:mt-0 grid grid-cols-3">
         <ul>
           <SiteFooterLink href="/" text="About" />
           <SiteFooterLink href="/now" text="Now" />
           <SiteFooterLink href="/work" text="Work" />
-          <SiteFooterLink href="/music" text="Music" />
+        </ul>
+        <ul>
           <SiteFooterLink href="/writing" text="Writing" />
+          <SiteFooterLink href="/music" text="Music" />
+          <SiteFooterLink href="/art" text="Art" />
         </ul>
         <ul>
           <SiteFooterLink icon="twitter" href="https://twitter.com/nkohari" text="Twitter" />

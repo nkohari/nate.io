@@ -1,3 +1,4 @@
+export * from './art-grid';
 export * from './attribution';
 export * from './avatar-cards';
 export * from './blockquote';

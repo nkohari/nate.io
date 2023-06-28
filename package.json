@@ -60,6 +60,7 @@
     "probe-image-size": "^7.2.3",
     "reading-time": "^1.5.0",
     "rimraf": "^4.4.1",
+    "sharp": "^0.32.1",
     "tailwindcss": "^3.2.7",
     "text-readability": "^1.0.5",
     "to-source": "^3.1.3",

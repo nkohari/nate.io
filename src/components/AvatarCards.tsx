@@ -1,7 +1,13 @@
 import {useEffect, useState} from 'react';
 import cx from 'classnames';
 import {motion, useAnimationControls, useReducedMotion} from 'framer-motion';
-import {getAvatarUrls, randomArrayElement, randomInteger, useInterval} from 'src/util';
+import {
+  getAllImagesInFolder,
+  randomArrayElement,
+  randomInteger,
+  shuffleArray,
+  useInterval,
+} from 'src/util';
 
 const MIN_FLIP_TIME = 7500;
 const MAX_FLIP_TIME = 15000;
@@ -110,7 +116,7 @@ export type AvatarCardsProps = {
 
 export const AvatarCards = ({count = 1}: AvatarCardsProps) => {
   const items = [...Array(count).keys()].map((index) => {
-    const urls = getAvatarUrls().sort(() => Math.random());
+    const urls = shuffleArray(getAllImagesInFolder('avatars'));
     return <AvatarCard key={index} position={index + 1} urls={urls} />;
   });
 

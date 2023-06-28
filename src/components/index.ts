@@ -28,6 +28,8 @@ export * from './Title';
 export * from './Toggle';
 export * from './Work';
 
+export * from './art/ArtGrid';
+
 export * from './layouts/DefaultLayout';
 export * from './layouts/MusicLayout';
 

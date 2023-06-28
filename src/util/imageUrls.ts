@@ -12,8 +12,8 @@ export const getImageUrl = (path: string): string | undefined => {
   return imageModule ? imageModule.default : undefined;
 };
 
-export const getAvatarUrls = () => {
+export const getAllImagesInFolder = (name: string) => {
   return Object.keys(IMAGE_MODULES)
-    .filter((path) => path.indexOf(`${IMAGE_BASE_PATH}/avatars`) === 0)
+    .filter((path) => path.indexOf(`${IMAGE_BASE_PATH}/${name}`) === 0)
     .map((path) => IMAGE_MODULES[path].default);
 };

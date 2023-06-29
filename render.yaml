@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: nate.io
+    runtime: static
+    buildCommand: yarn build
+    staticPublishPath: dist
+    pullRequestPreviewsEnabled: true
+    routes:
+      - type: rewrite
+        source: /api/event
+        destination: https://plausible.io/api/event
+      - type: rewrite
+        source: /js/script.js
+        destination: https://plausible.io/js/script.js
+      - type: rewrite
+        source: /*
+        destination: index.html

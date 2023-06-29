@@ -19,7 +19,7 @@ export const Badge = ({className, icon, text}: BadgeProps) => {
         'inline-flex flex-row items-center',
         'px-2 rounded-full bg-slate-200 dark:bg-slate-600',
         'capitalize font-semibold text-sm text-slate-600 dark:text-slate-300',
-        className
+        className,
       )}
     >
       {iconElement}

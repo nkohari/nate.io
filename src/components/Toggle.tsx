@@ -14,7 +14,7 @@ export const Toggle = ({active, className, label, onChange}: ToggleProps) => {
     'h-4 w-8 rounded-full cursor-pointer',
     'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500',
     'transition-colors ease-in-out',
-    active ? 'bg-blue-600 dark:bg-blue-600' : 'bg-slate-300 dark:bg-slate-600'
+    active ? 'bg-blue-600 dark:bg-blue-600' : 'bg-slate-300 dark:bg-slate-600',
   );
 
   const innerClasses = cx(
@@ -22,7 +22,7 @@ export const Toggle = ({active, className, label, onChange}: ToggleProps) => {
     'transform transition-all ease-in-out',
     active
       ? 'translate-x-4 border-blue-600'
-      : 'translate-x-0 dark:bg-slate-300 border-slate-300 dark:border-slate-600'
+      : 'translate-x-0 dark:bg-slate-300 border-slate-300 dark:border-slate-600',
   );
 
   return (

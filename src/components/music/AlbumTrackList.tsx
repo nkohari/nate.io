@@ -3,7 +3,7 @@ import cx from 'classnames';
 import {AnimatePresence, motion} from 'framer-motion';
 import {Duration} from 'luxon';
 import {Link} from 'src/components';
-import {Album, AlbumTrack, Reference} from 'lib/spotify';
+import {Album, AlbumTrack, Reference} from 'src/types';
 
 const MAX_TRACKS = 10;
 
@@ -37,7 +37,7 @@ const AlbumTrackListItem = ({isExtra, isHighlighted, track}: AlbumTrackListItemP
       'bg-white dark:bg-slate-800 border-b border-slate-300 dark:border-slate-700',
       'text-sm',
       isHighlighted && 'font-bold bg-slate-100 dark:bg-slate-900',
-      isExtra ? 'z-1' : 'z-10'
+      isExtra ? 'z-1' : 'z-10',
     )}
   >
     <div className="p-1 flex-0 w-7 text-right">{track.number}.</div>
@@ -78,7 +78,7 @@ export const AlbumTrackList = ({album, highlightedTrack}: AlbumTrackListProps) =
         role="button"
         className={cx(
           'border-b border-slate-300 dark:border-slate-700 py-1 pl-8',
-          'text-sm text-slate-500 dark:text-slate-400'
+          'text-sm text-slate-500 dark:text-slate-400',
         )}
         onClick={() => setExpanded(true)}
       >

@@ -20,7 +20,7 @@ export function RideGraphSwitch<T>({onChange, options, value}: RideGraphSwitchPr
       <a
         key={firstLabel}
         className={cx(
-          'text-xs px-2 py-1 rounded-full cursor-pointer bg-slate-500 dark:bg-slate-700 text-white'
+          'text-xs px-2 py-1 rounded-full cursor-pointer bg-slate-500 dark:bg-slate-700 text-white',
         )}
       >
         {firstLabel}
@@ -32,7 +32,7 @@ export function RideGraphSwitch<T>({onChange, options, value}: RideGraphSwitchPr
         key={option.label}
         className={cx(
           'text-xs px-2 py-1 rounded-full cursor-pointer',
-          option.value === value ? 'font-semibold bg-slate-500 dark:bg-slate-700 text-white' : null
+          option.value === value ? 'font-semibold bg-slate-500 dark:bg-slate-700 text-white' : null,
         )}
         onClick={() => onChange(option.value)}
       >

@@ -39,7 +39,7 @@ export const RideGraph = () => {
 
   const scale = useMemo(
     () => (rides ? getYAxisScale(rides, field, system) : null),
-    [rides, field, system]
+    [rides, field, system],
   );
 
   let bars;

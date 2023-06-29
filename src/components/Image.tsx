@@ -39,7 +39,7 @@ export const Image = ({
         className={cx(
           'w-full bg-slate-200 dark:bg-slate-700',
           filter,
-          rounded && `rounded-${rounded}`
+          rounded && `rounded-${rounded}`,
         )}
         data-image-format={format}
         style={{aspectRatio: width / height}}

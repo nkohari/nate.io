@@ -47,10 +47,9 @@ const poweredByVariants = {
 
 type MusicTileProps = {
   article: Article<Metadata>;
-  index: number;
 };
 
-const MusicTile = ({article, index}: MusicTileProps) => {
+const MusicTile = ({article}: MusicTileProps) => {
   const {spotify} = article.metadata;
   return (
     <motion.div variants={tileVariants} className="hover:z-10 w-1/3 md:w-1/5 p-1">
@@ -71,14 +70,12 @@ export const MusicGrid = () => {
       Object.values(articles)
         .filter((article) => article.metadata.type === 'music')
         .sort((a, b) =>
-          a.metadata.spotify!.track.name.localeCompare(b.metadata.spotify!.track.name)
+          a.metadata.spotify!.track.name.localeCompare(b.metadata.spotify!.track.name),
         ),
-    [articles]
+    [articles],
   );
 
-  const tiles = musicArticles.map((article, index) => (
-    <MusicTile key={article.path} article={article} index={index} />
-  ));
+  const tiles = musicArticles.map((article) => <MusicTile key={article.path} article={article} />);
 
   return (
     <div className="mt-6">

@@ -1,13 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import {Reference} from '../../src/types';
 import {Config} from '../config';
-import {
-  transformAlbum,
-  transformAlbumArray,
-  transformArtist,
-  transformArtistArray,
-  transformTrack,
-  transformTrackArray,
-} from './transformers';
-import {Reference} from './types';
+import {transformAlbum, transformArtist, transformTrack} from './transformers';
 
 type RequestProps<T> = {
   path: string;
@@ -76,7 +71,7 @@ export class SpotifyClient {
     url.searchParams.set('response_type', 'code');
     url.searchParams.set('client_id', this.config.spotify.clientId);
     url.searchParams.set('scope', scopes.join(' '));
-    url.searchParams.set('redirect_uri', `${this.config.apiBaseUrl}/spotify/auth`);
+    url.searchParams.set('redirect_uri', `${this.config.baseUrl}/spotify/auth`);
 
     return url.toString();
   }
@@ -89,7 +84,7 @@ export class SpotifyClient {
         client_secret: this.config.spotify.clientSecret,
         code,
         grant_type: 'authorization_code',
-        redirect_uri: `${this.config.apiBaseUrl}/spotify/auth`,
+        redirect_uri: `${this.config.baseUrl}/spotify/auth`,
       }),
     });
 

@@ -2,7 +2,7 @@ import {useMemo, useState} from 'react';
 import {motion} from 'framer-motion';
 import {useCatalog} from '@nkohari/apocrypha/catalog';
 import {Metadata} from 'src/types';
-import {Badge, Date, Input, Link, Toggle} from 'src/components';
+import {Badge, Date, Input, Link} from 'src/components';
 import {search} from 'src/util';
 
 const abstractVariants = {
@@ -11,7 +11,7 @@ const abstractVariants = {
   },
   hover: {
     scale: 1.05,
-    transition: {type: 'spring', stiffness: 120, damping: 8, mass: 0.6},
+    transition: {type: 'spring', stiffness: 120, damping: 10, mass: 0.5},
   },
 };
 
@@ -62,7 +62,7 @@ const NoResults = () => (
 );
 
 export const LibraryBrowser = () => {
-  const articles = useCatalog();
+  const articles = useCatalog<Metadata>();
   const [query, setQuery] = useState<string>('');
 
   const matchingArticles = useMemo(() => search(Object.values(articles), query), [articles, query]);

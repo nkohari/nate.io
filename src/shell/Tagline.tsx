@@ -1,6 +1,6 @@
-import {useEffect, useMemo, useState} from 'react';
+import {useMemo, useState} from 'react';
 import {AnimatePresence, motion} from 'framer-motion';
-import {shuffleArray} from 'src/util';
+import {shuffleArray, useInterval, useReducedMotion} from 'src/util';
 
 const SWITCH_INTERVAL = 10000;
 
@@ -30,20 +30,28 @@ const letterVariants = {
 };
 
 export const Tagline = () => {
+  const reducedMotion = useReducedMotion();
   const shuffledPhrases = useMemo(() => shuffleArray(PHRASES), []);
   const [phrase, setPhrase] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPhrase((prev) => {
-        return prev === shuffledPhrases.length - 1 ? 0 : prev + 1;
-      });
-    }, SWITCH_INTERVAL);
-    return () => clearInterval(interval);
-  }, []);
+  useInterval(
+    SWITCH_INTERVAL,
+    () => {
+      if (!reducedMotion) {
+        setPhrase((prev) => {
+          return prev === shuffledPhrases.length - 1 ? 0 : prev + 1;
+        });
+      }
+    },
+    [reducedMotion, shuffledPhrases.length],
+  );
 
   const letters = shuffledPhrases[phrase].split('').map((letter, index) => (
-    <motion.span key={letter + index} variants={letterVariants} className="inline-block">
+    <motion.span
+      key={`letter.${phrase}.${index}`}
+      variants={letterVariants}
+      className="inline-block"
+    >
       {letter}
     </motion.span>
   ));
@@ -51,7 +59,7 @@ export const Tagline = () => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        key={`phrase${phrase}`}
+        key={`phrase.${phrase}`}
         initial="hidden"
         animate="visible"
         exit="exit"

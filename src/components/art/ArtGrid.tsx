@@ -39,16 +39,19 @@ const backdropVariants = {
 type ArtTileProps = {
   image: string;
   isSelected: boolean;
-  onSelect: () => void;
+  onClick: () => void;
 };
 
-const ArtTile = ({image, isSelected, onSelect}: ArtTileProps) => {
+const ArtTile = ({image, isSelected, onClick}: ArtTileProps) => {
   return (
-    <motion.a variants={tileVariants} className="hover:z-10 w-1/2 md:w-1/4 p-1 cursor-pointer">
+    <motion.a
+      variants={tileVariants}
+      className="hover:z-10 w-1/2 md:w-1/4 p-1 cursor-pointer"
+      onClick={onClick}
+    >
       <motion.img
         className="rounded-md shadow-md"
         src={image}
-        onClick={onSelect}
         variants={imageVariants}
         initial={false}
         animate="visible"
@@ -62,18 +65,14 @@ const ArtTile = ({image, isSelected, onSelect}: ArtTileProps) => {
 
 export const ArtGrid = () => {
   const [selectedImage, setSelectedImage] = useState<string>();
-
-  const images = useMemo(
-    () => shuffleArray(getAllImagesInFolder('art')),
-    [getAllImagesInFolder, shuffleArray]
-  );
+  const images = useMemo(() => shuffleArray(getAllImagesInFolder('art')), []);
 
   const tiles = images.map((image) => (
     <ArtTile
       key={image}
       image={image}
       isSelected={image === selectedImage}
-      onSelect={() => setSelectedImage(image)}
+      onClick={() => setSelectedImage(image)}
     />
   ));
 
@@ -91,7 +90,6 @@ export const ArtGrid = () => {
         <motion.img
           className={`w-auto h-auto max-w-[90vw] max-h-[90vh] my-12 mx-auto rounded-2xl`}
           src={selectedImage}
-          onClick={() => setSelectedImage(undefined)}
           layout
           layoutId={selectedImage}
         />

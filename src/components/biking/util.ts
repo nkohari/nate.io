@@ -71,7 +71,7 @@ export function minValueForRides(rides: Ride[], field: RideField, system: Measur
 export function getYAxisScale(
   rides: Ride[],
   field: RideField,
-  system: MeasurementSystem
+  system: MeasurementSystem,
 ): AxisScale {
   const min = minValueForRides(rides, field, system);
   const max = maxValueForRides(rides, field, system);

@@ -26,7 +26,7 @@ export const ScrollController = ({children}: ScrollControllerProps) => {
       window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }
     setPreviousLocation(location);
-  }, [location]);
+  }, [location, previousLocation.pathname]);
 
   return <>{children}</>;
 };

@@ -66,7 +66,7 @@ export const fence: MarkdocDeclaration = {
     for (const item of transformPrismTokens(tokens)) {
       if (item === 'newline') {
         lines.push(
-          new Markdoc.Tag('CodeBlockLine', {number: lines.length + 1}, currentLineChildren)
+          new Markdoc.Tag('CodeBlockLine', {number: lines.length + 1}, currentLineChildren),
         );
         currentLineChildren = [];
       } else {

@@ -1,5 +1,5 @@
 import {DateTime} from 'luxon';
-import {Icon, IconType, Link} from 'src/components';
+import {IconType, Link} from 'src/components';
 
 type SiteFooterLinkProps = {
   href: string;
@@ -8,7 +8,7 @@ type SiteFooterLinkProps = {
 };
 
 const SiteFooterLink = ({href, icon, text}: SiteFooterLinkProps) => (
-  <li className="flex items-center mb-2">
+  <li className="flex items-center mb-1">
     <Link href={href} type="subtle" icon={icon} iconSpacing={2}>
       {text}
     </Link>

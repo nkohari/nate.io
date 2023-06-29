@@ -49,7 +49,7 @@ export class DiskCache {
   }
 
   async clear() {
-    return new Promise<void>(async (resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
       rimraf(this.rootPath, (err) => {
         if (err) {
           reject(err);

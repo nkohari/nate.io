@@ -16,7 +16,7 @@ export async function getImages({ast, paths}: MetadataPluginParams<Metadata>) {
       const {width, height, format} = await image.metadata();
 
       images.push({
-        src: node.attributes.src,
+        src,
         width,
         height,
         format,

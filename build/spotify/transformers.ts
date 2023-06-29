@@ -1,4 +1,6 @@
-import {Album, AlbumTrack, Artist, ImageSet, Reference, Track} from './types';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
+import {Album, AlbumTrack, Artist, ImageSet, Reference, Track} from '../../src/types';
 
 const transformReleaseDate = (date: string): string => {
   const tokens = date.split('-');
@@ -37,7 +39,7 @@ const transformReference = createTransformer(
     name: input.name,
     type: input.type,
     url: input.external_urls.spotify,
-  })
+  }),
 );
 
 export const transformAlbum = createTransformer(
@@ -52,7 +54,7 @@ export const transformAlbum = createTransformer(
     tracks: input.tracks.items.map(transformAlbumTrack),
     type: 'album',
     url: input.external_urls.spotify,
-  })
+  }),
 );
 
 export const transformAlbumTrack = createTransformer(
@@ -66,7 +68,7 @@ export const transformAlbumTrack = createTransformer(
     previewUrl: input.preview_url,
     type: 'track',
     url: input.external_urls.spotify,
-  })
+  }),
 );
 
 export const transformArtist = createTransformer(
@@ -78,7 +80,7 @@ export const transformArtist = createTransformer(
     popularity: input.popularity,
     type: 'artist',
     url: input.external_urls.spotify,
-  })
+  }),
 );
 
 export const transformTrack = createTransformer(
@@ -92,7 +94,7 @@ export const transformTrack = createTransformer(
     previewUrl: input.preview_url,
     type: 'track',
     url: input.external_urls.spotify,
-  })
+  }),
 );
 
 export const transformAlbumArray = (input: any[]): Album[] => input.map(transformAlbum);

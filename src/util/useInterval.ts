@@ -2,7 +2,7 @@ import {useEffect, useRef} from 'react';
 
 type CallbackFunction = () => unknown;
 
-export const useInterval = (delay: number, callback: CallbackFunction, dependencies: any[]) => {
+export const useInterval = (delay: number, callback: CallbackFunction, dependencies: unknown[]) => {
   const callbackRef = useRef<CallbackFunction>();
 
   useEffect(() => {
@@ -10,7 +10,7 @@ export const useInterval = (delay: number, callback: CallbackFunction, dependenc
   }, [callback]);
 
   useEffect(() => {
-    let id = setInterval(() => callbackRef.current!(), delay);
-    return () => clearInterval(id);
-  }, dependencies);
+    const interval = setInterval(() => callbackRef.current!(), delay);
+    return () => clearInterval(interval);
+  }, [delay, ...dependencies]); // eslint-disable-line react-hooks/exhaustive-deps
 };

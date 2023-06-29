@@ -16,7 +16,7 @@ export function getSpotifyData(config: Config, cachePath: string) {
     if (!track) return;
 
     const album = await cache.readThrough(`albums/${track.album.id}`, () =>
-      spotify.getAlbum(track.album.id)
+      spotify.getAlbum(track.album.id),
     );
     if (!album) return;
 

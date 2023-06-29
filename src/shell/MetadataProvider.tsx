@@ -1,7 +1,7 @@
 import {createContext, useContext} from 'react';
 import {Metadata} from 'src/types';
 
-const MetadataContext = createContext<Metadata>({} as any);
+const MetadataContext = createContext<Metadata>({} as Metadata);
 
 type MetadataProviderProps = {
   children: React.ReactNode;

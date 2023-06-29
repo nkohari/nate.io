@@ -1,6 +1,5 @@
 import {MetadataPluginParams} from '@nkohari/apocrypha';
 import readingTime from 'reading-time';
-// @ts-ignore
 import readability from 'text-readability';
 import {Metadata} from '../../src/types';
 import {getRawText} from '../util';

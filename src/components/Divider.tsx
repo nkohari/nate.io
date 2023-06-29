@@ -9,7 +9,7 @@ export const Divider = ({className}: DividerProps) => (
     className={cx(
       'border-0 h-px my-12',
       'bg-gradient-to-r from-transparent to-transparent via-slate-300 dark:via-slate-600',
-      className
+      className,
     )}
   />
 );

@@ -34,7 +34,7 @@ export const Input = ({
         'px-2 py-0.5 rounded-md bg-white dark:bg-slate-500 border-2 border-slate-300 dark:border-slate-400 focus-within:border-blue-500',
         'transition-colors ease-in-out',
         'cursor-text',
-        className
+        className,
       )}
       onClick={handleClick}
     >
@@ -46,7 +46,7 @@ export const Input = ({
         value={value}
         className={cx(
           'bg-transparent ml-2 focus:outline-none',
-          'placeholder:italic placeholder:text-base placeholder:text-slate-300'
+          'placeholder:italic placeholder:text-base placeholder:text-slate-300',
         )}
         onChange={handleChange}
       />

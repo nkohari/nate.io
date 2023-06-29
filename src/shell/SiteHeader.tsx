@@ -1,8 +1,6 @@
 import {motion} from 'framer-motion';
-import {useMemo} from 'react';
 import {NavLink} from 'react-router-dom';
 import {SiteNavigation, Tagline} from 'src/shell';
-import {randomArrayElement} from 'src/util';
 
 const variants = {
   visible: {

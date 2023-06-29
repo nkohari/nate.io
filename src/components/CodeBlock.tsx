@@ -23,7 +23,7 @@ export const CodeBlockLine = ({children, number}: CodeBlockLineProps) => (
       'h-5 line-numbers',
       'first:h-7 first:before:pt-2',
       'last:h-7 last:before:pb-2',
-      'before:inline-block before:w-8 before:px-1 before:mr-4 before:text-right before:text-slate-300 before:bg-slate-600'
+      'before:inline-block before:w-8 before:px-1 before:mr-4 before:text-right before:text-slate-300 before:bg-slate-600',
     )}
   >
     {children}
@@ -31,18 +31,17 @@ export const CodeBlockLine = ({children, number}: CodeBlockLineProps) => (
 );
 
 export type CodeBlockProps = {
-  content: string;
   children: React.ReactNode;
   language: string;
 };
 
-export const CodeBlock = ({content, children, language}: CodeBlockProps) => {
+export const CodeBlock = ({children, language}: CodeBlockProps) => {
   return (
     <pre
       data-language={language}
       className={cx(
         'overflow-x-auto min-h-[40px] mb-6 bg-slate-700 bg-clip-border border-2 border-slate-600 rounded-md',
-        'font-mono text-white text-sm line-numbers-group'
+        'font-mono text-white text-sm line-numbers-group',
       )}
     >
       {children}

@@ -26,7 +26,7 @@ const cardVariants = {
   hover: (position: number) => ({
     scale: 1.15,
     rotate: position % 2 === 0 ? 3 : -3,
-    transition: {type: 'spring', stiffness: 150, damping: 8, mass: 0.8},
+    transition: {type: 'spring', stiffness: 120, damping: 10, mass: 0.5},
   }),
 };
 
@@ -40,7 +40,7 @@ const AvatarImage = ({flip = false, src}: AvatarImageProps) => (
     src={src}
     className={cx(
       'absolute rounded-md shadow-md backface-hidden aspect-square',
-      flip && 'rotate-y-180'
+      flip && 'rotate-y-180',
     )}
     height={280}
     width={280}
@@ -68,7 +68,7 @@ const AvatarCard = ({position, urls}: AvatarCardProps) => {
 
   useEffect(() => {
     controls.start(visibleFace);
-  }, [visibleFace]);
+  }, [controls, visibleFace]);
 
   useEffect(() => {
     const handleKeypress = (event: KeyboardEvent) => {
@@ -85,14 +85,14 @@ const AvatarCard = ({position, urls}: AvatarCardProps) => {
       if (visibleFace === 'front') setBackUrl(randomArrayElement(urls));
       else setFrontUrl(randomArrayElement(urls));
     }, 500);
-  }, [visibleFace]);
+  }, [setBackUrl, setFrontUrl, urls, visibleFace]);
 
   useInterval(
     randomInteger(MIN_FLIP_TIME, MAX_FLIP_TIME),
     () => {
       if (!reducedMotion) flipCard();
     },
-    [reducedMotion]
+    [reducedMotion],
   );
 
   return (

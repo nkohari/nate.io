@@ -5,7 +5,9 @@
 * {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  font-feature-settings: 'kern' 1, 'liga' 1;
+  font-feature-settings:
+    'kern' 1,
+    'liga' 1;
 }
 
 @layer base {
@@ -21,6 +23,10 @@
 
   #root {
     @apply flex flex-col;
+  }
+
+  em {
+    @apply font-semibold;
   }
 }
 

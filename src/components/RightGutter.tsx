@@ -1,4 +1,3 @@
-import cx from 'classnames';
 import debounce from 'lodash/debounce';
 import {useEffect} from 'react';
 import {motion, useAnimationControls} from 'framer-motion';
@@ -38,7 +37,7 @@ const BackToTop = () => {
   useEffect(() => {
     window.addEventListener('scroll', handleWindowScroll);
     return () => window.removeEventListener('scroll', handleWindowScroll);
-  }, []);
+  }, [handleWindowScroll]);
 
   return (
     <motion.div

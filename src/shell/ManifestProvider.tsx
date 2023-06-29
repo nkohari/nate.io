@@ -40,7 +40,7 @@ export const ManifestProvider = ({children}: ManifestProviderProps) => {
 
   const getManifestEntry = useCallback(
     (filename: string) => manifest[filename] || null,
-    [manifest]
+    [manifest],
   );
 
   const context = {

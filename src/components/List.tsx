@@ -13,7 +13,7 @@ export const List = ({children, compact = false, className, ordered = false}: Li
     'ml-6 mb-6 list-outside',
     ordered ? 'list-decimal' : 'list-disc',
     compact ? 'space-y-0' : 'space-y-4',
-    className
+    className,
   );
 
   return <Component className={classes}>{children}</Component>;

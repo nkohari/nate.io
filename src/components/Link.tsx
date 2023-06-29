@@ -52,7 +52,7 @@ export const Link = ({
     LINK_CLASSES[type],
     icon && 'inline-flex flex-row items-center',
     icon && iconPosition === 'right' && 'flex-row-reverse',
-    className
+    className,
   );
 
   let content;

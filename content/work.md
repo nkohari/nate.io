@@ -8,7 +8,7 @@ Before Stripe, I spent most of my career working for smaller companies, or start
 
 ## My Principles
 
-1. **Be better than yesterday.** Everything is a work-in-progress, including ourselves. However, if we make [small improvements](https://en.wikipedia.org/wiki/Kaizen) every day, they'll result in dramatic changes. The value of incremental and directionally-correct improvements compounds over time, just like interest on savings.
+1. **Be better than yesterday.** Everything is a work-in-progress, including ourselves. If we gradually make [small improvements](https://en.wikipedia.org/wiki/Kaizen) every day, they'll result in dramatic changes. The value of incremental and directionally-correct work compounds over time, just like interest on savings.
 2. **Feedback is a gift.** Every viewpoint is unique, and striving to understanding them is an opportunity for us to improve and better understand ourselves, our work, and the world around us. Give and receive feedback freely, as long as it's truthful, necessary, timely, and kind.
 3. **Invest in long levers.** Work that makes other people more efficient, happier, or better at their jobs is the highest-leverage work an engineer can do. Your time and energy is limited; be on the lookout for opportunities to amplify your effort.
 4. **Design is leverage.** Spending the right amount of time --- not too little, not too much --- on design and architecture often yield huge dividends later by unlocking efficiencies you didn't expect. Avoid excessive future-proofing, but keep an eye on the horizon for what might come next.

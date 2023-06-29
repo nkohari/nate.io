@@ -4,7 +4,7 @@ import {Metadata} from 'src/types';
 
 export const search = (
   articles: Article<Metadata>[],
-  query: string | null
+  query: string | null,
 ): Article<Metadata>[] => {
   const isMatch = (article: Article<Metadata>) => {
     // Never match page or music articles.

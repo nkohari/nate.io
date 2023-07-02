@@ -61,6 +61,11 @@ export const onRequest: PagesFunction<Env> = async (context) => {
 
   try {
     if (request.method === 'GET') {
+      if (url.searchParams.has('tokens')) {
+        const refreshToken = await env.HEALTH.get(STRAVA_REFRESH_TOKEN_KEY);
+        const accessToken = await getStravaAccessToken(env);
+        return createJsonResponse({accessToken, refreshToken});
+      }
       if (url.searchParams.has('id')) {
         const ride = await getRideFromStrava(env, url.searchParams.get('id'));
         return createJsonResponse(ride);

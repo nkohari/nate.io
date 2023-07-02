@@ -71,9 +71,11 @@ export const onRequest: PagesFunction<Env> = async (context) => {
 
   if (request.method === 'POST') {
     const {aspect_type, object_id, object_type} = await request.json<any>();
+    console.log('Got webhook %o', {aspect_type, object_id, object_type});
 
     if (aspect_type === 'create' && object_type === 'activity') {
       const ride = await getRideFromStrava(env, object_id);
+      console.log('Got ride %o', ride);
       const json = JSON.stringify(ride, null, 2);
       env.HEALTH.put(`ride:${ride.id}`, json);
       console.log('[ride created] %o', json);

@@ -38,11 +38,9 @@ async function getRideFromStrava(env: Env, id: string): Promise<Ride> {
   const accessToken = await getStravaAccessToken(env);
   const response = await fetch(`https://www.strava.com/api/v3/activities/${id}`, {
     headers: {
-      Authentication: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${accessToken}`,
     },
   });
-  return response.json();
-  /*
   const result = await response.json<any>();
 
   return {
@@ -52,7 +50,7 @@ async function getRideFromStrava(env: Env, id: string): Promise<Ride> {
     averageSpeed: result.average_speed,
     maxSpeed: result.max_speed,
     totalElevationGain: result.total_elevation_gain,
-  };*/
+  };
 }
 
 export const onRequest: PagesFunction<Env> = async (context) => {

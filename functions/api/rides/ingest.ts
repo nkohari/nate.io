@@ -41,6 +41,8 @@ async function getRideFromStrava(env: Env, id: string): Promise<Ride> {
       Authentication: `Bearer ${accessToken}`,
     },
   });
+  return response.json();
+  /*
   const result = await response.json<any>();
 
   return {
@@ -50,7 +52,7 @@ async function getRideFromStrava(env: Env, id: string): Promise<Ride> {
     averageSpeed: result.average_speed,
     maxSpeed: result.max_speed,
     totalElevationGain: result.total_elevation_gain,
-  };
+  };*/
 }
 
 export const onRequest: PagesFunction<Env> = async (context) => {

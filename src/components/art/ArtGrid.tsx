@@ -85,7 +85,7 @@ export const ArtGrid = () => {
         animate="visible"
         exit="hidden"
         variants={backdropVariants}
-        className="z-50 fixed top-0 left-0 right-0 bottom-0"
+        className="z-50 fixed top-0 left-0 right-0 bottom-0 cursor-pointer"
         onClick={() => setSelectedImage(undefined)}
       >
         <motion.img

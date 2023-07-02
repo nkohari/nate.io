@@ -59,6 +59,11 @@ export const onRequest: PagesFunction<Env> = async (context) => {
 
   try {
     if (request.method === 'GET') {
+      if (url.searchParams.has('id')) {
+        const ride = await getRideFromStrava(env, url.searchParams.get('id'));
+        return createJsonResponse(ride);
+      }
+
       const token = url.searchParams.get('hub.verify_token');
       const challenge = url.searchParams.get('hub.challenge');
 

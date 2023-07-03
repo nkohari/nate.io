@@ -30,6 +30,8 @@ export * from './Work';
 
 export * from './art/ArtGrid';
 
+export * from './biking/RideGraph';
+
 export * from './layouts/DefaultLayout';
 export * from './layouts/MusicLayout';
 

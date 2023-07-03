@@ -1,6 +1,4 @@
----
-title: My Work
----
+{% image src="cyberpunk-engineer.webp" rounded="xl" /%}
 
 {% lead-in %}I'm an internet engineer.{% /lead-in %} I build thoughtful, polished web interfaces and scalable, high-performance APIs. I care deeply about creating user experiences that are surprisingly great.
 

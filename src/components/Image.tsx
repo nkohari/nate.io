@@ -5,10 +5,10 @@ export type ImageFilter = 'grayscale' | 'sepia';
 
 export type ImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
   children?: React.ReactNode;
-  circle?: boolean;
   filter?: ImageFilter;
   format: string;
   height: number;
+  rounded?: string;
   thumbnail?: string;
   width: number;
 };
@@ -17,10 +17,10 @@ export const Image = ({
   alt,
   className,
   children,
-  circle,
   filter,
   format,
   height,
+  rounded,
   src,
   thumbnail,
   width,
@@ -40,7 +40,11 @@ export const Image = ({
       <img
         src={imageUrl || undefined}
         alt={alt}
-        className={cx('w-full bg-slate-200 dark:bg-slate-700', filter, circle && 'rounded-full')}
+        className={cx(
+          'w-full bg-slate-200 dark:bg-slate-700',
+          filter,
+          rounded && `rounded-${rounded}`
+        )}
         height={height}
         width={width}
         data-image-format={format}

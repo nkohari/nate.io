@@ -9,6 +9,7 @@ const SECTIONS = [
   {text: 'About', href: '/'},
   {text: 'Now', href: '/now'},
   {text: 'Work', href: '/work'},
+  {text: 'Biking', href: '/biking'},
   {text: 'Writing', href: '/writing'},
   {text: 'Music', href: '/music'},
   {text: 'Art', href: '/art'},
@@ -73,7 +74,7 @@ const DesktopNavigationLink = ({href, text}: DesktopNavigationLinkProps) => {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <span className="relative z-10">{text}</span>
+      <span className="relative z-10 text-[16px]">{text}</span>
       {hover && (
         <motion.div
           layoutId="navigation"

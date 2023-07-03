@@ -19,4 +19,5 @@ export * from './list-item';
 export * from './music-grid';
 export * from './note';
 export * from './paragraph';
+export * from './ride-graph';
 export * from './work';

@@ -4,6 +4,7 @@ import {ArticleContent, useArticle} from '@nkohari/apocrypha/catalog';
 import {DefaultLayout, MusicLayout} from 'src/components';
 import {Meta, MetadataProvider} from 'src/shell';
 import {Metadata} from 'src/types';
+import background from '../../media/images/bg.webp';
 
 const variants = {
   initial: {

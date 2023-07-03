@@ -1,6 +1,8 @@
 import {motion} from 'framer-motion';
+import {useMemo} from 'react';
 import {NavLink} from 'react-router-dom';
-import {SiteNavigation} from 'src/shell';
+import {SiteNavigation, Tagline} from 'src/shell';
+import {randomArrayElement} from 'src/util';
 
 const variants = {
   visible: {
@@ -25,9 +27,9 @@ export const SiteHeader = () => (
     <motion.div initial={false} animate="visible" whileHover="hover">
       <NavLink to="/" className="flex-1 flex flex-row items-center">
         <EndlessKnot />
-        <div className="ml-1.5 flex flex-col leading-6 whitespace-nowrap">
+        <div className="ml-1.5 flex flex-col leading-5 whitespace-nowrap">
           <div className="font-extrabold">Nate Kohari</div>
-          <div>Professional Bit-shifter</div>
+          <Tagline />
         </div>
       </NavLink>
     </motion.div>

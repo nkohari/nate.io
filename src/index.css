@@ -44,7 +44,4 @@
   .rotate-y-180 {
     transform: rotateY(180deg);
   }
-  .bg-checkerboard {
-    background: repeating-conic-gradient(#cbd5e1 0% 25%, #fff 0% 50%) 50% / 20px 20px;
-  }
 }

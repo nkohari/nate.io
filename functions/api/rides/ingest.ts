@@ -45,7 +45,9 @@ async function getAllRidesFromStrava(env: Env): Promise<Ride[]> {
     }
   );
   const result = await response.json<any>();
+  return result;
 
+  /*
   return result.map((item) => ({
     id: result.id,
     timestamp: result.start_date,
@@ -54,7 +56,7 @@ async function getAllRidesFromStrava(env: Env): Promise<Ride[]> {
     averageSpeed: result.average_speed,
     maxSpeed: result.max_speed,
     totalElevationGain: result.total_elevation_gain,
-  }));
+  }));*/
 }
 
 async function getRideFromStrava(env: Env, id: string): Promise<Ride> {
@@ -65,9 +67,7 @@ async function getRideFromStrava(env: Env, id: string): Promise<Ride> {
     },
   });
   const result = await response.json<any>();
-  return result;
 
-  /*
   return {
     id: result.id,
     timestamp: result.start_date,
@@ -77,7 +77,6 @@ async function getRideFromStrava(env: Env, id: string): Promise<Ride> {
     maxSpeed: result.max_speed,
     totalElevationGain: result.total_elevation_gain,
   };
-  */
 }
 
 export const onRequest: PagesFunction<Env> = async (context) => {

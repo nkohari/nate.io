@@ -1,5 +1,5 @@
 import {createJsonResponse} from '../../common/createJsonResponse';
-import {Ride} from '../../common/Ride';
+import {Ride} from '../../../src/types';
 
 type Env = {
   HEALTH: KVNamespace;

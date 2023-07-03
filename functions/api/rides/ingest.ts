@@ -1,5 +1,5 @@
 import {createJsonResponse} from '../../common/createJsonResponse';
-import {Ride} from '../../common/Ride';
+import {Ride} from '../../../src/types';
 
 const STRAVA_REFRESH_TOKEN_KEY = 'strava-refresh-token';
 
@@ -89,10 +89,6 @@ export const onRequest: PagesFunction<Env> = async (context) => {
           await env.HEALTH.put(`ride:${ride.id}`, JSON.stringify(ride));
         }
         return createJsonResponse(rides);
-      }
-      if (url.searchParams.has('id')) {
-        const ride = await getRideFromStrava(env, url.searchParams.get('id'));
-        return createJsonResponse(ride);
       }
 
       const token = url.searchParams.get('hub.verify_token');

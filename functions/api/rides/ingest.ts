@@ -44,11 +44,9 @@ async function getAllRidesFromStrava(env: Env): Promise<Ride[]> {
       },
     }
   );
-  const result = await response.json<any>();
-  return result;
+  const results = await response.json<any>();
 
-  /*
-  return result.map((item) => ({
+  return results.map((result) => ({
     id: result.id,
     timestamp: result.start_date,
     distance: result.distance,
@@ -56,7 +54,7 @@ async function getAllRidesFromStrava(env: Env): Promise<Ride[]> {
     averageSpeed: result.average_speed,
     maxSpeed: result.max_speed,
     totalElevationGain: result.total_elevation_gain,
-  }));*/
+  }));
 }
 
 async function getRideFromStrava(env: Env, id: string): Promise<Ride> {
@@ -87,9 +85,9 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     if (request.method === 'GET') {
       if (url.searchParams.has('all')) {
         const rides = await getAllRidesFromStrava(env);
-        //for (const ride of rides) {
-        //  await env.HEALTH.put(`ride:${ride.id}`, JSON.stringify(ride));
-        //}
+        for (const ride of rides) {
+          await env.HEALTH.put(`ride:${ride.id}`, JSON.stringify(ride));
+        }
         return createJsonResponse(rides);
       }
       if (url.searchParams.has('id')) {

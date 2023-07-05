@@ -54,6 +54,53 @@ async function getRideFromStrava(env: Env, id: string): Promise<Ride> {
   };
 }
 
+async function saveRideToKV(env: Env, ride: Ride): Promise<Ride[]> {
+  // Read the existing values from KV.
+  const existingRides = await env.HEALTH.get<Ride[]>('rides', {type: 'json'});
+
+  // Create a hash from the existing rides to ensure that we don't inadvertently save duplicates.
+  const hash = existingRides.reduce((result, ride) => {
+    result[ride.id] = ride;
+    return result;
+  }, {} as {[id: string]: Ride});
+
+  // Add the ride to the hash.
+  hash[ride.id] = ride;
+
+  // Sort the values of the hash by timestamp.
+  const rides = Object.values(hash).sort(
+    (a, b) => Date.parse(a.timestamp) - Date.parse(b.timestamp)
+  );
+
+  // Write the values back to KV.
+  await env.HEALTH.put('rides', JSON.stringify(rides));
+
+  return rides;
+}
+
+async function writeAllRidesToSingleKey(env: Env): Promise<Ride[]> {
+  let keys = [];
+  let cursor = undefined;
+  let result: KVNamespaceListResult<never, string>;
+
+  do {
+    result = await env.HEALTH.list({cursor, prefix: 'ride:'});
+    keys = [...keys, ...result.keys.map((key) => key.name)];
+  } while (!result.list_complete);
+
+  let rides = [];
+  for (const key of keys) {
+    const ride = await env.HEALTH.get(key, {type: 'json'});
+    rides.push(ride);
+  }
+
+  rides = rides.sort((a, b) => Date.parse(a.timestamp) - Date.parse(b.timestamp));
+
+  await env.HEALTH.put('rides', JSON.stringify(rides));
+
+  return rides;
+}
+
 export const onRequest: PagesFunction<Env> = async (context) => {
   const {env, request} = context;
   const url = new URL(request.url);
@@ -65,16 +112,20 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     if (challenge && token === env.STRAVA_VERIFY_TOKEN) {
       return createJsonResponse({'hub.challenge': challenge});
     }
+
+    if (url.searchParams.has('rewrite') && token === env.STRAVA_VERIFY_TOKEN) {
+      const rides = await writeAllRidesToSingleKey(env);
+      return createJsonResponse(rides);
+    }
   }
 
   if (request.method === 'POST') {
-    const {aspect_type, object_id, object_type} = await request.json<any>();
+    const {object_id, object_type} = await request.json<any>();
 
-    if (aspect_type === 'create' && object_type === 'activity') {
+    if (object_type === 'activity') {
       const ride = await getRideFromStrava(env, object_id);
-      const json = JSON.stringify(ride, null, 2);
-      env.HEALTH.put(`ride:${ride.id}`, json);
-      return createJsonResponse(json);
+      await saveRideToKV(env, ride);
+      return createJsonResponse(ride);
     }
   }
 

@@ -7,6 +7,6 @@ type Env = {
 
 export const onRequest: PagesFunction<Env> = async (context) => {
   const {env} = context;
-  const rides = env.HEALTH.get<Ride[]>('rides', {type: 'json'});
+  const rides = await env.HEALTH.get<Ride[]>('rides', {type: 'json'});
   return createJsonResponse(rides);
 };

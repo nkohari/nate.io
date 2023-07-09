@@ -8,17 +8,16 @@ type WorkProps = {
 };
 
 export const Work = ({children, from, job, note, location, to}: WorkProps) => (
-  <section className="flex flex-col md:flex-row">
-    <div className="flex-none italic w-28 mb-0.5 md:mb-0 md:mr-6">
-      {from}&mdash;{to}
-    </div>
+  <section className="flex flex-col md:flex-row mb-2">
     <div className="flex flex-col">
       <div className="font-bold">
         {job}{' '}
         {note && <span className="font-normal text-slate-600 dark:text-slate-400">({note})</span>}
       </div>
-      <div className="italic text-base text-slate-600 dark:text-slate-400">{location}</div>
-      <div className="mt-3">{children}</div>
+      <div className="italic mb-0.5 text-sm text-slate-600 dark:text-slate-400">
+        {from} &ndash; {to}, {location}
+      </div>
+      <div className="mt-2">{children}</div>
     </div>
   </section>
 );

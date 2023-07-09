@@ -19,7 +19,7 @@ export const Heading = ({className, children, id, level}: HeadingProps) => {
   };
 
   const props = {
-    className: cx('mb-4', levelClasses[level], className),
+    className: cx('leading-loose mb-2', levelClasses[level], className),
     id,
   };
 

@@ -1,5 +1,5 @@
 import Markdoc, {Node, Tag, RenderableTreeNode} from '@markdoc/markdoc';
-import {MarkdocDeclaration} from '@nkohari/apocrypha';
+import {MarkdocDeclaration} from 'build/types';
 import Prism from 'prismjs';
 import {MarkdocConfig} from 'build/types';
 

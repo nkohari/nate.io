@@ -12,19 +12,18 @@ export async function getImages({ast, paths}: MetadataPluginParams<Metadata>) {
 
     try {
       const image = sharp(filename);
+      const {src} = node.attributes;
       const {width, height, format} = await image.metadata();
 
-      node.attributes = {
-        ...node.attributes,
-        height,
+      images.push({
+        src: node.attributes.src,
         width,
+        height,
         format,
-      };
+      });
     } catch (error) {
       console.error(`Error reading image size for ${filename}: ${error}`);
     }
-
-    images.push(node.attributes.src);
   }
 
   if (images.length > 0) {

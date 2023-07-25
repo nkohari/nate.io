@@ -1,5 +1,5 @@
 import Markdoc, {Node} from '@markdoc/markdoc';
-import {MarkdocDeclaration} from '@nkohari/apocrypha';
+import {MarkdocDeclaration} from 'build/types';
 import {MarkdocConfig} from 'build/types';
 
 export const document: MarkdocDeclaration = {

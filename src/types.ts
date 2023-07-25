@@ -10,13 +10,20 @@ export type ArticleSection = {
   text: string;
 };
 
+export type ImageMetadata = {
+  src: string;
+  format: string;
+  width: number;
+  height: number;
+};
+
 export type Metadata = {
   type: ArticleType;
   state: ArticleState;
   sections: ArticleSection[];
   title?: string;
   subtitle?: string;
-  images?: string[];
+  images?: ImageMetadata[];
   outgoingLinks?: string[];
   excerpt?: string;
   date?: Date;

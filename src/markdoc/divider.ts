@@ -1,4 +1,4 @@
-import {MarkdocDeclaration} from '@nkohari/apocrypha';
+import {MarkdocDeclaration} from 'build/types';
 
 export const divider: MarkdocDeclaration = {
   node: 'hr',

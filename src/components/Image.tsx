@@ -1,4 +1,5 @@
 import cx from 'classnames';
+import {ImageMetadata} from 'src/types';
 import {getImageUrl} from 'src/util';
 
 export type ImageFilter = 'grayscale' | 'sepia';
@@ -6,11 +7,8 @@ export type ImageFilter = 'grayscale' | 'sepia';
 export type ImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
   children?: React.ReactNode;
   filter?: ImageFilter;
-  format: string;
-  height: number;
+  metadata: ImageMetadata;
   rounded?: string;
-  thumbnail?: string;
-  width: number;
 };
 
 export const Image = ({
@@ -18,16 +16,14 @@ export const Image = ({
   className,
   children,
   filter,
-  format,
-  height,
+  metadata,
   rounded,
   src,
-  thumbnail,
-  width,
   ...props
 }: ImageProps) => {
-  let imageUrl = null;
+  const {format, height, width} = metadata;
 
+  let imageUrl = null;
   if (src) {
     imageUrl = getImageUrl(src);
     if (!imageUrl) {
@@ -45,9 +41,8 @@ export const Image = ({
           filter,
           rounded && `rounded-${rounded}`
         )}
-        height={height}
-        width={width}
         data-image-format={format}
+        style={{aspectRatio: width / height}}
         {...props}
       />
       {children}

@@ -34,7 +34,7 @@ export const Meta = ({metadata}: MetaProps) => {
   let images;
   if (metadata.images) {
     images = metadata.images.map((image) => (
-      <link key={image} rel="preload" as="image" href={getImageUrl(image)} />
+      <link key={image.src} rel="preload" as="image" href={getImageUrl(image.src)} />
     ));
   }
 

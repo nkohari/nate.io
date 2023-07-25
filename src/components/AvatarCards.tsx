@@ -38,7 +38,10 @@ type AvatarImageProps = {
 const AvatarImage = ({flip = false, src}: AvatarImageProps) => (
   <img
     src={src}
-    className={cx('absolute rounded-md shadow-md backface-hidden', flip && 'rotate-y-180')}
+    className={cx(
+      'absolute rounded-md shadow-md backface-hidden aspect-square',
+      flip && 'rotate-y-180'
+    )}
     height={280}
     width={280}
     draggable={false}

@@ -1,4 +1,4 @@
-import {MarkdocDeclaration} from '@nkohari/apocrypha';
+import {MarkdocDeclaration} from 'build/types';
 
 export const leadIn: MarkdocDeclaration = {
   tag: 'lead-in',

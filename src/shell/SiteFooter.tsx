@@ -9,7 +9,7 @@ type SiteFooterLinkProps = {
 
 const SiteFooterLink = ({href, icon, text}: SiteFooterLinkProps) => (
   <li className="flex items-center mb-2">
-    <Link href={href} type="subtle" icon={icon} iconSpacing={2}>
+    <Link href={href} type="no-underline" icon={icon} iconSpacing={2}>
       {text}
     </Link>
   </li>

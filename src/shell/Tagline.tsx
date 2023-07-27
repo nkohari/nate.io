@@ -6,10 +6,10 @@ const SWITCH_INTERVAL = 10000;
 
 const PHRASES = [
   'an organic bitshift operator',
-  'a small language model',
+  'a fairly small language model',
   'building things from thoughts',
   'science + art = engineering',
-  'teaching rocks to think',
+  'just teaching rocks to think',
 ];
 
 const letterVariants = {
@@ -20,10 +20,12 @@ const letterVariants = {
   visible: {
     opacity: 1,
     x: 0,
+    transition: {duration: 0.1},
   },
   exit: {
     opacity: 0,
     x: 10,
+    transition: {duration: 0.1},
   },
 };
 
@@ -49,11 +51,11 @@ export const Tagline = () => {
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        key={phrase}
+        key={`phrase${phrase}`}
         initial="hidden"
         animate="visible"
         exit="exit"
-        transition={{staggerChildren: 0.025}}
+        transition={{staggerChildren: 0.015}}
         className="text-[15px] whitespace-pre"
       >
         {letters}

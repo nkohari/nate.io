@@ -2,7 +2,7 @@ import cx from 'classnames';
 import {Link as RouterLink} from 'react-router-dom';
 import {Icon, IconType} from 'src/components';
 
-export type LinkType = 'unstyled' | 'block' | 'normal' | 'subtle';
+export type LinkType = 'unstyled' | 'block' | 'normal' | 'subtle' | 'no-underline';
 
 export const LINK_CLASSES: Record<LinkType, string> = {
   unstyled: '',
@@ -11,6 +11,8 @@ export const LINK_CLASSES: Record<LinkType, string> = {
   normal:
     'transition transition-all duration-200 underline underline-offset-1 text-slate-700 decoration-slate-400 dark:text-slate-300 dark:decoration-slate-500 hover:text-blue-600 hover:dark:text-blue-300 hover:decoration-blue-600 hover:dark:decoration-blue-300',
   subtle:
+    'transition transition-all duration-200 underline underline-offset-1 decoration-slate-400 hover:text-blue-600 hover:decoration-blue-600 dark:hover:text-blue-400 dark:hover:decoration-blue-400',
+  'no-underline':
     'transition transition-all duration-200 hover:underline underline-offset-1 decoration-transparent hover:text-blue-600 hover:decoration-blue-600 dark:hover:text-blue-400 dark:hover:decoration-blue-400',
 };
 

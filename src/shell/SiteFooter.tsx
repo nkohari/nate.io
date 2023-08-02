@@ -9,7 +9,7 @@ type SiteFooterLinkProps = {
 
 const SiteFooterLink = ({href, icon, text}: SiteFooterLinkProps) => (
   <li className="flex items-center mb-2">
-    <Link href={href} type="no-underline" icon={icon} iconSpacing={2}>
+    <Link href={href} type="subtle" icon={icon} iconSpacing={2}>
       {text}
     </Link>
   </li>
@@ -25,25 +25,25 @@ export const SiteFooter = () => {
           <Link
             className="hidden sm:inline"
             href="http://creativecommons.org/licenses/by/4.0/"
-            type="subtle"
+            type="subtle-with-underline"
           >
             Creative Commons Attribution (CC-BY) 4.0
           </Link>
           <Link
             className="sm:hidden"
             href="http://creativecommons.org/licenses/by/4.0/"
-            type="subtle"
+            type="subtle-with-underline"
           >
             CC-BY 4.0
           </Link>
           .
         </div>
         <div>
-          <Link href="https://github.com/nkohari/nate.io" type="subtle">
+          <Link href="https://github.com/nkohari/nate.io" type="subtle-with-underline">
             Open-source
           </Link>
           , and powered by{' '}
-          <Link href="https://markdoc.io" type="subtle">
+          <Link href="https://markdoc.io" type="subtle-with-underline">
             Markdoc
           </Link>
           .{' '}

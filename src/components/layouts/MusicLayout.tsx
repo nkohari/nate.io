@@ -23,12 +23,11 @@ export const MusicLayout = ({children, metadata}: MusicLayoutProps) => {
           </Link>
           <h1 className="text-2xl font-bold leading-tight">
             <Link
-              type="subtle"
+              type="spotify"
               href={track.url}
               icon="spotify"
               iconPosition="right"
               iconSpacing={2}
-              className="hover:text-[#1db954] hover:decoration-[#1db954] dark:hover:text-[#1db954] dark:hover:decoration-[#1db954]"
             >
               {metadata.title || track.name}
             </Link>

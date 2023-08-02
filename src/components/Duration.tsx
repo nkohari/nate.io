@@ -1,5 +1,23 @@
 import {DateTime} from 'luxon';
 
+const WORDS = [
+  'zero',
+  'one',
+  'two',
+  'three',
+  'four',
+  'five',
+  'six',
+  'seven',
+  'eight',
+  'nine',
+  'ten',
+];
+
+function formatNumber(value: number) {
+  return value <= 10 ? WORDS[value] : value;
+}
+
 type DurationProps = {
   since: string;
 };
@@ -14,9 +32,9 @@ export const Duration = ({since}: DurationProps) => {
 
   let content;
   if (years < 1) {
-    content = `${months} month${months === 1 ? '' : 's'}`;
+    content = `${formatNumber(months)} month${months === 1 ? '' : 's'}`;
   } else {
-    content = `${years} year${years === 1 ? '' : 's'}`;
+    content = `${formatNumber(years)} year${years === 1 ? '' : 's'}`;
   }
 
   return <span>{content}</span>;

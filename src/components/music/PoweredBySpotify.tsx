@@ -13,15 +13,9 @@ type PoweredBySpotifyProps = {
 
 export const PoweredBySpotify = ({className}: PoweredBySpotifyProps) => (
   <Link
-    type="unstyled"
+    type="spotify"
     href="https://spotify.com/"
-    className={cx(
-      'flex flex-row items-center',
-      'transition transition-all',
-      'font-semibold text-sm text-slate-400 hover:text-[#1db954]',
-      'underline underline-offset-1 decoration-transparent hover:decoration-[#1db954]',
-      className
-    )}
+    className={cx('flex flex-row items-center font-semibold text-sm text-slate-400', className)}
   >
     Powered by <SpotifyLogo className="ml-1.5 h-5 fill-current" />
   </Link>

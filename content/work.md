@@ -2,7 +2,7 @@
 
 {% lead-in %}I'm an internet engineer.{% /lead-in %} I build thoughtful, polished web interfaces and scalable, high-performance APIs. I care deeply about creating user experiences that are surprisingly great.
 
-I've spent the last {% duration since="2019-08-05" /%} at [Stripe](https://stripe.com), where I'm a [staff engineer](https://staffeng.com/) and the technical lead for Developer AI, finding ways to use artificial intelligence to enhance Stripe's developer experience. Before that, I spent three years as the technical lead for Docs, where I oversaw a multi-year effort to build a modern infrastructure for [Stripe's documentation](https://stripe.com/docs/).
+I've spent the last {% duration since="2019-08-05" /%} at [Stripe](https://stripe.com), where I'm a [staff engineer](https://staffeng.com/) and the technical lead of Developer AI, finding ways to use artificial intelligence to enhance Stripe's developer experience. Before that, I spent three years as the technical lead of Docs, where I oversaw a multi-year effort to build a modern infrastructure for [Stripe's documentation](https://stripe.com/docs/).
 
 Before Stripe, I spent most of my career working for smaller companies, or starting my own. Over the {% duration since="2004-06-01" /%} of my career, I've held a wide range of roles from engineer to executive, and I also spent a few years as an independent consultant.
 
@@ -18,7 +18,7 @@ Before Stripe, I spent most of my career working for smaller companies, or start
 ## My Career
 
 {% work from="2019" to="now" job="Staff Software Engineer at Stripe" location="remote from Raleigh, NC" %}
-Technical lead for Developer AI, finding ways to apply AI/ML to improve Stripe's developer experience. Before that, technical lead for the Docs organization, a cross-functional group of engineers, writers, and designers responsible for [Stripe's documentation](https://stripe.com/docs). Lead the development of a new platform for Stripe's docs powered by React and [Markdoc](https://markdoc.io), paying down years of technical debt and providing a ~4x speedup over the legacy system.
+Technical lead of Developer AI, finding ways to apply AI/ML to improve Stripe's developer experience. Before that, technical lead of the Docs organization, a cross-functional group of engineers, writers, and designers responsible for [Stripe's documentation](https://stripe.com/docs). Lead the development of a new platform for Stripe's docs powered by React and [Markdoc](https://markdoc.io), paying down years of technical debt and providing a ~4x speedup over the legacy system.
 {% /work %}
 
 {% work from="2018" to="2019" job="Senior Software Engineer at Auth0" note="acq. Okta" location="remote from Raleigh, NC" %}

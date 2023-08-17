@@ -82,7 +82,7 @@ export const RideGraph = () => {
           value={field}
         />
       </div>
-      <div className="flex flex-col w-full p-1 rounded-xl bg-slate-100 dark:bg-slate-700 border border-black/5 dark:border-white/5">
+      <div className="flex flex-col w-full p-1 rounded-lg bg-slate-100 dark:bg-slate-700 border border-black/5 dark:border-white/5">
         <div className="flex flex-row h-[300px] w-full p-1">{bars}</div>
         <RideGraphXAxisLabels dates={dates} />
       </div>

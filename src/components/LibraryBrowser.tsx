@@ -27,7 +27,7 @@ const Abstract = ({metadata, path}: AbstractProps) => {
         role="listitem"
         href={path}
         type="unstyled"
-        className="flex flex-col -mx-8 px-8 py-6 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700"
+        className="flex flex-col -mx-8 px-8 py-6 rounded-lg border border-transparent hover:bg-slate-50 hover:border-slate-100 dark:hover:bg-slate-700 dark:hover:border-slate-600"
       >
         <h3 className="text-xl">{metadata.title}</h3>
         <div className="flex flex-row items-center mt-1 space-x-2">

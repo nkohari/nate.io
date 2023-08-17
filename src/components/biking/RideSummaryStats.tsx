@@ -34,7 +34,7 @@ const RideSummaryStatsBlock = ({
   const formatter = new Intl.NumberFormat(undefined, {maximumFractionDigits: precision});
   const scaledValue = value === undefined ? undefined : value * scale;
   return (
-    <div className="flex flex-col w-full min-h-[70px] p-2 px-4 mr-2 last:mr-0 rounded-md bg-slate-100 dark:bg-slate-700 border border-black/5 dark:border-white/5">
+    <div className="flex flex-col w-full min-h-[70px] p-2 px-4 mr-2 last:mr-0 rounded-lg bg-slate-100 dark:bg-slate-700 border border-black/5 dark:border-white/5">
       <div className="text-sm font-semibold">{title}</div>
       {scaledValue && (
         <motion.div

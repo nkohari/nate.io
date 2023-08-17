@@ -81,7 +81,7 @@ const DesktopNavigationLink = ({href, text}: DesktopNavigationLinkProps) => {
           initial={false}
           animate={{top: 0, x: 0}}
           transition={{type: 'spring', stiffness: 120, damping: 10, mass: 0.4}}
-          className="absolute z-1 h-full w-full rounded-full bg-slate-200 dark:bg-slate-700"
+          className="absolute z-1 h-full w-full rounded-full bg-indigo-100 dark:bg-indigo-800"
         />
       )}
     </NavLink>

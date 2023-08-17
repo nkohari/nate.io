@@ -4,8 +4,11 @@ title: What I'm Doing Now
 
 Here are some things I'm focused on right now:
 
-- Experimenting with ways of using generative AI (mainly LLMs) to improve Stripe's developer experience. Because of the massive amount of hype around AI, I was skeptical, but after some tinkering I've found some great ways to apply it to solve real problems.
-- [Riding my bike](/biking), and gradually getting stronger again after not riding for several years.
-- I finished Tears of the Kingdom, which was excellent. It wasn't quite as good as Breath of the Wild, but it was definitely a worthy sequel. I'm now leveling my sorceress in Diablo 4. (Ice shards, obviously.)
+- Spinning up the new Developer AI team at Stripe. We have so many ideas, and it'll take some experimentation before we can transform them into a reasonable roadmap.
+- Reading an absurd amount of papers about LLMs and code generation. I may also be asking [Claude](https://claude.ai) to explain some of it to me. :)
+- Learning how to write in public again. Man, it's hard. I've written a bunch at work, but I haven't written anything intended for public consumption for years.
+- [Riding my bike](/biking), and gradually getting stronger again after not riding for several years. I've been aiming for 30 miles a week, but not quite hitting my goal.
+- Tinkering with Apocrypha, the engine that powers this site. It's kind of like [Contentlayer](https://www.contentlayer.dev/), but for [Markdoc](https://markdoc.dev). There are still a whole bunch of rough edges that need polishing, but it's probably at a point where I can release it.
+- Playing Season 1 of Diablo 4. I'd been playing an ice shards sorceress in Eternal, but my seasonal character is a twisting blades rogue. (The latter is _so much_ more fun to play!)
 
 This is a [now](https://nownownow.com/about) page. You can create one too!

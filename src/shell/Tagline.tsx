@@ -43,7 +43,7 @@ export const Tagline = () => {
         });
       }
     },
-    [reducedMotion, shuffledPhrases.length],
+    [reducedMotion, setPhrase, shuffledPhrases.length],
   );
 
   const letters = shuffledPhrases[phrase].split('').map((letter, index) => (

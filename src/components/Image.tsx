@@ -8,19 +8,9 @@ export type ImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
   children?: React.ReactNode;
   filter?: ImageFilter;
   metadata: ImageMetadata;
-  rounded?: string;
 };
 
-export const Image = ({
-  alt,
-  className,
-  children,
-  filter,
-  metadata,
-  rounded,
-  src,
-  ...props
-}: ImageProps) => {
+export const Image = ({alt, className, children, filter, metadata, src, ...props}: ImageProps) => {
   const {format, height, width} = metadata;
 
   let imageUrl = null;
@@ -36,11 +26,7 @@ export const Image = ({
       <img
         src={imageUrl || undefined}
         alt={alt}
-        className={cx(
-          'w-full bg-slate-200 dark:bg-slate-700',
-          filter,
-          rounded && `rounded-${rounded}`,
-        )}
+        className={cx('w-full bg-slate-200 dark:bg-slate-700 rounded-xl', filter)}
         data-image-format={format}
         style={{aspectRatio: width / height}}
         {...props}

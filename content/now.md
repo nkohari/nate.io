@@ -9,6 +9,6 @@ Here are some things I'm focused on right now:
 - Learning how to write in public again. Man, it's hard. I've written a bunch at work, but I haven't written anything intended for public consumption for years.
 - [Riding my bike](/biking), and gradually getting stronger again after not riding for several years. I've been aiming for 30 miles a week, but not quite hitting my goal.
 - Tinkering with Apocrypha, the engine that powers this site. It's kind of like [Contentlayer](https://www.contentlayer.dev/), but for [Markdoc](https://markdoc.dev). There are still a whole bunch of rough edges that need polishing, but it's probably at a point where I can release it.
-- Playing Season 1 of Diablo 4. I'd been playing an ice shards sorceress in Eternal, but my seasonal character is a twisting blades rogue. (The latter is _so much_ more fun to play!)
+- Playing Starfield!
 
 This is a [now](https://nownownow.com/about) page. You can create one too!

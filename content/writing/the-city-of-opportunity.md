@@ -13,7 +13,7 @@ Throughout the late 19th and most of the 20th century, Akron was a seat of indus
 
 You get the picture. Akron was a city built on rubber.
 
-At its peak, two-thirds of the nation's tires were manufactured in Akron. Then, in the 1970s, as globalization took hold and industry left America, the city's rubber factories gradually shut down. Firestone was sold to Bridgestone, a Japanese company, and General Tire was acquired by Continental Tire, based from Germany. B.F. Goodrich phased out their tire production operations until finally leaving the business entirely in the mid-1980s.
+At its peak, two-thirds of the nation's tires were manufactured in Akron. Then, in the 1970s, as globalization took hold and industry left America, the city's rubber factories gradually shut down. Firestone was sold to Bridgestone, a Japanese company, and General Tire was acquired by Continental Tire, based in Germany. B.F. Goodrich phased out their tire production operations until finally leaving the business entirely in the mid-1980s.
 
 Like his father before him, my father worked for years --- many of them on the night shift --- building tires at the B.F. Goodrich factory before it closed in 1987. He was 36 years old with two young children, and along with hundreds of other tirebuilders, his career was suddenly over.
 

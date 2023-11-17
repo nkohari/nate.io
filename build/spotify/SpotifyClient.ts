@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import {Reference} from '../../src/types';
+import {SpotifyObject} from '../../src/types';
 import {Config} from '../config';
 import {transformAlbum, transformArtist, transformTrack} from './transformers';
 
@@ -9,7 +9,7 @@ type RequestProps<T> = {
   transformer: (json: any) => T;
 };
 
-type Identifier = string | Reference;
+type Identifier = string | SpotifyObject;
 
 function normalize(identifier: Identifier) {
   return typeof identifier === 'string' ? identifier : identifier.id;

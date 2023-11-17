@@ -71,7 +71,7 @@ export const SiteFooter = () => {
                 href="https://linkedin.com/in/nkohari"
                 text="LinkedIn"
               />
-              <SiteFooterLink icon="email" href="mailto:nkohari@gmail.com" text="Email" />
+              <SiteFooterLink icon="email" href="mailto:hello@nate.io" text="Email" />
             </ul>
           </div>
         </div>

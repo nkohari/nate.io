@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import {Album, AlbumTrack, Artist, ImageSet, Reference, Track} from '../../src/types';
+import {Album, AlbumTrack, Artist, ImageSet, SpotifyObject, Track} from '../../src/types';
 
 const transformReleaseDate = (date: string): string => {
   const tokens = date.split('-');
@@ -34,7 +34,7 @@ function createTransformer<TIn, TOut>(type: string, func: (input: TIn) => TOut) 
 
 const transformReference = createTransformer(
   'reference',
-  (input: any): Reference => ({
+  (input: any): SpotifyObject => ({
     id: input.id,
     name: input.name,
     type: input.type,

@@ -1,8 +1,8 @@
 import {Link} from 'src/components';
-import {Reference} from 'lib/spotify';
+import {SpotifyObject} from 'src/types';
 
 type ArtistListItemProps = {
-  artist: Reference;
+  artist: SpotifyObject;
 };
 
 const ArtistListItem = ({artist}: ArtistListItemProps) => (
@@ -12,7 +12,7 @@ const ArtistListItem = ({artist}: ArtistListItemProps) => (
 );
 
 type ArtistListProps = {
-  artists: Reference[];
+  artists: SpotifyObject[];
 };
 
 export const ArtistList = ({artists}: ArtistListProps) => {

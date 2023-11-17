@@ -6,4 +6,4 @@ I've been writing software since I was nine, and somehow I've managed to convinc
 
 I'm originally from [Akron, Ohio](/writing/the-city-of-opportunity). Now I live in Raleigh, North Carolina with [Niki](https://www.linkedin.com/in/nikikohari), my wife of {% duration since="2006-06-09" /%}, and our two sons Apollo ({% duration since="2018-10-09" /%} old) and Fox ({% duration since="2021-03-02" /%} old).
 
-You can read more about what I'm doing [right now](/now). If you'd like to chat, you can find me on [Twitter](https://twitter.com/nkohari), [GitHub](https://github.com/nkohari), or [LinkedIn](https://linkedin.com/in/nkohari), or if you're feeling retro, [send me an email](mailto:nkohari@gmail.com).
+You can read more about what I'm doing [right now](/now). If you'd like to chat, you can find me on [Twitter](https://twitter.com/nkohari), [GitHub](https://github.com/nkohari), or [LinkedIn](https://linkedin.com/in/nkohari), or if you're feeling retro, [send me an email](mailto:hello@nate.io).

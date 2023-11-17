@@ -1,6 +1,6 @@
 import {motion} from 'framer-motion';
 import {AlbumTrackList, Link, PoweredBySpotify} from 'src/components';
-import {Album, Track} from 'lib/spotify';
+import {Album, Track} from 'src/types';
 
 const albumVariants = {
   initial: {

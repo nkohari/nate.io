@@ -3,7 +3,7 @@ import cx from 'classnames';
 import {AnimatePresence, motion} from 'framer-motion';
 import {Duration} from 'luxon';
 import {Link} from 'src/components';
-import {Album, AlbumTrack, Reference} from 'src/types';
+import {Album, AlbumTrack, SpotifyObject} from 'src/types';
 
 const MAX_TRACKS = 10;
 
@@ -52,7 +52,7 @@ const AlbumTrackListItem = ({isExtra, isHighlighted, track}: AlbumTrackListItemP
 
 type AlbumTrackListProps = {
   album: Album;
-  highlightedTrack: Reference;
+  highlightedTrack: SpotifyObject;
 };
 
 export const AlbumTrackList = ({album, highlightedTrack}: AlbumTrackListProps) => {

@@ -6,36 +6,36 @@ export type ImageSet = {
   large?: string;
 };
 
-export type Reference = {
+export type SpotifyObject = {
   id: string;
   name: string;
   type: 'album' | 'artist' | 'track';
   url: string;
 };
 
-export type Artist = Reference & {
+export type Artist = SpotifyObject & {
   genres: string[];
   popularity: number;
 };
 
-export type Album = Reference & {
-  artists: Reference[];
+export type Album = SpotifyObject & {
+  artists: SpotifyObject[];
   images: ImageSet;
   popularity: number;
   releaseYear: string;
   tracks: AlbumTrack[];
 };
 
-export type AlbumTrack = Reference & {
-  artists: Reference[];
+export type AlbumTrack = SpotifyObject & {
+  artists: SpotifyObject[];
   duration: number;
   number: number;
   previewUrl: string;
 };
 
-export type Track = Reference & {
-  album: Reference;
-  artists: Reference[];
+export type Track = SpotifyObject & {
+  album: SpotifyObject;
+  artists: SpotifyObject[];
   popularity: number;
   previewUrl: string;
 };

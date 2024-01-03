@@ -4,7 +4,7 @@
 
 I've spent the last {% duration since="2019-08-05" /%} at [Stripe](https://stripe.com), where I'm a [staff engineer](https://staffeng.com/) and the technical lead of Developer AI, finding ways to use artificial intelligence to enhance Stripe's developer experience. Before that, I spent three years as the technical lead of Docs, where I oversaw a multi-year effort to build a modern infrastructure for [Stripe's documentation](https://stripe.com/docs/).
 
-Before Stripe, I spent most of my career working for smaller companies, or starting my own. Over the {% duration since="2004-06-01" /%} of my career, I've held a wide range of roles from engineer to executive, and I also spent a few years as an independent consultant.
+Before Stripe, I spent most of my career working for smaller companies, or starting my own. Over the {% duration since="2004-06-01" /%} of [my career](#career), I've held a wide range of roles from engineer to executive, and I also spent a few years as an independent consultant.
 
 ## My Principles
 
@@ -15,7 +15,7 @@ Before Stripe, I spent most of my career working for smaller companies, or start
 5. **Always be shipping.** Good quality software that's in the user's hands always beats better-quality software that's still in development. Focus on the fundamentals, cut everything else, and deliver the rest incrementally.
 6. **Embrace impermanence.** Users don't care about software; they care about the impact it has on their lives and what it enables them to do. Avoid becoming attached to the code you write, and celebrate the day when it's replaced by something better.
 
-## My Career
+## My Career {% #career %}
 
 {% work from="2019" to="now" job="Staff Software Engineer at Stripe" location="remote from Raleigh, NC" %}
 Technical lead of Developer AI, finding ways to apply AI/ML to improve Stripe's developer experience. Before that, technical lead of the Docs organization, a cross-functional group of engineers, writers, and designers responsible for [Stripe's documentation](https://stripe.com/docs). Lead the development of a new platform for Stripe's docs powered by React and [Markdoc](https://markdoc.io), paying down years of technical debt and providing a ~4x speedup over the legacy system.

@@ -10,6 +10,16 @@
     'liga' 1;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 @layer base {
   html {
     margin-left: calc(100vw - 100%);

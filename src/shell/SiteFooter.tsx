@@ -76,7 +76,7 @@ export const SiteFooter = () => {
           </div>
         </div>
       </div>
-      <div className="absolute top-0 h-full w-full border-t border-slate-100 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 origin-bottom-right -skew-y-2"></div>
+      <div className="absolute top-0 h-full w-full bg-slate-50 dark:bg-slate-700 origin-bottom-right -skew-y-2"></div>
     </div>
   );
 };

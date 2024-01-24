@@ -1,5 +1,18 @@
+import {DateTime} from 'luxon';
 import {Ride} from 'src/types';
 import {AxisScale, MeasurementSystem, RideField} from './types';
+
+export function createRide(model: Record<string, any>): Ride {
+  return {
+    id: model.id,
+    timestamp: DateTime.fromISO(model.timestamp),
+    distance: model.distance,
+    duration: model.duration,
+    averageSpeed: model.averageSpeed,
+    maxSpeed: model.maxSpeed,
+    totalElevationGain: model.totalElevationGain,
+  };
+}
 
 export function getUnitForField(field: RideField, system: MeasurementSystem) {
   switch (field) {

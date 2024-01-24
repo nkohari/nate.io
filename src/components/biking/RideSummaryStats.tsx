@@ -1,61 +1,21 @@
-import {motion} from 'framer-motion';
+import {DateTime} from 'luxon';
 import {useMemo, useState} from 'react';
 import {Ride} from 'src/types';
 import {RideGraphSwitch, RideGraphSwitchOption} from './RideGraphSwitch';
+import {RideSummaryStatsBlock} from './RideSummaryStatsBlock';
 import {MeasurementSystem} from './types';
 import {averageValuesForRides, getUnitForField, maxValueForRides, sumValuesForRides} from './util';
-
-const numberVariants = {
-  hidden: {
-    opacity: 0,
-    x: -50,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-  },
-};
-
-type RideSummaryStatsBlockProps = {
-  title: string;
-  precision: number;
-  scale?: number;
-  unit?: string;
-  value?: number;
-};
-
-const RideSummaryStatsBlock = ({
-  title,
-  precision,
-  scale = 1,
-  unit,
-  value,
-}: RideSummaryStatsBlockProps) => {
-  const formatter = new Intl.NumberFormat(undefined, {maximumFractionDigits: precision});
-  const scaledValue = value === undefined ? undefined : value * scale;
-  return (
-    <div className="flex flex-col w-full min-h-[70px] p-2 px-4 mr-2 last:mr-0 rounded-lg bg-slate-100 dark:bg-slate-700 border border-black/5 dark:border-white/5">
-      <div className="text-sm font-semibold">{title}</div>
-      {scaledValue && (
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={numberVariants}
-          className="flex flex-row gap-1 items-baseline"
-        >
-          <div className="text-2xl font-bold">{formatter.format(scaledValue)}</div>
-          {unit && <div className="text-sm">{unit}</div>}
-        </motion.div>
-      )}
-    </div>
-  );
-};
 
 type RideSummaryStatsMode = 'overall' | 'average';
 
 const OPTIONS: RideGraphSwitchOption<RideSummaryStatsMode>[] = [
   {label: 'Overall', value: 'overall'},
   {label: 'Average', value: 'average'},
+];
+
+const YEARS: RideGraphSwitchOption<number>[] = [
+  {label: '2024', value: 2024},
+  {label: '2023', value: 2023},
 ];
 
 type RideSummaryStatsProps = {
@@ -65,35 +25,45 @@ type RideSummaryStatsProps = {
 
 export const RideSummaryStats = ({rides, system}: RideSummaryStatsProps) => {
   const [mode, setMode] = useState<RideSummaryStatsMode>('overall');
+  const [year, setYear] = useState<number>(DateTime.utc().year);
 
   const stats = useMemo(() => {
     if (!rides) {
       return null;
-    } else if (mode === 'overall') {
+    }
+
+    const selectedRides = rides.filter((ride) => ride.timestamp.year === year);
+
+    if (mode === 'overall') {
       return {
-        distance: sumValuesForRides(rides, 'distance', system),
-        duration: sumValuesForRides(rides, 'duration', system),
-        speed: maxValueForRides(rides, 'maxSpeed', system),
-        totalElevationGain: sumValuesForRides(rides, 'totalElevationGain', system),
+        count: selectedRides.length,
+        distance: sumValuesForRides(selectedRides, 'distance', system),
+        duration: sumValuesForRides(selectedRides, 'duration', system),
+        speed: maxValueForRides(selectedRides, 'maxSpeed', system),
+        totalElevationGain: sumValuesForRides(selectedRides, 'totalElevationGain', system),
       };
     } else {
       return {
-        distance: averageValuesForRides(rides, 'distance', system),
-        duration: averageValuesForRides(rides, 'duration', system),
-        speed: averageValuesForRides(rides, 'averageSpeed', system),
-        totalElevationGain: averageValuesForRides(rides, 'totalElevationGain', system),
+        count: selectedRides.length,
+        distance: averageValuesForRides(selectedRides, 'distance', system),
+        duration: averageValuesForRides(selectedRides, 'duration', system),
+        speed: averageValuesForRides(selectedRides, 'averageSpeed', system),
+        totalElevationGain: averageValuesForRides(selectedRides, 'totalElevationGain', system),
       };
     }
-  }, [mode, rides, system]);
+  }, [mode, rides, system, year]);
 
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-row items-center justify-between">
-        <div className="text-sm font-bold mr-2">Year-to-date (2023)</div>
+        <div className="flex flex-row items-center">
+          <div className="text-sm font-bold mr-2">Yearly stats</div>
+          <RideGraphSwitch onChange={(value) => setYear(value)} options={YEARS} value={year} />
+        </div>
         <RideGraphSwitch onChange={(value) => setMode(value)} options={OPTIONS} value={mode} />
       </div>
       <div className="flex flex-row justify-between">
-        <RideSummaryStatsBlock title="Rides" precision={0} value={rides?.length} />
+        <RideSummaryStatsBlock title="Rides" precision={0} value={stats?.count} />
         <RideSummaryStatsBlock
           title={mode === 'overall' ? 'Total Distance' : 'Average Distance'}
           value={stats?.distance}

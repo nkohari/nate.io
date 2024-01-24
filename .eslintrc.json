@@ -9,6 +9,7 @@
   "plugins": ["@typescript-eslint", "prettier"],
   "root": true,
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }

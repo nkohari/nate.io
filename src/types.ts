@@ -1,3 +1,4 @@
+import {DateTime} from 'luxon';
 import {Article as BaseArticle} from '@nkohari/apocrypha';
 
 export type ImageSet = {
@@ -85,7 +86,7 @@ export type Article = BaseArticle<Metadata>;
 
 export type Ride = {
   id: string;
-  timestamp: string;
+  timestamp: DateTime;
   distance: number;
   duration: number;
   averageSpeed: number;

@@ -21,12 +21,13 @@ type RideGraphBarProps = {
   rides: Ride[];
   scale: AxisScale;
   system: MeasurementSystem;
+  today: DateTime;
 };
 
-export const RideGraphBar = ({date, field, rides, scale, system}: RideGraphBarProps) => {
+export const RideGraphBar = ({date, field, rides, scale, system, today}: RideGraphBarProps) => {
   const ride = rides.find((ride) => {
     const matchDate = date.toISODate();
-    const rideDate = DateTime.fromISO(ride.timestamp).toISODate();
+    const rideDate = ride.timestamp.toISODate();
     return rideDate === matchDate;
   });
 
@@ -76,7 +77,7 @@ export const RideGraphBar = ({date, field, rides, scale, system}: RideGraphBarPr
       <div
         className={`z-10 absolute bottom-4 font-semibold text-[10px] text-center ${textColor} -rotate-90 w-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity`}
       >
-        {date.toFormat('LLLL d')}
+        {date.year === today.year ? date.toFormat('LLLL d') : date.toFormat('LLLL d, yyyy')}
       </div>
     </motion.div>
   );

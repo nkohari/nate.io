@@ -2,11 +2,12 @@ import {useEffect, useMemo, useState} from 'react';
 import {DateTime} from 'luxon';
 import {motion} from 'framer-motion';
 import {Ride} from 'src/types';
+import {RideGraphEmptyStamp} from './RideGraphEmptyStamp';
 import {RideGraphSwitch} from './RideGraphSwitch';
 import {RideGraphBar} from './RideGraphBar';
 import {RideSummaryStats} from './RideSummaryStats';
 import {MeasurementSystem, RideField} from './types';
-import {getUnitForField, getYAxisScale} from './util';
+import {createRide, getUnitForField, getYAxisScale} from './util';
 
 // The API is a Cloudflare function, so for simplicity, just use the production endpoint during dev
 const ENDPOINT = import.meta.env.DEV ? 'https://nate.io/api/rides' : '/api/rides';
@@ -31,7 +32,9 @@ export const RideGraph = () => {
   useEffect(() => {
     fetch(ENDPOINT)
       .then((result) => result.json())
-      .then(setRides);
+      .then((models) => {
+        setRides(models.map(createRide));
+      });
   }, []);
 
   const today = DateTime.fromISO(DateTime.utc().toISODate()!, {zone: 'utc'});
@@ -43,10 +46,17 @@ export const RideGraph = () => {
   );
 
   let bars;
+  let stamp;
   if (rides && scale) {
+    const recentRides = rides.filter((ride) => ride.timestamp >= today.minus({days: 29}));
+
+    if (recentRides.length === 0) {
+      stamp = <RideGraphEmptyStamp />;
+    }
+
     bars = (
       <motion.div
-        className="grid grid-flow-col auto-cols-[3.33%] h-full w-full"
+        className="relative grid grid-flow-col auto-cols-[3.33%] h-full w-full"
         initial="hidden"
         animate="visible"
         transition={{staggerChildren: 0.05}}
@@ -59,8 +69,10 @@ export const RideGraph = () => {
             field={field}
             scale={scale}
             system={system}
+            today={today}
           />
         ))}
+        {stamp}
       </motion.div>
     );
   }

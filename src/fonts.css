@@ -1,55 +1,69 @@
 @font-face {
-  font-family: 'Nunito Sans';
-  src: url('../media/fonts/nunito-sans/NunitoSans-Regular.woff2') format('woff2');
+  font-family: 'SN Pro';
+  src: url('../media/fonts/sn-pro/SNPro-Regular.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
 }
 
 @font-face {
-  font-family: 'Nunito Sans';
-  src: url('../media/fonts/nunito-sans/NunitoSans-Italic.woff2') format('woff2');
+  font-family: 'SN Pro';
+  src: url('../media/fonts/sn-pro/SNPro-RegularItalic.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
 }
 
 @font-face {
-  font-family: 'Nunito Sans';
-  src: url('../media/fonts/nunito-sans/NunitoSans-SemiBold.woff2') format('woff2');
+  font-family: 'SN Pro';
+  src: url('../media/fonts/sn-pro/SNPro-Medium.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'SN Pro';
+  src: url('../media/fonts/sn-pro/SNPro-MediumItalic.woff2') format('woff2');
+  font-style: italic;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'SN Pro';
+  src: url('../media/fonts/sn-pro/SNPro-SemiBold.woff2') format('woff2');
   font-style: normal;
   font-weight: 600;
 }
 
 @font-face {
-  font-family: 'Nunito Sans';
-  src: url('../media/fonts/nunito-sans/NunitoSans-SemiBoldItalic.woff2') format('woff2');
+  font-family: 'SN Pro';
+  src: url('../media/fonts/sn-pro/SNPro-SemiBoldItalic.woff2') format('woff2');
   font-style: italic;
   font-weight: 600;
 }
 
 @font-face {
-  font-family: 'Nunito Sans';
-  src: url('../media/fonts/nunito-sans/NunitoSans-Bold.woff2') format('woff2');
+  font-family: 'SN Pro';
+  src: url('../media/fonts/sn-pro/SNPro-Bold.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
 }
 
 @font-face {
-  font-family: 'Nunito Sans';
-  src: url('../media/fonts/nunito-sans/NunitoSans-BoldItalic.woff2') format('woff2');
+  font-family: 'SN Pro';
+  src: url('../media/fonts/sn-pro/SNPro-BoldItalic.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
 }
 
 @font-face {
-  font-family: 'Nunito Sans';
-  src: url('../media/fonts/nunito-sans/NunitoSans-ExtraBold.woff2') format('woff2');
+  font-family: 'SN Pro';
+  src: url('../media/fonts/sn-pro/SNPro-Heavy.woff2') format('woff2');
   font-style: normal;
   font-weight: 800;
 }
 
 @font-face {
-  font-family: 'Nunito Sans';
-  src: url('../media/fonts/nunito-sans/NunitoSans-Black.woff2') format('woff2');
+  font-family: 'SN Pro';
+  src: url('../media/fonts/sn-pro/SNPro-Black.woff2') format('woff2');
   font-style: normal;
   font-weight: 900;
 }

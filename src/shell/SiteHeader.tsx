@@ -26,7 +26,7 @@ export const SiteHeader = () => (
       <NavLink to="/" className="flex-1 flex flex-row items-center">
         <EndlessKnot />
         <div className="ml-1.5 flex flex-col leading-5 whitespace-nowrap">
-          <div className="font-extrabold">Nate Kohari</div>
+          <div className="font-bold">Nate Kohari</div>
           <Tagline />
         </div>
       </NavLink>

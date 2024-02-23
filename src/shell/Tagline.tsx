@@ -1,4 +1,4 @@
-import {useMemo, useState} from 'react';
+import {useCallback, useMemo, useState} from 'react';
 import {AnimatePresence, motion} from 'framer-motion';
 import {shuffleArray, useInterval, useReducedMotion} from 'src/util';
 
@@ -34,17 +34,15 @@ export const Tagline = () => {
   const shuffledPhrases = useMemo(() => shuffleArray(PHRASES), []);
   const [phrase, setPhrase] = useState(0);
 
-  useInterval(
-    SWITCH_INTERVAL,
-    () => {
-      if (!reducedMotion) {
-        setPhrase((prev) => {
-          return prev === shuffledPhrases.length - 1 ? 0 : prev + 1;
-        });
-      }
-    },
-    [reducedMotion, setPhrase, shuffledPhrases.length],
-  );
+  const changePhrase = useCallback(() => {
+    if (!reducedMotion) {
+      setPhrase((prev) => {
+        return prev === shuffledPhrases.length - 1 ? 0 : prev + 1;
+      });
+    }
+  }, [reducedMotion, setPhrase, shuffledPhrases.length]);
+
+  useInterval(SWITCH_INTERVAL, changePhrase);
 
   const letters = shuffledPhrases[phrase].split('').map((letter, index) => (
     <motion.span

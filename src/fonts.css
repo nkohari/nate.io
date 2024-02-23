@@ -28,14 +28,14 @@
 
 @font-face {
   font-family: 'SN Pro';
-  src: url('../media/fonts/sn-pro/SNPro-SemiBold.woff2') format('woff2');
+  src: url('../media/fonts/sn-pro/SNPro-Semibold.woff2') format('woff2');
   font-style: normal;
   font-weight: 600;
 }
 
 @font-face {
   font-family: 'SN Pro';
-  src: url('../media/fonts/sn-pro/SNPro-SemiBoldItalic.woff2') format('woff2');
+  src: url('../media/fonts/sn-pro/SNPro-SemiboldItalic.woff2') format('woff2');
   font-style: italic;
   font-weight: 600;
 }

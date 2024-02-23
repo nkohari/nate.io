@@ -2,7 +2,7 @@ import {useCallback, useMemo, useState} from 'react';
 import {AnimatePresence, motion} from 'framer-motion';
 import {shuffleArray, useInterval, useReducedMotion} from 'src/util';
 
-const SWITCH_INTERVAL = 10000;
+const SWITCH_INTERVAL = 15000;
 
 const PHRASES = [
   'an organic bitshift operator',
@@ -10,6 +10,7 @@ const PHRASES = [
   'building things from thoughts',
   'science + art = engineering',
   'just teaching rocks to think',
+  "it's discord & rhyme",
 ];
 
 const letterVariants = {
@@ -37,7 +38,9 @@ export const Tagline = () => {
   const changePhrase = useCallback(() => {
     if (!reducedMotion) {
       setPhrase((prev) => {
-        return prev === shuffledPhrases.length - 1 ? 0 : prev + 1;
+        const next = prev === shuffledPhrases.length - 1 ? 0 : prev + 1;
+        console.log({prev, next});
+        return next;
       });
     }
   }, [reducedMotion, setPhrase, shuffledPhrases.length]);

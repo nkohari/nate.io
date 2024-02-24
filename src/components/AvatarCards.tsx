@@ -87,12 +87,13 @@ const AvatarCard = ({position, urls}: AvatarCardProps) => {
     }, 500);
   }, [setBackUrl, setFrontUrl, urls, visibleFace]);
 
-  useInterval(
-    randomInteger(MIN_FLIP_TIME, MAX_FLIP_TIME),
-    () => {
-      if (!reducedMotion) flipCard();
-    },
-    [reducedMotion],
+  useInterval(randomInteger(MIN_FLIP_TIME, MAX_FLIP_TIME), () => {
+    if (!reducedMotion) flipCard();
+  });
+
+  const classes = cx(
+    'relative aspect-square w-1/3 sm:w-1/4 three-d z-1 hover:z-10',
+    position > 3 && 'hidden sm:block',
   );
 
   return (
@@ -100,7 +101,7 @@ const AvatarCard = ({position, urls}: AvatarCardProps) => {
       role="button"
       aria-roledescription="avatar card"
       onClick={flipCard}
-      className="relative aspect-square w-1/4 three-d z-1 hover:z-10"
+      className={classes}
       initial={false}
       animate={visibleFace}
       whileHover="hover"
@@ -113,12 +114,8 @@ const AvatarCard = ({position, urls}: AvatarCardProps) => {
   );
 };
 
-export type AvatarCardsProps = {
-  count?: number;
-};
-
-export const AvatarCards = ({count = 1}: AvatarCardsProps) => {
-  const items = [...Array(count).keys()].map((index) => {
+export const AvatarCards = () => {
+  const items = [...Array(4).keys()].map((index) => {
     const urls = shuffleArray(getAllImagesInFolder('avatars'));
     return <AvatarCard key={index} position={index + 1} urls={urls} />;
   });

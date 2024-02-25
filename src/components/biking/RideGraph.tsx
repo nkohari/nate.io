@@ -13,11 +13,14 @@ import {createRide, getUnitForField, getYAxisScale} from './util';
 const ENDPOINT = import.meta.env.DEV ? 'https://nate.io/api/rides' : '/api/rides';
 
 type RideGraphXAxisLabelsProps = {
+  columnWidth: string;
   dates: DateTime[];
 };
 
-const RideGraphXAxisLabels = ({dates}: RideGraphXAxisLabelsProps) => (
-  <div className="z-10 grid grid-flow-col auto-cols-[3.33%] p-1 font-bold text-xs text-center text-slate-600 dark:text-slate-400">
+const RideGraphXAxisLabels = ({columnWidth, dates}: RideGraphXAxisLabelsProps) => (
+  <div
+    className={`z-10 grid grid-flow-col auto-cols-[${columnWidth}] p-1 font-bold text-xs text-center text-slate-600 dark:text-slate-400`}
+  >
     {dates.map((date) => (
       <div key={date.toISODate()}>{date.toFormat('ccccc')}</div>
     ))}
@@ -25,9 +28,12 @@ const RideGraphXAxisLabels = ({dates}: RideGraphXAxisLabelsProps) => (
 );
 
 export const RideGraph = () => {
+  const [days] = useState(30);
   const [rides, setRides] = useState<Ride[]>();
   const [field, setField] = useState<RideField>('distance');
   const [system, setSystem] = useState<MeasurementSystem>('imperial');
+
+  const columnWidth = `${(100 / days).toFixed(2)}%`;
 
   useEffect(() => {
     fetch(ENDPOINT)
@@ -38,7 +44,7 @@ export const RideGraph = () => {
   }, []);
 
   const today = DateTime.fromISO(DateTime.utc().toISODate()!, {zone: 'utc'});
-  const dates = [...Array(30).keys()].map((index) => today.minus({days: 29 - index}));
+  const dates = [...Array(days).keys()].map((index) => today.minus({days: days - index}));
 
   const scale = useMemo(
     () => (rides ? getYAxisScale(rides, field, system) : null),
@@ -48,7 +54,7 @@ export const RideGraph = () => {
   let bars;
   let stamp;
   if (rides && scale) {
-    const recentRides = rides.filter((ride) => ride.timestamp >= today.minus({days: 29}));
+    const recentRides = rides.filter((ride) => ride.timestamp >= today.minus({days}));
 
     if (recentRides.length === 0) {
       stamp = <RideGraphEmptyStamp />;
@@ -56,7 +62,7 @@ export const RideGraph = () => {
 
     bars = (
       <motion.div
-        className="relative grid grid-flow-col auto-cols-[3.33%] h-full w-full"
+        className={`relative grid grid-flow-col auto-cols-[${columnWidth}] h-full w-full`}
         initial="hidden"
         animate="visible"
         transition={{staggerChildren: 0.05}}
@@ -81,7 +87,7 @@ export const RideGraph = () => {
     <div className="flex flex-col overflow-hidden mb-4 gap-3">
       <RideSummaryStats rides={rides} system={system} />
       <div className="w-full flex flex-row items-center justify-between">
-        <div className="text-sm font-bold mr-2">Last 30 days</div>
+        <div className="text-sm font-bold mr-2">Last {days} days</div>
         <RideGraphSwitch
           onChange={(value: RideField) => setField(value)}
           options={[
@@ -96,7 +102,7 @@ export const RideGraph = () => {
       </div>
       <div className="flex flex-col w-full p-1 rounded-lg bg-slate-100 dark:bg-slate-700 border border-black/5 dark:border-white/5">
         <div className="flex flex-row h-[300px] w-full p-1">{bars}</div>
-        <RideGraphXAxisLabels dates={dates} />
+        <RideGraphXAxisLabels dates={dates} columnWidth={columnWidth} />
       </div>
       <div className="flex flex-row justify-end">
         <RideGraphSwitch

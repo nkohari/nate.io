@@ -2,6 +2,8 @@ import {callRaindropApi} from '../common/callRaindropApi';
 import {createJsonResponse} from '../common/createJsonResponse';
 import {LinkCollection} from '../../src/types';
 
+const CACHE_MAX_AGE_SECONDS = 60 * 5;
+
 type Env = {
   CACHE: KVNamespace;
   RAINDROP_TOKEN: string;
@@ -74,7 +76,10 @@ async function loadLinkCollectionsFromRaindrop(token: string) {
 export const onRequest: PagesFunction<Env> = async (context) => {
   const {env} = context;
 
-  let collections = await env.CACHE.get<LinkCollectionsHash>('links', {type: 'json'});
+  let collections = await env.CACHE.get<LinkCollectionsHash>('links', {
+    cacheTtl: CACHE_MAX_AGE_SECONDS,
+    type: 'json',
+  });
 
   if (!collections) {
     collections = await loadLinkCollectionsFromRaindrop(env.RAINDROP_TOKEN);

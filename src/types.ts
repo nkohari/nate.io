@@ -93,3 +93,17 @@ export type Ride = {
   maxSpeed: number;
   totalElevationGain: number;
 };
+
+export type LinkCollection = {
+  id: string;
+  links: Link[];
+  title: string;
+};
+
+export type Link = {
+  id: string;
+  excerpt: string;
+  note: string;
+  title: string;
+  url: string;
+};

@@ -2,7 +2,6 @@
 title: With Urgency and Focus
 subtitle: A brief farewell to Stripe
 type: narrative
-state: draft
 date: 2023-03-22T13:46:00
 ---
 

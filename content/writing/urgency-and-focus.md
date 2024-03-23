@@ -1,5 +1,5 @@
 ---
-title: With Urgency and Focus
+title: Urgency and Focus
 subtitle: A brief farewell to Stripe
 type: narrative
 date: 2024-03-22T13:46:00

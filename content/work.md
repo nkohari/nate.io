@@ -4,9 +4,7 @@
 
 Right now, I'm building [Ardent](https://ardent.ai), a platform which helps everyone build and share AI workflows, whether or not they know how to write code.
 
-Before starting Ardent, I spent about four and a half years at [Stripe](https://stripe.com), where I was a [staff engineer](https://staffeng.com/). I was the technical lead of Docs, where I oversaw a multi-year effort to build a modern infrastructure for [Stripe's documentation](https://stripe.com/docs/), and after that I worked on some of the company's early work with generative AI.
-
-Before Stripe, I spent most of my career working for smaller companies, or starting my own. Over the {% duration since="2004-06-01" /%} of [my career](#career), I've held a wide range of roles from engineer to executive, and I also spent a few years as an independent consultant.
+Before that, I spent four and a half years at [Stripe](https://stripe.com), working on developer experience and some of the company's early work with generative AI. Over the {% duration since="2004-06-01" /%} of [my career](#career), I've started three companies, and held a wide range of roles from engineer to executive.
 
 ## My Principles
 
@@ -24,9 +22,9 @@ Building the world's easiest way for everyone to build and share AI workflows, r
 {% /work %}
 
 {% work from="2019" to="2024" job="Staff Software Engineer at Stripe" location="remote from Raleigh, NC" %}
-I was the technical lead of Developer AI, applying generative AI to make it easier for users to integrate with Stripe. Among various experiments, I helped build Smartdocs, a chat interface over Stripe's documentation, which was [featured](https://openai.com/customer-stories/stripe) in the GPT4 launch announcement.
+I was the technical lead of Developer AI, applying generative AI to make it easier for users to integrate with Stripe. Among various experiments, I helped build SmartDocs, a chat interface over Stripe's documentation, which was [featured](https://openai.com/customer-stories/stripe) in the GPT4 launch announcement.
 
-Before that, I was the technical lead of the Docs organization, a cross-functional group of engineers, writers, and designers responsible for [Stripe's documentation](https://stripe.com/docs). I lead the development of a new platform for Stripe's docs powered by React and [Markdoc](https://markdoc.io), paying down years of technical debt and providing a ~4x speedup over the legacy system.
+Before that, I was the technical lead of the Docs organization, a cross-functional group of engineers, writers, and designers responsible for [Stripe's documentation](https://stripe.com/docs). I lead a multi-year effort to build a modern infrastructure for Stripe's docs powered by React and [Markdoc](https://markdoc.io), paying down years of technical debt and providing a ~4x speedup over the legacy system.
 {% /work %}
 
 {% work from="2018" to="2019" job="Senior Software Engineer at Auth0" note="acq. Okta" location="remote from Raleigh, NC" %}

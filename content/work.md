@@ -22,7 +22,7 @@ Building the world's easiest way for everyone to build and share AI workflows, r
 {% /work %}
 
 {% work from="2019" to="2024" job="Staff Software Engineer at Stripe" location="remote from Raleigh, NC" %}
-I was the technical lead of Developer AI, applying generative AI to make it easier for users to integrate with Stripe. Among various experiments, I helped build SmartDocs, a chat interface over Stripe's documentation, which was [featured](https://openai.com/customer-stories/stripe) in the GPT4 launch announcement.
+I was the technical lead of Developer AI, applying generative AI to improve Stripe's developer experience. Some example projects include a bot that found errors in our code samples and suggested fixes, and a Q&A system which read Stripe's documentation and answered questions. (Everyone has one of these now! But ours was one of the first, and was [featured](https://openai.com/customer-stories/stripe) in the GPT4 launch announcement.)
 
 Before that, I was the technical lead of the Docs organization, a cross-functional group of engineers, writers, and designers responsible for [Stripe's documentation](https://stripe.com/docs). I lead a multi-year effort to build a modern infrastructure for Stripe's docs powered by React and [Markdoc](https://markdoc.io), paying down years of technical debt and providing a ~4x speedup over the legacy system.
 {% /work %}

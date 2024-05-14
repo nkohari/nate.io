@@ -19,7 +19,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.13",
     "@isaacs/ttlcache": "^1.2.2",
-    "@markdoc/markdoc": "^0.2.2",
+    "@markdoc/markdoc": "^0.4.0",
     "classnames": "^2.3.2",
     "cors": "^2.8.5",
     "escape-string-regexp": "^5.0.0",
@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230518.0",
-    "@nkohari/apocrypha": "^0.2.0",
+    "@nkohari/apocrypha": "^0.2.1",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/js-yaml": "^4.0.5",

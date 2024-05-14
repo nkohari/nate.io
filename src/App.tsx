@@ -2,15 +2,7 @@ import {Route, Routes, useLocation} from 'react-router-dom';
 import {HelmetProvider} from 'react-helmet-async';
 import {AnimatePresence} from 'framer-motion';
 import {useCatalog} from '@nkohari/apocrypha/catalog';
-import {
-  Body,
-  ManifestProvider,
-  NotFound,
-  ScrollController,
-  SiteFooter,
-  SiteHeader,
-  ThemeProvider,
-} from 'src/shell';
+import {Body, NotFound, ScrollController, SiteFooter, SiteHeader, ThemeProvider} from 'src/shell';
 
 const ArticleRoutes = () => {
   const articles = useCatalog();
@@ -30,17 +22,15 @@ const ArticleRoutes = () => {
 export const App = () => (
   <HelmetProvider>
     <ThemeProvider>
-      <ManifestProvider>
-        <ScrollController>
-          <div className="flex flex-col items-center min-h-screen">
-            <div className="flex-1 flex flex-col w-full max-w-[900px] px-8">
-              <SiteHeader />
-              <ArticleRoutes />
-            </div>
-            <SiteFooter />
+      <ScrollController>
+        <div className="flex flex-col items-center min-h-screen">
+          <div className="flex-1 flex flex-col w-full max-w-[900px] px-8">
+            <SiteHeader />
+            <ArticleRoutes />
           </div>
-        </ScrollController>
-      </ManifestProvider>
+          <SiteFooter />
+        </div>
+      </ScrollController>
     </ThemeProvider>
   </HelmetProvider>
 );

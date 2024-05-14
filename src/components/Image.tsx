@@ -1,6 +1,6 @@
 import cx from 'classnames';
 import {ImageMetadata} from 'src/types';
-import {getImageUrl} from 'src/util';
+import {getAssetUrl} from '@nkohari/apocrypha/assets';
 
 export type ImageFilter = 'grayscale' | 'sepia';
 
@@ -15,7 +15,7 @@ export const Image = ({alt, className, children, filter, metadata, src, ...props
 
   let imageUrl = null;
   if (src) {
-    imageUrl = getImageUrl(src);
+    imageUrl = getAssetUrl(`images/${src}`);
     if (!imageUrl) {
       console.warn(`Unknown image with path ${src}`);
     }

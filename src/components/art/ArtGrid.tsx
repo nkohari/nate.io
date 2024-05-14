@@ -1,7 +1,8 @@
 import {useMemo, useState} from 'react';
 import {createPortal} from 'react-dom';
 import {AnimatePresence, motion} from 'framer-motion';
-import {getAllImagesInFolder, shuffleArray} from 'src/util';
+import {getAllAssetUrlsForFolder} from '@nkohari/apocrypha/assets';
+import {shuffleArray} from 'src/util';
 
 const tileVariants = {
   hidden: {
@@ -65,7 +66,7 @@ const ArtTile = ({image, isSelected, onClick}: ArtTileProps) => {
 
 export const ArtGrid = () => {
   const [selectedImage, setSelectedImage] = useState<string>();
-  const images = useMemo(() => shuffleArray(getAllImagesInFolder('art')), []);
+  const images = useMemo(() => shuffleArray(getAllAssetUrlsForFolder('images/art')), []);
 
   const tiles = images.map((image) => (
     <ArtTile

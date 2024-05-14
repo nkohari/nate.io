@@ -1,13 +1,8 @@
 import {useEffect, useState} from 'react';
 import cx from 'classnames';
 import {motion, useAnimationControls, useReducedMotion} from 'framer-motion';
-import {
-  getAllImagesInFolder,
-  randomArrayElement,
-  randomInteger,
-  shuffleArray,
-  useInterval,
-} from 'src/util';
+import {getAllAssetUrlsForFolder} from '@nkohari/apocrypha/assets';
+import {randomArrayElement, randomInteger, shuffleArray, useInterval} from 'src/util';
 
 const MIN_FLIP_TIME = 7500;
 const MAX_FLIP_TIME = 15000;
@@ -116,7 +111,7 @@ const AvatarCard = ({position, urls}: AvatarCardProps) => {
 
 export const AvatarCards = () => {
   const items = [...Array(4).keys()].map((index) => {
-    const urls = shuffleArray(getAllImagesInFolder('avatars'));
+    const urls = shuffleArray(getAllAssetUrlsForFolder('images/avatars'));
     return <AvatarCard key={index} position={index + 1} urls={urls} />;
   });
 

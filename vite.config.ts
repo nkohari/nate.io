@@ -1,7 +1,7 @@
+import path from 'node:path';
 import {defineConfig} from 'vite';
 import {apocrypha} from '@nkohari/apocrypha';
 import react from '@vitejs/plugin-react-swc';
-import tsconfigPaths from 'vite-tsconfig-paths';
 import tailwind from 'tailwindcss';
 import tailwindConfig from './tailwind.config.js';
 import {readConfig} from './build/config';
@@ -17,18 +17,15 @@ import {
 import {Metadata} from './src/types';
 
 export default defineConfig({
-  build: {
-    manifest: true,
-  },
   css: {
     postcss: {
       plugins: [tailwind(tailwindConfig)],
     },
   },
   plugins: [
-    tsconfigPaths(),
     apocrypha<Metadata>({
       paths: {
+        assets: 'media',
         components: 'src/components',
         content: 'content',
         declarations: 'src/markdoc',
@@ -47,4 +44,10 @@ export default defineConfig({
     }),
     react(),
   ],
+  resolve: {
+    alias: {
+      build: path.resolve(__dirname, './build'),
+      src: path.resolve(__dirname, './src'),
+    },
+  },
 });

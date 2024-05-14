@@ -1,4 +1,3 @@
-export * from './imageUrls';
 export * from './ordinal';
 export * from './randomArrayElement';
 export * from './randomInteger';

@@ -1,5 +1,4 @@
 export * from './Body';
-export * from './ManifestProvider';
 export * from './Meta';
 export * from './MetadataProvider';
 export * from './NotFound';

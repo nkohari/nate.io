@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import {Icon} from 'src/components';
+import { Icon } from 'src/components';
 
 export type CalloutType = 'info' | 'warning';
 
@@ -15,25 +15,27 @@ const TYPE_CLASSES: Record<CalloutType, string> = {
 };
 
 export type CalloutProps = {
-  className?: string;
   children: React.ReactNode;
+  className?: string;
   type: CalloutType;
 };
 
-export const Callout = ({children, className, type}: CalloutProps) => (
-  <div
-    role="alert"
-    className={cx(
-      'flex justify-begin',
-      'p-4 mb-6 rounded-md border-b-2',
-      'text-base leading-normal',
-      TYPE_CLASSES[type],
-      className,
-    )}
-  >
-    <div className="flex flex-col flex-none pt-1 mr-4">
-      <Icon type={type} />
+export function Callout({ children, className, type }: CalloutProps) {
+  return (
+    <div
+      role="alert"
+      className={cx(
+        'flex justify-begin',
+        'p-4 mb-6 rounded-md border-b-2',
+        'text-base leading-normal',
+        TYPE_CLASSES[type],
+        className,
+      )}
+    >
+      <div className="flex flex-col flex-none pt-1 mr-4">
+        <Icon type={type} />
+      </div>
+      <div>{children}</div>
     </div>
-    <div>{children}</div>
-  </div>
-);
+  );
+}

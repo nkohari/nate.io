@@ -1,6 +1,6 @@
 import cx from 'classnames';
-import {Link as RouterLink} from 'react-router-dom';
-import {Icon, IconType} from 'src/components';
+import { Link as RouterLink } from 'react-router-dom';
+import { Icon, IconType } from 'src/components';
 
 export type LinkType =
   | 'unstyled'
@@ -38,7 +38,7 @@ const ICON_SPACING_CLASSES = {
   right: ['ml-0', 'ml-1', 'ml-2'],
 };
 
-export const Link = ({
+export function Link({
   className,
   children,
   icon,
@@ -47,7 +47,7 @@ export const Link = ({
   href,
   type = 'normal',
   ...props
-}: LinkProps) => {
+}: LinkProps) {
   const linkClasses = cx(
     LINK_CLASSES[type],
     icon && 'inline-flex flex-row items-center',
@@ -55,7 +55,8 @@ export const Link = ({
     className,
   );
 
-  let content;
+  let content: React.ReactNode;
+
   if (!icon) {
     content = children;
   } else {
@@ -88,4 +89,4 @@ export const Link = ({
       {content}
     </a>
   );
-};
+}

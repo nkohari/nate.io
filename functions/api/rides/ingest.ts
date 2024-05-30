@@ -1,5 +1,5 @@
-import {createJsonResponse} from '../../common/createJsonResponse';
-import {Ride} from '../../../src/types';
+import { createJsonResponse } from '../../common/createJsonResponse';
+import { Ride } from '../../../src/types';
 
 const STRAVA_REFRESH_TOKEN_KEY = 'strava-refresh-token';
 
@@ -26,7 +26,7 @@ async function getStravaAccessToken(env: Env) {
     }),
   });
 
-  const {access_token, refresh_token} = await response.json<any>();
+  const { access_token, refresh_token } = await response.json<any>();
   if (refresh_token !== refreshToken) {
     await env.CACHE.put(STRAVA_REFRESH_TOKEN_KEY, refresh_token);
   }
@@ -56,7 +56,7 @@ async function getRideFromStrava(env: Env, id: string): Promise<Ride> {
 
 async function saveRideToKV(env: Env, ride: Ride): Promise<Ride[]> {
   // Read the existing values from KV.
-  const existingRides = await env.CACHE.get<Ride[]>('rides', {type: 'json'});
+  const existingRides = await env.CACHE.get<Ride[]>('rides', { type: 'json' });
 
   // Create a hash from the existing rides to ensure that we don't inadvertently save duplicates.
   const hash = existingRides.reduce(
@@ -64,7 +64,7 @@ async function saveRideToKV(env: Env, ride: Ride): Promise<Ride[]> {
       result[ride.id] = ride;
       return result;
     },
-    {} as {[id: string]: Ride},
+    {} as { [id: string]: Ride },
   );
 
   // Add the ride to the hash.
@@ -82,7 +82,7 @@ async function saveRideToKV(env: Env, ride: Ride): Promise<Ride[]> {
 }
 
 export const onRequest: PagesFunction<Env> = async (context) => {
-  const {env, request} = context;
+  const { env, request } = context;
   const url = new URL(request.url);
 
   if (request.method === 'GET') {
@@ -90,12 +90,12 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     const challenge = url.searchParams.get('hub.challenge');
 
     if (challenge && token === env.STRAVA_VERIFY_TOKEN) {
-      return createJsonResponse({'hub.challenge': challenge});
+      return createJsonResponse({ 'hub.challenge': challenge });
     }
   }
 
   if (request.method === 'POST') {
-    const {object_id, object_type} = await request.json<any>();
+    const { object_id, object_type } = await request.json<any>();
 
     if (object_type === 'activity') {
       const ride = await getRideFromStrava(env, object_id);
@@ -104,5 +104,5 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     }
   }
 
-  return new Response('Bad request', {status: 400});
+  return new Response('Bad request', { status: 400 });
 };

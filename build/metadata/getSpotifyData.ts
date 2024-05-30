@@ -1,14 +1,14 @@
-import path from 'path';
-import {MetadataPluginParams} from '@nkohari/apocrypha';
-import {Metadata} from '../../src/types';
-import {Config} from '../config';
-import {DiskCache, SpotifyClient} from '../spotify';
+import path from 'node:path';
+import { MetadataPluginParams } from '@nkohari/apocrypha';
+import { Metadata } from '../../src/types';
+import { Config } from '../config';
+import { DiskCache, SpotifyClient } from '../spotify';
 
 export function getSpotifyData(config: Config, cachePath: string) {
   const cache = new DiskCache(path.resolve(cachePath, 'spotify'));
   const spotify = new SpotifyClient(config);
 
-  return async ({frontmatter}: MetadataPluginParams<Metadata>) => {
+  return async ({ frontmatter }: MetadataPluginParams<Metadata>) => {
     const trackId = frontmatter.spotifyId;
     if (!trackId) return;
 
@@ -21,7 +21,7 @@ export function getSpotifyData(config: Config, cachePath: string) {
     if (!album) return;
 
     return {
-      spotify: {album, track},
+      spotify: { album, track },
     };
   };
 }

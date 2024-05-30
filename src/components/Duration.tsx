@@ -1,4 +1,4 @@
-import {DateTime} from 'luxon';
+import { DateTime } from 'luxon';
 
 const WORDS = [
   'zero',
@@ -22,7 +22,7 @@ type DurationProps = {
   since: string;
 };
 
-export const Duration = ({since}: DurationProps) => {
+export function Duration({ since }: DurationProps) {
   const now = DateTime.now();
   const then = DateTime.fromISO(since);
   const duration = now.diff(then);
@@ -30,7 +30,8 @@ export const Duration = ({since}: DurationProps) => {
   const years = Math.floor(duration.as('years'));
   const months = Math.floor(duration.as('months'));
 
-  let content;
+  let content: React.ReactNode;
+
   if (years < 1) {
     content = `${formatNumber(months)} month${months === 1 ? '' : 's'}`;
   } else {
@@ -38,4 +39,4 @@ export const Duration = ({since}: DurationProps) => {
   }
 
   return <span>{content}</span>;
-};
+}

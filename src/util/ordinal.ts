@@ -6,7 +6,7 @@ const SUFFIXES = new Map([
 ]);
 
 export function ordinal(num: number): string {
-  const rules = new Intl.PluralRules('en-US', {type: 'ordinal'});
+  const rules = new Intl.PluralRules('en-US', { type: 'ordinal' });
   const rule = rules.select(num);
   const suffix = SUFFIXES.get(rule);
   return `${num}${suffix}`;

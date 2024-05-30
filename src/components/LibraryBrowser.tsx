@@ -1,9 +1,9 @@
-import {useMemo, useState} from 'react';
-import {motion} from 'framer-motion';
-import {useCatalog} from '@nkohari/apocrypha/catalog';
-import {Metadata} from 'src/types';
-import {Badge, Date, Input, Link} from 'src/components';
-import {search} from 'src/util';
+import { useMemo, useState } from 'react';
+import { motion } from 'framer-motion';
+import { useCatalog } from '@nkohari/apocrypha/catalog';
+import { Metadata } from 'src/types';
+import { Badge, DateString, Input, Link } from 'src/components';
+import { search } from 'src/util';
 
 const abstractVariants = {
   visible: {
@@ -11,7 +11,7 @@ const abstractVariants = {
   },
   hover: {
     scale: 1.05,
-    transition: {type: 'spring', stiffness: 120, damping: 10, mass: 0.5},
+    transition: { type: 'spring', stiffness: 120, damping: 10, mass: 0.5 },
   },
 };
 
@@ -20,7 +20,7 @@ type AbstractProps = {
   path: string;
 };
 
-const Abstract = ({metadata, path}: AbstractProps) => {
+function Abstract({ metadata, path }: AbstractProps) {
   return (
     <motion.div initial={false} animate="visible" whileHover="hover" variants={abstractVariants}>
       <Link
@@ -32,7 +32,7 @@ const Abstract = ({metadata, path}: AbstractProps) => {
         <h3 className="text-xl">{metadata.title}</h3>
         <div className="flex flex-row items-center mt-1 space-x-2">
           {metadata.date && (
-            <Date
+            <DateString
               date={metadata.date}
               className="text-sm italic text-slate-500 dark:text-slate-400"
             />
@@ -43,35 +43,41 @@ const Abstract = ({metadata, path}: AbstractProps) => {
       </Link>
     </motion.div>
   );
-};
+}
 
-const SadMagnifyingGlass = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg {...props} viewBox="5 6 24 24">
-    <path d="M24.71,24.29a1,1,0,0,0-1-.24l-1.9-1.91a8.52,8.52,0,1,0-.71.71l1.91,1.91a1,1,0,0,0,.24.95l2.2,2.19a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41ZM10.2,21.8a7.5,7.5,0,1,1,10.6,0A7.49,7.49,0,0,1,10.2,21.8Z"></path>
-    <path d="M11.65,16.35a.48.48,0,0,0,.7,0l.65-.64.65.64a.48.48,0,0,0,.7,0,.48.48,0,0,0,0-.7L13.71,15l.64-.65a.49.49,0,0,0-.7-.7l-.65.64-.65-.64a.49.49,0,0,0-.7.7l.64.65-.64.65A.48.48,0,0,0,11.65,16.35Z"></path>
-    <path d="M16.65,16.35a.48.48,0,0,0,.7,0l.65-.64.65.64a.48.48,0,0,0,.7,0,.48.48,0,0,0,0-.7L18.71,15l.64-.65a.49.49,0,1,0-.7-.7l-.65.64-.65-.64a.49.49,0,0,0-.7.7l.64.65-.64.65A.48.48,0,0,0,16.65,16.35Z"></path>
-    <path d="M19.5,18h-8a.5.5,0,0,0,0,1H13v1.5a1.5,1.5,0,0,0,3,0V19h3.5a.5.5,0,0,0,0-1ZM15,20.5a.5.5,0,0,1-1,0V19h1Z"></path>
-  </svg>
-);
+function SadMagnifyingGlass(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg {...props} viewBox="5 6 24 24">
+      <title>No results</title>
+      <path d="M24.71,24.29a1,1,0,0,0-1-.24l-1.9-1.91a8.52,8.52,0,1,0-.71.71l1.91,1.91a1,1,0,0,0,.24.95l2.2,2.19a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41ZM10.2,21.8a7.5,7.5,0,1,1,10.6,0A7.49,7.49,0,0,1,10.2,21.8Z" />
+      <path d="M11.65,16.35a.48.48,0,0,0,.7,0l.65-.64.65.64a.48.48,0,0,0,.7,0,.48.48,0,0,0,0-.7L13.71,15l.64-.65a.49.49,0,0,0-.7-.7l-.65.64-.65-.64a.49.49,0,0,0-.7.7l.64.65-.64.65A.48.48,0,0,0,11.65,16.35Z" />
+      <path d="M16.65,16.35a.48.48,0,0,0,.7,0l.65-.64.65.64a.48.48,0,0,0,.7,0,.48.48,0,0,0,0-.7L18.71,15l.64-.65a.49.49,0,1,0-.7-.7l-.65.64-.65-.64a.49.49,0,0,0-.7.7l.64.65-.64.65A.48.48,0,0,0,16.65,16.35Z" />
+      <path d="M19.5,18h-8a.5.5,0,0,0,0,1H13v1.5a1.5,1.5,0,0,0,3,0V19h3.5a.5.5,0,0,0,0-1ZM15,20.5a.5.5,0,0,1-1,0V19h1Z" />
+    </svg>
+  );
+}
 
-const NoResults = () => (
-  <div className="flex flex-col items-center mt-24">
-    <SadMagnifyingGlass className="w-32 fill-current" />
-    <div className="mt-6 font-lg">No articles matching your search were found.</div>
-  </div>
-);
+function NoResults() {
+  return (
+    <div className="flex flex-col items-center mt-24">
+      <SadMagnifyingGlass className="w-32 fill-current" />
+      <div className="mt-6 font-lg">No articles matching your search were found.</div>
+    </div>
+  );
+}
 
-export const LibraryBrowser = () => {
+export function LibraryBrowser() {
   const articles = useCatalog<Metadata>();
   const [query, setQuery] = useState<string>('');
 
   const matchingArticles = useMemo(() => search(Object.values(articles), query), [articles, query]);
 
-  let content;
+  let content: React.ReactNode;
+
   if (matchingArticles.length === 0) {
     content = <NoResults />;
   } else {
-    content = matchingArticles.map(({metadata, path}) => (
+    content = matchingArticles.map(({ metadata, path }) => (
       <Abstract key={path} path={path} metadata={metadata} />
     ));
   }
@@ -90,4 +96,4 @@ export const LibraryBrowser = () => {
       {content}
     </div>
   );
-};
+}

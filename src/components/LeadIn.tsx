@@ -2,4 +2,6 @@ export type LeadInProps = {
   children: React.ReactNode;
 };
 
-export const LeadIn = ({children}: LeadInProps) => <span className="font-bold">{children}</span>;
+export function LeadIn({ children }: LeadInProps) {
+  return <span className="font-bold">{children}</span>;
+}

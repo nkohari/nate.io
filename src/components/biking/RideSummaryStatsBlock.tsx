@@ -1,4 +1,4 @@
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const numberVariants = {
   hidden: {
@@ -19,16 +19,17 @@ type RideSummaryStatsBlockProps = {
   value?: number;
 };
 
-export const RideSummaryStatsBlock = ({
+export function RideSummaryStatsBlock({
   title,
   precision,
   scale = 1,
   unit,
   value,
-}: RideSummaryStatsBlockProps) => {
-  let content;
+}: RideSummaryStatsBlockProps) {
+  let content: React.ReactNode;
+
   if (value !== undefined) {
-    const formatter = new Intl.NumberFormat(undefined, {maximumFractionDigits: precision});
+    const formatter = new Intl.NumberFormat(undefined, { maximumFractionDigits: precision });
     const scaledValue = Number.isNaN(value) ? 0 : value * scale;
     const formattedValue = scaledValue === undefined ? '0' : formatter.format(scaledValue);
     content = (
@@ -50,4 +51,4 @@ export const RideSummaryStatsBlock = ({
       {content}
     </div>
   );
-};
+}

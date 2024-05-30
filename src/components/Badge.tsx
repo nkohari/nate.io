@@ -1,5 +1,5 @@
 import cx from 'classnames';
-import {Icon, IconType} from 'src/components';
+import { Icon, IconType } from 'src/components';
 
 export type BadgeProps = {
   className?: string;
@@ -7,8 +7,9 @@ export type BadgeProps = {
   text: string;
 };
 
-export const Badge = ({className, icon, text}: BadgeProps) => {
-  let iconElement;
+export function Badge({ className, icon, text }: BadgeProps) {
+  let iconElement: React.ReactNode;
+
   if (icon) {
     iconElement = <Icon type={icon} size="medium" />;
   }
@@ -26,4 +27,4 @@ export const Badge = ({className, icon, text}: BadgeProps) => {
       <span className="ml-0.5">{text}</span>
     </div>
   );
-};
+}

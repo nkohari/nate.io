@@ -1,9 +1,9 @@
-import {useMemo} from 'react';
-import {motion} from 'framer-motion';
-import {Article} from '@nkohari/apocrypha';
-import {useCatalog} from '@nkohari/apocrypha/catalog';
-import {Link, PoweredBySpotify} from 'src/components';
-import {Metadata} from 'src/types';
+import { useMemo } from 'react';
+import { motion } from 'framer-motion';
+import { Article } from '@nkohari/apocrypha';
+import { useCatalog } from '@nkohari/apocrypha/catalog';
+import { Link, PoweredBySpotify } from 'src/components';
+import { Metadata } from 'src/types';
 
 const tileVariants = {
   hidden: {
@@ -15,7 +15,7 @@ const tileVariants = {
     opacity: 1,
     rotate: 0,
     scale: 1,
-    transition: {type: 'spring', stiffness: 120, damping: 10, mass: 0.5},
+    transition: { type: 'spring', stiffness: 120, damping: 10, mass: 0.5 },
   },
 };
 
@@ -29,7 +29,7 @@ const albumVariants = {
     rotate: Math.random() > 0.5 ? 3 : -3,
     scale: 1.25,
     zIndex: 10,
-    transition: {type: 'spring', stiffness: 120, damping: 10, mass: 0.5},
+    transition: { type: 'spring', stiffness: 120, damping: 10, mass: 0.5 },
   }),
 };
 
@@ -41,7 +41,7 @@ const poweredByVariants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: {delay: 1},
+    transition: { delay: 1 },
   },
 };
 
@@ -49,20 +49,27 @@ type MusicTileProps = {
   article: Article<Metadata>;
 };
 
-const MusicTile = ({article}: MusicTileProps) => {
-  const {spotify} = article.metadata;
+function MusicTile({ article }: MusicTileProps) {
+  const { album } = article.metadata.spotify!;
+
   return (
     <motion.div variants={tileVariants} className="hover:z-10 w-1/3 md:w-1/5 p-1">
       <motion.div initial={false} animate="visible" whileHover="hover" variants={albumVariants}>
         <Link type="unstyled" href={article.path}>
-          <img width={300} height={300} src={spotify!.album.images.medium} className="rounded-md" />
+          <img
+            width={300}
+            height={300}
+            src={album.images.medium}
+            className="rounded-md"
+            alt={`Cover art for ${album.name}`}
+          />
         </Link>
       </motion.div>
     </motion.div>
   );
-};
+}
 
-export const MusicGrid = () => {
+export function MusicGrid() {
   const articles = useCatalog<Metadata>();
 
   const musicArticles = useMemo(
@@ -83,7 +90,7 @@ export const MusicGrid = () => {
         className="flex flex-row flex-wrap"
         initial="hidden"
         animate="visible"
-        transition={{staggerChildren: 0.025}}
+        transition={{ staggerChildren: 0.025 }}
       >
         {tiles}
       </motion.div>
@@ -92,4 +99,4 @@ export const MusicGrid = () => {
       </motion.div>
     </div>
   );
-};
+}

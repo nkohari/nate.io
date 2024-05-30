@@ -2,7 +2,7 @@
 
 {% lead-in %}I'm an internet engineer.{% /lead-in %} I build thoughtful, polished web interfaces and scalable, high-performance APIs. My goal as an engineer is to make people happier, more efficient, and more effective at their work.
 
-Right now, I'm building [Ardent](https://ardent.ai), a platform which helps everyone build and share AI workflows, whether or not they know how to write code.
+Right now, I'm building [Ardent](https://ardent.ai), a platform which helps everyone build and share AI-powered software, whether or not they know how to write code.
 
 Before that, I spent four and a half years at [Stripe](https://stripe.com), working on developer experience and some of the company's early work with generative AI. Over the {% duration since="2004-06-01" /%} of [my career](#career), I've started three companies, and held a wide range of roles from engineer to executive.
 
@@ -18,7 +18,7 @@ Before that, I spent four and a half years at [Stripe](https://stripe.com), work
 ## My Career {% #career %}
 
 {% work from="2024" to="now" job="Founder of Ardent" location="remote from Raleigh, NC" %}
-Building the world's easiest way for everyone to build and share AI workflows, regardless of whether or not they know how to code.
+Building the world's easiest way for everyone to build and share AI-powered software, regardless of whether or not they know how to code.
 {% /work %}
 
 {% work from="2019" to="2024" job="Staff Software Engineer at Stripe" location="remote from Raleigh, NC" %}

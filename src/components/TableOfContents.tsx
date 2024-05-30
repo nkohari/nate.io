@@ -1,24 +1,26 @@
-import {Link} from 'src/components';
-import {ArticleSection} from 'src/types';
+import { Link } from 'src/components';
+import { ArticleSection } from 'src/types';
 
 type SectionListItemProps = {
   section: ArticleSection;
 };
 
-const SectionListItem = ({section}: SectionListItemProps) => (
-  <div className="mb-1">
-    <Link href={`#${section.id}`}>{section.text}</Link>
-  </div>
-);
+function SectionListItem({ section }: SectionListItemProps) {
+  return (
+    <div className="mb-1">
+      <Link href={`#${section.id}`}>{section.text}</Link>
+    </div>
+  );
+}
 
 export type TableOfContentsProps = {
   sections: ArticleSection[];
 };
 
-export const TableOfContents = ({sections}: TableOfContentsProps) => {
+export function TableOfContents({ sections }: TableOfContentsProps) {
   const items = sections
     .filter((section) => section.level === 2)
-    .map((section) => <SectionListItem section={section} />);
+    .map((section) => <SectionListItem key={section.id} section={section} />);
 
   return (
     <div className="hidden xl:block w-60 mt-[172px] pr-16 h-full">
@@ -28,4 +30,4 @@ export const TableOfContents = ({sections}: TableOfContentsProps) => {
       <div className="text-sm h-72 min-h-max pt-4">{items}</div>
     </div>
   );
-};
+}

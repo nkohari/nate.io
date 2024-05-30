@@ -17,7 +17,7 @@ export type IconProps = {
   size?: IconSize;
 };
 
-export const Icon = ({className, type, size = 'default'}: IconProps) => {
+export function Icon({ className, type, size = 'default' }: IconProps) {
   const SvgComponent = ICONS[type] as React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
 
   if (!SvgComponent) {
@@ -27,4 +27,4 @@ export const Icon = ({className, type, size = 'default'}: IconProps) => {
   return (
     <SvgComponent className={cx('inline-block fill-current', SIZE_CLASSES[size], className)} />
   );
-};
+}

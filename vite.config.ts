@@ -1,10 +1,10 @@
 import path from 'node:path';
-import {defineConfig} from 'vite';
-import {apocrypha} from '@nkohari/apocrypha';
+import { defineConfig } from 'vite';
+import { apocrypha } from '@nkohari/apocrypha';
 import react from '@vitejs/plugin-react-swc';
 import tailwind from 'tailwindcss';
 import tailwindConfig from './tailwind.config.js';
-import {readConfig} from './build/config';
+import { readConfig } from './build/config';
 import {
   getBasicMetadata,
   getContentStats,
@@ -14,7 +14,7 @@ import {
   getSections,
   getSpotifyData,
 } from './build/metadata';
-import {Metadata} from './src/types';
+import { Metadata } from './src/types';
 
 export default defineConfig({
   css: {

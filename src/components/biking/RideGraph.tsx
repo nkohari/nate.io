@@ -1,13 +1,13 @@
-import {useEffect, useMemo, useState} from 'react';
-import {DateTime} from 'luxon';
-import {motion} from 'framer-motion';
-import {Ride} from 'src/types';
-import {RideGraphEmptyStamp} from './RideGraphEmptyStamp';
-import {RideGraphSwitch} from './RideGraphSwitch';
-import {RideGraphBar} from './RideGraphBar';
-import {RideSummaryStats} from './RideSummaryStats';
-import {MeasurementSystem, RideField} from './types';
-import {createRide, getUnitForField, getYAxisScale} from './util';
+import { useEffect, useMemo, useState } from 'react';
+import { DateTime } from 'luxon';
+import { motion } from 'framer-motion';
+import { Ride } from 'src/types';
+import { RideGraphEmptyStamp } from './RideGraphEmptyStamp';
+import { RideGraphSwitch } from './RideGraphSwitch';
+import { RideGraphBar } from './RideGraphBar';
+import { RideSummaryStats } from './RideSummaryStats';
+import { MeasurementSystem, RideField } from './types';
+import { createRide, getUnitForField, getYAxisScale } from './util';
 
 // The API is a Cloudflare function, so for simplicity, just use the production endpoint during dev
 const ENDPOINT = import.meta.env.DEV ? 'https://nate.io/api/rides' : '/api/rides';
@@ -17,17 +17,19 @@ type RideGraphXAxisLabelsProps = {
   dates: DateTime[];
 };
 
-const RideGraphXAxisLabels = ({columnWidth, dates}: RideGraphXAxisLabelsProps) => (
-  <div
-    className={`z-10 grid grid-flow-col auto-cols-[${columnWidth}] p-1 font-bold text-xs text-center text-slate-600 dark:text-slate-400`}
-  >
-    {dates.map((date) => (
-      <div key={date.toISODate()}>{date.toFormat('ccccc')}</div>
-    ))}
-  </div>
-);
+function RideGraphXAxisLabels({ columnWidth, dates }: RideGraphXAxisLabelsProps) {
+  return (
+    <div
+      className={`z-10 grid grid-flow-col auto-cols-[${columnWidth}] p-1 font-bold text-xs text-center text-slate-600 dark:text-slate-400`}
+    >
+      {dates.map((date) => (
+        <div key={date.toISODate()}>{date.toFormat('ccccc')}</div>
+      ))}
+    </div>
+  );
+}
 
-export const RideGraph = () => {
+export function RideGraph() {
   const [days] = useState(30);
   const [rides, setRides] = useState<Ride[]>();
   const [field, setField] = useState<RideField>('distance');
@@ -43,18 +45,19 @@ export const RideGraph = () => {
       });
   }, []);
 
-  const today = DateTime.fromISO(DateTime.utc().toISODate()!, {zone: 'utc'});
-  const dates = [...Array(days).keys()].map((index) => today.minus({days: days - index}));
+  const today = DateTime.fromISO(DateTime.utc().toISODate()!, { zone: 'utc' });
+  const dates = [...Array(days).keys()].map((index) => today.minus({ days: days - index }));
 
   const scale = useMemo(
     () => (rides ? getYAxisScale(rides, field, system) : null),
     [rides, field, system],
   );
 
-  let bars;
-  let stamp;
+  let bars: React.ReactNode;
+  let stamp: React.ReactNode;
+
   if (rides && scale) {
-    const recentRides = rides.filter((ride) => ride.timestamp >= today.minus({days}));
+    const recentRides = rides.filter((ride) => ride.timestamp >= today.minus({ days }));
 
     if (recentRides.length === 0) {
       stamp = <RideGraphEmptyStamp />;
@@ -65,7 +68,7 @@ export const RideGraph = () => {
         className={`relative grid grid-flow-col auto-cols-[${columnWidth}] h-full w-full`}
         initial="hidden"
         animate="visible"
-        transition={{staggerChildren: 0.05}}
+        transition={{ staggerChildren: 0.05 }}
       >
         {dates.map((date) => (
           <RideGraphBar
@@ -91,11 +94,11 @@ export const RideGraph = () => {
         <RideGraphSwitch
           onChange={(value: RideField) => setField(value)}
           options={[
-            {value: 'distance', label: 'Distance'},
-            {value: 'duration', label: 'Duration'},
-            {value: 'averageSpeed', label: 'Average Speed'},
-            {value: 'maxSpeed', label: 'Maximum Speed'},
-            {value: 'totalElevationGain', label: 'Total Elevation Gain'},
+            { value: 'distance', label: 'Distance' },
+            { value: 'duration', label: 'Duration' },
+            { value: 'averageSpeed', label: 'Average Speed' },
+            { value: 'maxSpeed', label: 'Maximum Speed' },
+            { value: 'totalElevationGain', label: 'Total Elevation Gain' },
           ]}
           value={field}
         />
@@ -108,12 +111,12 @@ export const RideGraph = () => {
         <RideGraphSwitch
           onChange={(value: MeasurementSystem) => setSystem(value)}
           options={[
-            {value: 'imperial', label: getUnitForField(field, 'imperial')},
-            {value: 'metric', label: getUnitForField(field, 'metric')},
+            { value: 'imperial', label: getUnitForField(field, 'imperial') },
+            { value: 'metric', label: getUnitForField(field, 'metric') },
           ]}
           value={system}
         />
       </div>
     </div>
   );
-};
+}

@@ -1,20 +1,20 @@
-import {motion} from 'framer-motion';
-import {Icon} from 'src/components';
-import {Theme, useTheme} from 'src/shell';
+import { motion } from 'framer-motion';
+import { Icon } from 'src/components';
+import { Theme, useTheme } from 'src/shell';
 
 const variants = {
   light: {
     rotate: 0,
-    transition: {type: 'spring', duration: 0.05},
+    transition: { type: 'spring', duration: 0.05 },
   },
   dark: {
     rotate: 180,
-    transition: {type: 'spring', duration: 0.05},
+    transition: { type: 'spring', duration: 0.05 },
   },
 };
 
-export const ThemeSelector = () => {
-  const {theme, setPreferredTheme} = useTheme();
+export function ThemeSelector() {
+  const { theme, setPreferredTheme } = useTheme();
 
   const onThemeChanged = () => {
     setPreferredTheme(theme === Theme.Dark ? Theme.Light : Theme.Dark);
@@ -22,8 +22,7 @@ export const ThemeSelector = () => {
   };
 
   return (
-    <motion.a
-      role="button"
+    <motion.button
       aria-label="Toggle theme"
       className="flex items-center ml-4 transform transition-transform"
       onClick={onThemeChanged}
@@ -32,6 +31,6 @@ export const ThemeSelector = () => {
       variants={variants}
     >
       <Icon type="theme" />
-    </motion.a>
+    </motion.button>
   );
-};
+}

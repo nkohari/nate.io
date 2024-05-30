@@ -1,6 +1,6 @@
-import {DateTime} from 'luxon';
-import {Ride} from 'src/types';
-import {AxisScale, MeasurementSystem, RideField} from './types';
+import { DateTime } from 'luxon';
+import { Ride } from 'src/types';
+import { AxisScale, MeasurementSystem, RideField } from './types';
 
 export function createRide(model: Record<string, any>): Ride {
   return {

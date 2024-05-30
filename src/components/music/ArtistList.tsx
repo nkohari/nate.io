@@ -1,22 +1,25 @@
-import {Link} from 'src/components';
-import {SpotifyObject} from 'src/types';
+import { Link } from 'src/components';
+import { SpotifyObject } from 'src/types';
 
 type ArtistListItemProps = {
   artist: SpotifyObject;
 };
 
-const ArtistListItem = ({artist}: ArtistListItemProps) => (
-  <Link type="subtle" href={artist.url}>
-    {artist.name}
-  </Link>
-);
+function ArtistListItem({ artist }: ArtistListItemProps) {
+  return (
+    <Link type="subtle" href={artist.url}>
+      {artist.name}
+    </Link>
+  );
+}
 
 type ArtistListProps = {
   artists: SpotifyObject[];
 };
 
-export const ArtistList = ({artists}: ArtistListProps) => {
-  let content;
+export function ArtistList({ artists }: ArtistListProps) {
+  let content: React.ReactNode;
+
   if (artists.length === 1) {
     content = <ArtistListItem artist={artists[0]} />;
   } else {
@@ -27,12 +30,14 @@ export const ArtistList = ({artists}: ArtistListProps) => {
       if (index === 0) {
         return [token];
       } else if (artists.length > 2 && index < tokens.length - 2) {
-        return [...arr, ',', token];
+        arr.push(',', token);
+        return arr;
       } else {
-        return [...arr, conjunction, token];
+        arr.push(conjunction, token);
+        return arr;
       }
     }, [] as React.ReactNode[]);
   }
 
   return <>{content}</>;
-};
+}

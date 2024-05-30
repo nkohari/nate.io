@@ -1,9 +1,9 @@
-import path from 'path';
-import {AstWalker, MetadataPluginParams} from '@nkohari/apocrypha';
+import path from 'node:path';
+import { AstWalker, MetadataPluginParams } from '@nkohari/apocrypha';
 import sharp from 'sharp';
-import {Metadata} from '../../src/types';
+import { Metadata } from '../../src/types';
 
-export async function getImages({ast, paths}: MetadataPluginParams<Metadata>) {
+export async function getImages({ ast, paths }: MetadataPluginParams<Metadata>) {
   const nodes = AstWalker.findTags(ast, 'image');
 
   const images = [];
@@ -12,8 +12,8 @@ export async function getImages({ast, paths}: MetadataPluginParams<Metadata>) {
 
     try {
       const image = sharp(filename);
-      const {src} = node.attributes;
-      const {width, height, format} = await image.metadata();
+      const { src } = node.attributes;
+      const { width, height, format } = await image.metadata();
 
       images.push({
         src,
@@ -27,6 +27,6 @@ export async function getImages({ast, paths}: MetadataPluginParams<Metadata>) {
   }
 
   if (images.length > 0) {
-    return {images};
+    return { images };
   }
 }

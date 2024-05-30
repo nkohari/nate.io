@@ -1,4 +1,4 @@
-import {createContext, useContext, useEffect, useState} from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 export enum Theme {
   Light = 'light',
@@ -7,7 +7,7 @@ export enum Theme {
 
 const LOCAL_STORAGE_KEY = 'theme';
 
-export const getDefaultTheme = (): Theme => {
+export function getDefaultTheme(): Theme {
   const theme = localStorage.getItem(LOCAL_STORAGE_KEY);
   const osDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -16,12 +16,12 @@ export const getDefaultTheme = (): Theme => {
   } else {
     return osDarkMode ? Theme.Dark : Theme.Light;
   }
-};
+}
 
-export const setThemeClassOnDocumentElement = (theme: Theme) => {
+export function setThemeClassOnDocumentElement(theme: Theme) {
   document.documentElement.classList.remove(...Object.values(Theme));
   document.documentElement.classList.add(theme);
-};
+}
 
 type ThemeContextData = {
   theme: Theme;
@@ -39,7 +39,7 @@ type ThemeProviderProps = {
   children: React.ReactNode;
 };
 
-export const ThemeProvider = ({children}: ThemeProviderProps) => {
+export function ThemeProvider({ children }: ThemeProviderProps) {
   const [theme, setTheme] = useState(getDefaultTheme());
 
   useEffect(() => setThemeClassOnDocumentElement(theme), [theme]);
@@ -57,8 +57,8 @@ export const ThemeProvider = ({children}: ThemeProviderProps) => {
   };
 
   return <ThemeContext.Provider value={context}>{children}</ThemeContext.Provider>;
-};
+}
 
-export const useTheme = () => {
+export function useTheme() {
   return useContext(ThemeContext);
-};
+}

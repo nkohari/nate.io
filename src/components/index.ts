@@ -5,7 +5,7 @@ export * from './Byline';
 export * from './Callout';
 export * from './Code';
 export * from './CodeBlock';
-export * from './Date';
+export * from './DateString';
 export * from './Divider';
 export * from './Document';
 export * from './Duration';

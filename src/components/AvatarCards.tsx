@@ -1,8 +1,8 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import cx from 'classnames';
-import {motion, useAnimationControls, useReducedMotion} from 'framer-motion';
-import {getAllAssetUrlsForFolder} from '@nkohari/apocrypha/assets';
-import {randomArrayElement, randomInteger, shuffleArray, useInterval} from 'src/util';
+import { motion, useAnimationControls, useReducedMotion } from 'framer-motion';
+import { getAllAssetUrlsForFolder } from '@nkohari/apocrypha/assets';
+import { randomArrayElement, randomInteger, shuffleArray, useInterval } from 'src/util';
 
 const MIN_FLIP_TIME = 7500;
 const MAX_FLIP_TIME = 15000;
@@ -11,17 +11,17 @@ const cardVariants = {
   front: {
     scale: 1,
     rotateY: 0,
-    transition: {type: 'spring', stiffness: 100, mass: 0.5},
+    transition: { type: 'spring', stiffness: 100, mass: 0.5 },
   },
   back: {
     scale: 1,
     rotateY: 180,
-    transition: {type: 'spring', stiffness: 100, mass: 0.5},
+    transition: { type: 'spring', stiffness: 100, mass: 0.5 },
   },
   hover: (position: number) => ({
     scale: 1.15,
     rotate: position % 2 === 0 ? 3 : -3,
-    transition: {type: 'spring', stiffness: 120, damping: 10, mass: 0.5},
+    transition: { type: 'spring', stiffness: 120, damping: 10, mass: 0.5 },
   }),
 };
 
@@ -30,26 +30,28 @@ type AvatarImageProps = {
   flip?: boolean;
 };
 
-const AvatarImage = ({flip = false, src}: AvatarImageProps) => (
-  <img
-    src={src}
-    className={cx(
-      'absolute rounded-lg shadow-md backface-hidden aspect-square',
-      flip && 'rotate-y-180',
-    )}
-    height={280}
-    width={280}
-    draggable={false}
-    alt="A picture of me (Nate)"
-  />
-);
+function AvatarImage({ flip = false, src }: AvatarImageProps) {
+  return (
+    <img
+      src={src}
+      className={cx(
+        'absolute rounded-lg shadow-md backface-hidden aspect-square',
+        flip && 'rotate-y-180',
+      )}
+      height={280}
+      width={280}
+      draggable={false}
+      alt="Me (Nate)"
+    />
+  );
+}
 
 type AvatarCardProps = {
   position: number;
   urls: string[];
 };
 
-const AvatarCard = ({position, urls}: AvatarCardProps) => {
+function AvatarCard({ position, urls }: AvatarCardProps) {
   const controls = useAnimationControls();
   const [visibleFace, setVisibleFace] = useState('front');
   const [frontUrl, setFrontUrl] = useState(randomArrayElement(urls));
@@ -80,7 +82,7 @@ const AvatarCard = ({position, urls}: AvatarCardProps) => {
       if (visibleFace === 'front') setBackUrl(randomArrayElement(urls));
       else setFrontUrl(randomArrayElement(urls));
     }, 500);
-  }, [setBackUrl, setFrontUrl, urls, visibleFace]);
+  }, [urls, visibleFace]);
 
   useInterval(randomInteger(MIN_FLIP_TIME, MAX_FLIP_TIME), () => {
     if (!reducedMotion) flipCard();
@@ -107,13 +109,13 @@ const AvatarCard = ({position, urls}: AvatarCardProps) => {
       <AvatarImage src={backUrl} flip />
     </motion.div>
   );
-};
+}
 
-export const AvatarCards = () => {
+export function AvatarCards() {
   const items = [...Array(4).keys()].map((index) => {
     const urls = shuffleArray(getAllAssetUrlsForFolder('images/avatars'));
     return <AvatarCard key={index} position={index + 1} urls={urls} />;
   });
 
   return <div className="flex flex-row space-x-4 mb-8">{items}</div>;
-};
+}

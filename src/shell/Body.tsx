@@ -1,23 +1,23 @@
-import {Suspense} from 'react';
-import {motion} from 'framer-motion';
-import {ArticleContent, useArticle} from '@nkohari/apocrypha/catalog';
-import {DefaultLayout, MusicLayout} from 'src/components';
-import {Meta, MetadataProvider} from 'src/shell';
-import {Metadata} from 'src/types';
+import { Suspense } from 'react';
+import { motion } from 'framer-motion';
+import { ArticleContent, useArticle } from '@nkohari/apocrypha/catalog';
+import { DefaultLayout, MusicLayout } from 'src/components';
+import { Meta, MetadataProvider } from 'src/shell';
+import type { Metadata } from 'src/types';
 
 const variants = {
   initial: {
     opacity: 0,
-    transition: {type: 'tween', duration: 0.2},
+    transition: { type: 'tween', duration: 0.2 },
   },
   visible: {
     opacity: 1,
-    transition: {type: 'tween', duration: 0.2},
+    transition: { type: 'tween', duration: 0.2 },
   },
   exit: {
     opacity: 0,
     y: 10,
-    transition: {type: 'tween', duration: 0.2},
+    transition: { type: 'tween', duration: 0.2 },
   },
 };
 
@@ -26,19 +26,19 @@ type LayoutProps = {
   metadata: Metadata;
 };
 
-const Layout = (props: LayoutProps) => {
+function Layout(props: LayoutProps) {
   if (props.metadata.type === 'music') {
     return <MusicLayout {...props} />;
-  } else {
-    return <DefaultLayout {...props} />;
   }
-};
+
+  return <DefaultLayout {...props} />;
+}
 
 type BodyProps = {
   path: string;
 };
 
-export const Body = ({path}: BodyProps) => {
+export function Body({ path }: BodyProps) {
   const article = useArticle<Metadata>(path);
 
   return (
@@ -59,4 +59,4 @@ export const Body = ({path}: BodyProps) => {
       </motion.main>
     </Suspense>
   );
-};
+}

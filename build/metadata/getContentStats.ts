@@ -1,10 +1,10 @@
-import {MetadataPluginParams} from '@nkohari/apocrypha';
+import { MetadataPluginParams } from '@nkohari/apocrypha';
 import readingTime from 'reading-time';
 import readability from 'text-readability';
-import {Metadata} from '../../src/types';
-import {getRawText} from '../util';
+import { Metadata } from '../../src/types';
+import { getRawText } from '../util';
 
-export function getContentStats({ast, metadata}: MetadataPluginParams<Metadata>) {
+export function getContentStats({ ast, metadata }: MetadataPluginParams<Metadata>) {
   if (metadata.type === 'music') return;
 
   const text = getRawText(ast);

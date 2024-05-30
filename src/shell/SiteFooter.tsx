@@ -1,5 +1,5 @@
-import {DateTime} from 'luxon';
-import {IconType, Link} from 'src/components';
+import { DateTime } from 'luxon';
+import { IconType, Link } from 'src/components';
 
 type SiteFooterLinkProps = {
   href: string;
@@ -7,15 +7,17 @@ type SiteFooterLinkProps = {
   text: string;
 };
 
-const SiteFooterLink = ({href, icon, text}: SiteFooterLinkProps) => (
-  <li className="flex items-center mb-1">
-    <Link href={href} type="subtle" icon={icon} iconSpacing={2}>
-      {text}
-    </Link>
-  </li>
-);
+function SiteFooterLink({ href, icon, text }: SiteFooterLinkProps) {
+  return (
+    <li className="flex items-center mb-1">
+      <Link href={href} type="subtle" icon={icon} iconSpacing={2}>
+        {text}
+      </Link>
+    </li>
+  );
+}
 
-export const SiteFooter = () => {
+export function SiteFooter() {
   return (
     <div className="relative w-full mt-8 md:mt-12 overflow-hidden">
       <div className="z-10 relative flex flex-row justify-center pt-12 md:pt-24 text-sm text-slate-600 dark:text-slate-400">
@@ -76,7 +78,7 @@ export const SiteFooter = () => {
           </div>
         </div>
       </div>
-      <div className="absolute top-0 h-full w-full bg-slate-50 dark:bg-slate-700 origin-bottom-right -skew-y-2"></div>
+      <div className="absolute top-0 h-full w-full bg-slate-50 dark:bg-slate-700 origin-bottom-right -skew-y-2" />
     </div>
   );
-};
+}

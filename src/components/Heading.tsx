@@ -8,7 +8,7 @@ export type HeadingProps = {
   level: number;
 };
 
-export const Heading = ({className, children, id, level}: HeadingProps) => {
+export function Heading({ className, children, id, level }: HeadingProps) {
   const tag = `h${level}`;
 
   const levelClasses: Record<number, string> = {
@@ -24,4 +24,4 @@ export const Heading = ({className, children, id, level}: HeadingProps) => {
   };
 
   return React.createElement(tag, props, children);
-};
+}

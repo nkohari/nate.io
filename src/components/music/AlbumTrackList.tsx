@@ -1,9 +1,9 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import cx from 'classnames';
-import {AnimatePresence, motion} from 'framer-motion';
-import {Duration} from 'luxon';
-import {Link} from 'src/components';
-import {Album, AlbumTrack, SpotifyObject} from 'src/types';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Duration } from 'luxon';
+import { Link } from 'src/components';
+import { Album, AlbumTrack, SpotifyObject } from 'src/types';
 
 const MAX_TRACKS = 10;
 
@@ -16,7 +16,7 @@ const variants = {
     visible: {
       y: 0,
       opacity: 1,
-      transition: {type: 'spring', duration: 0.4},
+      transition: { type: 'spring', duration: 0.4 },
     },
   },
 };
@@ -27,35 +27,37 @@ type AlbumTrackListItemProps = {
   track: AlbumTrack;
 };
 
-const AlbumTrackListItem = ({isExtra, isHighlighted, track}: AlbumTrackListItemProps) => (
-  <motion.div
-    initial={isExtra ? 'hidden' : false}
-    animate="visible"
-    variants={variants.track}
-    className={cx(
-      'flex flex-row relative',
-      'bg-white dark:bg-slate-800 border-b border-slate-300 dark:border-slate-700',
-      'text-sm',
-      isHighlighted && 'font-bold bg-slate-100 dark:bg-slate-900',
-      isExtra ? 'z-1' : 'z-10',
-    )}
-  >
-    <div className="p-1 flex-0 w-7 text-right">{track.number}.</div>
-    <div className="p-1 flex-1 overflow-hidden truncate text-ellipsis">
-      <Link type="subtle" href={track.url}>
-        {track.name}
-      </Link>
-    </div>
-    <div className="p-1 flex-0">{Duration.fromMillis(track.duration).toFormat('m:ss')}</div>
-  </motion.div>
-);
+function AlbumTrackListItem({ isExtra, isHighlighted, track }: AlbumTrackListItemProps) {
+  return (
+    <motion.div
+      initial={isExtra ? 'hidden' : false}
+      animate="visible"
+      variants={variants.track}
+      className={cx(
+        'flex flex-row relative',
+        'bg-white dark:bg-slate-800 border-b border-slate-300 dark:border-slate-700',
+        'text-sm',
+        isHighlighted && 'font-bold bg-slate-100 dark:bg-slate-900',
+        isExtra ? 'z-1' : 'z-10',
+      )}
+    >
+      <div className="p-1 flex-0 w-7 text-right">{track.number}.</div>
+      <div className="p-1 flex-1 overflow-hidden truncate text-ellipsis">
+        <Link type="subtle" href={track.url}>
+          {track.name}
+        </Link>
+      </div>
+      <div className="p-1 flex-0">{Duration.fromMillis(track.duration).toFormat('m:ss')}</div>
+    </motion.div>
+  );
+}
 
 type AlbumTrackListProps = {
   album: Album;
   highlightedTrack: SpotifyObject;
 };
 
-export const AlbumTrackList = ({album, highlightedTrack}: AlbumTrackListProps) => {
+export function AlbumTrackList({ album, highlightedTrack }: AlbumTrackListProps) {
   const indexOfHighlightedTrack = album.tracks.findIndex((t) => t.id === highlightedTrack.id);
   const expandByDefault = indexOfHighlightedTrack >= MAX_TRACKS;
   const [expanded, setExpanded] = useState(expandByDefault);
@@ -70,7 +72,8 @@ export const AlbumTrackList = ({album, highlightedTrack}: AlbumTrackListProps) =
     />
   ));
 
-  let showMoreLink;
+  let showMoreLink: React.ReactNode;
+
   if (!expanded && album.tracks.length > MAX_TRACKS) {
     showMoreLink = (
       <Link
@@ -98,4 +101,4 @@ export const AlbumTrackList = ({album, highlightedTrack}: AlbumTrackListProps) =
       {showMoreLink}
     </div>
   );
-};
+}

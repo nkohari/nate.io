@@ -1,7 +1,7 @@
 import debounce from 'lodash/debounce';
-import {useEffect} from 'react';
-import {motion, useAnimationControls} from 'framer-motion';
-import {Link} from 'src/components';
+import { useEffect } from 'react';
+import { motion, useAnimationControls } from 'framer-motion';
+import { Link } from 'src/components';
 
 const SCROLL_DISTANCE_PIXELS = 200;
 const SCROLL_DEBOUNCE_DELAY_MS = 50;
@@ -10,20 +10,20 @@ const backVariants = {
   hidden: {
     opacity: 0,
     x: 50,
-    transition: {type: 'spring', duration: 0.5},
+    transition: { type: 'spring', duration: 0.5 },
   },
   visible: {
     opacity: 1,
     x: 0,
-    transition: {type: 'spring', duration: 0.5},
+    transition: { type: 'spring', duration: 0.5 },
   },
 };
 
-const BackToTop = () => {
+function BackToTop() {
   const controls = useAnimationControls();
 
   const handleBackClicked = () => {
-    window.scrollTo({top: 0, left: 0});
+    window.scrollTo({ top: 0, left: 0 });
   };
 
   const handleWindowScroll = debounce(() => {
@@ -51,10 +51,12 @@ const BackToTop = () => {
       </Link>
     </motion.div>
   );
-};
+}
 
-export const RightGutter = () => (
-  <div className="fixed top-0 right-0 hidden xl:block h-full">
-    <BackToTop />
-  </div>
-);
+export function RightGutter() {
+  return (
+    <div className="fixed top-0 right-0 hidden xl:block h-full">
+      <BackToTop />
+    </div>
+  );
+}

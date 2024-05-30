@@ -1,5 +1,5 @@
-import {DateTime} from 'luxon';
-import {Article as BaseArticle} from '@nkohari/apocrypha';
+import { DateTime } from 'luxon';
+import { Article as BaseArticle } from '@nkohari/apocrypha';
 
 export type ImageSet = {
   small?: string;

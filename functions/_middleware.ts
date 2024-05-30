@@ -10,7 +10,7 @@ export const onRequestOptions: PagesFunction = async () => {
   });
 };
 
-export const onRequest: PagesFunction = async ({next}) => {
+export const onRequest: PagesFunction = async ({ next }) => {
   const response = await next();
   response.headers.set('Access-Control-Allow-Origin', '*');
   response.headers.set('Access-Control-Max-Age', '86400');

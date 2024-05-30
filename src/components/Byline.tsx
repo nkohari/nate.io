@@ -1,16 +1,16 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import cx from 'classnames';
-import {DateTime, Duration} from 'luxon';
-import {Link} from 'src/components';
-import {Metadata} from 'src/types';
-import {ordinal} from 'src/util';
+import { DateTime, Duration } from 'luxon';
+import { Link } from 'src/components';
+import { Metadata } from 'src/types';
+import { ordinal } from 'src/util';
 
 type ContentStatsProps = {
   metadata: Metadata;
 };
 
-const ContentStats = ({metadata}: ContentStatsProps) => {
-  const {counts, gradeLevel, type} = metadata;
+function ContentStats({ metadata }: ContentStatsProps) {
+  const { counts, gradeLevel, type } = metadata;
 
   if (!counts || !gradeLevel) {
     return null;
@@ -22,13 +22,13 @@ const ContentStats = ({metadata}: ContentStatsProps) => {
       {gradeLevel > 12 ? 'college' : `${ordinal(gradeLevel)} grade`} reading level
     </span>
   );
-};
+}
 
 type BylineProps = {
   metadata: Metadata;
 };
 
-export const Byline = ({metadata}: BylineProps) => {
+export function Byline({ metadata }: BylineProps) {
   const [expanded, setExpanded] = useState(false);
 
   const toggleExpanded = () => setExpanded((currentValue) => !currentValue);
@@ -37,8 +37,8 @@ export const Byline = ({metadata}: BylineProps) => {
     return null;
   }
 
-  let date;
-  let readingTime;
+  let date: React.ReactNode;
+  let readingTime: React.ReactNode;
 
   if (metadata.date) {
     date = (
@@ -71,4 +71,4 @@ export const Byline = ({metadata}: BylineProps) => {
       {readingTime}
     </div>
   );
-};
+}

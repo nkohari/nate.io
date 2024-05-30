@@ -1,21 +1,26 @@
-import {DateTime} from 'luxon';
-import {useMemo, useState} from 'react';
-import {Ride} from 'src/types';
-import {RideGraphSwitch, RideGraphSwitchOption} from './RideGraphSwitch';
-import {RideSummaryStatsBlock} from './RideSummaryStatsBlock';
-import {MeasurementSystem} from './types';
-import {averageValuesForRides, getUnitForField, maxValueForRides, sumValuesForRides} from './util';
+import { DateTime } from 'luxon';
+import { useMemo, useState } from 'react';
+import { Ride } from 'src/types';
+import { RideGraphSwitch, RideGraphSwitchOption } from './RideGraphSwitch';
+import { RideSummaryStatsBlock } from './RideSummaryStatsBlock';
+import { MeasurementSystem } from './types';
+import {
+  averageValuesForRides,
+  getUnitForField,
+  maxValueForRides,
+  sumValuesForRides,
+} from './util';
 
 type RideSummaryStatsMode = 'overall' | 'average';
 
 const OPTIONS: RideGraphSwitchOption<RideSummaryStatsMode>[] = [
-  {label: 'Overall', value: 'overall'},
-  {label: 'Average', value: 'average'},
+  { label: 'Overall', value: 'overall' },
+  { label: 'Average', value: 'average' },
 ];
 
 const YEARS: RideGraphSwitchOption<number>[] = [
-  {label: '2024', value: 2024},
-  {label: '2023', value: 2023},
+  { label: '2024', value: 2024 },
+  { label: '2023', value: 2023 },
 ];
 
 type RideSummaryStatsProps = {
@@ -23,7 +28,7 @@ type RideSummaryStatsProps = {
   system: MeasurementSystem;
 };
 
-export const RideSummaryStats = ({rides, system}: RideSummaryStatsProps) => {
+export function RideSummaryStats({ rides, system }: RideSummaryStatsProps) {
   const [mode, setMode] = useState<RideSummaryStatsMode>('overall');
   const [year, setYear] = useState<number>(DateTime.utc().year);
 
@@ -92,4 +97,4 @@ export const RideSummaryStats = ({rides, system}: RideSummaryStatsProps) => {
       </div>
     </div>
   );
-};
+}

@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
-import {Album, AlbumTrack, Artist, ImageSet, SpotifyObject, Track} from '../../src/types';
+import { Album, AlbumTrack, Artist, ImageSet, SpotifyObject, Track } from '../../src/types';
 
 const transformReleaseDate = (date: string): string => {
   const tokens = date.split('-');

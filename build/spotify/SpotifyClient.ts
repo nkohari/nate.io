@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
-import {SpotifyObject} from '../../src/types';
-import {Config} from '../config';
-import {transformAlbum, transformArtist, transformTrack} from './transformers';
+import { SpotifyObject } from '../../src/types';
+import { Config } from '../config';
+import { transformAlbum, transformArtist, transformTrack } from './transformers';
 
 type RequestProps<T> = {
   path: string;
@@ -91,8 +89,8 @@ export class SpotifyClient {
     return response.json();
   }
 
-  private async request<T>({path, transformer}: RequestProps<T>): Promise<T | null> {
-    const {access_token} = await this.getAccessToken();
+  private async request<T>({ path, transformer }: RequestProps<T>): Promise<T | null> {
+    const { access_token } = await this.getAccessToken();
 
     console.log('[spotify] GET %o', path);
 
@@ -103,7 +101,7 @@ export class SpotifyClient {
       },
     });
 
-    let result;
+    let result: T | null;
     if (response.status === 204) {
       result = null;
     } else {
@@ -115,7 +113,7 @@ export class SpotifyClient {
   }
 
   private async getAccessToken() {
-    const {clientId, clientSecret, refreshToken} = this.config.spotify;
+    const { clientId, clientSecret, refreshToken } = this.config.spotify;
 
     const auth = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
     const response = await fetch('https://accounts.spotify.com/api/token', {

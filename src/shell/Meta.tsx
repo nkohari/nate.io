@@ -1,15 +1,15 @@
-import {useEffect} from 'react';
-import {Helmet} from 'react-helmet-async';
-import {useLocation} from 'react-router-dom';
-import {useCatalog, getArticleModuleUrl} from '@nkohari/apocrypha/catalog';
-import {getAssetUrl} from '@nkohari/apocrypha/assets';
-import {Metadata} from 'src/types';
+import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
+import { useCatalog, getArticleModuleUrl } from '@nkohari/apocrypha/catalog';
+import { getAssetUrl } from '@nkohari/apocrypha/assets';
+import { Metadata } from 'src/types';
 
 type MetaProps = {
   metadata: Metadata;
 };
 
-export const Meta = ({metadata}: MetaProps) => {
+export function Meta({ metadata }: MetaProps) {
   const title = metadata.title ? `${metadata.title} — Nate Kohari` : 'Nate Kohari';
   const location = useLocation();
   const articles = useCatalog();
@@ -28,14 +28,15 @@ export const Meta = ({metadata}: MetaProps) => {
     document.title = title;
   }, [title]);
 
-  let images;
+  let images: React.ReactNode;
+  let outgoingLinks: React.ReactNode;
+
   if (metadata.images) {
     images = metadata.images.map((image) => (
       <link key={image.src} rel="preload" as="image" href={getAssetUrl(image.src)} />
     ));
   }
 
-  let outgoingLinks;
   if (metadata.outgoingLinks) {
     outgoingLinks = metadata.outgoingLinks
       .filter((url) => url.startsWith('/'))
@@ -50,4 +51,4 @@ export const Meta = ({metadata}: MetaProps) => {
       {outgoingLinks}
     </Helmet>
   );
-};
+}

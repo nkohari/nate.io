@@ -1,8 +1,8 @@
-import {DateTime} from 'luxon';
-import {motion} from 'framer-motion';
-import {Ride} from 'src/types';
-import {AxisScale, MeasurementSystem, RideField} from './types';
-import {getValueFromRide} from './util';
+import { DateTime } from 'luxon';
+import { motion } from 'framer-motion';
+import { Ride } from 'src/types';
+import { AxisScale, MeasurementSystem, RideField } from './types';
+import { getValueFromRide } from './util';
 
 const barVariants = {
   hidden: {
@@ -24,7 +24,7 @@ type RideGraphBarProps = {
   today: DateTime;
 };
 
-export const RideGraphBar = ({date, field, rides, scale, system, today}: RideGraphBarProps) => {
+export function RideGraphBar({ date, field, rides, scale, system, today }: RideGraphBarProps) {
   const ride = rides.find((ride) => {
     const matchDate = date.toISODate();
     const rideDate = ride.timestamp.toISODate();
@@ -37,9 +37,9 @@ export const RideGraphBar = ({date, field, rides, scale, system, today}: RideGra
     minimumSignificantDigits: 3,
   });
 
-  let bar;
-  let label;
-  let textColor;
+  let bar: React.ReactNode;
+  let label: React.ReactNode;
+  let textColor: React.ReactNode;
 
   if (ride) {
     textColor = 'text-slate-100';
@@ -52,8 +52,8 @@ export const RideGraphBar = ({date, field, rides, scale, system, today}: RideGra
     );
     bar = (
       <motion.div
-        initial={{height: 0}}
-        animate={{height: `${height}%`}}
+        initial={{ height: 0 }}
+        animate={{ height: `${height}%` }}
         className="rounded-xl w-full bg-indigo-400 dark:bg-indigo-500 group-hover:bg-indigo-600 dark:group-hover:bg-indigo-700 transition-colors"
       />
     );
@@ -61,8 +61,8 @@ export const RideGraphBar = ({date, field, rides, scale, system, today}: RideGra
     textColor = 'text-slate-500 dark:text-slate-300';
     bar = (
       <motion.div
-        initial={{height: 0}}
-        animate={{height: 4}}
+        initial={{ height: 0 }}
+        animate={{ height: 4 }}
         className="rounded-sm w-full bg-slate-300 dark:bg-slate-500"
       />
     );
@@ -81,4 +81,4 @@ export const RideGraphBar = ({date, field, rides, scale, system, today}: RideGra
       </div>
     </motion.div>
   );
-};
+}

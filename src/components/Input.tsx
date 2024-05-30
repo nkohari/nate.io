@@ -1,6 +1,6 @@
-import {useRef} from 'react';
+import { useRef } from 'react';
 import cx from 'classnames';
-import {Icon, IconType} from 'src/components';
+import { Icon, IconType } from 'src/components';
 
 export type InputProps = {
   className?: string;
@@ -11,14 +11,14 @@ export type InputProps = {
   value: string;
 };
 
-export const Input = ({
+export function Input({
   className,
   icon,
   iconPosition = 'left',
   onChange,
   placeholder = undefined,
   value,
-}: InputProps) => {
+}: InputProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleClick = () => inputRef.current?.focus();
@@ -27,6 +27,7 @@ export const Input = ({
   };
 
   return (
+    // biome-ignore lint/a11y/useKeyWithClickEvents: I need to replace this with the component from headless ui anyway.
     <div
       className={cx(
         'flex flex-row items-center',
@@ -52,4 +53,4 @@ export const Input = ({
       />
     </div>
   );
-};
+}

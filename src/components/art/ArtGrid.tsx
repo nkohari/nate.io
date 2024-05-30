@@ -1,8 +1,8 @@
-import {useMemo, useState} from 'react';
-import {createPortal} from 'react-dom';
-import {AnimatePresence, motion} from 'framer-motion';
-import {getAllAssetUrlsForFolder} from '@nkohari/apocrypha/assets';
-import {shuffleArray} from 'src/util';
+import React, { useMemo, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import { getAllAssetUrlsForFolder } from '@nkohari/apocrypha/assets';
+import { shuffleArray } from 'src/util';
 
 const tileVariants = {
   hidden: {
@@ -14,7 +14,7 @@ const tileVariants = {
     opacity: 1,
     rotate: 0,
     skew: 0,
-    transition: {type: 'spring', stiffness: 120, damping: 10, mass: 0.5},
+    transition: { type: 'spring', stiffness: 120, damping: 10, mass: 0.5 },
   },
 };
 
@@ -24,7 +24,7 @@ const imageVariants = {
   },
   hover: () => ({
     scale: 1.3,
-    transition: {type: 'spring', stiffness: 120, damping: 10, mass: 0.5},
+    transition: { type: 'spring', stiffness: 120, damping: 10, mass: 0.5 },
   }),
 };
 
@@ -43,9 +43,9 @@ type ArtTileProps = {
   onClick: () => void;
 };
 
-const ArtTile = ({image, isSelected, onClick}: ArtTileProps) => {
+function ArtTile({ image, isSelected, onClick }: ArtTileProps) {
   return (
-    <motion.a
+    <motion.button
       variants={tileVariants}
       className="hover:z-10 w-1/2 md:w-1/4 p-1 cursor-pointer"
       onClick={onClick}
@@ -60,11 +60,11 @@ const ArtTile = ({image, isSelected, onClick}: ArtTileProps) => {
         layout
         layoutId={image}
       />
-    </motion.a>
+    </motion.button>
   );
-};
+}
 
-export const ArtGrid = () => {
+export function ArtGrid() {
   const [selectedImage, setSelectedImage] = useState<string>();
   const images = useMemo(() => shuffleArray(getAllAssetUrlsForFolder('images/art')), []);
 
@@ -77,7 +77,7 @@ export const ArtGrid = () => {
     />
   ));
 
-  let overlay;
+  let overlay: React.ReactNode;
   if (selectedImage) {
     overlay = (
       <motion.div
@@ -89,7 +89,7 @@ export const ArtGrid = () => {
         onClick={() => setSelectedImage(undefined)}
       >
         <motion.img
-          className={`w-auto h-auto max-w-[90vw] max-h-[90vh] my-12 mx-auto rounded-2xl`}
+          className="w-auto h-auto max-w-[90vw] max-h-[90vh] my-12 mx-auto rounded-2xl"
           src={selectedImage}
           layout
           layoutId={selectedImage}
@@ -104,11 +104,11 @@ export const ArtGrid = () => {
         className="mt-6 flex flex-row flex-wrap"
         initial="hidden"
         animate="visible"
-        transition={{staggerChildren: 0.075}}
+        transition={{ staggerChildren: 0.075 }}
       >
         {tiles}
       </motion.div>
       {createPortal(<AnimatePresence>{overlay}</AnimatePresence>, document.body)}
     </>
   );
-};
+}

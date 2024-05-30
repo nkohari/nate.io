@@ -1,4 +1,4 @@
-import {Switch} from '@headlessui/react';
+import { Switch } from '@headlessui/react';
 import cx from 'classnames';
 
 export type ToggleProps = {
@@ -8,7 +8,7 @@ export type ToggleProps = {
   onChange: (value: boolean) => unknown;
 };
 
-export const Toggle = ({active, className, label, onChange}: ToggleProps) => {
+export function Toggle({ active, className, label, onChange }: ToggleProps) {
   const containerClasses = cx(
     'inline-flex items-center',
     'h-4 w-8 rounded-full cursor-pointer',
@@ -35,4 +35,4 @@ export const Toggle = ({active, className, label, onChange}: ToggleProps) => {
       </div>
     </Switch.Group>
   );
-};
+}

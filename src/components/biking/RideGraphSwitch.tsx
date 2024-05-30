@@ -11,25 +11,27 @@ type RideGraphSwitchProps<T> = {
   value: T;
 };
 
-export function RideGraphSwitch<T>({onChange, options, value}: RideGraphSwitchProps<T>) {
+export function RideGraphSwitch<T>({ onChange, options, value }: RideGraphSwitchProps<T>) {
   const firstLabel = options[0].label;
 
-  let items;
+  let items: React.ReactNode;
   if (options.every((op) => op.label === firstLabel)) {
     items = (
-      <a
+      <button
         key={firstLabel}
+        type="button"
         className={cx(
           'text-xs px-2 py-1 rounded-full cursor-pointer bg-slate-500 dark:bg-slate-700 text-white',
         )}
       >
         {firstLabel}
-      </a>
+      </button>
     );
   } else {
     items = options.map((option) => (
-      <a
+      <button
         key={option.label}
+        type="button"
         className={cx(
           'text-xs px-2 py-1 rounded-full cursor-pointer',
           option.value === value ? 'font-semibold bg-slate-500 dark:bg-slate-700 text-white' : null,
@@ -37,7 +39,7 @@ export function RideGraphSwitch<T>({onChange, options, value}: RideGraphSwitchPr
         onClick={() => onChange(option.value)}
       >
         {option.label}
-      </a>
+      </button>
     ));
   }
 

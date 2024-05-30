@@ -1,5 +1,5 @@
-import {Node} from '@markdoc/markdoc';
-import {AstWalker} from '@nkohari/apocrypha';
+import { Node } from '@markdoc/markdoc';
+import { AstWalker } from '@nkohari/apocrypha';
 
 // This is a very naïve implementation, but it works well enough for what we need.
 // Find all text nodes, extract their content chunks, join the chunks with spaces,

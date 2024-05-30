@@ -1,6 +1,6 @@
-import {motion} from 'framer-motion';
-import {AlbumTrackList, Link, PoweredBySpotify} from 'src/components';
-import {Album, Track} from 'src/types';
+import { motion } from 'framer-motion';
+import { AlbumTrackList, Link, PoweredBySpotify } from 'src/components';
+import { Album, Track } from 'src/types';
 
 const albumVariants = {
   initial: {
@@ -12,12 +12,12 @@ const albumVariants = {
     opacity: 1,
     rotate: 3,
     y: 0,
-    transition: {type: 'spring', stiffness: 120, damping: 12, mass: 0.6},
+    transition: { type: 'spring', stiffness: 120, damping: 12, mass: 0.6 },
   },
   hover: {
     scale: 1.1,
     rotate: -3,
-    transition: {type: 'spring', stiffness: 100},
+    transition: { type: 'spring', stiffness: 100 },
   },
 };
 
@@ -26,7 +26,7 @@ type MusicSidebarProps = {
   track: Track;
 };
 
-export const MusicSidebar = ({album, track}: MusicSidebarProps) => {
+export function MusicSidebar({ album, track }: MusicSidebarProps) {
   return (
     <div className="w-72 mt-6">
       <Link type="unstyled" href={album.url} className="flex flex-col items-center mb-12">
@@ -46,4 +46,4 @@ export const MusicSidebar = ({album, track}: MusicSidebarProps) => {
       <PoweredBySpotify className="justify-end mt-4" />
     </div>
   );
-};
+}

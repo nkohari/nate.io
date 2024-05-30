@@ -4,7 +4,7 @@
 
 Right now, I'm building [Ardent](https://ardent.ai), a platform which helps everyone build and share AI-powered software, whether or not they know how to write code.
 
-Before that, I spent four and a half years at [Stripe](https://stripe.com), working on developer experience and some of the company's early work with generative AI. Over the {% duration since="2004-06-01" /%} of [my career](#career), I've started three companies, and held a wide range of roles from engineer to executive.
+Before that, I spent four and a half years at [Stripe](https://stripe.com) working on developer experience and some of the company's early work with generative AI. Over the {% duration since="2004-06-01" /%} of [my career](#career), I've started three companies, and held a wide range of roles from engineer to executive.
 
 ## My Principles
 

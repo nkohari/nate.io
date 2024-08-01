@@ -1,5 +1,5 @@
 import escapeStringForRegexp from 'escape-string-regexp';
-import { Article } from '@nkohari/apocrypha';
+import { Article } from '@apocrypha/core';
 import { Metadata } from 'src/types';
 
 export const search = (

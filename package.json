@@ -1,6 +1,6 @@
 {
   "name": "nate.io",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Nate Kohari's website",
   "license": "MIT",
   "type": "module",
@@ -35,9 +35,9 @@
     "spotify-web-api-js": "^1.5.2"
   },
   "devDependencies": {
+    "@apocrypha/core": "^0.2.1",
     "@biomejs/biome": "1.7.3",
     "@cloudflare/workers-types": "^4.20230518.0",
-    "@nkohari/apocrypha": "^0.2.1",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/js-yaml": "^4.0.5",

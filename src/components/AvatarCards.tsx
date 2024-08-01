@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import cx from 'classnames';
 import { motion, useAnimationControls, useReducedMotion } from 'framer-motion';
-import { getAllAssetUrlsForFolder } from '@nkohari/apocrypha/assets';
+import { getAllAssetUrlsForFolder } from '@apocrypha/assets';
 import { randomArrayElement, randomInteger, shuffleArray, useInterval } from 'src/util';
 
 const MIN_FLIP_TIME = 7500;

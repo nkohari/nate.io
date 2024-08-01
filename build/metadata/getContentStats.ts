@@ -1,4 +1,4 @@
-import { MetadataPluginParams } from '@nkohari/apocrypha';
+import { MetadataPluginParams } from '@apocrypha/core';
 import readingTime from 'reading-time';
 import readability from 'text-readability';
 import { Metadata } from '../../src/types';

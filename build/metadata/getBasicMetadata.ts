@@ -1,4 +1,4 @@
-import { MetadataPluginParams } from '@nkohari/apocrypha';
+import { MetadataPluginParams } from '@apocrypha/core';
 import { Metadata } from '../../src/types';
 
 export function getBasicMetadata({ frontmatter }: MetadataPluginParams<Metadata>) {

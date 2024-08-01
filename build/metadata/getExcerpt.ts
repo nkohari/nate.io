@@ -1,4 +1,4 @@
-import { AstWalker, MetadataPluginParams } from '@nkohari/apocrypha';
+import { AstWalker, MetadataPluginParams } from '@apocrypha/core';
 import { Metadata } from '../../src/types';
 import { getRawText } from '../util';
 

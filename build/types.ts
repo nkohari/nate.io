@@ -1,7 +1,7 @@
 import {
   MarkdocConfigWithMetadata,
   MarkdocDeclaration as BaseMarkdocDeclaration,
-} from '@nkohari/apocrypha';
+} from '@apocrypha/core';
 import { Metadata } from '../src/types';
 
 export type MarkdocConfig = MarkdocConfigWithMetadata<Metadata>;

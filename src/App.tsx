@@ -1,7 +1,7 @@
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { AnimatePresence } from 'framer-motion';
-import { useCatalog } from '@nkohari/apocrypha/catalog';
+import { useCatalog } from '@apocrypha/catalog';
 import { Body, NotFound, ScrollController, SiteFooter, SiteHeader, ThemeProvider } from 'src/shell';
 
 const ArticleRoutes = () => {

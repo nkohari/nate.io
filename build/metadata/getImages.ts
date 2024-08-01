@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { AstWalker, MetadataPluginParams } from '@nkohari/apocrypha';
+import { AstWalker, MetadataPluginParams } from '@apocrypha/core';
 import sharp from 'sharp';
 import { Metadata } from '../../src/types';
 

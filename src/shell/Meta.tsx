@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
-import { useCatalog, getArticleModuleUrl } from '@nkohari/apocrypha/catalog';
-import { getAssetUrl } from '@nkohari/apocrypha/assets';
+import { useCatalog, getArticleModuleUrl } from '@apocrypha/catalog';
+import { getAssetUrl } from '@apocrypha/assets';
 import { Metadata } from 'src/types';
 
 type MetaProps = {

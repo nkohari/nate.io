@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { defineConfig } from 'vite';
-import { apocrypha } from '@nkohari/apocrypha';
+import { apocrypha } from '@apocrypha/core';
 import react from '@vitejs/plugin-react-swc';
 import tailwind from 'tailwindcss';
 import tailwindConfig from './tailwind.config.js';

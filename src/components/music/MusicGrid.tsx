@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Article } from '@nkohari/apocrypha';
-import { useCatalog } from '@nkohari/apocrypha/catalog';
+import { Article } from '@apocrypha/core';
+import { useCatalog } from '@apocrypha/catalog';
 import { Link, PoweredBySpotify } from 'src/components';
 import { Metadata } from 'src/types';
 

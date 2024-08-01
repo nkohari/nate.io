@@ -1,5 +1,5 @@
 import path from 'node:path';
-import { MetadataPluginParams } from '@nkohari/apocrypha';
+import { MetadataPluginParams } from '@apocrypha/core';
 import { Metadata } from '../../src/types';
 import { Config } from '../config';
 import { DiskCache, SpotifyClient } from '../spotify';

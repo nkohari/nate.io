@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import cx from 'classnames';
 import { DateTime, Duration } from 'luxon';
+import { useState } from 'react';
 import { Link } from 'src/components';
 import { Metadata } from 'src/types';
 import { ordinal } from 'src/util';
@@ -57,7 +57,7 @@ export function Byline({ metadata }: BylineProps) {
     const minutes = Math.round(Duration.fromMillis(metadata.readingTime).as('minutes'));
     readingTime = (
       <>
-        <Link role="button" type="subtle" onClick={toggleExpanded}>
+        <Link role="button" type="subtle" className="cursor-pointer" onClick={toggleExpanded}>
           a {minutes} min read
         </Link>
         {expanded && <ContentStats metadata={metadata} />}
@@ -66,7 +66,7 @@ export function Byline({ metadata }: BylineProps) {
   }
 
   return (
-    <div className="flex mt-2 text-xs uppercase text-gray-600 dark:text-gray-400">
+    <div className="flex mb-4 text-xs uppercase text-muted tracking-wide">
       {date}
       {readingTime}
     </div>

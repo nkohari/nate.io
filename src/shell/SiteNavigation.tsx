@@ -25,7 +25,7 @@ function MobileNavigationOverlay({ onClose }: MobileNavigationOverlayProps) {
   };
 
   return (
-    <div className="fixed z-10 inset-0 p-8 bg-white dark:bg-slate-800">
+    <div className="fixed z-20 inset-0 p-8 bg-background">
       <button type="button" onClick={onClose} className="absolute w-5 top-8 right-8">
         <Icon type="close" />
       </button>
@@ -49,7 +49,6 @@ function MobileNavigationOverlayToggle() {
       <button
         type="button"
         className="flex md:hidden items-center w-5"
-        role="button"
         onClick={toggleOverlayVisible}
       >
         <Icon type="menu" />
@@ -68,7 +67,7 @@ function DesktopNavigationLink({ href, text }: DesktopNavigationLinkProps) {
   const [hover, setHover] = useState(false);
 
   const getClasses = ({ isActive }: { isActive: boolean }) => {
-    return cx('relative inline-flex justify-center px-2.5', isActive && 'font-bold');
+    return cx('relative inline-flex justify-center px-2.5', isActive && 'font-medium');
   };
 
   return (
@@ -86,7 +85,7 @@ function DesktopNavigationLink({ href, text }: DesktopNavigationLinkProps) {
           initial={false}
           animate={{ top: 0, x: 0 }}
           transition={{ type: 'spring', stiffness: 120, damping: 10, mass: 0.4 }}
-          className="absolute z-1 h-full w-full rounded-full bg-slate-200 dark:bg-slate-600"
+          className="absolute z-1 h-full w-full rounded-full bg-background-alt"
         />
       )}
     </NavLink>

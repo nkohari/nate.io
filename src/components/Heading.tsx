@@ -1,5 +1,5 @@
-import React from 'react';
 import cx from 'classnames';
+import React from 'react';
 
 export type HeadingProps = {
   className?: string;
@@ -12,9 +12,9 @@ export function Heading({ className, children, id, level }: HeadingProps) {
   const tag = `h${level}`;
 
   const levelClasses: Record<number, string> = {
-    1: 'text-3xl font-extrabold',
-    2: 'text-2xl font-bold',
-    3: 'text-xl font-bold',
+    1: 'text-3xl font-bold',
+    2: 'text-2xl font-semibold',
+    3: 'text-xl font-semibold',
     4: 'text-xl',
   };
 

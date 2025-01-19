@@ -12,7 +12,7 @@ export function Note({ children, id }: NoteProps) {
         id={`note-ref-${id}`}
         href={`#note-${id}`}
         type="block"
-        className="text-sm px-1.5 rounded-full"
+        className="text-xs py-0.5 px-1.5 rounded-full"
       >
         {id}
       </Link>

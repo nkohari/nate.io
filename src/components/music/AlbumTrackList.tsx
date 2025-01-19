@@ -34,20 +34,18 @@ function AlbumTrackListItem({ isExtra, isHighlighted, track }: AlbumTrackListIte
       animate="visible"
       variants={variants.track}
       className={cx(
-        'flex flex-row relative',
-        'bg-white dark:bg-slate-800 border-b border-slate-300 dark:border-slate-700',
-        'text-sm',
-        isHighlighted && 'font-bold bg-slate-100 dark:bg-slate-900',
+        'relative flex flex-row border-b border-divider text-sm',
+        isHighlighted && 'font-semibold bg-background-alt',
         isExtra ? 'z-1' : 'z-10',
       )}
     >
-      <div className="p-1 flex-0 w-7 text-right">{track.number}.</div>
+      <div className="p-1 w-[2em] text-right">{track.number}.</div>
       <div className="p-1 flex-1 overflow-hidden truncate text-ellipsis">
         <Link type="subtle" href={track.url}>
           {track.name}
         </Link>
       </div>
-      <div className="p-1 flex-0">{Duration.fromMillis(track.duration).toFormat('m:ss')}</div>
+      <div className="p-1">{Duration.fromMillis(track.duration).toFormat('m:ss')}</div>
     </motion.div>
   );
 }
@@ -79,10 +77,7 @@ export function AlbumTrackList({ album, highlightedTrack }: AlbumTrackListProps)
       <Link
         type="subtle"
         role="button"
-        className={cx(
-          'border-b border-slate-300 dark:border-slate-700 py-1 pl-8',
-          'text-sm text-slate-500 dark:text-slate-400',
-        )}
+        className="cursor-pointer border-b border-divider py-1 pl-8 text-sm"
         onClick={() => setExpanded(true)}
       >
         and {album.tracks.length - MAX_TRACKS} more...
@@ -92,7 +87,7 @@ export function AlbumTrackList({ album, highlightedTrack }: AlbumTrackListProps)
 
   return (
     <div className="flex flex-col">
-      <div className={cx('border-b border-slate-300 dark:border-slate-700 pb-2 text-center')}>
+      <div className="border-b border-divider pb-2 text-center">
         <Link type="subtle" href={album.url}>
           {album.name} ({album.releaseYear})
         </Link>

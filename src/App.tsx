@@ -1,6 +1,6 @@
 import { useCatalog } from '@apocrypha/core/catalog';
 import { AnimatePresence } from 'motion/react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { Body, NotFound, ScrollController, SiteFooter, SiteHeader, ThemeProvider } from 'src/shell';
 
 const ArticleRoutes = () => {
@@ -8,7 +8,7 @@ const ArticleRoutes = () => {
   const location = useLocation();
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       <Routes key={location.pathname} location={location}>
         {Object.values(articles).map(({ path }) => (
           <Route key={path} path={path} element={<Body path={path} />} />
@@ -20,15 +20,17 @@ const ArticleRoutes = () => {
 };
 
 export const App = () => (
-  <ThemeProvider>
-    <ScrollController>
-      <div className="flex flex-col items-center min-h-screen">
-        <div className="flex-1 flex flex-col w-full max-w-[900px] px-8">
-          <SiteHeader />
-          <ArticleRoutes />
+  <BrowserRouter>
+    <ThemeProvider>
+      <ScrollController>
+        <div className="flex flex-col items-center min-h-screen leading-relaxed text-lg text-primary bg-background transition-colors">
+          <div className="flex-1 flex flex-col w-full max-w-[900px] px-8">
+            <SiteHeader />
+            <ArticleRoutes />
+          </div>
+          <SiteFooter />
         </div>
-        <SiteFooter />
-      </div>
-    </ScrollController>
-  </ThemeProvider>
+      </ScrollController>
+    </ThemeProvider>
+  </BrowserRouter>
 );

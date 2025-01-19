@@ -9,7 +9,7 @@ type SiteFooterLinkProps = {
 
 function SiteFooterLink({ href, icon, text }: SiteFooterLinkProps) {
   return (
-    <li className="flex items-center mb-1">
+    <li className="flex items-center">
       <Link href={href} type="subtle" icon={icon} iconSpacing={2}>
         {text}
       </Link>
@@ -20,7 +20,7 @@ function SiteFooterLink({ href, icon, text }: SiteFooterLinkProps) {
 export function SiteFooter() {
   return (
     <div className="relative w-full mt-8 md:mt-12 overflow-hidden">
-      <div className="z-10 relative flex flex-row justify-center pt-12 md:pt-24 text-sm text-slate-600 dark:text-slate-400">
+      <div className="z-10 relative flex flex-row justify-center pt-12 text-sm text-secondary">
         <div className="flex flex-col sm:flex-row w-[900px] px-8 pb-12">
           <div className="flex-1">
             <div>Copyright &copy; 2006-{DateTime.now().year} Nate Kohari.</div>
@@ -54,18 +54,18 @@ export function SiteFooter() {
             </div>
           </div>
           <div className="flex-none w-60 mt-8 sm:mt-0 grid grid-cols-3">
-            <ul>
+            <ul className="flex flex-col gap-1">
               <SiteFooterLink href="/" text="About" />
               <SiteFooterLink href="/now" text="Now" />
               <SiteFooterLink href="/work" text="Work" />
             </ul>
-            <ul>
+            <ul className="flex flex-col gap-1">
               <SiteFooterLink href="/biking" text="Biking" />
               <SiteFooterLink href="/writing" text="Writing" />
               <SiteFooterLink href="/music" text="Music" />
               <SiteFooterLink href="/art" text="Art" />
             </ul>
-            <ul>
+            <ul className="flex flex-col gap-1">
               <SiteFooterLink icon="twitter" href="https://twitter.com/nkohari" text="Twitter" />
               <SiteFooterLink icon="github" href="https://github.com/nkohari" text="GitHub" />
               <SiteFooterLink
@@ -78,7 +78,7 @@ export function SiteFooter() {
           </div>
         </div>
       </div>
-      <div className="absolute top-0 h-full w-full bg-slate-50 dark:bg-slate-700 origin-bottom-right -skew-y-2" />
+      <div className="absolute top-0 h-full w-full bg-background-dim origin-bottom-right" />
     </div>
   );
 }

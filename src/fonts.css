@@ -1,69 +1,23 @@
 @font-face {
-  font-family: 'SN Pro';
-  src: url('../media/fonts/sn-pro/SNPro-Regular.woff2') format('woff2');
+  font-family: "Hanken Grotesk";
+  font-weight: 100 900;
   font-style: normal;
-  font-weight: 400;
+  font-display: swap;
+  src: url("../media/fonts/HankenGrotesk-VF.woff2") format(woff2);
 }
 
 @font-face {
-  font-family: 'SN Pro';
-  src: url('../media/fonts/sn-pro/SNPro-RegularItalic.woff2') format('woff2');
+  font-family: "Hanken Grotesk";
+  font-weight: 100 900;
   font-style: italic;
-  font-weight: 400;
+  font-display: swap;
+  src: url("../media/fonts/HankenGrotesk-Italic-VF.woff2") format(woff2);
 }
 
 @font-face {
-  font-family: 'SN Pro';
-  src: url('../media/fonts/sn-pro/SNPro-Medium.woff2') format('woff2');
+  font-family: "Commit Mono";
+  font-weight: 100 900;
   font-style: normal;
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: 'SN Pro';
-  src: url('../media/fonts/sn-pro/SNPro-MediumItalic.woff2') format('woff2');
-  font-style: italic;
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: 'SN Pro';
-  src: url('../media/fonts/sn-pro/SNPro-Semibold.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: 'SN Pro';
-  src: url('../media/fonts/sn-pro/SNPro-SemiboldItalic.woff2') format('woff2');
-  font-style: italic;
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: 'SN Pro';
-  src: url('../media/fonts/sn-pro/SNPro-Bold.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: 'SN Pro';
-  src: url('../media/fonts/sn-pro/SNPro-BoldItalic.woff2') format('woff2');
-  font-style: italic;
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: 'SN Pro';
-  src: url('../media/fonts/sn-pro/SNPro-Heavy.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 800;
-}
-
-@font-face {
-  font-family: 'SN Pro';
-  src: url('../media/fonts/sn-pro/SNPro-Black.woff2') format('woff2');
-  font-style: normal;
-  font-weight: 900;
+  font-display: swap;
+  src: url("../media/fonts/CommitMono-VF.woff2") format(woff2);
 }

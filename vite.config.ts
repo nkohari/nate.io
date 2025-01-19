@@ -1,9 +1,8 @@
 import path from 'node:path';
-import { defineConfig } from 'vite';
 import { apocrypha } from '@apocrypha/core';
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react-swc';
-import tailwind from 'tailwindcss';
-import tailwindConfig from './tailwind.config.js';
+import { defineConfig } from 'vite';
 import { readConfig } from './build/config';
 import {
   getBasicMetadata,
@@ -17,11 +16,6 @@ import {
 import { Metadata } from './src/types';
 
 export default defineConfig({
-  css: {
-    postcss: {
-      plugins: [tailwind(tailwindConfig)],
-    },
-  },
   plugins: [
     apocrypha<Metadata>({
       paths: {
@@ -42,6 +36,7 @@ export default defineConfig({
         ],
       },
     }),
+    tailwindcss(),
     react(),
   ],
   resolve: {

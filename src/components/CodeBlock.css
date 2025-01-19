@@ -4,7 +4,7 @@
 .token.selector .class,
 .token.selector.class,
 .token.function {
-  @apply text-pink-400;
+  color: var(--color-pink-400);
 }
 
 .token.attr-name,
@@ -12,45 +12,45 @@
 .token.rule,
 .token.pseudo-class,
 .token.important {
-  @apply text-slate-200;
+  color: var(--color-slate-200);
 }
 
 .token.attr-value,
 .token.class,
 .token.string {
-  @apply text-sky-300;
+  color: var(--color-sky-300);
 }
 
 .token.punctuation,
 .token.attr-equals {
-  @apply text-slate-500;
+  color: var(--color-slate-500);
 }
 
 .token.attr-value * {
-  @apply text-sky-300;
+  color: var(--color-sky-300);
 }
 
 .token.attr-value .attr-equals,
 .token.attr-value .attr-equals + .punctuation,
 .token.attr-value > .punctuation:last-child {
-  @apply text-slate-500;
+  color: var(--color-slate-500);
 }
 
 .token.property {
-  @apply text-sky-300;
+  color: var(--color-sky-300);
 }
 
 .token.unit {
-  @apply text-teal-200;
+  color: var(--color-teal-200);
 }
 
 .language-css .token.function {
-  @apply text-teal-200;
+  color: var(--color-teal-200);
 }
 
 .token.comment,
 .token.module,
 .token.operator,
 .token.combinator {
-  @apply text-slate-400;
+  color: var(--color-slate-400);
 }

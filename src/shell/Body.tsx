@@ -44,7 +44,7 @@ export function Body({ path }: BodyProps) {
   return (
     <Suspense fallback={<div className="flex-1 min-h-screen" />}>
       <motion.main
-        className="flex-1 flex flex-col w-full"
+        className="flex-1 flex flex-col w-full min-h-[80vh]"
         initial="initial"
         animate="visible"
         exit="exit"

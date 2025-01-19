@@ -17,7 +17,7 @@ export function PoweredBySpotify({ className }: PoweredBySpotifyProps) {
     <Link
       type="spotify"
       href="https://spotify.com/"
-      className={cx('flex flex-row items-center font-semibold text-sm text-slate-400', className)}
+      className={cx('flex flex-row items-center font-medium text-sm text-secondary', className)}
     >
       Powered by <SpotifyLogo className="ml-1.5 h-5 fill-current" />
     </Link>

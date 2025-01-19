@@ -1,16 +1,59 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-* {
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-  font-feature-settings:
-    'kern' 1,
-    'liga' 1;
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Hanken Grotesk", "-apple-system", "sans-serif";
+  --font-mono: "Commit Mono", "ui-monospace", "monospace";
+
+  --color-spotify: #1db954;
+
+  --color-light-primary: var(--color-neutral-900);
+  --color-light-secondary: var(--color-neutral-600);
+  --color-light-muted: var(--color-neutral-400);
+  --color-light-background: var(--color-white);
+  --color-light-background-alt: var(--color-neutral-200);
+  --color-light-background-dim: var(--color-neutral-100);
+  --color-light-link: var(--color-neutral-600);
+  --color-light-link-hover: var(--color-blue-600);
+  --color-light-divider: var(--color-neutral-300);
+
+  --color-dark-primary: var(--color-neutral-100);
+  --color-dark-secondary: var(--color-neutral-400);
+  --color-dark-muted: var(--color-neutral-500);
+  --color-dark-background: var(--color-neutral-900);
+  --color-dark-background-alt: var(--color-neutral-700);
+  --color-dark-background-dim: var(--color-neutral-800);
+  --color-dark-link: var(--color-slate-300);
+  --color-dark-link-hover: var(--color-blue-300);
+  --color-dark-divider: var(--color-neutral-700);
+
+  --color-primary: var(--color-light-primary);
+  --color-secondary: var(--color-light-secondary);
+  --color-muted: var(--color-light-muted);
+  --color-background: var(--color-light-background);
+  --color-background-alt: var(--color-light-background-alt);
+  --color-background-dim: var(--color-light-background-dim);
+  --color-link: var(--color-light-link);
+  --color-link-hover: var(--color-light-link-hover);
+  --color-divider: var(--color-light-divider);
+}
+
+.dark {
+  --color-primary: var(--color-dark-primary);
+  --color-secondary: var(--color-dark-secondary);
+  --color-muted: var(--color-dark-muted);
+  --color-background: var(--color-dark-background);
+  --color-background-alt: var(--color-dark-background-alt);
+  --color-background-dim: var(--color-dark-background-dim);
+  --color-link: var(--color-dark-link);
+  --color-link-hover: var(--color-dark-link-hover);
+  --color-divider: var(--color-dark-divider);
 }
 
 html {
+  margin-left: calc(100vw - 100%);
+  margin-right: 0px;
   scroll-behavior: smooth;
 }
 
@@ -20,44 +63,13 @@ html {
   }
 }
 
-@layer base {
-  html {
-    margin-left: calc(100vw - 100%);
-    margin-right: 0;
-    padding: 0;
-  }
-
-  body {
-    @apply p-0 m-0 text-lg leading-relaxed text-black dark:text-slate-50 bg-white dark:bg-slate-800 transition-colors;
-  }
-
-  #root {
-    @apply flex flex-col;
-  }
-
-  em {
-    @apply font-semibold;
-  }
+@utility line-numbers-group {
+  counter-reset: line-numbers;
 }
 
-@layer utilities {
-  .line-numbers-group {
-    counter-reset: line-numbers;
-  }
-  .line-numbers {
-    counter-increment: line-numbers 1;
-  }
-  .line-numbers:before {
+@utility line-numbers {
+  counter-increment: line-numbers 1;
+  &:before {
     --tw-content: counter(line-numbers);
-  }
-  .three-d {
-    transform-style: preserve-3d;
-  }
-  .backface-hidden {
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-  }
-  .rotate-y-180 {
-    transform: rotateY(180deg);
   }
 }

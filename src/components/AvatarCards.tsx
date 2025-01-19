@@ -89,7 +89,7 @@ function AvatarCard({ position, urls }: AvatarCardProps) {
   });
 
   const classes = cx(
-    'relative aspect-square w-1/3 sm:w-1/4 three-d z-1 hover:z-10',
+    'relative aspect-square w-1/3 sm:w-1/4 transform-3d z-1 hover:z-10',
     position > 3 && 'hidden sm:block',
   );
 

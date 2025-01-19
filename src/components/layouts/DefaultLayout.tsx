@@ -24,9 +24,9 @@ export function DefaultLayout({ children, metadata }: DefaultLayoutProps) {
   if (title) {
     header = (
       <header className="mb-8">
+        {type !== 'page' && <Byline metadata={metadata} />}
         <Title>{title}</Title>
         {subtitle && <Subtitle>{subtitle}</Subtitle>}
-        {type !== 'page' && <Byline metadata={metadata} />}
       </header>
     );
   }

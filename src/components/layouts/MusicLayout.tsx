@@ -10,7 +10,7 @@ export function MusicLayout({ children, metadata }: MusicLayoutProps) {
   const { album, track } = metadata.spotify!;
 
   return (
-    <div className="flex flex-row flex-row-reverse">
+    <div className="flex flex-row-reverse">
       <MusicSidebar album={album} track={track} />
       <div className="flex-1 mr-16">
         <header className="mb-6">
@@ -22,9 +22,10 @@ export function MusicLayout({ children, metadata }: MusicLayoutProps) {
           >
             The Music That Made Me
           </Link>
-          <h1 className="text-2xl font-bold leading-tight">
+          <h1 className="text-3xl font-semibold leading-tight">
             <Link
               type="spotify"
+              className="text-primary"
               href={track.url}
               icon="spotify"
               iconPosition="right"

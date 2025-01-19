@@ -3,5 +3,5 @@ type TitleProps = {
 };
 
 export function Title({ children }: TitleProps) {
-  return <h1 className="text-4xl font-bold">{children}</h1>;
+  return <h1 className="text-4xl font-semibold">{children}</h1>;
 }

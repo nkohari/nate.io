@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Icon } from 'src/components';
 import { Theme, useTheme } from 'src/shell';
 

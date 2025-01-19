@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import cx from 'classnames';
-import { AnimatePresence, motion } from 'framer-motion';
 import { Duration } from 'luxon';
+import { AnimatePresence, motion } from 'motion/react';
+import { useState } from 'react';
 import { Link } from 'src/components';
 import { Album, AlbumTrack, SpotifyObject } from 'src/types';
 

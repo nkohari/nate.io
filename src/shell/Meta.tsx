@@ -1,8 +1,7 @@
+import { getAssetUrl } from '@apocrypha/core/assets';
+import { getArticleModuleUrl, useCatalog } from '@apocrypha/core/catalog';
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
-import { useCatalog, getArticleModuleUrl } from '@apocrypha/catalog';
-import { getAssetUrl } from '@apocrypha/assets';
 import { Metadata } from 'src/types';
 
 type MetaProps = {
@@ -44,11 +43,11 @@ export function Meta({ metadata }: MetaProps) {
   }
 
   return (
-    <Helmet>
+    <>
       <title>{title}</title>
       <link rel="canonical" href={`https://nate.io${location.pathname}`} />
       {images}
       {outgoingLinks}
-    </Helmet>
+    </>
   );
 }

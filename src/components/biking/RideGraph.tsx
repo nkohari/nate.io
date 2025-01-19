@@ -1,10 +1,10 @@
-import { useEffect, useMemo, useState } from 'react';
 import { DateTime } from 'luxon';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
+import { useEffect, useMemo, useState } from 'react';
 import { Ride } from 'src/types';
+import { RideGraphBar } from './RideGraphBar';
 import { RideGraphEmptyStamp } from './RideGraphEmptyStamp';
 import { RideGraphSwitch } from './RideGraphSwitch';
-import { RideGraphBar } from './RideGraphBar';
 import { RideSummaryStats } from './RideSummaryStats';
 import { MeasurementSystem, RideField } from './types';
 import { createRide, getUnitForField, getYAxisScale } from './util';

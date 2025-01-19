@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { AlbumTrackList, Link, PoweredBySpotify } from 'src/components';
 import { Album, Track } from 'src/types';
 

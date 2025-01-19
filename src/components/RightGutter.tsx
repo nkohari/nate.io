@@ -1,6 +1,6 @@
 import debounce from 'lodash/debounce';
+import { motion, useAnimationControls } from 'motion/react';
 import { useEffect } from 'react';
-import { motion, useAnimationControls } from 'framer-motion';
 import { Link } from 'src/components';
 
 const SCROLL_DISTANCE_PIXELS = 200;

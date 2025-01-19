@@ -1,8 +1,8 @@
+import { useCatalog } from '@apocrypha/core/catalog';
+import { motion } from 'motion/react';
 import { useMemo, useState } from 'react';
-import { motion } from 'framer-motion';
-import { useCatalog } from '@apocrypha/catalog';
-import { Metadata } from 'src/types';
 import { Badge, DateString, Input, Link } from 'src/components';
+import { Metadata } from 'src/types';
 import { search } from 'src/util';
 
 const abstractVariants = {

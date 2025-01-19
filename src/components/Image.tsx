@@ -1,6 +1,6 @@
+import { getAssetUrl } from '@apocrypha/core/assets';
 import cx from 'classnames';
 import { ImageMetadata } from 'src/types';
-import { getAssetUrl } from '@apocrypha/assets';
 
 export type ImageFilter = 'grayscale' | 'sepia';
 

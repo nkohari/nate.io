@@ -25,7 +25,6 @@ export * from './RightGutter';
 export * from './Subtitle';
 export * from './TableOfContents';
 export * from './Title';
-export * from './Toggle';
 export * from './Work';
 
 export * from './art/ArtGrid';

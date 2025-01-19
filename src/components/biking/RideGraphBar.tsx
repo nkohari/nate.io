@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Ride } from 'src/types';
 import { AxisScale, MeasurementSystem, RideField } from './types';
 import { getValueFromRide } from './util';

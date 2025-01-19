@@ -1,6 +1,6 @@
+import { ArticleContent, useArticle } from '@apocrypha/core/catalog';
+import { motion } from 'motion/react';
 import { Suspense } from 'react';
-import { motion } from 'framer-motion';
-import { ArticleContent, useArticle } from '@apocrypha/catalog';
 import { DefaultLayout, MusicLayout } from 'src/components';
 import { Meta, MetadataProvider } from 'src/shell';
 import type { Metadata } from 'src/types';

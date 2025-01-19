@@ -1,7 +1,7 @@
+import { getAllAssetUrlsForFolder } from '@apocrypha/core/assets';
+import { AnimatePresence, motion } from 'motion/react';
 import React, { useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { AnimatePresence, motion } from 'framer-motion';
-import { getAllAssetUrlsForFolder } from '@apocrypha/assets';
 import { shuffleArray } from 'src/util';
 
 const tileVariants = {

@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import cx from 'classnames';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Icon } from 'src/components';
 import { ThemeSelector } from 'src/shell';

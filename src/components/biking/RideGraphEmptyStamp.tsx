@@ -18,7 +18,7 @@ export function RideGraphEmptyStamp() {
       variants={stampVariants}
       className="absolute w-full h-full flex items-center justify-center pointer-events-none"
     >
-      <div className="text-lg leading-none font-bold rounded-md p-3 -rotate-6 border border-4 text-red-600 border-red-600 dark:text-red-400 dark:border-red-400">
+      <div className="text-lg leading-none font-bold rounded-md p-3 -rotate-6 border-4 text-red-600 border-red-600 dark:text-red-400 dark:border-red-400">
         No recent rides &mdash; I am being lazy :(
       </div>
     </motion.div>

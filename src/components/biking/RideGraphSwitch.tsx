@@ -20,9 +20,7 @@ export function RideGraphSwitch<T>({ onChange, options, value }: RideGraphSwitch
       <button
         key={firstLabel}
         type="button"
-        className={cx(
-          'text-xs px-2 py-1 rounded-full cursor-pointer bg-slate-500 dark:bg-slate-700 text-white',
-        )}
+        className={cx('text-xs px-2 py-1 rounded-full cursor-pointer bg-background-alt')}
       >
         {firstLabel}
       </button>
@@ -34,7 +32,7 @@ export function RideGraphSwitch<T>({ onChange, options, value }: RideGraphSwitch
         type="button"
         className={cx(
           'text-xs px-2 py-1 rounded-full cursor-pointer',
-          option.value === value ? 'font-semibold bg-slate-500 dark:bg-slate-700 text-white' : null,
+          option.value === value ? 'font-medium bg-background-alt' : null,
         )}
         onClick={() => onChange(option.value)}
       >

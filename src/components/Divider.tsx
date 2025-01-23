@@ -9,7 +9,7 @@ export function Divider({ className }: DividerProps) {
     <hr
       className={cx(
         'border-0 h-px my-12',
-        'bg-gradient-to-r from-transparent to-transparent via-slate-300 dark:via-slate-600',
+        'bg-gradient-to-r from-transparent to-transparent via-divider',
         className,
       )}
     />

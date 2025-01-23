@@ -25,7 +25,7 @@ export function Image({ alt, className, children, filter, metadata, src, ...prop
     <div className={cx('mb-6 w-full', className)}>
       <img
         src={imageUrl || undefined}
-        className={cx('w-full bg-slate-200 dark:bg-slate-700 rounded-xl', filter)}
+        className={cx('w-full bg-background-alt rounded-xl', filter)}
         data-image-format={format}
         style={{ aspectRatio: width / height }}
         {...props}

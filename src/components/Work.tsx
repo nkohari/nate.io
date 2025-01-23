@@ -12,10 +12,9 @@ export function Work({ children, from, job, note, location, to }: WorkProps) {
     <section className="flex flex-col md:flex-row mb-2">
       <div className="flex flex-col">
         <div className="text-xl font-semibold">
-          {job}{' '}
-          {note && <span className="font-normal text-slate-600 dark:text-slate-400">({note})</span>}
+          {job} {note && <span className="font-normal text-secondary">({note})</span>}
         </div>
-        <div className="italic mb-0.5 text-sm text-slate-600 dark:text-slate-400">
+        <div className="mb-1 text-sm text-secondary">
           {from} &ndash; {to}, {location}
         </div>
         <div className="mt-2">{children}</div>

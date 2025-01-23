@@ -4,10 +4,7 @@ import { Icon } from 'src/components';
 export type CalloutType = 'info' | 'warning';
 
 const TYPE_CLASSES: Record<CalloutType, string> = {
-  info: cx(
-    'bg-sky-100 dark:bg-slate-300 border-sky-200 dark:border-slate-500',
-    'text-sky-700 dark:text-slate-600',
-  ),
+  info: 'bg-background-alt border-background-dim',
   warning: cx(
     'bg-red-100 dark:bg-red-200 border-red-300 dark:border-red-700',
     'text-red-800 dark:text-red-900',

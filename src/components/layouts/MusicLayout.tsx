@@ -14,12 +14,7 @@ export function MusicLayout({ children, metadata }: MusicLayoutProps) {
       <MusicSidebar album={album} track={track} />
       <div className="flex-1 mr-16">
         <header className="mb-6">
-          <Link
-            type="subtle"
-            icon="backUp"
-            href="/music"
-            className="mb-6 text-sm text-slate-600 dark:text-slate-400"
-          >
+          <Link type="subtle" icon="backUp" href="/music" className="mb-6 text-sm text-secondary">
             The Music That Made Me
           </Link>
           <h1 className="text-3xl font-semibold leading-tight">
@@ -34,7 +29,7 @@ export function MusicLayout({ children, metadata }: MusicLayoutProps) {
               {metadata.title || track.name}
             </Link>
           </h1>
-          <h2 className="text-xl text-slate-600 dark:text-slate-400">
+          <h2 className="text-xl text-secondary">
             by <ArtistList artists={track.artists} />
           </h2>
         </header>

@@ -8,6 +8,7 @@ export * from './divider';
 export * from './document';
 export * from './duration';
 export * from './fence';
+export * from './frame';
 export * from './heading';
 export * from './icon';
 export * from './image';

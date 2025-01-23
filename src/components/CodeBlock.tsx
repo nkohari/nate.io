@@ -24,7 +24,7 @@ export function CodeBlockLine({ children, number }: CodeBlockLineProps) {
         'h-5 line-numbers',
         'first:h-7 first:before:pt-2',
         'last:h-7 last:before:pb-2',
-        'before:inline-block before:w-8 before:px-1 before:mr-4 before:text-right before:text-slate-300 before:bg-slate-600',
+        'before:inline-block before:w-10 before:px-2 before:mr-4 before:text-right before:text-secondary before:bg-background-alt',
       )}
     >
       {children}
@@ -42,8 +42,8 @@ export function CodeBlock({ children, language }: CodeBlockProps) {
     <pre
       data-language={language}
       className={cx(
-        'overflow-x-auto min-h-[40px] mb-6 bg-slate-700 bg-clip-border border-2 border-slate-600 rounded-md',
-        'font-mono text-white text-sm line-numbers-group',
+        'overflow-x-auto min-h-[40px] mb-6 bg-background-dim bg-clip-border border border-divider',
+        'font-mono text-sm line-numbers-group',
       )}
     >
       {children}

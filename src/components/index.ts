@@ -9,6 +9,7 @@ export * from './DateString';
 export * from './Divider';
 export * from './Document';
 export * from './Duration';
+export * from './Frame';
 export * from './Heading';
 export * from './Icon';
 export * from './Image';

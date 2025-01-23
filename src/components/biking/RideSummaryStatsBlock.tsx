@@ -39,15 +39,15 @@ export function RideSummaryStatsBlock({
         variants={numberVariants}
         className="flex flex-row gap-1 items-baseline"
       >
-        <div className="text-2xl font-bold">{formattedValue}</div>
+        <div className="text-2xl font-semibold">{formattedValue}</div>
         {unit && <div className="text-sm">{unit}</div>}
       </motion.div>
     );
   }
 
   return (
-    <div className="flex flex-col w-full min-h-[70px] p-2 px-4 mr-2 last:mr-0 rounded-lg bg-slate-100 dark:bg-slate-700 border border-black/5 dark:border-white/5">
-      <div className="text-sm font-semibold">{title}</div>
+    <div className="flex flex-col w-full min-h-[70px] p-2 px-4 mr-2 last:mr-0 rounded-lg bg-background-dim border border-divider/30">
+      <div className="text-sm font-medium">{title}</div>
       {content}
     </div>
   );

@@ -24,7 +24,7 @@ export function ThemeSelector() {
   return (
     <motion.button
       aria-label="Toggle theme"
-      className="flex items-center ml-4 transform transition-transform"
+      className="flex items-center ml-4 cursor-pointer transform transition-transform"
       onClick={onThemeChanged}
       initial={false}
       animate={theme}

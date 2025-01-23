@@ -42,7 +42,7 @@ export function RideGraphBar({ date, field, rides, scale, system, today }: RideG
   let textColor: React.ReactNode;
 
   if (ride) {
-    textColor = 'text-slate-100';
+    textColor = 'text-dim';
     const value = getValueFromRide(ride, field, system);
     const height = Math.floor((value / scale.max) * 100);
     label = (
@@ -58,12 +58,12 @@ export function RideGraphBar({ date, field, rides, scale, system, today }: RideG
       />
     );
   } else {
-    textColor = 'text-slate-500 dark:text-slate-300';
+    textColor = 'text-secondary';
     bar = (
       <motion.div
         initial={{ height: 0 }}
         animate={{ height: 4 }}
-        className="rounded-sm w-full bg-slate-300 dark:bg-slate-500"
+        className="rounded-sm w-full bg-background-alt"
       />
     );
   }

@@ -6,14 +6,17 @@ Right now, I'm building [Ardent](https://ardent.ai), a platform which helps user
 
 Before that, I spent four and a half years at [Stripe](https://stripe.com) working on developer experience and some of the company's early work with generative AI. Over the {% duration since="2004-06-01" /%} of [my career](#career), I've started three companies, and held a wide range of roles from engineer to executive.
 
+{% frame %}
 ## My Principles
 
-1. **Be better than yesterday.** Everything is a work-in-progress, including ourselves. If we gradually make [small improvements](https://en.wikipedia.org/wiki/Kaizen) every day, they'll result in dramatic changes. The value of incremental and directionally-correct work compounds over time, just like interest on savings.
-2. **Move with urgency and focus.** Good software that's in the user's hands always beats better software that's still in development. However, building the _wrong_ thing is much worse than building _nothing_ at all. Stay focused on the fundamentals, cut everything else, and deliver the rest incrementally.
-3. **Opportunity requires optimism.** In order to see and seize opportunities, you have to believe that things will work out for the best over the long term. There will always be challenges to overcome, but believing that things will turn out badly is the surest way to fail.
-4. **Maximize your leverage.** Work that makes other people more efficient, happier, or better at their jobs is the highest-impact work an engineer can do. Your own time and energy is limited; always be on the lookout for opportunities to amplify your effort.
-5. **Feedback is a gift.** Every viewpoint is unique, and striving to understanding them is an opportunity for us to improve and better understand ourselves, our work, and the world around us. Give and receive feedback freely, as long as it's truthful, necessary, timely, and kind.
-6. **Embrace impermanence.** Users don't care about software; they care about the impact it has on their lives and what it enables them to do. Avoid becoming attached to the code you write, and celebrate the day when it's replaced by something better.
+1. _Be better than yesterday._ Everything is a work-in-progress, including ourselves. If we gradually make [small improvements](https://en.wikipedia.org/wiki/Kaizen) every day, they'll result in dramatic changes. The value of incremental and directionally-correct work compounds over time, just like interest on savings.
+2. _Move with urgency and focus._ Good software that's in the user's hands always beats better software that's still in development. However, building the _wrong_ thing is much worse than building _nothing_ at all. Focus on the fundamentals, cut everything else, and deliver the rest incrementally.
+3. _Opportunity requires optimism._ In order to see and seize opportunities, you have to believe that things will work out for the best over the long term. There will always be challenges to overcome, but believing that things will turn out badly is the surest way to fail.
+4. _Maximize your leverage._ Work that makes other people more efficient, happier, or better at their jobs is the highest-impact work an engineer can do. Your own time and energy is limited; always be on the lookout for opportunities to amplify your effort.
+5. _Feedback is a gift._ Every viewpoint is unique, and striving to understanding them is an opportunity for us to improve and better understand ourselves, our work, and the world around us. Give and receive feedback freely, as long as it's truthful, necessary, timely, and kind.
+6. _Embrace impermanence._ Users don't care about software; they care about the impact it has on their lives and what it enables them to do. Avoid becoming attached to the code you write, and celebrate the day when it's replaced by something better.
+
+{% /frame %}
 
 ## My Career {% #career %}
 

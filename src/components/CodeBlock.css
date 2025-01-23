@@ -12,32 +12,32 @@
 .token.rule,
 .token.pseudo-class,
 .token.important {
-  color: var(--color-slate-200);
+  color: var(--color-primary);
 }
 
 .token.attr-value,
 .token.class,
 .token.string {
-  color: var(--color-sky-300);
+  color: var(--color-sky-500);
 }
 
 .token.punctuation,
 .token.attr-equals {
-  color: var(--color-slate-500);
+  color: var(--color-neutral-500);
 }
 
 .token.attr-value * {
-  color: var(--color-sky-300);
+  color: var(--color-sky-500);
 }
 
 .token.attr-value .attr-equals,
 .token.attr-value .attr-equals + .punctuation,
 .token.attr-value > .punctuation:last-child {
-  color: var(--color-slate-500);
+  color: var(--color-neutral-500);
 }
 
 .token.property {
-  color: var(--color-sky-300);
+  color: var(--color-sky-500);
 }
 
 .token.unit {
@@ -52,5 +52,5 @@
 .token.module,
 .token.operator,
 .token.combinator {
-  color: var(--color-slate-400);
+  color: var(--color-neutral-400);
 }

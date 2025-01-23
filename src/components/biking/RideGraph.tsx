@@ -20,7 +20,7 @@ type RideGraphXAxisLabelsProps = {
 function RideGraphXAxisLabels({ columnWidth, dates }: RideGraphXAxisLabelsProps) {
   return (
     <div
-      className={`z-10 grid grid-flow-col auto-cols-[${columnWidth}] p-1 font-bold text-xs text-center text-slate-600 dark:text-slate-400`}
+      className={`z-10 grid grid-flow-col auto-cols-[${columnWidth}] p-1 font-semibold text-xs text-center text-secondary`}
     >
       {dates.map((date) => (
         <div key={date.toISODate()}>{date.toFormat('ccccc')}</div>
@@ -103,7 +103,7 @@ export function RideGraph() {
           value={field}
         />
       </div>
-      <div className="flex flex-col w-full p-1 rounded-lg bg-slate-100 dark:bg-slate-700 border border-black/5 dark:border-white/5">
+      <div className="flex flex-col w-full p-1 rounded-lg bg-background-dim border border-divider/30">
         <div className="flex flex-row h-[300px] w-full p-1">{bars}</div>
         <RideGraphXAxisLabels dates={dates} columnWidth={columnWidth} />
       </div>

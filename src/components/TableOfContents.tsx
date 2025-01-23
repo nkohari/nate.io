@@ -24,7 +24,7 @@ export function TableOfContents({ sections }: TableOfContentsProps) {
 
   return (
     <div className="hidden xl:block w-60 mt-[172px] pr-16 h-full">
-      <div className="leading-loose text-base font-semibold border-b border-slate-400 dark:border-slate-600">
+      <div className="leading-loose text-base font-semibold border-b border-divider">
         On this page
       </div>
       <div className="text-sm h-72 min-h-max pt-4">{items}</div>

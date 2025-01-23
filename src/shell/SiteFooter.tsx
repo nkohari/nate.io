@@ -58,15 +58,20 @@ export function SiteFooter() {
               <SiteFooterLink href="/" text="About" />
               <SiteFooterLink href="/now" text="Now" />
               <SiteFooterLink href="/work" text="Work" />
+              <SiteFooterLink href="/writing" text="Writing" />
             </ul>
             <ul className="flex flex-col gap-1">
+              <SiteFooterLink href="/uses" text="Uses" />
               <SiteFooterLink href="/biking" text="Biking" />
-              <SiteFooterLink href="/writing" text="Writing" />
               <SiteFooterLink href="/music" text="Music" />
               <SiteFooterLink href="/art" text="Art" />
             </ul>
             <ul className="flex flex-col gap-1">
-              <SiteFooterLink icon="twitter" href="https://twitter.com/nkohari" text="Twitter" />
+              <SiteFooterLink
+                icon="bluesky"
+                href="https://bsky.app/profile/nate.io"
+                text="BlueSky"
+              />
               <SiteFooterLink icon="github" href="https://github.com/nkohari" text="GitHub" />
               <SiteFooterLink
                 icon="linkedin"

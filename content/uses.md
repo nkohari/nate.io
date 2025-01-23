@@ -1,8 +1,8 @@
 ---
-title: My Tools & Gear
+title: Tools & Equipment
 ---
 
-Sometimes I get questions about my equipment, and who doesn't love nerding out about their gear?
+Sometimes I get questions about what equipment or apps I'm using, and who doesn't love nerding out about their gear?
 
 ## Computer
 

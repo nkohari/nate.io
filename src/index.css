@@ -55,6 +55,7 @@ html {
   margin-left: calc(100vw - 100%);
   margin-right: 0px;
   scroll-behavior: smooth;
+  @apply bg-background;
 }
 
 @media screen and (prefers-reduced-motion: reduce) {

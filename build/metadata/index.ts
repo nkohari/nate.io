@@ -5,3 +5,4 @@ export * from './getImages';
 export * from './getOutgoingLinks';
 export * from './getSections';
 export * from './getSpotifyData';
+export * from './getThumbnail';

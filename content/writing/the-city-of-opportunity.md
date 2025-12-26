@@ -3,6 +3,7 @@ title: The City of Opportunity
 subtitle: On growing up in the former rubber capital of the world.
 type: narrative
 date: 2022-05-26T20:53:00
+thumbnail: akron.webp
 ---
 
 {% lead-in %}My wife and I moved to Raleigh{% /lead-in %} in 2010 after we [sold our first company](/writing/take-the-money-and-run), but we were both born and raised in [Akron, Ohio](https://en.wikipedia.org/wiki/Akron,_Ohio), a fairly small Midwestern city an hour south of Cleveland.

@@ -12,6 +12,7 @@ import {
   getOutgoingLinks,
   getSections,
   getSpotifyData,
+  getThumbnail,
 } from './build/metadata';
 import { Metadata } from './src/types';
 
@@ -27,6 +28,7 @@ export default defineConfig({
       plugins: {
         metadata: [
           getBasicMetadata,
+          getThumbnail,
           getContentStats,
           getExcerpt,
           getImages,

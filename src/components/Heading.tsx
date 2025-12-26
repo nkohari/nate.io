@@ -12,7 +12,7 @@ export function Heading({ className, children, id, level }: HeadingProps) {
   const tag = `h${level}`;
 
   const levelClasses: Record<number, string> = {
-    1: 'text-4xl font-bold',
+    1: 'text-3xl font-bold',
     2: 'text-3xl font-medium',
     3: 'text-xl font-semibold',
     4: 'text-xl',

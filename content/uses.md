@@ -7,8 +7,8 @@ Sometimes I get questions about what equipment or apps I'm using, and who doesn'
 ## Computer
 
 * [MacBook Pro M3 Max](https://www.apple.com/shop/buy-mac/macbook-pro): 128GB RAM is probably overkill, but it runs local LLMs without breaking a sweat. The 14" form factor is portable, and plenty powerful when docked.
-* [Dell UltraSharp U4025QW 40" 5K2K Monitor](https://www.amazon.com/gp/product/B0D1TX35MQ): I love ultrawide (21:9 or 21:10) monitors, but hate compromising on pixel density. This beast gives you both, plus a 120Hz refresh rate.
-* [GMMK TKL Keyboard](https://www.gloriousgaming.com/): Tenkeyless is my favorite keyboard form factor.
+* [Dell UltraSharp U4025QW 40" 5K2K Monitor](https://www.amazon.com/gp/product/B0D1TX35MQ): I love ultrawide (21:9 or 21:10) monitors, but hate compromising on pixel density. This beast gives you both, plus a 120Hz refresh rate. It's also connected to my PC (with a GTX 4090, since that's a lot of pixels to push), and it performs extremely well for both productivity and gaming.
+* [Keychron Q3 Max](https://www.amazon.com/dp/B0CS2ZN3CG): The Q3 is built like a tank, and tenkeyless is my favorite keyboard form factor.
 * [Drop+biip extended 2048 keycaps](https://drop.com/buy/drop-biip-mt3-extended-custom-keycap-set): A little bit of vintage Mac vibes on a modern package, and I love the taller MT3 profile.
 
 ## Desk
@@ -29,8 +29,8 @@ Sometimes I get questions about what equipment or apps I'm using, and who doesn'
 ## Home
 
 * [Ubiquiti UniFi](https://ui.com): Ubiquiti's prosumer networking and camera equipment can't be beat. It's got a pretty sizable barrier to entry, but it's well worth adopting.
-* [Sonos](https://sonos.com/): I used to be a huge Sonos fan until the app debacle of 2024. It's still a great system, but they need to re-earn my trust before I can recommend them again.
-* [Philips Hue](https://philips-hue.com/): Most bulbs in our house is a Hue bulb now. They're set to fade up in the morning, down in the evening, with a splash of color for fun.
+* [Sonos](https://sonos.com/): Every TV in our house has a Sonos soundbar, and we use Amps to control our built-in speakers. The company lost some of my trust after the app debacle in 2024, but it's slowly getting better, and there really isn't anything else on the market like it.
+* [Philips Hue](https://philips-hue.com/): Most bulbs in our house are Hue bulbs now. They're set to fade up in the morning, down in the evening, with a splash of color for fun.
 * [Plex](https://plex.app): The frontend to our home media server, a ~64TB zfs pool which is home to a giant pile of ripped Blu-Rays and archived YouTube videos.
 
 ## Carry
@@ -42,8 +42,8 @@ Sometimes I get questions about what equipment or apps I'm using, and who doesn'
 
 ## Programming
 
-* [VSCode](https://code.visualstudio.com/): Highly controversial at launch, now almost a de-facto standard.
-* [Supermaven](https://supermaven.com/): So much better than GitHub Copilot, it's like a superintelligent autocomplete. I continue to be shocked at how well the model can guess my intent.
+* [Cursor](https://cursor.com/): I was a VSCode user for many years, and an early adopter of [Supermaven](https://supermaven.com). Once Supermaven was acquired by Cursor, switching was obvious. (A big missed opportunity by Microsoft!)
+* [Claude Code](https://claude.ai/code): I still prefer writing code by hand (assisted by a tab-completion model) over agentic code generation for a lot of my work, but for the right tasks, Claude is indispensable.
 * [Monokai Pro](https://monokai.pro/): An impressively well-designed color scheme.
 * [Recursive](https://www.recursive.design/): I've tried lots of different programming fonts, but I keep coming back to Recursive.
 * [Commit Mono](https://commitmono.com/): While I still prefer the more expressive Recursive for my IDE, for some reason I prefer Commit Mono for terminals.

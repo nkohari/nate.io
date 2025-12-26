@@ -1,17 +1,17 @@
 @font-face {
-  font-family: "Hanken Grotesk";
-  font-weight: 100 900;
+  font-family: "SN Pro";
+  font-weight: 200 900;
   font-style: normal;
   font-display: swap;
-  src: url("../media/fonts/HankenGrotesk-VF.woff2") format(woff2);
+  src: url("../media/fonts/SNPro-VF.woff2") format(woff2);
 }
 
 @font-face {
-  font-family: "Hanken Grotesk";
-  font-weight: 100 900;
+  font-family: "SN Pro";
+  font-weight: 200 900;
   font-style: italic;
   font-display: swap;
-  src: url("../media/fonts/HankenGrotesk-Italic-VF.woff2") format(woff2);
+  src: url("../media/fonts/SNPro-Italic-VF.woff2") format(woff2);
 }
 
 @font-face {

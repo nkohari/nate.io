@@ -1,3 +1,5 @@
+export * from './ArticleCard';
+export * from './ArticleGrid';
 export * from './AvatarCards';
 export * from './Badge';
 export * from './Blockquote';
@@ -10,6 +12,7 @@ export * from './Divider';
 export * from './Document';
 export * from './Duration';
 export * from './Frame';
+export * from './Grid';
 export * from './Heading';
 export * from './Icon';
 export * from './Image';
@@ -27,8 +30,6 @@ export * from './Subtitle';
 export * from './TableOfContents';
 export * from './Title';
 export * from './Work';
-
-export * from './art/ArtGrid';
 
 export * from './biking/RideGraph';
 

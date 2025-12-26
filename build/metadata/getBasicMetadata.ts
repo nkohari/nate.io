@@ -8,5 +8,6 @@ export function getBasicMetadata({ frontmatter }: MetadataPluginParams<Metadata>
     subtitle: frontmatter.subtitle,
     state: frontmatter.state ?? 'live',
     type: frontmatter.type ?? 'page',
+    thumbnail: frontmatter.thumbnail,
   };
 }

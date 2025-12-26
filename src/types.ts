@@ -1,5 +1,5 @@
-import { DateTime } from 'luxon';
 import { Article as BaseArticle } from '@apocrypha/core';
+import { DateTime } from 'luxon';
 
 export type ImageSet = {
   small?: string;
@@ -63,6 +63,8 @@ export type Metadata = {
   sections: ArticleSection[];
   title?: string;
   subtitle?: string;
+  thumbnail?: string;
+  thumbnailImage?: ImageMetadata;
   images?: ImageMetadata[];
   outgoingLinks?: string[];
   excerpt?: string;

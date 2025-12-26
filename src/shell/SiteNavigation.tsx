@@ -1,13 +1,6 @@
 import { ThemeSelector } from 'src/shell';
 import { DesktopNavigation, MobileNavigationOverlayToggle } from 'src/shell';
 
-const LINKS = [
-  { text: 'About', href: '/' },
-  { text: 'Now', href: '/now' },
-  { text: 'Work', href: '/work' },
-  { text: 'Writing', href: '/writing' },
-];
-
 export function SiteNavigation() {
   return (
     <>

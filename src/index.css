@@ -3,30 +3,30 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: "Hanken Grotesk", "-apple-system", "sans-serif";
+  --font-sans: "SN Pro", "-apple-system", "sans-serif";
   --font-mono: "Commit Mono", "ui-monospace", "monospace";
 
   --color-spotify: #1db954;
 
-  --color-light-primary: var(--color-neutral-900);
-  --color-light-secondary: var(--color-neutral-600);
-  --color-light-muted: var(--color-neutral-400);
+  --color-light-primary: var(--color-gray-900);
+  --color-light-secondary: var(--color-gray-600);
+  --color-light-muted: var(--color-gray-400);
   --color-light-background: var(--color-white);
-  --color-light-background-alt: var(--color-neutral-200);
-  --color-light-background-dim: var(--color-neutral-100);
-  --color-light-link: var(--color-neutral-600);
+  --color-light-background-alt: var(--color-gray-200);
+  --color-light-background-dim: var(--color-gray-100);
+  --color-light-link: var(--color-gray-600);
   --color-light-link-hover: var(--color-blue-600);
-  --color-light-divider: var(--color-neutral-300);
+  --color-light-divider: var(--color-gray-300);
 
-  --color-dark-primary: var(--color-neutral-100);
-  --color-dark-secondary: var(--color-neutral-400);
-  --color-dark-muted: var(--color-neutral-500);
-  --color-dark-background: var(--color-neutral-900);
-  --color-dark-background-alt: var(--color-neutral-700);
-  --color-dark-background-dim: var(--color-neutral-800);
+  --color-dark-primary: var(--color-gray-100);
+  --color-dark-secondary: var(--color-gray-400);
+  --color-dark-muted: var(--color-gray-500);
+  --color-dark-background: var(--color-gray-900);
+  --color-dark-background-alt: var(--color-gray-700);
+  --color-dark-background-dim: var(--color-gray-800);
   --color-dark-link: var(--color-slate-300);
   --color-dark-link-hover: var(--color-blue-300);
-  --color-dark-divider: var(--color-neutral-700);
+  --color-dark-divider: var(--color-gray-700);
 
   --color-primary: var(--color-light-primary);
   --color-secondary: var(--color-light-secondary);
@@ -55,6 +55,8 @@ html {
   margin-left: calc(100vw - 100%);
   margin-right: 0px;
   scroll-behavior: smooth;
+  font-size: 18px;
+  font-weight: 400;
   @apply bg-background;
 }
 

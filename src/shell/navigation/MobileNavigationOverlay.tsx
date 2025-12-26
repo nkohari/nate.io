@@ -38,7 +38,6 @@ export function MobileNavigationOverlay({ onClose }: MobileNavigationOverlayProp
         <MobileNavigationLink href="/uses" text="Uses" onClose={onClose} />
         <MobileNavigationLink href="/biking" text="Biking" onClose={onClose} />
         <MobileNavigationLink href="/music" text="Music" onClose={onClose} />
-        <MobileNavigationLink href="/art" text="Art" onClose={onClose} />
       </nav>
     </div>
   );

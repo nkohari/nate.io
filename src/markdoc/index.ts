@@ -1,4 +1,5 @@
-export * from './art-grid';
+export * from './article-card';
+export * from './article-grid';
 export * from './attribution';
 export * from './avatar-cards';
 export * from './blockquote';
@@ -9,6 +10,7 @@ export * from './document';
 export * from './duration';
 export * from './fence';
 export * from './frame';
+export * from './grid';
 export * from './heading';
 export * from './icon';
 export * from './image';

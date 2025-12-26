@@ -4,6 +4,7 @@ subtitle: For our company, it was the end of the beginning, and the beginning of
 date: 2015-07-05T12:00:00
 type: vignette
 song: spotify:track:6xxnV3f3aTcz8VYHPakPxx
+thumbnail: winter.webp
 ---
 
 {% image src="winter.webp" alt="Two people walking down a road covered in snow" /%}

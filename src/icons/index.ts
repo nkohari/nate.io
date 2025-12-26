@@ -4,6 +4,7 @@ export * from './back';
 export * from './backUp';
 export * from './bluesky';
 export * from './close';
+export * from './cube';
 export * from './draft';
 export * from './email';
 export * from './jumpBack';

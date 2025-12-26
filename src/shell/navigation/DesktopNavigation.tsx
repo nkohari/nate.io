@@ -44,6 +44,7 @@ export function DesktopNavigation() {
       <DesktopNavigationLink href="/now" text="Now" />
       <DesktopNavigationLink href="/work" text="Work" />
       <DesktopNavigationLink href="/writing" text="Writing" />
+      <DesktopNavigationLink href="/music" text="Music" />
     </nav>
   );
 }

@@ -1,3 +1,7 @@
+---
+title: My Work
+---
+
 {% image src="cyberpunk-engineer.webp" rounded="xl" /%}
 
 {% lead-in %}I'm an internet engineer.{% /lead-in %} I build thoughtful, polished web interfaces and scalable, high-performance APIs. My goal as an engineer is to make people happier, more efficient, and more effective at their work.
@@ -59,7 +63,7 @@ I contributed to [Community Server](https://community.telligent.com/), a white-l
 {% /work %}
 
 {% work from="2007" to="2008" job="Software Architect at CTI" location="in Akron, OH" %}
-I built the frontend for [Accelerated Analytics](https://acceleratedanalytics.com), a SaaS business intelligence system built on top of Microsoft Reporting Services, and participated in the construction of data warehouses using Microsoft Analysis Services. I hired and mentored junior engineers, and provided architectural feedback and support on several projects for other teams.
+After returning to CTI, I built the frontend for [Accelerated Analytics](https://acceleratedanalytics.com), a SaaS business intelligence system built on top of Microsoft Reporting Services, and participated in the construction of data warehouses using Microsoft Analysis Services. I hired and mentored junior engineers, and provided architectural feedback and support on several projects for other teams.
 {% /work %}
 
 {% work from="2006" to="2007" job="Software Developer II at Merge Healthcare" note="acq. IBM" location="in Akron, OH" %}

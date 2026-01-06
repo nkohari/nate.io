@@ -13,8 +13,8 @@ const cardVariants = {
     scale: 1,
   },
   hover: {
-    scale: 1.02,
-    transition: { type: 'spring', stiffness: 300, damping: 20 },
+    scale: 1.1,
+    transition: { type: 'spring', stiffness: 400, damping: 20 },
   },
 };
 
@@ -22,31 +22,43 @@ export function ArticleCard({ id }: ArticleCardProps) {
   const article = useArticle<Metadata>(id);
   const { thumbnailImage, title, subtitle } = article.metadata;
 
-  let readingTime: React.ReactNode;
+  let date: string | undefined = undefined;
+  if (article.metadata.date) {
+    date = `Written in ${DateTime.fromJSDate(article.metadata.date).year.toString()}`;
+  }
+
+  let readingTime: string | undefined = undefined;
   if (article.metadata.readingTime) {
     const minutes = Math.round(Duration.fromMillis(article.metadata.readingTime).as('minutes'));
-    readingTime = (
-      <p className="uppercase text-[11px] text-muted mt-1">{Math.ceil(minutes)} min read</p>
-    );
+    readingTime = `a ${Math.ceil(minutes)} min read`;
   }
 
   return (
-    <motion.div initial={false} animate="visible" whileHover="hover" variants={cardVariants}>
+    <motion.div
+      initial={false}
+      animate="visible"
+      whileHover="hover"
+      variants={cardVariants}
+      className="h-full rounded-sm bg-background-dim"
+    >
       <Link type="unstyled" href={article.path}>
-        <div className="flex flex-col gap-3">
-          <div className="w-full aspect-3/2 overflow-hidden rounded-sm">
-            {thumbnailImage && (
+        <div className="relative h-full w-full aspect-3/2 overflow-hidden rounded-sm">
+          {thumbnailImage && (
+            <>
               <Image
                 src={thumbnailImage.src}
                 metadata={thumbnailImage}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover opacity-50"
               />
-            )}
-          </div>
-          <div className="flex flex-col gap-1">
+              <div className="absolute inset-0 bg-gradient-to-t from-white/70 to-white/50 dark:from-black/70 dark:to-black/10" />
+            </>
+          )}
+          <div className="absolute top-0 left-0 right-0 p-3 flex flex-col gap-1 text-shadow-lg">
             <h3 className="font-semibold text-lg leading-tight">{title}</h3>
-            {subtitle && <p className="text-sm text-secondary">{subtitle}</p>}
-            {readingTime}
+            {subtitle && <p className="text-sm line-clamp-2">{subtitle}</p>}
+          </div>
+          <div className="absolute bottom-0 left-0 right-0 p-3 flex flex-col gap-1 uppercase text-[11px] text-secondary text-shadow-lg">
+            {[date, readingTime].filter(Boolean).join(', ')}
           </div>
         </div>
       </Link>

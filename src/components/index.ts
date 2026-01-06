@@ -33,7 +33,8 @@ export * from './Work';
 
 export * from './biking/RideGraph';
 
-export * from './layouts/DefaultLayout';
+export * from './layouts/ArticleLayout';
+export * from './layouts/PageLayout';
 export * from './layouts/MusicLayout';
 
 export * from './music/AlbumTrackList';

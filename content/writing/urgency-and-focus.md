@@ -6,7 +6,7 @@ date: 2024-03-22T13:46:00
 thumbnail: townsend.webp
 ---
 
-{% image src="townsend.webp" alt="Stripe's old headquarters at 510 Townsend St. in San Francisco" /%}
+{% image src="townsend.webp" alt="Stripe's old headquarters at 510 Townsend St. in San Francisco" corners="xl" /%}
 
 {% lead-in %}After four and a half years{% /lead-in %}, today was my last day at Stripe.
 

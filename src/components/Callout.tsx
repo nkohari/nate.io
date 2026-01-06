@@ -24,7 +24,7 @@ export function Callout({ children, className, type }: CalloutProps) {
       className={cx(
         'flex justify-begin',
         'p-4 mb-6 rounded-md border-b-2',
-        'text-base leading-normal',
+        'text-sm leading-normal',
         TYPE_CLASSES[type],
         className,
       )}

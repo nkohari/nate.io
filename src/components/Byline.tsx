@@ -66,9 +66,8 @@ export function Byline({ metadata }: BylineProps) {
   }
 
   return (
-    <div className="mb-2 text-[11px] uppercase text-muted tracking-wide">
-      {date}
-      {readingTime}
+    <div className="mt-2 text-[11px] uppercase text-muted tracking-wide">
+      Written {date} {readingTime}
     </div>
   );
 }

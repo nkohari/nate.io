@@ -1,7 +1,7 @@
 import { ArticleContent, useArticle } from '@apocrypha/core/catalog';
 import { motion } from 'motion/react';
 import { Suspense } from 'react';
-import { DefaultLayout, MusicLayout } from 'src/components';
+import { ArticleLayout, MusicLayout, PageLayout } from 'src/components';
 import { Meta, MetadataProvider } from 'src/shell';
 import type { Metadata } from 'src/types';
 
@@ -31,7 +31,11 @@ function Layout(props: LayoutProps) {
     return <MusicLayout {...props} />;
   }
 
-  return <DefaultLayout {...props} />;
+  if (props.metadata.type === 'page') {
+    return <PageLayout {...props} />;
+  }
+
+  return <ArticleLayout {...props} />;
 }
 
 type BodyProps = {

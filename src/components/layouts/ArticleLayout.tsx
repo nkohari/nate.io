@@ -1,4 +1,4 @@
-import { Byline, Callout, RightGutter, Subtitle, Title } from 'src/components';
+import { Byline, Callout, Link, RightGutter, Subtitle, Title } from 'src/components';
 import { Metadata } from 'src/types';
 
 function ArticleArchivedWarning() {
@@ -11,12 +11,12 @@ function ArticleArchivedWarning() {
   );
 }
 
-type DefaultLayoutProps = {
+type ArticleLayoutProps = {
   children: React.ReactNode;
   metadata: Metadata;
 };
 
-export function DefaultLayout({ children, metadata }: DefaultLayoutProps) {
+export function ArticleLayout({ children, metadata }: ArticleLayoutProps) {
   const { type, title, state, subtitle } = metadata;
 
   let header: React.ReactNode;
@@ -24,9 +24,9 @@ export function DefaultLayout({ children, metadata }: DefaultLayoutProps) {
   if (title) {
     header = (
       <header className="mb-8">
-        {type !== 'page' && <Byline metadata={metadata} />}
         <Title>{title}</Title>
         {subtitle && <Subtitle>{subtitle}</Subtitle>}
+        <Byline metadata={metadata} />
       </header>
     );
   }
@@ -34,6 +34,9 @@ export function DefaultLayout({ children, metadata }: DefaultLayoutProps) {
   return (
     <>
       <div className="flex-1 flex flex-col">
+        <Link type="subtle" icon="backUp" href="/writing" className="mb-6 text-sm text-secondary">
+          My Writing
+        </Link>
         {header}
         {state === 'archived' && <ArticleArchivedWarning />}
         {children}

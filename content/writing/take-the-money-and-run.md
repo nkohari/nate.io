@@ -7,7 +7,7 @@ song: spotify:track:6xxnV3f3aTcz8VYHPakPxx
 thumbnail: winter.webp
 ---
 
-{% image src="winter.webp" alt="Two people walking down a road covered in snow" /%}
+{% image src="winter.webp" alt="Two people walking down a road covered in snow" corners="xl" /%}
 
 {% lead-in %}It was January{% /lead-in %}, and the weather was fucking bleak. It'd been freezing and overcast for as long as I could remember. Sometimes during winter in Akron, it feels like the sun sets in November and doesn't rise until March.
 

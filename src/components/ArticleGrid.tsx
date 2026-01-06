@@ -1,9 +1,8 @@
-import { Article } from '@apocrypha/core';
 import { useCatalog } from '@apocrypha/core/catalog';
 import { motion } from 'motion/react';
 import { useMemo } from 'react';
 import { ArticleCard } from 'src/components';
-import { Metadata } from 'src/types';
+import { ArticleState, Metadata } from 'src/types';
 
 const gridVariants = {
   hidden: {
@@ -28,35 +27,30 @@ const itemVariants = {
 };
 
 type ArticleGridProps = {
-  filter?: (article: Article<Metadata>) => boolean;
-  sort?: (a: Article<Metadata>, b: Article<Metadata>) => number;
+  state?: ArticleState;
 };
 
-export function ArticleGrid({ filter, sort }: ArticleGridProps) {
+export function ArticleGrid({ state = 'live' }: ArticleGridProps) {
   const articles = useCatalog<Metadata>();
 
   const filteredArticles = useMemo(() => {
-    const defaultFilter = (article: Article<Metadata>) =>
-      article.metadata.type !== 'music' &&
-      article.metadata.type !== 'page' &&
-      article.metadata.state === 'live';
-
-    const filterFn = filter || defaultFilter;
-
-    const defaultSort = (a: Article<Metadata>, b: Article<Metadata>) => {
-      const dateA = a.metadata.date?.getTime() || 0;
-      const dateB = b.metadata.date?.getTime() || 0;
-      return dateB - dateA;
-    };
-
-    const sortFn = sort || defaultSort;
-
-    return Object.values(articles).filter(filterFn).sort(sortFn);
-  }, [articles, filter, sort]);
+    return Object.values(articles)
+      .filter(
+        (article) =>
+          article.metadata.type !== 'music' &&
+          article.metadata.type !== 'page' &&
+          article.metadata.state === state,
+      )
+      .sort((a, b) => {
+        const dateA = a.metadata.date?.getTime() || 0;
+        const dateB = b.metadata.date?.getTime() || 0;
+        return dateB - dateA;
+      });
+  }, [articles, state]);
 
   return (
     <motion.div
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6"
       initial="hidden"
       animate="visible"
       variants={gridVariants}

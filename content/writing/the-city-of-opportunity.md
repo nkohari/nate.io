@@ -8,7 +8,7 @@ thumbnail: akron.webp
 
 {% lead-in %}My wife and I moved to Raleigh{% /lead-in %} in 2010 after we [sold our first company](/writing/take-the-money-and-run), but we were both born and raised in [Akron, Ohio](https://en.wikipedia.org/wiki/Akron,_Ohio), a fairly small Midwestern city an hour south of Cleveland.
 
-{% image src="akron.webp" alt="An old map of Akron, the City of Opportunity" /%}
+{% image src="akron.webp" alt="An old map of Akron, the City of Opportunity" corners="xl" /%}
 
 Throughout the late 19th and most of the 20th century, Akron was a seat of industry. As the home to Goodyear, Firestone, B.F. Goodrich, and General Tire, it was the "rubber capital of the world." I grew up in a neighborhood called [Goodyear Heights](http://en.wikipedia.org/wiki/Neighborhoods_in_Akron,_Ohio#Goodyear_Heights), which was originally built specifically to house Goodyear factory employees. My wife grew up in [Firestone Park](https://en.wikipedia.org/wiki/Neighborhoods_in_Akron,_Ohio#Firestone_Park). I attended [Seiberling Elementary School](https://seiberlingclc.akronschools.com/) (named for the founder of Goodyear), and later [Goodyear Middle School](https://www.flickr.com/photos/pyathia/sets/72157644726552273/).
 

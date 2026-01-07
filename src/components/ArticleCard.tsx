@@ -1,4 +1,5 @@
 import { useArticle } from '@apocrypha/core/catalog';
+import cx from 'classnames';
 import { DateTime, Duration } from 'luxon';
 import { motion } from 'motion/react';
 import { Image, Link } from 'src/components';
@@ -22,15 +23,24 @@ export function ArticleCard({ id }: ArticleCardProps) {
   const article = useArticle<Metadata>(id);
   const { thumbnailImage, title, subtitle } = article.metadata;
 
-  let date: string | undefined = undefined;
+  let date: React.ReactNode;
   if (article.metadata.date) {
-    date = `Written in ${DateTime.fromJSDate(article.metadata.date).year.toString()}`;
+    date = (
+      <time
+        dateTime={article.metadata.date.toISOString()}
+        className={cx('mr-1', {
+          "after:content-['—'] after:ml-1": article.metadata.date && article.metadata.readingTime,
+        })}
+      >
+        Written {DateTime.fromJSDate(article.metadata.date).year.toString()}
+      </time>
+    );
   }
 
-  let readingTime: string | undefined = undefined;
+  let readingTime: React.ReactNode;
   if (article.metadata.readingTime) {
     const minutes = Math.round(Duration.fromMillis(article.metadata.readingTime).as('minutes'));
-    readingTime = `a ${Math.ceil(minutes)} min read`;
+    readingTime = <span>a {Math.ceil(minutes)} min read</span>;
   }
 
   return (
@@ -50,15 +60,16 @@ export function ArticleCard({ id }: ArticleCardProps) {
                 metadata={thumbnailImage}
                 className="w-full h-full object-cover opacity-50"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-white/70 to-white/50 dark:from-black/70 dark:to-black/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-white/30 dark:from-black/70 dark:to-black/10" />
             </>
           )}
           <div className="absolute top-0 left-0 right-0 p-3 flex flex-col gap-1 text-shadow-lg">
             <h3 className="font-semibold text-lg leading-tight">{title}</h3>
             {subtitle && <p className="text-sm line-clamp-2">{subtitle}</p>}
           </div>
-          <div className="absolute bottom-0 left-0 right-0 p-3 flex flex-col gap-1 uppercase text-[11px] text-secondary text-shadow-lg">
-            {[date, readingTime].filter(Boolean).join(', ')}
+          <div className="absolute bottom-0 left-0 right-0 p-3 uppercase text-[11px] text-secondary text-shadow-lg">
+            {date}
+            {readingTime}
           </div>
         </div>
       </Link>

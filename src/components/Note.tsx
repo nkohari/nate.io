@@ -12,7 +12,7 @@ export function Note({ children, id }: NoteProps) {
         id={`note-ref-${id}`}
         href={`#note-${id}`}
         type="block"
-        className="text-xs py-0.5 px-1.5 rounded-full"
+        className="font-semibold text-[11px] px-[7px] py-[3px] rounded-full"
       >
         {id}
       </Link>
@@ -20,7 +20,7 @@ export function Note({ children, id }: NoteProps) {
   }
 
   return (
-    <div className="flex flex-row text-base mb-2">
+    <div className="flex flex-row text-sm mb-4">
       <span id={`note-${id}`} className="block mr-1 w-6">
         {id}.
       </span>

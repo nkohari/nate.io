@@ -8,18 +8,14 @@ const PHRASES = [
   'just teaching rocks to think',
   'patiently async/await-ing the singularity',
   'probably off by one somewhere',
-  'occasionally compiles on the first try',
   'scope creep enthusiast',
   'the only constant is O(1)',
-  'NaN% sure this will work',
+  "i'm NaN% sure this will work",
   'carefully refactoring the ship of Theseus',
-  'really popular on localhost:3000',
-  'turning coffee into type errors',
-  'learning from mistakes (repeatedly)',
-  'a temperature=1.0 kind of guy',
+  'a temperature=2.0 kind of guy',
   'hallucinating with 100% confidence',
   'attention is all you need (and 80GB of VRAM)',
-  'ML is just spicy linear algebra',
+  'intelligence is just spicy linear algebra',
 ];
 
 const ROTATION_DELAY = 10000;

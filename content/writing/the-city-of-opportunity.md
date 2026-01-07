@@ -3,16 +3,20 @@ title: The City of Opportunity
 subtitle: On growing up in the former rubber capital of the world.
 type: narrative
 date: 2022-05-26T20:53:00
-thumbnail: akron.webp
+thumbnail: goodrich.webp
 ---
 
 {% lead-in %}My wife and I moved to Raleigh{% /lead-in %} in 2010 after we [sold our first company](/writing/take-the-money-and-run), but we were both born and raised in [Akron, Ohio](https://en.wikipedia.org/wiki/Akron,_Ohio), a fairly small Midwestern city an hour south of Cleveland.
 
-{% image src="akron.webp" alt="An old map of Akron, the City of Opportunity" corners="xl" /%}
+{% image src="goodrich.webp" alt="The remains of the B.F. Goodrich tire factory" corners="xl" %}
+  {% attribution name="Johnny Joo" href="https://architecturalafterlife.com/2019/05/bf-goodrich-bounce-akron" /%}
+{% /image %}
 
 Throughout the late 19th and most of the 20th century, Akron was a seat of industry. As the home to Goodyear, Firestone, B.F. Goodrich, and General Tire, it was the "rubber capital of the world." I grew up in a neighborhood called [Goodyear Heights](http://en.wikipedia.org/wiki/Neighborhoods_in_Akron,_Ohio#Goodyear_Heights), which was originally built specifically to house Goodyear factory employees. My wife grew up in [Firestone Park](https://en.wikipedia.org/wiki/Neighborhoods_in_Akron,_Ohio#Firestone_Park). I attended [Seiberling Elementary School](https://seiberlingclc.akronschools.com/) (named for the founder of Goodyear), and later [Goodyear Middle School](https://www.flickr.com/photos/pyathia/sets/72157644726552273/).
 
 You get the picture. Akron was a city built on rubber.
+
+{% image src="akron.webp" alt="An old map of Akron, the City of Opportunity" corners="xl" /%}
 
 At its peak, two-thirds of the nation's tires were manufactured in Akron. Then, in the 1970s, as globalization took hold and industry left America, the city's rubber factories gradually shut down. Firestone was sold to Bridgestone, a Japanese company, and General Tire was acquired by Continental Tire, based in Germany. B.F. Goodrich phased out their tire production operations until finally leaving the business entirely in the mid-1980s.
 

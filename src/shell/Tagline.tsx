@@ -15,7 +15,7 @@ const PHRASES = [
   'a temperature=2.0 kind of guy',
   'hallucinating with 100% confidence',
   'attention is all you need (and 80GB of VRAM)',
-  'intelligence is just spicy linear algebra',
+  "it's all just spicy linear algebra",
 ];
 
 const ROTATION_DELAY = 10000;

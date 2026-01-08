@@ -32,7 +32,7 @@ export function ArticleCard({ id }: ArticleCardProps) {
           "after:content-['—'] after:ml-1": article.metadata.date && article.metadata.readingTime,
         })}
       >
-        Written {DateTime.fromJSDate(article.metadata.date).year.toString()}
+        Written in {DateTime.fromJSDate(article.metadata.date).year.toString()}
       </time>
     );
   }

@@ -23,15 +23,13 @@ export const App = () => (
   <BrowserRouter>
     <ThemeProvider>
       <ScrollController>
-        <div className="flex flex-col items-center leading-relaxed text-primary p-3 bg-background-dim transition-colors">
-          <div className="flex-1 flex flex-col items-center w-full min-h-screen bg-background rounded-md outline outline-background-alt/50 ">
-            <div className="flex-1 flex flex-col w-full max-w-[900px] px-4">
-              <SiteHeader />
-              <ArticleRoutes />
-            </div>
+        <div className="flex flex-col items-center leading-relaxed text-primary min-h-screen bg-background transition-colors">
+          <div className="flex-1 flex flex-col w-full max-w-[900px] pt-1 px-4">
+            <SiteHeader />
+            <ArticleRoutes />
           </div>
-          <SiteFooter />
         </div>
+        <SiteFooter />
       </ScrollController>
     </ThemeProvider>
   </BrowserRouter>

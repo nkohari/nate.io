@@ -19,7 +19,7 @@ function SiteFooterLink({ href, icon, text }: SiteFooterLinkProps) {
 
 export function SiteFooter() {
   return (
-    <div className="flex flex-row justify-center w-full pt-12 text-sm text-secondary">
+    <div className="flex flex-row justify-center w-full pt-12 text-sm text-secondary bg-background-dim">
       <div className="flex flex-col sm:flex-row w-[900px] px-8 pb-12">
         <div className="flex-1">
           <div>Copyright &copy; 2006-{DateTime.now().year} Nate Kohari.</div>

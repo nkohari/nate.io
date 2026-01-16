@@ -48,6 +48,7 @@ export function Link({
   ...props
 }: LinkProps) {
   const linkClasses = cx(
+    'scroll-mt-[50vh]',
     LINK_CLASSES[type],
     icon && 'inline-flex flex-row items-center',
     icon && iconPosition === 'right' && 'flex-row-reverse',

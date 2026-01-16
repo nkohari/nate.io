@@ -17,7 +17,7 @@ export function MusicLayout({ children, metadata }: MusicLayoutProps) {
           <Link type="subtle" icon="backUp" href="/music" className="mb-6 text-sm text-secondary">
             The Music That Made Me
           </Link>
-          <h1 className="text-3xl font-semibold leading-tight">
+          <h1 className="text-2xl font-semibold leading-tight">
             <Link
               type="spotify"
               className="text-primary"

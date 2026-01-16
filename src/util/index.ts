@@ -1,3 +1,4 @@
+export * from './cosineSimilarity';
 export * from './ordinal';
 export * from './randomArrayElement';
 export * from './randomInteger';

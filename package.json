@@ -37,7 +37,9 @@
   "devDependencies": {
     "@apocrypha/core": "^0.2.2",
     "@biomejs/biome": "^1.9.4",
-    "@cloudflare/workers-types": "^4.20230518.0",
+    "@cloudflare/vite-plugin": "^1.21.0",
+    "@cloudflare/workers-types": "^4.20260116.0",
+    "@huggingface/transformers": "^3.8.1",
     "@tailwindcss/vite": "^4.0.0",
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
@@ -65,12 +67,14 @@
     "tailwindcss": "^4.0.0",
     "text-readability": "^1.0.5",
     "to-source": "^3.1.3",
-    "vite": "^6.0.7"
+    "vite": "^6.0.7",
+    "wrangler": "^4.59.2"
   },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "biome lint build src",
-    "preview": "vite preview"
+    "lint": "biome lint build src worker",
+    "preview": "wrangler dev",
+    "deploy": "wrangler deploy"
   }
 }

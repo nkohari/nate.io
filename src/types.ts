@@ -73,6 +73,7 @@ export type Metadata = {
   category?: string;
   readingTime?: number;
   gradeLevel?: number;
+  embeddings?: string;
   counts?: {
     sentences: number;
     words: number;

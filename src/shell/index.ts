@@ -7,6 +7,7 @@ export * from './Meta';
 export * from './MetadataProvider';
 export * from './NotFound';
 export * from './ScrollController';
+export * from './SearchProvider';
 export * from './SiteHeader';
 export * from './SiteFooter';
 export * from './SiteNavigation';

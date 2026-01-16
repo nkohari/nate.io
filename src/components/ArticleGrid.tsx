@@ -57,7 +57,7 @@ export function ArticleGrid({ state = 'live' }: ArticleGridProps) {
     >
       {filteredArticles.map((article) => (
         <motion.div key={article.path} variants={itemVariants}>
-          <ArticleCard id={article.path} />
+          <ArticleCard article={article} />
         </motion.div>
       ))}
     </motion.div>

@@ -1,17 +1,14 @@
-import { createJsonResponse } from '../../common/createJsonResponse';
 import { Ride } from '../../../src/types';
+import { Environment } from '../../Environment';
 
 const STRAVA_REFRESH_TOKEN_KEY = 'strava-refresh-token';
 
-type Env = {
-  CACHE: KVNamespace;
-  STRAVA_CLIENT_ID: string;
-  STRAVA_CLIENT_SECRET: string;
-  STRAVA_VERIFY_TOKEN: string;
-};
-
-async function getStravaAccessToken(env: Env) {
+async function getStravaAccessToken(env: Environment) {
   const refreshToken = await env.CACHE.get(STRAVA_REFRESH_TOKEN_KEY);
+
+  if (!refreshToken) {
+    throw new Error('No refresh token found');
+  }
 
   const response = await fetch('https://www.strava.com/api/v3/oauth/token', {
     method: 'POST',
@@ -22,7 +19,7 @@ async function getStravaAccessToken(env: Env) {
       client_id: env.STRAVA_CLIENT_ID,
       client_secret: env.STRAVA_CLIENT_SECRET,
       grant_type: 'refresh_token',
-      refresh_token: refreshToken,
+      refresh_token: refreshToken!,
     }),
   });
 
@@ -34,7 +31,7 @@ async function getStravaAccessToken(env: Env) {
   return access_token;
 }
 
-async function getRideFromStrava(env: Env, id: string): Promise<Ride> {
+async function getRideFromStrava(env: Environment, id: string): Promise<Ride> {
   const accessToken = await getStravaAccessToken(env);
   const response = await fetch(`https://www.strava.com/api/v3/activities/${id}`, {
     headers: {
@@ -54,9 +51,13 @@ async function getRideFromStrava(env: Env, id: string): Promise<Ride> {
   };
 }
 
-async function saveRideToKV(env: Env, ride: Ride): Promise<Ride[]> {
+async function saveRideToKV(env: Environment, ride: Ride): Promise<Ride[]> {
   // Read the existing values from KV.
-  const existingRides = await env.CACHE.get<Ride[]>('rides', { type: 'json' });
+  let existingRides = await env.CACHE.get<Ride[]>('rides', { type: 'json' });
+
+  if (!existingRides) {
+    existingRides = [];
+  }
 
   // Create a hash from the existing rides to ensure that we don't inadvertently save duplicates.
   const hash = existingRides.reduce(
@@ -72,7 +73,7 @@ async function saveRideToKV(env: Env, ride: Ride): Promise<Ride[]> {
 
   // Sort the values of the hash by timestamp.
   const rides = Object.values(hash).sort(
-    (a, b) => Date.parse(a.timestamp) - Date.parse(b.timestamp),
+    (a, b) => Date.parse(a.timestamp as any) - Date.parse(b.timestamp as any),
   );
 
   // Write the values back to KV.
@@ -81,8 +82,7 @@ async function saveRideToKV(env: Env, ride: Ride): Promise<Ride[]> {
   return rides;
 }
 
-export const onRequest: PagesFunction<Env> = async (context) => {
-  const { env, request } = context;
+export async function ingestRides(request: Request, env: Environment): Promise<Response> {
   const url = new URL(request.url);
 
   if (request.method === 'GET') {
@@ -90,7 +90,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     const challenge = url.searchParams.get('hub.challenge');
 
     if (challenge && token === env.STRAVA_VERIFY_TOKEN) {
-      return createJsonResponse({ 'hub.challenge': challenge });
+      return Response.json({ 'hub.challenge': challenge });
     }
   }
 
@@ -100,9 +100,9 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     if (object_type === 'activity') {
       const ride = await getRideFromStrava(env, object_id);
       await saveRideToKV(env, ride);
-      return createJsonResponse(ride);
+      return Response.json(ride);
     }
   }
 
   return new Response('Bad request', { status: 400 });
-};
+}

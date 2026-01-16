@@ -1,12 +1,12 @@
-import { useArticle } from '@apocrypha/core/catalog';
 import cx from 'classnames';
 import { DateTime, Duration } from 'luxon';
 import { motion } from 'motion/react';
 import { Image, Link } from 'src/components';
-import { Metadata } from 'src/types';
+import { Article } from 'src/types';
 
 type ArticleCardProps = {
-  id: string;
+  article: Article;
+  caption?: React.ReactNode;
 };
 
 const cardVariants = {
@@ -19,8 +19,7 @@ const cardVariants = {
   },
 };
 
-export function ArticleCard({ id }: ArticleCardProps) {
-  const article = useArticle<Metadata>(id);
+export function ArticleCard({ article, caption }: ArticleCardProps) {
   const { thumbnailImage, title, subtitle } = article.metadata;
 
   let date: React.ReactNode;
@@ -68,8 +67,11 @@ export function ArticleCard({ id }: ArticleCardProps) {
             {subtitle && <p className="text-sm line-clamp-2">{subtitle}</p>}
           </div>
           <div className="absolute bottom-0 left-0 right-0 p-3 uppercase text-[11px] text-secondary text-shadow-lg">
-            {date}
-            {readingTime}
+            <div className="flex flex-row">
+              {date}
+              {readingTime}
+            </div>
+            <div className="flex flex-row">{caption}</div>
           </div>
         </div>
       </Link>

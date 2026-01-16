@@ -1,0 +1,21 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "nate-io",
+  "main": "api/index.ts",
+  "compatibility_date": "2025-04-03",
+  "assets": {
+    "directory": "dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  },
+  "ai": {
+    "binding": "AI",
+    "remote": true
+  },
+  "kv_namespaces": [
+    {
+      "id": "72463bb3492b4d6cbe50a1ee4092aada",
+      "binding": "CACHE"
+    }
+  ]
+}

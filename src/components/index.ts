@@ -1,5 +1,6 @@
 export * from './ArticleCard';
 export * from './ArticleGrid';
+export * from './ArticleSearch';
 export * from './AvatarCards';
 export * from './Badge';
 export * from './Blockquote';

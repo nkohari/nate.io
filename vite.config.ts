@@ -1,5 +1,6 @@
 import path from 'node:path';
 import { apocrypha } from '@apocrypha/core';
+import { cloudflare } from '@cloudflare/vite-plugin';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react-swc';
 import { defineConfig } from 'vite';
@@ -7,6 +8,7 @@ import { readConfig } from './build/config';
 import {
   getBasicMetadata,
   getContentStats,
+  getEmbeddings,
   getExcerpt,
   getImages,
   getOutgoingLinks,
@@ -30,6 +32,7 @@ export default defineConfig({
           getBasicMetadata,
           getThumbnail,
           getContentStats,
+          getEmbeddings,
           getExcerpt,
           getImages,
           getOutgoingLinks,
@@ -40,6 +43,10 @@ export default defineConfig({
     }),
     tailwindcss(),
     react(),
+    cloudflare({
+      persist: true,
+      configPath: 'wrangler.jsonc',
+    }),
   ],
   resolve: {
     alias: {

@@ -21,7 +21,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: 'spring', stiffness: 100, damping: 12 },
+    transition: { type: 'spring', stiffness: 100, damping: 15 },
   },
 };
 
@@ -45,7 +45,7 @@ export function ArticleGrid() {
       variants={gridVariants}
     >
       {filteredArticles.map(({ article, score }) => (
-        <motion.div key={article.path} variants={itemVariants}>
+        <motion.div key={article.path} layout variants={itemVariants}>
           <ArticleCard article={article} score={score} />
         </motion.div>
       ))}

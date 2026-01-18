@@ -1,7 +1,7 @@
 import { useCatalog } from '@apocrypha/core/catalog';
 import { createContext, useContext, useMemo } from 'react';
 import { Article, Metadata } from 'src/types';
-import { cosineSimilarity } from 'src/util';
+import { cosineSimilarity, getEmbedding } from 'src/util';
 
 export type SearchResult = {
   article: Article;
@@ -17,12 +17,6 @@ const SearchContext = createContext<SearchContext>({} as SearchContext);
 type SearchProviderProps = {
   children: React.ReactNode;
 };
-
-async function generateEmbedding(text: string) {
-  const response = await fetch(`/api/search/embed?q=${text}`);
-  const data = await response.json();
-  return data.embedding;
-}
 
 function decodeAndDequantize(embeddings: string) {
   const values = Int8Array.from(atob(embeddings), (char) => char.charCodeAt(0));
@@ -45,7 +39,7 @@ export function SearchProvider({ children }: SearchProviderProps) {
   }, [catalog]);
 
   const search = async (query: string, topK = 10) => {
-    const queryEmbedding = await generateEmbedding(query);
+    const queryEmbedding = await getEmbedding(query);
     return Object.entries(embeddings)
       .map(([path, embedding]) => {
         return {

@@ -1,4 +1,5 @@
 export * from './cosineSimilarity';
+export * from './getEmbedding';
 export * from './ordinal';
 export * from './randomArrayElement';
 export * from './randomInteger';

@@ -1,12 +1,13 @@
 import cx from 'classnames';
 import { DateTime, Duration } from 'luxon';
 import { motion } from 'motion/react';
-import { Image, Link } from 'src/components';
+import { Gauge, Image, Link } from 'src/components';
 import { Article } from 'src/types';
 
 type ArticleCardProps = {
   article: Article;
   caption?: React.ReactNode;
+  score?: number;
 };
 
 const cardVariants = {
@@ -19,7 +20,7 @@ const cardVariants = {
   },
 };
 
-export function ArticleCard({ article, caption }: ArticleCardProps) {
+export function ArticleCard({ article, caption, score }: ArticleCardProps) {
   const { thumbnailImage, title, subtitle } = article.metadata;
 
   let date: React.ReactNode;
@@ -40,6 +41,11 @@ export function ArticleCard({ article, caption }: ArticleCardProps) {
   if (article.metadata.readingTime) {
     const minutes = Math.round(Duration.fromMillis(article.metadata.readingTime).as('minutes'));
     readingTime = <span>a {Math.ceil(minutes)} min read</span>;
+  }
+
+  let scoreDisplay: React.ReactNode;
+  if (score !== undefined) {
+    scoreDisplay = <Gauge value={score} max={1} />;
   }
 
   return (
@@ -63,7 +69,14 @@ export function ArticleCard({ article, caption }: ArticleCardProps) {
             </>
           )}
           <div className="absolute top-0 left-0 right-0 p-3 flex flex-col gap-1 text-shadow-lg">
-            <h3 className="font-semibold text-lg leading-tight line-clamp-2">{title}</h3>
+            <h3
+              className={cx(
+                'font-semibold text-lg leading-tight',
+                score !== undefined ? 'line-clamp-1' : 'line-clamp-2',
+              )}
+            >
+              {title}
+            </h3>
             {subtitle && <p className="text-sm line-clamp-3">{subtitle}</p>}
           </div>
           <div className="absolute bottom-0 left-0 right-0 p-3 uppercase text-[11px] text-secondary text-shadow-lg">
@@ -71,7 +84,8 @@ export function ArticleCard({ article, caption }: ArticleCardProps) {
               {date}
               {readingTime}
             </div>
-            <div className="flex flex-row">{caption}</div>
+            {scoreDisplay && <div className="flex flex-row mt-1">{scoreDisplay}</div>}
+            {caption && <div className="flex flex-row">{caption}</div>}
           </div>
         </div>
       </Link>

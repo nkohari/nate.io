@@ -3,7 +3,7 @@ import { DataArray, FeatureExtractionPipeline, pipeline } from '@huggingface/tra
 import { Metadata } from '../../src/types';
 import { getRawText } from '../util';
 
-const EMBEDDING_MODEL = 'Xenova/all-MiniLM-L6-v2';
+const EMBEDDING_MODEL = 'Xenova/bge-small-en-v1.5';
 
 let generatorPromise: Promise<FeatureExtractionPipeline> | undefined;
 

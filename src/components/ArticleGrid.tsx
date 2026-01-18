@@ -51,10 +51,7 @@ export function ArticleGrid({ state = 'live' }: ArticleGridProps) {
     >
       {filteredArticles.map(({ article, score }) => (
         <motion.div key={article.path} variants={itemVariants}>
-          <ArticleCard
-            article={article}
-            caption={score !== undefined ? `${(score * 100).toFixed(0)}% similar` : undefined}
-          />
+          <ArticleCard article={article} score={score} />
         </motion.div>
       ))}
     </motion.div>

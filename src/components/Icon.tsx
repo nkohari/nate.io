@@ -1,23 +1,15 @@
 import cx from 'classnames';
 import * as ICONS from '../icons';
 
-const SIZE_CLASSES = {
-  default: 'w-[1em]',
-  small: 'w-3',
-  medium: 'w-4',
-  large: 'w-8',
-};
-
 export type IconType = keyof typeof ICONS;
-export type IconSize = 'default' | 'small' | 'medium' | 'large';
 
 export type IconProps = {
   className?: string;
   type: IconType;
-  size?: IconSize;
+  size?: string | number;
 };
 
-export function Icon({ className, type, size = 'default' }: IconProps) {
+export function Icon({ className, type, size = '1em' }: IconProps) {
   const SvgComponent = ICONS[type] as React.FunctionComponent<React.SVGProps<SVGSVGElement>>;
 
   if (!SvgComponent) {
@@ -25,6 +17,9 @@ export function Icon({ className, type, size = 'default' }: IconProps) {
   }
 
   return (
-    <SvgComponent className={cx('inline-block fill-current', SIZE_CLASSES[size], className)} />
+    <SvgComponent
+      className={cx('flex-none inline-block fill-current', className)}
+      style={{ width: size, height: size }}
+    />
   );
 }

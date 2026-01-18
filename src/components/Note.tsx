@@ -55,7 +55,7 @@ export function Note({ children, id }: NoteProps) {
       <p className="flex-1">
         {children}
         <Link href={`#note-ref-${id}`} className="inline-flex items-center ml-1" type="subtle">
-          <Icon type="jumpBack" size="small" />
+          <Icon type="jumpBack" size="12px" />
         </Link>
       </p>
     </div>

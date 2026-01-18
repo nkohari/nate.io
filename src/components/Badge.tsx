@@ -11,7 +11,7 @@ export function Badge({ className, icon, text }: BadgeProps) {
   let iconElement: React.ReactNode;
 
   if (icon) {
-    iconElement = <Icon type={icon} size="medium" />;
+    iconElement = <Icon type={icon} size="16px" />;
   }
 
   return (

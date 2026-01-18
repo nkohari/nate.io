@@ -4,16 +4,6 @@ title: My Writing
 
 {% article-search /%}
 
-I've been writing on various blogs and websites for the last {% duration since="2006-07-28" /%}. I don't write as often as I used to. Occasionally, I swear to myself that I'll start writing again, but then I don't follow through.
+I've been writing on various blogs and websites for the last {% duration since="2006-07-28" /%}. My older writing feels pretty silly to me today, and a lot of the content isn’t relevant anymore. I don't really recognize myself as the author, but for some reason I can't part with them. Instead, I've marked them as _archived_ and included them here.
 
 {% article-grid /%}
-
----
-
-## Articles from a past life
-
-Lots of my older writing feels pretty silly to me today, and most of the content isn’t relevant anymore.
-Reading these articles, I often don't recognize myself as the author. For some reason I can't part with
-them, so instead I've marked them as _archived_ and included them here.
-
-{% article-grid state="archived" /%}

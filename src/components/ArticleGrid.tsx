@@ -1,8 +1,7 @@
 import { motion } from 'motion/react';
 import { useMemo } from 'react';
 import { ArticleCard } from 'src/components';
-import { useArticles } from 'src/shell/ArticleProvider';
-import { ArticleState } from 'src/types';
+import { useArticles } from 'src/shell';
 
 const gridVariants = {
   hidden: {
@@ -26,11 +25,7 @@ const itemVariants = {
   },
 };
 
-type ArticleGridProps = {
-  state?: ArticleState;
-};
-
-export function ArticleGrid({ state = 'live' }: ArticleGridProps) {
+export function ArticleGrid() {
   const { articles } = useArticles();
 
   const filteredArticles = useMemo(() => {
@@ -38,9 +33,9 @@ export function ArticleGrid({ state = 'live' }: ArticleGridProps) {
       ({ article }) =>
         article.metadata.type !== 'music' &&
         article.metadata.type !== 'page' &&
-        article.metadata.state === state,
+        article.metadata.state !== 'draft',
     );
-  }, [articles, state]);
+  }, [articles]);
 
   return (
     <motion.div

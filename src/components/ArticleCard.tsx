@@ -1,7 +1,7 @@
 import cx from 'classnames';
 import { DateTime, Duration } from 'luxon';
 import { motion } from 'motion/react';
-import { Gauge, Image, Link } from 'src/components';
+import { Gauge, Icon, Image, Link } from 'src/components';
 import { Article } from 'src/types';
 
 type ArticleCardProps = {
@@ -28,7 +28,7 @@ export function ArticleCard({ article, caption, score }: ArticleCardProps) {
     date = (
       <time
         dateTime={article.metadata.date.toISOString()}
-        className={cx('mr-1', {
+        className={cx({
           "after:content-['—'] after:ml-1": article.metadata.date && article.metadata.readingTime,
         })}
       >
@@ -46,6 +46,11 @@ export function ArticleCard({ article, caption, score }: ArticleCardProps) {
   let scoreDisplay: React.ReactNode;
   if (score !== undefined) {
     scoreDisplay = <Gauge value={score} max={1} />;
+  }
+
+  let icon: React.ReactNode;
+  if (article.metadata.state === 'archived') {
+    icon = <Icon type="archived" size="16px" />;
   }
 
   return (
@@ -80,7 +85,8 @@ export function ArticleCard({ article, caption, score }: ArticleCardProps) {
             {subtitle && <p className="text-sm line-clamp-3">{subtitle}</p>}
           </div>
           <div className="absolute bottom-0 left-0 right-0 p-3 uppercase text-[11px] text-secondary text-shadow-lg">
-            <div className="flex flex-row">
+            <div className="flex flex-row items-center gap-1">
+              {icon}
               {date}
               {readingTime}
             </div>

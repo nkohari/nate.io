@@ -2,10 +2,9 @@
 title: My Writing
 ---
 
-I've been writing on various blogs and websites for the last {% duration since="2006-07-28" /%}. I don't
-write as often as I used to, which is something I should probably work on.
-
 {% article-search /%}
+
+I've been writing on various blogs and websites for the last {% duration since="2006-07-28" /%}. I don't write as often as I used to. Occasionally, I swear to myself that I'll start writing again, but then I don't follow through.
 
 {% article-grid /%}
 

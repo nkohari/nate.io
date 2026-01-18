@@ -63,8 +63,8 @@ export function ArticleCard({ article, caption }: ArticleCardProps) {
             </>
           )}
           <div className="absolute top-0 left-0 right-0 p-3 flex flex-col gap-1 text-shadow-lg">
-            <h3 className="font-semibold text-lg leading-tight">{title}</h3>
-            {subtitle && <p className="text-sm line-clamp-2">{subtitle}</p>}
+            <h3 className="font-semibold text-lg leading-tight line-clamp-2">{title}</h3>
+            {subtitle && <p className="text-sm line-clamp-3">{subtitle}</p>}
           </div>
           <div className="absolute bottom-0 left-0 right-0 p-3 uppercase text-[11px] text-secondary text-shadow-lg">
             <div className="flex flex-row">

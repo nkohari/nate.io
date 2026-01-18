@@ -2,5 +2,6 @@
 .claude
 .DS_Store
 .env
+.wrangler
 dist
 node_modules

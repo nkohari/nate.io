@@ -1,8 +1,8 @@
-import { useCatalog } from '@apocrypha/core/catalog';
 import { motion } from 'motion/react';
 import { useMemo } from 'react';
 import { ArticleCard } from 'src/components';
-import { ArticleState, Metadata } from 'src/types';
+import { useArticles } from 'src/shell/ArticleProvider';
+import { ArticleState } from 'src/types';
 
 const gridVariants = {
   hidden: {
@@ -31,21 +31,15 @@ type ArticleGridProps = {
 };
 
 export function ArticleGrid({ state = 'live' }: ArticleGridProps) {
-  const articles = useCatalog<Metadata>();
+  const { articles } = useArticles();
 
   const filteredArticles = useMemo(() => {
-    return Object.values(articles)
-      .filter(
-        (article) =>
-          article.metadata.type !== 'music' &&
-          article.metadata.type !== 'page' &&
-          article.metadata.state === state,
-      )
-      .sort((a, b) => {
-        const dateA = a.metadata.date?.getTime() || 0;
-        const dateB = b.metadata.date?.getTime() || 0;
-        return dateB - dateA;
-      });
+    return articles.filter(
+      ({ article }) =>
+        article.metadata.type !== 'music' &&
+        article.metadata.type !== 'page' &&
+        article.metadata.state === state,
+    );
   }, [articles, state]);
 
   return (
@@ -55,9 +49,12 @@ export function ArticleGrid({ state = 'live' }: ArticleGridProps) {
       animate="visible"
       variants={gridVariants}
     >
-      {filteredArticles.map((article) => (
+      {filteredArticles.map(({ article, score }) => (
         <motion.div key={article.path} variants={itemVariants}>
-          <ArticleCard article={article} />
+          <ArticleCard
+            article={article}
+            caption={score !== undefined ? `${(score * 100).toFixed(0)}% similar` : undefined}
+          />
         </motion.div>
       ))}
     </motion.div>

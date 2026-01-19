@@ -43,10 +43,7 @@ export default defineConfig({
     }),
     tailwindcss(),
     react(),
-    cloudflare({
-      persist: true,
-      configPath: 'wrangler.jsonc',
-    }),
+    cloudflare({ configPath: 'wrangler.jsonc' }),
   ],
   resolve: {
     alias: {

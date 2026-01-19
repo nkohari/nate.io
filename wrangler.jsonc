@@ -2,9 +2,10 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "nate-io",
   "main": "api/index.ts",
-  "compatibility_date": "2025-04-03",
+  "compatibility_date": "2026-01-19",
+  "preview_urls": true,
   "assets": {
-    "directory": "dist",
+    "directory": "dist/client",
     "binding": "ASSETS",
     "not_found_handling": "single-page-application"
   },

@@ -57,6 +57,11 @@ export type ImageMetadata = {
   height: number;
 };
 
+export type VideoMetadata = {
+  src: string;
+  format: string;
+};
+
 export type Metadata = {
   type: ArticleType;
   state: ArticleState;
@@ -66,6 +71,7 @@ export type Metadata = {
   thumbnail?: string;
   thumbnailImage?: ImageMetadata;
   images?: ImageMetadata[];
+  videos?: VideoMetadata[];
   outgoingLinks?: string[];
   excerpt?: string;
   date?: Date;

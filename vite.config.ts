@@ -15,6 +15,7 @@ import {
   getSections,
   getSpotifyData,
   getThumbnail,
+  getVideos,
 } from './build/metadata';
 import { Metadata } from './src/types';
 
@@ -35,6 +36,7 @@ export default defineConfig({
           getEmbeddings,
           getExcerpt,
           getImages,
+          getVideos,
           getOutgoingLinks,
           getSections,
           getSpotifyData(readConfig(), '.cache'),

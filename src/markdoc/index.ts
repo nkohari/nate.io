@@ -24,4 +24,5 @@ export * from './music-grid';
 export * from './note';
 export * from './paragraph';
 export * from './ride-graph';
+export * from './video';
 export * from './work';

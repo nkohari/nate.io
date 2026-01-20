@@ -7,3 +7,4 @@ export * from './getOutgoingLinks';
 export * from './getSections';
 export * from './getSpotifyData';
 export * from './getThumbnail';
+export * from './getVideos';

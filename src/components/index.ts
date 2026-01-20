@@ -31,6 +31,7 @@ export * from './RightGutter';
 export * from './Subtitle';
 export * from './TableOfContents';
 export * from './Title';
+export * from './Video';
 export * from './Work';
 
 export * from './biking/RideGraph';

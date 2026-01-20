@@ -1,5 +1,6 @@
 import { getAssetUrl } from '@apocrypha/core/assets';
 import cx from 'classnames';
+import { useRef, useState } from 'react';
 import { VideoMetadata } from 'src/types';
 import { useReducedMotion } from 'src/util';
 
@@ -36,8 +37,10 @@ export function Video({
   src,
   ...props
 }: VideoProps) {
-  const reducedMotion = useReducedMotion();
   const { format } = metadata;
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const reducedMotion = useReducedMotion();
 
   let videoUrl = null;
   let posterUrl = null;
@@ -53,32 +56,50 @@ export function Video({
     posterUrl = getAssetUrl(`videos/${poster}`);
   }
 
-  const handleMouseEnter = (evt: React.MouseEvent<HTMLVideoElement>) => {
-    if (play === 'hover' && !reducedMotion) {
-      evt.currentTarget.play();
+  const handleMouseEnter = () => {
+    if (play === 'hover' && !reducedMotion && videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
     }
   };
 
-  const handleMouseLeave = (evt: React.MouseEvent<HTMLVideoElement>) => {
-    if (play === 'hover' && !reducedMotion) {
-      evt.currentTarget.pause();
-      evt.currentTarget.currentTime = 0;
+  const handleMouseLeave = () => {
+    if (play === 'hover' && !reducedMotion && videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+      setIsPlaying(false);
     }
   };
 
   return (
-    <div className={cx('mb-6 w-full overflow-hidden', className)}>
+    <div
+      className={cx(
+        'relative mb-6 w-full overflow-hidden',
+        corners && CORNER_CLASSES[corners],
+        className,
+      )}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {posterUrl && (
+        <img
+          src={posterUrl || undefined}
+          alt="Video poster"
+          className={cx(
+            'absolute inset-0 w-full bg-background-alt object-cover',
+            isPlaying && 'hidden',
+          )}
+        />
+      )}
       <video
+        ref={videoRef}
         src={videoUrl || undefined}
-        poster={posterUrl || undefined}
-        className={cx('w-full bg-background-alt', corners && CORNER_CLASSES[corners])}
+        className="w-full"
         data-video-format={format}
         style={{ aspectRatio: width / height }}
         controls={false}
         autoPlay={play === 'auto'}
         loop
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
         {...props}
       />
       {children}

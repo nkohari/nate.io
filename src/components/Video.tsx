@@ -58,6 +58,7 @@ export function Video({
 
   const handleMouseEnter = () => {
     if (play === 'hover' && !reducedMotion && videoRef.current) {
+      videoRef.current.currentTime = 0;
       videoRef.current.play();
       setIsPlaying(true);
     }
@@ -97,8 +98,9 @@ export function Video({
         className="w-full"
         data-video-format={format}
         style={{ aspectRatio: width / height }}
-        controls={false}
         autoPlay={play === 'auto'}
+        muted
+        playsInline
         loop
         {...props}
       />

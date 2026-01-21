@@ -3,5 +3,5 @@ export type LeadInProps = {
 };
 
 export function LeadIn({ children }: LeadInProps) {
-  return <span className="text-xl italic font-bold">{children}</span>;
+  return <span className="text-lg italic font-bold">{children}</span>;
 }

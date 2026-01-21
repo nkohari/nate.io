@@ -1,6 +1,6 @@
 {% avatar-cards count=4 /%}
 
-**Hi, I'm Nate**. I'm a software engineer, and occasionally an entrepreneur.
+{% lead-in %}Hi, I'm Nate.{% /lead-in %} I'm a software engineer, and occasionally an entrepreneur.
 
 Right now, I'm building [Ardent](https://ardent.ai), a platform which helps users blend the creativity of generative AI with the determinism of software. Before that, I spent a few years at [Stripe](https://stripe.com/), working on developer experience, knowledge management, and some of the company's [early work with generative AI](https://openai.com/customer-stories/stripe).
 

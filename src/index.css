@@ -3,7 +3,7 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: "SN Pro", "-apple-system", "sans-serif";
+  --font-sans: "IBM Plex Sans", "-apple-system", "sans-serif";
   --font-mono: "Commit Mono", "ui-monospace", "monospace";
 
   --color-spotify: #1db954;

@@ -47,7 +47,7 @@ export function Input({
         value={value}
         className={cx(
           'bg-transparent ml-2 focus:outline-none',
-          'placeholder:italic placeholder:text-base placeholder:text-secondary',
+          'placeholder:italic placeholder:text-sm placeholder:text-secondary',
         )}
         onChange={handleChange}
       />

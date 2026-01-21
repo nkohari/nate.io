@@ -17,11 +17,10 @@ import {
   getThumbnail,
   getVideos,
 } from './build/metadata';
-import { Metadata } from './src/types';
 
 export default defineConfig({
   plugins: [
-    apocrypha<Metadata>({
+    apocrypha({
       paths: {
         assets: 'media',
         components: 'src/components',

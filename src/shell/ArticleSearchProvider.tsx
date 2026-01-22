@@ -1,38 +1,70 @@
 import { useCatalog } from '@apocrypha/core/catalog';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
-import { useSearch } from 'src/shell/SearchProvider';
 import { Article, Metadata } from 'src/types';
-import type { SearchResult } from 'src/shell/SearchProvider';
+import { cosineSimilarity, getEmbedding } from 'src/util';
 
 type ArticleWithScore = {
   article: Article;
   score?: number;
 };
 
-type ArticleContext = {
+type SearchResult = {
+  article: Article;
+  score: number;
+};
+
+type ArticleSearchContext = {
   query: string;
   setQuery: (query: string) => void;
   articles: ArticleWithScore[];
   isSearching: boolean;
 };
 
-const ArticleContext = createContext<ArticleContext>({} as ArticleContext);
+const ArticleSearchContext = createContext<ArticleSearchContext>({} as ArticleSearchContext);
 
-type ArticleProviderProps = {
+type ArticleSearchProviderProps = {
   children: React.ReactNode;
 };
 
 const MINIMUM_QUERY_LENGTH = 3;
 const DEBOUNCE_DELAY = 300;
 
-export function ArticleProvider({ children }: ArticleProviderProps) {
+function decodeAndDequantize(embeddings: string) {
+  const values = Int8Array.from(atob(embeddings), (char) => char.charCodeAt(0));
+  return Array.from(values, (value) => value / 127);
+}
+
+export function ArticleSearchProvider({ children }: ArticleSearchProviderProps) {
   const catalog = useCatalog<Metadata>();
-  const { search } = useSearch();
   const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState<SearchResult[] | undefined>();
   const [isSearching, setIsSearching] = useState(false);
 
+  const embeddings = useMemo(() => {
+    return Object.values(catalog).reduce(
+      (hash, article) => {
+        if (article.metadata.embeddings) {
+          hash[article.path] = decodeAndDequantize(article.metadata.embeddings);
+        }
+        return hash;
+      },
+      {} as Record<string, number[]>,
+    );
+  }, [catalog]);
+
   useEffect(() => {
+    const sortByRelevancy = async (query: string) => {
+      const queryEmbedding = await getEmbedding(query);
+      return Object.entries(embeddings)
+        .map(([path, embedding]) => {
+          return {
+            article: catalog[path],
+            score: cosineSimilarity(embedding, queryEmbedding),
+          };
+        })
+        .sort((a, b) => b.score - a.score);
+    };
+
     if (query.trim().length < MINIMUM_QUERY_LENGTH) {
       setSearchResults(undefined);
       setIsSearching(false);
@@ -42,7 +74,7 @@ export function ArticleProvider({ children }: ArticleProviderProps) {
     setIsSearching(true);
     const timeoutId = setTimeout(async () => {
       try {
-        const results = await search(query, 100); // Get more results for filtering
+        const results = await sortByRelevancy(query);
         setSearchResults(results);
       } catch (error) {
         console.error('Search failed:', error);
@@ -53,15 +85,15 @@ export function ArticleProvider({ children }: ArticleProviderProps) {
     }, DEBOUNCE_DELAY);
 
     return () => clearTimeout(timeoutId);
-  }, [query, search]);
+  }, [catalog, embeddings, query]);
 
   const articles = useMemo(() => {
-    // If we have search results, use them sorted by score
+    // If we have search results, use them sorted by score.
     if (searchResults) {
       return searchResults.map(({ article, score }) => ({ article, score }));
     }
 
-    // Otherwise, return all articles sorted by date
+    // Otherwise, return all articles sorted by date.
     return Object.values(catalog)
       .sort((a, b) => {
         const dateA = a.metadata.date?.getTime() || 0;
@@ -81,9 +113,9 @@ export function ArticleProvider({ children }: ArticleProviderProps) {
     [query, articles, isSearching],
   );
 
-  return <ArticleContext value={value}>{children}</ArticleContext>;
+  return <ArticleSearchContext value={value}>{children}</ArticleSearchContext>;
 }
 
 export function useArticles() {
-  return useContext(ArticleContext);
+  return useContext(ArticleSearchContext);
 }

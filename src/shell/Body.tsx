@@ -2,7 +2,7 @@ import { ArticleContent, useArticle } from '@apocrypha/core/catalog';
 import { motion } from 'motion/react';
 import { Suspense } from 'react';
 import { ArticleLayout, MusicLayout, PageLayout } from 'src/components';
-import { Meta, MetadataProvider } from 'src/shell';
+import { ArticleSearchProvider, Meta, MetadataProvider } from 'src/shell';
 import type { Metadata } from 'src/types';
 
 const variants = {
@@ -55,10 +55,12 @@ export function Body({ path }: BodyProps) {
         variants={variants}
       >
         <MetadataProvider metadata={article.metadata}>
-          <Meta metadata={article.metadata} />
-          <Layout metadata={article.metadata}>
-            <ArticleContent path={path} />
-          </Layout>
+          <ArticleSearchProvider>
+            <Meta metadata={article.metadata} />
+            <Layout metadata={article.metadata}>
+              <ArticleContent path={path} />
+            </Layout>
+          </ArticleSearchProvider>
         </MetadataProvider>
       </motion.main>
     </Suspense>

@@ -2,11 +2,10 @@ import { useCatalog } from '@apocrypha/core/catalog';
 import { AnimatePresence } from 'motion/react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import {
-  ArticleProvider,
+  ArticleSearchProvider,
   Body,
   NotFound,
   ScrollController,
-  SearchProvider,
   SiteFooter,
   SiteHeader,
   ThemeProvider,
@@ -32,17 +31,13 @@ export const App = () => (
   <BrowserRouter>
     <ThemeProvider>
       <ScrollController>
-        <SearchProvider>
-          <ArticleProvider>
-            <div className="flex flex-col items-center leading-relaxed text-primary min-h-screen bg-background transition-colors">
-              <div className="flex-1 flex flex-col w-full max-w-[900px] pt-1 px-4">
-                <SiteHeader />
-                <ArticleRoutes />
-              </div>
-            </div>
-            <SiteFooter />
-          </ArticleProvider>
-        </SearchProvider>
+        <div className="flex flex-col items-center leading-relaxed text-primary min-h-screen bg-background transition-colors">
+          <div className="flex-1 flex flex-col w-full max-w-[900px] pt-1 px-4">
+            <SiteHeader />
+            <ArticleRoutes />
+          </div>
+        </div>
+        <SiteFooter />
       </ScrollController>
     </ThemeProvider>
   </BrowserRouter>

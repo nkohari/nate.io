@@ -1,5 +1,5 @@
 import { Input } from 'src/components';
-import { useArticles } from 'src/shell/ArticleProvider';
+import { useArticles } from 'src/shell/ArticleSearchProvider';
 
 type ArticleSearchProps = {
   placeholder?: string;

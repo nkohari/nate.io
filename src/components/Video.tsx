@@ -13,9 +13,7 @@ const CORNER_CLASSES = {
 };
 
 export type VideoCorners = keyof typeof CORNER_CLASSES;
-
-export const VideoPlayMode = ['auto', 'hover'] as const;
-export type VideoPlayMode = (typeof VideoPlayMode)[number];
+export type VideoPlayMode = 'auto' | 'hover';
 
 export type VideoProps = React.VideoHTMLAttributes<HTMLVideoElement> & {
   children?: React.ReactNode;

@@ -12,8 +12,8 @@
   --color-light-secondary: var(--color-neutral-600);
   --color-light-muted: var(--color-neutral-400);
   --color-light-background: var(--color-white);
-  --color-light-background-alt: var(--color-neutral-200);
-  --color-light-background-dim: var(--color-neutral-100);
+  --color-light-background-alt: var(--color-neutral-300);
+  --color-light-background-dim: var(--color-neutral-200);
   --color-light-link: var(--color-neutral-600);
   --color-light-link-hover: var(--color-blue-600);
   --color-light-divider: var(--color-neutral-300);

@@ -31,7 +31,7 @@ export const App = () => (
   <BrowserRouter>
     <ThemeProvider>
       <ScrollController>
-        <div className="flex flex-col items-center leading-relaxed text-primary min-h-screen bg-background transition-colors">
+        <div className="flex flex-col items-center leading-relaxed text-primary min-h-[90vh] bg-background transition-colors">
           <div className="flex-1 flex flex-col w-full max-w-[900px] pt-1 px-4">
             <SiteHeader />
             <ArticleRoutes />

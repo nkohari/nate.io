@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { useMemo } from 'react';
 import { ArticleCard, Input } from 'src/components';
-import { useArticles } from 'src/shell/ArticleSearchProvider';
+import { useArticleSearch } from 'src/shell';
 
 const gridVariants = {
   hidden: {
@@ -30,9 +30,9 @@ type ArticleGridProps = {
 };
 
 export function ArticleGrid({ placeholder = 'Type to match articles...' }: ArticleGridProps) {
-  const { query, setQuery, articles } = useArticles();
+  const { query, setQuery, articles } = useArticleSearch();
 
-  const filteredArticles = useMemo(() => {
+  const essays = useMemo(() => {
     return articles.filter(
       ({ article }) => article.metadata.type === 'essay' && article.metadata.state !== 'draft',
     );
@@ -53,7 +53,7 @@ export function ArticleGrid({ placeholder = 'Type to match articles...' }: Artic
         animate="visible"
         variants={gridVariants}
       >
-        {filteredArticles.map(({ article, score }) => (
+        {essays.map(({ article, score }) => (
           <motion.div key={article.path} layout variants={itemVariants}>
             <ArticleCard article={article} score={score} />
           </motion.div>

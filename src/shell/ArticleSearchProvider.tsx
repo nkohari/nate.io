@@ -23,11 +23,6 @@ type ArticleSearchProviderProps = {
 const MINIMUM_QUERY_LENGTH = 3;
 const DEBOUNCE_DELAY = 300;
 
-function decodeAndDequantize(embeddings: string) {
-  const values = Int8Array.from(atob(embeddings), (char) => char.charCodeAt(0));
-  return Array.from(values, (value) => value / 127);
-}
-
 function sortByDate(articles: Article[]): ArticleWithScore[] {
   return articles
     .sort((a, b) => {
@@ -38,24 +33,24 @@ function sortByDate(articles: Article[]): ArticleWithScore[] {
     .map((article) => ({ article, score: undefined }));
 }
 
+function calculateRelevanceScore(article: Article, queryEmbedding: number[]) {
+  if (!article.metadata.embeddings) {
+    return 0;
+  }
+
+  // Decode and de-quantize the embeddings generated for the article.
+  const values = Int8Array.from(atob(article.metadata.embeddings), (char) => char.charCodeAt(0));
+  const embeddings = Array.from(values, (value) => value / 127);
+
+  return cosineSimilarity(embeddings, queryEmbedding);
+}
+
 export function ArticleSearchProvider({ children }: ArticleSearchProviderProps) {
   const catalog = useCatalog<Metadata>();
   const articlesByDate = useMemo(() => sortByDate(Object.values(catalog)), [catalog]);
 
   const [query, setQuery] = useState('');
   const [articles, setArticles] = useState<ArticleWithScore[]>(articlesByDate);
-
-  const embeddings = useMemo(() => {
-    return Object.values(catalog).reduce(
-      (hash, article) => {
-        if (article.metadata.embeddings) {
-          hash[article.path] = decodeAndDequantize(article.metadata.embeddings);
-        }
-        return hash;
-      },
-      {} as Record<string, number[]>,
-    );
-  }, [catalog]);
 
   useEffect(() => {
     if (query.trim().length < MINIMUM_QUERY_LENGTH) {
@@ -66,30 +61,28 @@ export function ArticleSearchProvider({ children }: ArticleSearchProviderProps) 
     const timeoutId = setTimeout(async () => {
       try {
         const queryEmbedding = await getEmbedding(query);
-        const articlesByRelevance = Object.entries(embeddings)
-          .map(([path, embedding]) => {
-            return {
-              article: catalog[path],
-              score: cosineSimilarity(embedding, queryEmbedding),
-            };
-          })
+        const articlesByRelevance = Object.entries(catalog)
+          .map(([path, article]) => ({
+            article: catalog[path],
+            score: calculateRelevanceScore(article, queryEmbedding),
+          }))
           .sort((a, b) => b.score - a.score);
 
         setArticles(articlesByRelevance);
       } catch (error) {
-        console.error('Search failed:', error);
+        console.error('Error during article search:', error);
         setArticles(articlesByDate);
       }
     }, DEBOUNCE_DELAY);
 
     return () => clearTimeout(timeoutId);
-  }, [catalog, articlesByDate, embeddings, query]);
+  }, [catalog, articlesByDate, query]);
 
   const value = useMemo(() => ({ query, setQuery, articles }), [query, articles]);
 
   return <ArticleSearchContext value={value}>{children}</ArticleSearchContext>;
 }
 
-export function useArticles() {
+export function useArticleSearch() {
   return useContext(ArticleSearchContext);
 }

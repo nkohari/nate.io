@@ -2,7 +2,8 @@
 title: Ninject Release Candidate 1
 date: 2008-03-26T04:45:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: ninject
 ---
 

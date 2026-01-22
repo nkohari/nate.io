@@ -2,7 +2,8 @@
 title: Defending Dependency Injection
 date: 2007-08-16T19:07:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 ---
 

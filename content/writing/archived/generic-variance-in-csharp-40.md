@@ -3,7 +3,8 @@ title: Generic Variance in C# 4.0
 subtitle: The CLR type system gets even more powerful.
 date: 2008-10-30T00:34:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 song: spotify:track:68BfPDbBYWylghSi4zbCTO
 ---

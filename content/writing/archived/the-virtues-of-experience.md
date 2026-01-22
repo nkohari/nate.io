@@ -2,7 +2,8 @@
 title: The Virtues of Experience
 date: 2006-11-26T17:09:00
 state: archived
-type: narrative
+type: essay
+format: narrative
 category: dotnet
 ---
 

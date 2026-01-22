@@ -3,7 +3,8 @@ title: Microsoft Finally Realizes I’m Awesome
 subtitle: I was selected as a Microsoft MVP for my open source .NET work!
 date: 2009-07-05T20:03:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: meta
 song: spotify:track:3DjS3YvziBLYInH4yx4ZgS
 ---

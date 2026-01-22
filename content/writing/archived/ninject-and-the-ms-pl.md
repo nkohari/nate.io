@@ -2,7 +2,8 @@
 title: Ninject and the Ms-PL
 subtitle: Now you can choose your flavor.
 date: 2009-03-13T22:33:00
-type: instructional
+type: essay
+format: instructional
 state: archived
 category: ninject
 song: spotify:track:1yElfZ8b4weRLt5YFve91c

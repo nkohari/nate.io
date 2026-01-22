@@ -3,7 +3,8 @@ title: Come Hear Me Ramble
 subtitle: I was selected to speak at Cleveland Day of .NET!
 date: 2008-04-27T05:19:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: meta
 ---
 

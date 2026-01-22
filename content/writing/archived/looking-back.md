@@ -3,7 +3,8 @@ title: Looking Back
 subtitle: A few lessons learned from the short life of our startup.
 date: 2010-08-26T07:14:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: agilezen
 song: spotify:track:2gcqVTesDy08DOB2rV2Odt
 ---

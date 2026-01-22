@@ -30,10 +30,7 @@ export function ArticleGrid() {
 
   const filteredArticles = useMemo(() => {
     return articles.filter(
-      ({ article }) =>
-        article.metadata.type !== 'music' &&
-        article.metadata.type !== 'page' &&
-        article.metadata.state !== 'draft',
+      ({ article }) => article.metadata.type === 'essay' && article.metadata.state !== 'draft',
     );
   }, [articles]);
 

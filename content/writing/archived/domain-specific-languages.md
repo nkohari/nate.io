@@ -2,7 +2,8 @@
 title: Domain-Specific Languages
 date: 2007-06-19T04:23:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 ---
 

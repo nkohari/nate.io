@@ -3,7 +3,8 @@ title: Convenience Kills
 subtitle: With software, maintenance is the real cost.
 date: 2008-08-19T21:43:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: software
 song: spotify:track:36HA2woC1glnLa4vqWY3IC
 ---

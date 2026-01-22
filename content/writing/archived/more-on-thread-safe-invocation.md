@@ -2,7 +2,8 @@
 title: More on Thread-Safe Invocation
 date: 2007-08-14T19:41:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 ---
 

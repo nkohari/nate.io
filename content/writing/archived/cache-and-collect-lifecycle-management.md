@@ -3,7 +3,8 @@ title: Cache-and-Collect Lifecycle Management
 subtitle: Ninject 2 tries a new solution to an old problem.
 date: 2009-03-08T03:41:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: ninject
 song: spotify:track:0iUano4euaiUETVUd1u0cx
 ---

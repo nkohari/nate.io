@@ -3,7 +3,8 @@ title: Joining the Telligenti
 subtitle: Taking the next step in my career.
 date: 2008-08-22T19:53:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: meta
 song: spotify:track:4wLtsL9o9tjbLG8WSGIqKT
 ---

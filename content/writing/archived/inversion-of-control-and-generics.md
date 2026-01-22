@@ -2,7 +2,8 @@
 title: Inversion of Control and Generics
 date: 2007-07-07T15:23:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 ---
 

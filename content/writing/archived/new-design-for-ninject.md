@@ -3,7 +3,8 @@ title: New Design for Ninject
 subtitle: Now with 10x more ninjas.
 date: 2008-04-04T06:38:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: ninject
 ---
 

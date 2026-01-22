@@ -2,7 +2,8 @@
 title: Interop Insanity
 date: 2006-07-28T19:48:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 ---
 

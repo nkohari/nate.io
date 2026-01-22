@@ -2,7 +2,8 @@
 title: Cricket Alpha Release!
 date: 2006-09-12T14:43:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: open source
 ---
 

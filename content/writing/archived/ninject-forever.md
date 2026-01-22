@@ -3,7 +3,8 @@ title: Ninject Forever
 subtitle: Ninject 2.0 is live!
 date: 2010-02-27T03:00:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: ninject
 song: spotify:track:2hZC4u7TtYVPQuz3Wy0D5v
 ---

@@ -2,7 +2,8 @@
 title: Titan Beta 1 Release
 date: 2007-05-08T05:31:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: ninject
 ---
 

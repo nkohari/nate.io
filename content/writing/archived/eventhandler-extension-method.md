@@ -3,7 +3,8 @@ title: EventHandler Extension Method
 subtitle: Just a random trick I found useful to avoid excessive null checking.
 date: 2009-02-09T08:44:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 song: spotify:track:2dbYXLChy4M8DeaqdFXhA0
 ---

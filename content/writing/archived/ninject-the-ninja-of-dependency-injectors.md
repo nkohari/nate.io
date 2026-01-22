@@ -2,7 +2,8 @@
 title: 'Ninject: The Ninja of Dependency Injectors'
 date: 2007-09-04T05:29:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: ninject
 ---
 

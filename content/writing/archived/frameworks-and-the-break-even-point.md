@@ -3,7 +3,8 @@ title: Frameworks and the Break-Even Point
 subtitle: Using a framework early will pay off later.
 date: 2008-04-02T17:14:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: ninject
 ---
 

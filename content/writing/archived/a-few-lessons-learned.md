@@ -3,7 +3,8 @@ title: A Few Lessons Learned
 subtitle: Some were learned the hard way.
 date: 2009-08-19T06:08:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: agilezen
 song: spotify:track:3tcaltthSz9s6awB6koVRo
 ---

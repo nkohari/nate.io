@@ -3,7 +3,8 @@ title: Announcing Ninject Contrib!
 subtitle: A new way to contribute extensions to Ninject.
 date: 2008-04-21T05:50:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: ninject
 ---
 

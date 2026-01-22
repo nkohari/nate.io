@@ -2,7 +2,8 @@
 title: Error Messages and the "Try Again Later" Syndrome
 date: 2007-08-25T22:03:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 ---
 

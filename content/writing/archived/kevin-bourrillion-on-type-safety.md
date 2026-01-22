@@ -2,7 +2,8 @@
 title: Kevin Bourrillion on Type Safety
 date: 2007-04-18T20:05:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: software
 ---
 

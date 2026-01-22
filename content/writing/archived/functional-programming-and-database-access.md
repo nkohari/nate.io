@@ -2,7 +2,8 @@
 title: Functional Programming and Database Access
 date: 2007-09-07T22:19:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 ---
 

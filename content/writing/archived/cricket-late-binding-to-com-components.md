@@ -2,7 +2,8 @@
 title: 'Cricket: Late-Binding to COM Components'
 date: 2006-08-32T16:48:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: open source
 ---
 

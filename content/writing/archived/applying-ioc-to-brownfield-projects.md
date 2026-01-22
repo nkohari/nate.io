@@ -3,7 +3,8 @@ title: Applying IoC to Brownfield Projects
 subtitle: Gradually moving towards a better architecture.
 date: 2008-06-21T20:19:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 ---
 

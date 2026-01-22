@@ -12,7 +12,10 @@ function DesktopNavigationLink({ href, text }: DesktopNavigationLinkProps) {
   const [hover, setHover] = useState(false);
 
   const getClasses = ({ isActive }: { isActive: boolean }) => {
-    return cx('relative inline-flex justify-center px-2.5', isActive && 'font-medium');
+    return cx(
+      'relative inline-flex justify-center px-2.5',
+      isActive && 'underline underline-offset-4 decoration-2 decoration-background-alt',
+    );
   };
 
   return (

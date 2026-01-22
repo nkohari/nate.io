@@ -1,6 +1,6 @@
-import Markdoc, {Node} from '@markdoc/markdoc';
-import {MarkdocDeclaration} from 'build/types';
-import {MarkdocConfig} from 'build/types';
+import Markdoc, { Node } from '@markdoc/markdoc';
+import { MarkdocDeclaration } from 'build/types';
+import { MarkdocConfig } from 'build/types';
 
 export const document: MarkdocDeclaration = {
   node: 'document',
@@ -8,6 +8,6 @@ export const document: MarkdocDeclaration = {
   transform(node: Node, config: MarkdocConfig) {
     const attributes = node.transformAttributes(config);
     const children = node.transformChildren(config);
-    return new Markdoc.Tag(this.render, {type: config.metadata.type, ...attributes}, children);
+    return new Markdoc.Tag(this.render, { type: config.metadata.type, ...attributes }, children);
   },
 };

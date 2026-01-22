@@ -3,7 +3,8 @@ title: Automagic Time Localization
 subtitle: Does anybody really know what time it is? Does anybody really care?
 date: 2009-06-16T19:54:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: javascript
 song: spotify:track:6nAD4H0ujyEeBTxbXZkZeC
 ---

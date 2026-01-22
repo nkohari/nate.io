@@ -2,7 +2,8 @@
 title: The Day of Silence
 date: 2007-06-27T22:32:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: music
 ---
 

@@ -20,9 +20,10 @@ function formatNumber(value: number) {
 
 type DurationProps = {
   since: string;
+  pluralize?: boolean;
 };
 
-export function Duration({ since }: DurationProps) {
+export function Duration({ since, pluralize = true }: DurationProps) {
   const now = DateTime.now();
   const then = DateTime.fromISO(since);
   const duration = now.diff(then);
@@ -33,9 +34,9 @@ export function Duration({ since }: DurationProps) {
   let content: React.ReactNode;
 
   if (years < 1) {
-    content = `${formatNumber(months)} month${months === 1 ? '' : 's'}`;
+    content = `${formatNumber(months)} month${months === 1 || !pluralize ? '' : 's'}`;
   } else {
-    content = `${formatNumber(years)} year${years === 1 ? '' : 's'}`;
+    content = `${formatNumber(years)} year${years === 1 || !pluralize ? '' : 's'}`;
   }
 
   return <span>{content}</span>;

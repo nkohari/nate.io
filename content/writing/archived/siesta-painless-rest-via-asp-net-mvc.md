@@ -3,7 +3,8 @@ title: 'Siesta: Painless REST via ASP.NET MVC'
 subtitle: Just a random idea pulled from the Zen codebase.
 date: 2009-08-12T01:26:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 song: spotify:track:0j4qZmspume3BzExQW3pJz
 ---

@@ -3,7 +3,8 @@ title: Zen is Live!
 subtitle: We're open for business.
 date: 2009-07-08T18:46:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: agilezen
 song: spotify:track:68yqiuPVxrT9OySWFDwDDd
 ---

@@ -3,7 +3,8 @@ title: Cleveland Day of .NET Aftermath
 subtitle: It was a great time!
 date: 2008-05-20T06:56:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: meta
 ---
 

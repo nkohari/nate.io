@@ -2,7 +2,8 @@
 title: Light at the End of the Tunnel
 date: 2007-12-17T00:29:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 ---
 

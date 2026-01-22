@@ -2,7 +2,8 @@
 title: Open Source, and Passionate Developers
 date: 2007-02-09T22:21:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 ---
 

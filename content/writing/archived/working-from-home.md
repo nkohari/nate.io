@@ -3,7 +3,8 @@ title: Working From Home
 subtitle: It's great, but requires a lot of discipline.
 date: 2008-10-12T07:11:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: meta
 song: spotify:track:0fsuyQqz1nuYtfosExYeeY
 ---

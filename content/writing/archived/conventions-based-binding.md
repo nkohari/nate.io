@@ -3,7 +3,8 @@ title: Conventions-Based Binding
 subtitle: I added a new feature added to Ninject.
 date: 2008-07-06T22:03:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: ninject
 ---
 

@@ -2,7 +2,8 @@
 title: Thread Safe Event Handlers
 date: 2007-08-04T20:11:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 ---
 

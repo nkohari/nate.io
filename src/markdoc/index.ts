@@ -16,7 +16,6 @@ export * from './heading';
 export * from './icon';
 export * from './image';
 export * from './lead-in';
-export * from './library-browser';
 export * from './link';
 export * from './list';
 export * from './list-item';

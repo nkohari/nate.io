@@ -3,7 +3,8 @@ title: Fast Late-Bound Invocation with Expression Trees
 subtitle: Tinkering with the new toys in the latest version of the .NET framework.
 date: 2009-03-07T22:35:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 song: spotify:track:2yxkvnyno37480Hv1wuAee
 ---

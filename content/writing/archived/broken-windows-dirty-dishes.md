@@ -3,7 +3,8 @@ title: Broken Windows, Dirty Dishes
 subtitle: If you want to avoid technical debt, stop vandalizing your codebase.
 date: 2013-02-17T12:00:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: the psychology of software
 ---
 

@@ -2,7 +2,8 @@
 title: Titan Beta 2 and Generic Type Inference
 date: 2007-06-18T06:57:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: ninject
 ---
 

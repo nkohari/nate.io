@@ -3,7 +3,8 @@ title: Embracing Change
 subtitle: 'Or: How I Learned to Stop Worrying and Love Dependency Injection'
 date: 2007-08-23T04:46:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 ---
 

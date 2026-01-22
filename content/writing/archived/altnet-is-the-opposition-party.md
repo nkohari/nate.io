@@ -3,7 +3,8 @@ title: ALT.NET is the Opposition Party
 subtitle: And we should carry ourselves as such.
 date: 2008-12-19T21:56:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: open source
 song: spotify:track:18oWEPapjNt32E6sCM6VLb
 archived: true

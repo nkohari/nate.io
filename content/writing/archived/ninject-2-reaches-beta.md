@@ -3,7 +3,8 @@ title: Ninject 2 Reaches Beta!
 subtitle: Sometimes it makes sense to go back to the drawing board.
 date: 2009-02-26T22:01:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: ninject
 song: spotify:track:5U3qiJCXKCJ40Nf6tkI7Sq
 ---

@@ -41,8 +41,9 @@ export type Track = SpotifyObject & {
   previewUrl: string;
 };
 
-export type ArticleType = 'instructional' | 'narrative' | 'page' | 'vignette' | 'music';
 export type ArticleState = 'archived' | 'draft' | 'live';
+export type ArticleType = 'belief' | 'essay' | 'music' | 'page';
+export type EssayFormat = 'instructional' | 'narrative' | 'vignette';
 
 export type ArticleSection = {
   id: string;
@@ -63,8 +64,9 @@ export type VideoMetadata = {
 };
 
 export type Metadata = {
-  type: ArticleType;
   state: ArticleState;
+  type: ArticleType;
+  format?: EssayFormat;
   sections: ArticleSection[];
   title?: string;
   subtitle?: string;

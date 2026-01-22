@@ -2,7 +2,8 @@
 title: Integration, not displacement
 subtitle: On sound engineering, 3D printing, and generative artificial intelligence
 date: 2026-01-11T8:28:00
-type: instructional
+type: essay
+format: instructional
 state: draft
 thumbnail: protools.webp
 ---

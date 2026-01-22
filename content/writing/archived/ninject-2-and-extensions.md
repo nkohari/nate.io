@@ -3,7 +3,8 @@ title: Ninject 2 and Extensions
 subtitle: Keeping the core small and streamlined.
 date: 2009-03-19T23:02:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: ninject
 song: spotify:track:1xb0WhEGZkofL1y0kYcx7d
 ---

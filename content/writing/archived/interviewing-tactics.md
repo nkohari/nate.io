@@ -2,7 +2,8 @@
 title: Interviewing Tactics
 date: 2006-08-03T17:00:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 ---
 

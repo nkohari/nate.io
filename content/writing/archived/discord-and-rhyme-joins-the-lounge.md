@@ -3,7 +3,8 @@ title: Discord&Rhyme Joins the Lounge
 subtitle: Pretty cool to be selected to join!
 date: 2008-05-02T03:40:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: meta
 ---
 

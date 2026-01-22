@@ -3,7 +3,8 @@ title: Zen and the Art of Project Management
 subtitle: What Niki and I have been working on.
 date: 2009-06-11T03:16:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: agilezen
 song: spotify:track:1y4Kln6VEjQMpmHW7j9GeY
 ---

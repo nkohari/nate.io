@@ -2,7 +2,8 @@
 title: Self-Referential Generics
 date: 2007-03-07T08:18:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 ---
 

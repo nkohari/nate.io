@@ -3,7 +3,8 @@ title: Ninject 1.0 Goes Gold
 subtitle: It's ready for production!
 date: 2008-06-18T04:33:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: ninject
 ---
 

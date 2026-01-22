@@ -1,7 +1,8 @@
 ---
 title: Ninject and AOP
 date: 2008-03-17T00:59:00
-type: instructional
+type: essay
+format: instructional
 state: archived
 category: ninject
 ---

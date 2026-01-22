@@ -3,7 +3,8 @@ title: Cardboard Computers
 subtitle: The birth of a programmer.
 date: 2008-06-07T18:25:00
 state: archived
-type: narrative
+type: essay
+format: narrative
 category: meta
 ---
 

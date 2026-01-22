@@ -3,7 +3,8 @@ title: Guarantees, SLAs, and Hollow Promises
 subtitle: It might be better not to offer pro-rata refunds for downtime.
 date: 2009-12-09T01:36:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: agilezen
 song: spotify:track:2ir2gcSm7S0H1Fa7oGKfLr
 ---

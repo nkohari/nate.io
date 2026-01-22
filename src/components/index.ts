@@ -21,7 +21,6 @@ export * from './Image';
 export * from './ImageAttribution';
 export * from './Input';
 export * from './LeadIn';
-export * from './LibraryBrowser';
 export * from './Link';
 export * from './List';
 export * from './ListItem';

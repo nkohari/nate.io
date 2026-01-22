@@ -2,7 +2,8 @@
 title: Take the Money and Run
 subtitle: For our company, it was the end of the beginning, and the beginning of the end.
 date: 2015-07-05T12:00:00
-type: vignette
+type: essay
+format: vignette
 song: spotify:track:6xxnV3f3aTcz8VYHPakPxx
 thumbnail: winter.webp
 ---

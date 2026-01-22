@@ -2,7 +2,8 @@
 title: Reinvention for 2008
 date: 2007-12-30T20:05:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: technology
 ---
 

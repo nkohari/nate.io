@@ -2,7 +2,8 @@
 title: Context Variables in Ninject
 date: 2008-03-14T23:16:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: ninject
 ---
 

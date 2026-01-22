@@ -2,7 +2,8 @@
 title: Microsoft Supports Open-Source Software
 date: 2007-09-04T06:16:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: open source
 ---
 

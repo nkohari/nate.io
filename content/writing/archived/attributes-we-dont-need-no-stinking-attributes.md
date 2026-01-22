@@ -3,7 +3,8 @@ title: Attributes? We Don't Need No Stinkin' Attributes
 subtitle: A new alternative for marking items for injection.
 date: 2008-06-09T23:51:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: ninject
 ---
 

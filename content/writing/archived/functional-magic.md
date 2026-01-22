@@ -2,7 +2,8 @@
 title: Functional Magic
 date: 2007-08-24T18:39:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: dotnet
 ---
 

@@ -3,7 +3,8 @@ title: Custom Selection Heuristics in Ninject
 subtitle: More customization options in deciding which items to inject.
 date: 2008-10-14T05:50:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: ninject
 song: spotify:track:15JHH5FBawCL7DmCcUxlUp
 ---

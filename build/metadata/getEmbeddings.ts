@@ -25,7 +25,7 @@ function quantizeAndEncode(data: DataArray) {
 }
 
 export async function getEmbeddings({ ast, metadata }: MetadataPluginParams<Metadata>) {
-  if (metadata.type === 'music' || metadata.type === 'page') return;
+  if (metadata.type !== 'essay' && metadata.type !== 'belief') return;
 
   const text = [metadata.title, metadata.subtitle, metadata.excerpt, getRawText(ast)].join('\n\n');
   const generator = await getGenerator();

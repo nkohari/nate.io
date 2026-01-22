@@ -2,7 +2,8 @@
 title: Top 10 Ways to De-Motivate Geeks
 date: 2006-07-21T15:50:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: software
 ---
 

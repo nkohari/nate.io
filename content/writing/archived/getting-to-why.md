@@ -3,7 +3,8 @@ title: Getting to Why
 subtitle: What you're selling isn't nearly as important as why you're selling it.
 date: 2010-11-22T18:21:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: product design
 song: spotify:track:3HGaAiNXw4Yoq2KlIhfsbo
 ---

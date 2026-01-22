@@ -1,9 +1,10 @@
-import {MarkdocDeclaration} from 'build/types';
+import { MarkdocDeclaration } from 'build/types';
 
 export const duration: MarkdocDeclaration = {
   tag: 'duration',
   render: 'Duration',
   attributes: {
-    since: {type: String},
+    since: { type: String },
+    pluralize: { type: Boolean },
   },
 };

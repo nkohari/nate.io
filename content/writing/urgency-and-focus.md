@@ -1,7 +1,8 @@
 ---
 title: Urgency and Focus
 subtitle: A brief farewell to Stripe
-type: narrative
+type: essay
+format: narrative
 date: 2024-03-22T13:46:00
 thumbnail: townsend.webp
 ---

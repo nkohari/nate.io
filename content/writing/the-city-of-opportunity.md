@@ -1,7 +1,8 @@
 ---
 title: The City of Opportunity
 subtitle: On growing up in the former rubber capital of the world.
-type: narrative
+type: essay
+format: narrative
 date: 2022-05-26T20:53:00
 thumbnail: goodrich.webp
 ---

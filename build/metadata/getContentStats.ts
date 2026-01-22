@@ -5,7 +5,7 @@ import { Metadata } from '../../src/types';
 import { getRawText } from '../util';
 
 export function getContentStats({ ast, metadata }: MetadataPluginParams<Metadata>) {
-  if (metadata.type === 'music') return;
+  if (metadata.type !== 'essay') return;
 
   const text = getRawText(ast);
   const stats = readingTime(text);

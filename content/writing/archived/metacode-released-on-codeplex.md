@@ -2,7 +2,8 @@
 title: MetaCode Released on CodePlex
 date: 2006-11-29T04:18:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: open source
 ---
 

@@ -2,7 +2,8 @@
 title: Ninject Lives!
 date: 2008-03-14T00:59:00
 state: archived
-type: instructional
+type: essay
+format: instructional
 category: ninject
 ---
 

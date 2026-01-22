@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { useMemo } from 'react';
-import { ArticleCard } from 'src/components';
-import { useArticles } from 'src/shell';
+import { ArticleCard, Input } from 'src/components';
+import { useArticles } from 'src/shell/ArticleSearchProvider';
 
 const gridVariants = {
   hidden: {
@@ -25,8 +25,12 @@ const itemVariants = {
   },
 };
 
-export function ArticleGrid() {
-  const { articles } = useArticles();
+type ArticleGridProps = {
+  placeholder?: string;
+};
+
+export function ArticleGrid({ placeholder = 'Type to match articles...' }: ArticleGridProps) {
+  const { query, setQuery, articles } = useArticles();
 
   const filteredArticles = useMemo(() => {
     return articles.filter(
@@ -35,17 +39,26 @@ export function ArticleGrid() {
   }, [articles]);
 
   return (
-    <motion.div
-      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6"
-      initial="hidden"
-      animate="visible"
-      variants={gridVariants}
-    >
-      {filteredArticles.map(({ article, score }) => (
-        <motion.div key={article.path} layout variants={itemVariants}>
-          <ArticleCard article={article} score={score} />
-        </motion.div>
-      ))}
-    </motion.div>
+    <>
+      <Input
+        icon="search"
+        placeholder={placeholder}
+        value={query}
+        onChange={setQuery}
+        className="w-full mb-6"
+      />
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6"
+        initial="hidden"
+        animate="visible"
+        variants={gridVariants}
+      >
+        {filteredArticles.map(({ article, score }) => (
+          <motion.div key={article.path} layout variants={itemVariants}>
+            <ArticleCard article={article} score={score} />
+          </motion.div>
+        ))}
+      </motion.div>
+    </>
   );
 }

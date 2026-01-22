@@ -1,6 +1,5 @@
 export * from './article-card';
 export * from './article-grid';
-export * from './article-search';
 export * from './attribution';
 export * from './avatar-cards';
 export * from './blockquote';

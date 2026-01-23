@@ -7,7 +7,7 @@ date: 2022-05-26T20:53:00
 thumbnail: goodrich.webp
 ---
 
-{% image src="goodrich.webp" alt="The remains of the B.F. Goodrich tire factory" corners="xl" %}
+{% image src="goodrich.webp" filter="grayscale" corners="xl" alt="The remains of the B.F. Goodrich tire factory" %}
   {% attribution name="Johnny Joo" href="https://architecturalafterlife.com/2019/05/bf-goodrich-bounce-akron" /%}
 {% /image %}
 

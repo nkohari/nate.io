@@ -1,20 +1,4 @@
 @font-face {
-  font-family: "SN Pro";
-  font-weight: 200 900;
-  font-style: normal;
-  font-display: swap;
-  src: url("../media/fonts/SNPro-VF.woff2") format(woff2);
-}
-
-@font-face {
-  font-family: "SN Pro";
-  font-weight: 200 900;
-  font-style: italic;
-  font-display: swap;
-  src: url("../media/fonts/SNPro-Italic-VF.woff2") format(woff2);
-}
-
-@font-face {
   font-family: "IBM Plex Sans";
   font-weight: 200 900;
   font-style: normal;

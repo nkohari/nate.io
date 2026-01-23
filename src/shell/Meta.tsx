@@ -13,16 +13,6 @@ export function Meta({ metadata }: MetaProps) {
   const location = useLocation();
   const articles = useCatalog();
 
-  const createModulePreloadLink = (path: string) => {
-    const article = articles[path];
-    if (!article) return null;
-
-    const href = getArticleModuleUrl(article.id);
-    if (!href) return null;
-
-    return <link key={path} rel="prefetch" as="script" href={href} crossOrigin="anonymous" />;
-  };
-
   useEffect(() => {
     document.title = title;
   }, [title]);
@@ -31,15 +21,26 @@ export function Meta({ metadata }: MetaProps) {
   let outgoingLinks: React.ReactNode;
 
   if (metadata.images) {
-    images = metadata.images.map((image) => (
-      <link key={image.src} rel="preload" as="image" href={getAssetUrl(image.src)} />
-    ));
+    images = metadata.images.map((image) => {
+      const href = getAssetUrl(`images/${image.src}`);
+      if (!href) return null;
+
+      return <link key={image.src} rel="preload" as="image" href={href} />;
+    });
   }
 
   if (metadata.outgoingLinks) {
     outgoingLinks = metadata.outgoingLinks
       .filter((url) => url.startsWith('/'))
-      .map(createModulePreloadLink);
+      .map((path: string) => {
+        const article = articles[path];
+        if (!article) return null;
+
+        const href = getArticleModuleUrl(article.id);
+        if (!href) return null;
+
+        return <link key={path} rel="prefetch" as="script" href={href} crossOrigin="anonymous" />;
+      });
   }
 
   return (

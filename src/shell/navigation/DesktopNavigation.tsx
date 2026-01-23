@@ -14,7 +14,7 @@ function DesktopNavigationLink({ href, text }: DesktopNavigationLinkProps) {
   const getClasses = ({ isActive }: { isActive: boolean }) => {
     return cx(
       'relative inline-flex justify-center px-2.5',
-      isActive && 'underline underline-offset-4 decoration-2 decoration-background-alt',
+      isActive && 'underline underline-offset-4 decoration-2 decoration-accent',
     );
   };
 
@@ -33,7 +33,7 @@ function DesktopNavigationLink({ href, text }: DesktopNavigationLinkProps) {
           initial={false}
           animate={{ top: 0, x: 0 }}
           transition={{ type: 'spring', stiffness: 120, damping: 10, mass: 0.4 }}
-          className="absolute z-1 h-full w-full rounded-full bg-background-alt"
+          className="absolute z-1 h-full w-full rounded-full bg-accent"
         />
       )}
     </NavLink>

@@ -17,6 +17,7 @@
   --color-light-link: var(--color-neutral-600);
   --color-light-link-hover: var(--color-blue-600);
   --color-light-divider: var(--color-neutral-300);
+  --color-light-accent: var(--color-purple-300);
 
   --color-dark-primary: var(--color-neutral-100);
   --color-dark-secondary: var(--color-neutral-400);
@@ -27,6 +28,7 @@
   --color-dark-link: var(--color-slate-300);
   --color-dark-link-hover: var(--color-blue-300);
   --color-dark-divider: var(--color-neutral-700);
+  --color-dark-accent: var(--color-purple-800);
 
   --color-primary: var(--color-light-primary);
   --color-secondary: var(--color-light-secondary);
@@ -39,6 +41,7 @@
   --color-link: var(--color-light-link);
   --color-link-hover: var(--color-light-link-hover);
   --color-divider: var(--color-light-divider);
+  --color-accent: var(--color-light-accent);
 }
 
 .dark {
@@ -53,6 +56,7 @@
   --color-link: var(--color-dark-link);
   --color-link-hover: var(--color-dark-link-hover);
   --color-divider: var(--color-dark-divider);
+  --color-accent: var(--color-dark-accent);
 }
 
 html {

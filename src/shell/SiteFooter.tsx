@@ -53,18 +53,18 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="flex-none w-60 mt-8 sm:mt-0 grid grid-cols-3">
-          <ul className="flex flex-col gap-1">
+          <ul className="flex flex-col gap-1.5">
             <SiteFooterLink href="/" text="About" />
             <SiteFooterLink href="/now" text="Now" />
             <SiteFooterLink href="/work" text="Work" />
             <SiteFooterLink href="/writing" text="Writing" />
           </ul>
-          <ul className="flex flex-col gap-1">
+          <ul className="flex flex-col gap-1.5">
             <SiteFooterLink href="/uses" text="Uses" />
             <SiteFooterLink href="/music" text="Music" />
             <SiteFooterLink href="/biking" text="Biking" />
           </ul>
-          <ul className="flex flex-col gap-1">
+          <ul className="flex flex-col gap-1.5">
             <SiteFooterLink icon="twitter" href="https://twitter.com/nkohari" text="Twitter" />
             <SiteFooterLink icon="github" href="https://github.com/nkohari" text="GitHub" />
             <SiteFooterLink

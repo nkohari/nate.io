@@ -19,9 +19,9 @@ function SiteFooterLink({ href, icon, text }: SiteFooterLinkProps) {
 
 export function SiteFooter() {
   return (
-    <div className="flex flex-row justify-center w-full pt-36 text-xs text-primary bg-linear-to-b from-transparent to-40% to-accent/20">
+    <div className="flex flex-row justify-center w-full pt-36 text-primary bg-linear-to-b from-transparent to-40% to-accent/20">
       <div className="flex flex-col sm:flex-row w-[900px] px-8 pb-12">
-        <div className="flex-1">
+        <div className="flex-1 text-xs">
           <div>Copyright &copy; 2006-{DateTime.now().year} Nate Kohari.</div>
           <div>
             Licensed under{' '}
@@ -52,7 +52,7 @@ export function SiteFooter() {
             .{' '}
           </div>
         </div>
-        <div className="flex-none w-60 mt-8 sm:mt-0 grid grid-cols-3">
+        <div className="flex-none w-60 mt-8 sm:mt-0 grid grid-cols-3 text-sm">
           <ul className="flex flex-col gap-1.5">
             <SiteFooterLink href="/" text="About" />
             <SiteFooterLink href="/now" text="Now" />

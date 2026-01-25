@@ -1,6 +1,5 @@
 export * from './ArticleCard';
 export * from './ArticleGrid';
-export * from './AvatarCards';
 export * from './Badge';
 export * from './Blockquote';
 export * from './Byline';
@@ -31,6 +30,8 @@ export * from './TableOfContents';
 export * from './Title';
 export * from './Video';
 export * from './Work';
+
+export * from './avatars/AvatarCards';
 
 export * from './biking/RideGraph';
 

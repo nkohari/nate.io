@@ -1,23 +1,17 @@
 import { useCatalog } from '@apocrypha/core/catalog';
 import { AnimatePresence } from 'motion/react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
-import {
-  ArticleSearchProvider,
-  Body,
-  NotFound,
-  ScrollController,
-  SiteFooter,
-  SiteHeader,
-  ThemeProvider,
-} from 'src/shell';
+import { FilterBuilder } from 'src/components/tools/FilterBuilder';
+import { Body, NotFound, ScrollController, SiteFooter, SiteHeader, ThemeProvider } from 'src/shell';
 
-const ArticleRoutes = () => {
+const RouteList = () => {
   const articles = useCatalog();
   const location = useLocation();
 
   return (
     <AnimatePresence mode="wait">
       <Routes key={location.pathname} location={location}>
+        <Route key="/tools/filters" path="/tools/filters" element={<FilterBuilder />} />
         {Object.values(articles).map(({ path }) => (
           <Route key={path} path={path} element={<Body path={path} />} />
         ))}
@@ -34,7 +28,7 @@ export const App = () => (
         <div className="flex flex-col items-center leading-relaxed text-primary min-h-[90vh] bg-background transition-colors">
           <div className="flex-1 flex flex-col w-full max-w-[900px] pt-1 px-4">
             <SiteHeader />
-            <ArticleRoutes />
+            <RouteList />
           </div>
         </div>
         <SiteFooter />

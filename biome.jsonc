@@ -19,7 +19,9 @@
       "recommended": true,
       "suspicious": {
         // Using any in the proper context is not an error.
-        "noExplicitAny": "off"
+        "noExplicitAny": "off",
+        // Using array index as a key is reasonable when the arrays are immutable.
+        "noArrayIndexKey": "off"
       },
       "style": {
         // I'm an adult and I know what I'm doing when I assert something is not null.

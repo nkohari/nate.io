@@ -95,9 +95,9 @@ export function FilterBuilder() {
       <textarea
         className="font-mono text-sm w-full p-3 bg-background rounded border border-border field-sizing-content"
         onFocus={(e) => e.target.select()}
-      >
-        {code}
-      </textarea>
+        value={code}
+        readOnly
+      />
     </div>
   );
 }

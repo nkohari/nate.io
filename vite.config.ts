@@ -52,4 +52,33 @@ export default defineConfig({
       src: path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (!id.includes('node_modules')) {
+            return null;
+          }
+
+          if (id.includes('react')) {
+            return 'react';
+          }
+
+          if (id.includes('motion')) {
+            return 'motion';
+          }
+
+          if (id.includes('@markdoc') || id.includes('@apocrypha')) {
+            return 'markdoc';
+          }
+
+          if (id.includes('prismjs')) {
+            return 'prism';
+          }
+
+          return 'vendor';
+        },
+      },
+    },
+  },
 });

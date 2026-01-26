@@ -17,22 +17,15 @@
     "node": ">=18"
   },
   "dependencies": {
-    "@headlessui/react": "^2.2.0",
-    "@isaacs/ttlcache": "^1.2.2",
     "@markdoc/markdoc": "^0.4.0",
     "classnames": "^2.3.2",
-    "cors": "^2.8.5",
-    "escape-string-regexp": "^5.0.0",
-    "express": "^4.18.2",
     "lodash": "^4.17.21",
     "luxon": "^3.3.0",
     "motion": "^11.18.1",
     "prismjs": "^1.29.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router": "^7.1.3",
-    "react-router-dom": "^7.1.3",
-    "spotify-web-api-js": "^1.5.2"
+    "react-router-dom": "^7.1.3"
   },
   "devDependencies": {
     "@apocrypha/core": "^0.3.2",
@@ -41,8 +34,6 @@
     "@cloudflare/workers-types": "^4.20260116.0",
     "@huggingface/transformers": "^3.8.1",
     "@tailwindcss/vite": "^4.1.18",
-    "@types/cors": "^2.8.13",
-    "@types/express": "^4.17.17",
     "@types/js-yaml": "^4.0.5",
     "@types/lodash": "^4.14.191",
     "@types/luxon": "^3.2.0",

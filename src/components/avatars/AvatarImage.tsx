@@ -13,7 +13,7 @@ export function AvatarImage({ flip = false, filter }: AvatarImageProps) {
       src={getAssetUrl('images/avatar.webp')}
       style={{ filter: `url(#${FILTER_PREFIX}${filter})` }}
       className={cx(
-        'absolute rounded-lg shadow-md backface-hidden aspect-square cursor-pointer select-none',
+        'absolute rounded-lg backface-hidden aspect-square cursor-pointer select-none',
         flip && 'rotate-y-180',
       )}
       height={280}

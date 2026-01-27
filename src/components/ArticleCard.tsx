@@ -59,7 +59,7 @@ export function ArticleCard({ article, caption, score }: ArticleCardProps) {
       animate="visible"
       whileHover="hover"
       variants={cardVariants}
-      className="h-full rounded-sm bg-background-dim"
+      className="h-full rounded-sm bg-background-dim outline-1 outline-background-alt"
     >
       <Link type="unstyled" href={article.path}>
         <div className="relative h-full w-full aspect-3/2 overflow-hidden rounded-sm">

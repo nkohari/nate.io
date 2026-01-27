@@ -8,6 +8,6 @@ Right now, I'm building [Ardent](https://ardent.ai), a platform which helps user
 
 I'm originally from [Akron, Ohio](/writing/the-city-of-opportunity). Now I live in Raleigh, North Carolina with my wife [Niki](https://www.linkedin.com/in/nikikohari), our two sons (one {% duration since="2018-10-01" /%} old, and one {% duration since="2021-03-01" /%} old), and our {% duration since="2025-08-30" pluralize=false /%} old dapple dachshund Poppy.
 
-I love sci-fi and fantasy, and I'm especially a huge nerd about retrofuturism and the cyberpunk genre. My favorite book is William Gibson's _Neuromancer_. I'm an avid player of videogames, and there's a special place in my heart for SNES-era classics like _Final Fantasy VI_, _Super Metroid_, and _The Legend of Zelda: A Link to the Past_. My favorite television show is _Star Trek: Deep Space Nine_.
+I'm a huge nerd about sci-fi and fantasy, and I'm especially fond of retrofuturism and the cyberpunk genre. My favorite book is William Gibson's _Neuromancer_. I love videogames, and there's a special place in my heart for SNES-era classics like _Final Fantasy VI_, _Super Metroid_, and _The Legend of Zelda: A Link to the Past_. My favorite television show is _Star Trek: Deep Space Nine_.
 
 You can read more about what I'm doing [right now](/now). If you'd like to chat, you can find me on [Twitter](https://twitter.com/nkohari), [GitHub](https://github.com/nkohari), or [LinkedIn](https://linkedin.com/in/nkohari), or if you're feeling retro, [send me an email](mailto:hello@nate.io).

@@ -78,7 +78,7 @@ export function AvatarCards() {
   ));
 
   return (
-    <div className="flex flex-row space-x-4 mb-8">
+    <div className="flex flex-row gap-4 mb-8">
       <AvatarFilters />
       {items}
     </div>

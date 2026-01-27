@@ -53,7 +53,7 @@ function MusicTile({ article }: MusicTileProps) {
   const { album } = article.metadata.spotify!;
 
   return (
-    <motion.div variants={tileVariants} className="hover:z-10 w-1/3 md:w-1/5 p-1">
+    <motion.div variants={tileVariants} className="hover:z-10 w-1/3 md:w-1/5 p-1 select-none">
       <motion.div initial={false} animate="visible" whileHover="hover" variants={albumVariants}>
         <Link type="unstyled" href={article.path}>
           <img

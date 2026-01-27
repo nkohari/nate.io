@@ -20,9 +20,9 @@ export function SvgFilter({ id, red, green, blue }: SvgFilterProps) {
       <feColorMatrix
         type="matrix"
         values="
-          1 0 0 0 0
-          1 0 0 0 0
-          1 0 0 0 0
+          0.33 0.33 0.33 0
+          0.33 0.33 0.33 0
+          0.33 0.33 0.33 0
           0 0 0 1 0
         "
         in="SourceGraphic"

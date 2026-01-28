@@ -3,9 +3,6 @@ import { AnimatePresence } from 'motion/react';
 import { Suspense } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { Body, NotFound, ScrollController, SiteFooter, SiteHeader, ThemeProvider } from 'src/shell';
-import { dynamic } from 'src/util';
-
-const FilterBuilder = dynamic(() => import('src/components/tools/FilterBuilder'), 'FilterBuilder');
 
 const RouteList = () => {
   const articles = useCatalog();
@@ -15,7 +12,6 @@ const RouteList = () => {
     <AnimatePresence mode="wait">
       <Suspense>
         <Routes key={location.pathname} location={location}>
-          <Route key="/tools/filters" path="/tools/filters" element={<FilterBuilder />} />
           {Object.values(articles).map(({ path }) => (
             <Route key={path} path={path} element={<Body path={path} />} />
           ))}

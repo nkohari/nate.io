@@ -1,17 +1,14 @@
-import { getAssetUrl } from '@apocrypha/core/assets';
 import cx from 'classnames';
-import { FILTER_PREFIX } from './AvatarFilters';
 
 export type AvatarImageProps = {
-  filter: number;
+  src: string;
   flip?: boolean;
 };
 
-export function AvatarImage({ flip = false, filter }: AvatarImageProps) {
+export function AvatarImage({ flip = false, src }: AvatarImageProps) {
   return (
     <img
-      src={getAssetUrl('images/avatar.webp')}
-      style={{ filter: `url(#${FILTER_PREFIX}${filter})` }}
+      src={src}
       className={cx(
         'absolute rounded-lg backface-hidden aspect-square cursor-pointer select-none',
         flip && 'rotate-y-180',

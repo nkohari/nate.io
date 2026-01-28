@@ -1,41 +1,39 @@
+import { getAllAssetUrlsForFolder } from '@apocrypha/core/assets';
 import { useState } from 'react';
 import { randomArrayElement, shuffleArray } from 'src/util';
 import { AvatarCard } from './AvatarCard';
-import { AvatarFilters, FILTERS } from './AvatarFilters';
 
 const NUM_CARDS = 4;
 
 type CardState = {
   visibleFace: 'front' | 'back';
-  frontFilter: number;
-  backFilter: number;
+  frontUrl: string;
+  backUrl: string;
 };
 
 export function AvatarCards() {
   const [cards, setCards] = useState<CardState[]>(() => {
-    const allFilters = shuffleArray([...Array(FILTERS.length).keys()]);
-    const frontFilters = allFilters.slice(0, NUM_CARDS);
-    const backFilters = allFilters.slice(NUM_CARDS, NUM_CARDS * 2);
-    return frontFilters.map((filter, index) => ({
-      visibleFace: 'front' as const,
-      frontFilter: filter,
-      backFilter: backFilters[index],
+    const allUrls = shuffleArray(getAllAssetUrlsForFolder('images/avatars'));
+    const frontUrls = allUrls.slice(0, NUM_CARDS);
+    const backUrls = allUrls.slice(NUM_CARDS, NUM_CARDS * 2);
+    return frontUrls.map((url, i) => ({
+      visibleFace: 'front',
+      frontUrl: url,
+      backUrl: backUrls[i],
     }));
   });
 
-  const getVisibleFilters = (cardStates: CardState[]) => {
-    return cardStates.map((card) =>
-      card.visibleFace === 'front' ? card.frontFilter : card.backFilter,
-    );
+  const getVisibleUrls = (cardStates: CardState[]) => {
+    return cardStates.map((card) => (card.visibleFace === 'front' ? card.frontUrl : card.backUrl));
   };
 
-  const getAvailableFilter = (cardStates: CardState[], excludeFilters: number[] = []) => {
-    const visibleFilters = getVisibleFilters(cardStates);
-    const allExcluded = [...visibleFilters, ...excludeFilters];
-    const availableFilters = [...Array(FILTERS.length).keys()].filter(
-      (i) => !allExcluded.includes(i),
+  const getAvailableUrl = (cardStates: CardState[], excludeUrls: string[] = []) => {
+    const visibleUrls = getVisibleUrls(cardStates);
+    const allExcluded = [...visibleUrls, ...excludeUrls];
+    const availableUrls = getAllAssetUrlsForFolder('images/avatars').filter(
+      (url) => !allExcluded.includes(url),
     );
-    return randomArrayElement(availableFilters);
+    return randomArrayElement(availableUrls);
   };
 
   const handleFlip = (cardIndex: number) => {
@@ -55,9 +53,9 @@ export function AvatarCards() {
         const hiddenFace = newVisibleFace === 'front' ? 'back' : 'front';
 
         if (hiddenFace === 'front') {
-          card.frontFilter = getAvailableFilter(newCards, [card.backFilter]);
+          card.frontUrl = getAvailableUrl(newCards, [card.backUrl]);
         } else {
-          card.backFilter = getAvailableFilter(newCards, [card.frontFilter]);
+          card.backUrl = getAvailableUrl(newCards, [card.frontUrl]);
         }
 
         newCards[cardIndex] = card;
@@ -71,16 +69,11 @@ export function AvatarCards() {
       key={index}
       position={index + 1}
       visibleFace={cardState.visibleFace}
-      frontFilter={cardState.frontFilter}
-      backFilter={cardState.backFilter}
+      frontUrl={cardState.frontUrl}
+      backUrl={cardState.backUrl}
       onFlip={() => handleFlip(index)}
     />
   ));
 
-  return (
-    <div className="flex flex-row gap-4 mb-8">
-      <AvatarFilters />
-      {items}
-    </div>
-  );
+  return <div className="flex flex-row gap-4 mb-8">{items}</div>;
 }

@@ -28,18 +28,12 @@ const cardVariants = {
 type AvatarCardProps = {
   position: number;
   visibleFace: 'front' | 'back';
-  frontFilter: number;
-  backFilter: number;
+  frontUrl: string;
+  backUrl: string;
   onFlip: () => void;
 };
 
-export function AvatarCard({
-  position,
-  visibleFace,
-  frontFilter,
-  backFilter,
-  onFlip,
-}: AvatarCardProps) {
+export function AvatarCard({ position, visibleFace, frontUrl, backUrl, onFlip }: AvatarCardProps) {
   const controls = useAnimationControls();
   const reducedMotion = useReducedMotion();
 
@@ -78,8 +72,8 @@ export function AvatarCard({
       variants={cardVariants}
       custom={position}
     >
-      <AvatarImage filter={frontFilter} />
-      <AvatarImage filter={backFilter} flip />
+      <AvatarImage src={frontUrl} />
+      <AvatarImage src={backUrl} flip />
     </motion.div>
   );
 }

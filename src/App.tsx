@@ -10,14 +10,12 @@ const RouteList = () => {
 
   return (
     <AnimatePresence mode="wait">
-      <Suspense>
-        <Routes key={location.pathname} location={location}>
-          {Object.values(articles).map(({ path }) => (
-            <Route key={path} path={path} element={<Body path={path} />} />
-          ))}
-          <Route key="*" path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
+      <Routes key={location.pathname} location={location}>
+        {Object.values(articles).map(({ path }) => (
+          <Route key={path} path={path} element={<Body path={path} />} />
+        ))}
+        <Route key="*" path="*" element={<NotFound />} />
+      </Routes>
     </AnimatePresence>
   );
 };

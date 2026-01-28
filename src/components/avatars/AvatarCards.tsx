@@ -1,9 +1,11 @@
 import { getAllAssetUrlsForFolder } from '@apocrypha/core/assets';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { randomArrayElement, shuffleArray } from 'src/util';
 import { AvatarCard } from './AvatarCard';
 
+const IMAGES = getAllAssetUrlsForFolder('images/avatars');
 const NUM_CARDS = 4;
+const FACE_CHANGE_DELAY_MS = 500;
 
 type CardState = {
   visibleFace: 'front' | 'back';
@@ -13,26 +15,30 @@ type CardState = {
 
 export function AvatarCards() {
   const [cards, setCards] = useState<CardState[]>(() => {
-    const allUrls = shuffleArray(getAllAssetUrlsForFolder('images/avatars'));
+    const allUrls = shuffleArray(IMAGES);
     const frontUrls = allUrls.slice(0, NUM_CARDS);
     const backUrls = allUrls.slice(NUM_CARDS, NUM_CARDS * 2);
-    return frontUrls.map((url, i) => ({
+    return frontUrls.map((url, index) => ({
       visibleFace: 'front',
       frontUrl: url,
-      backUrl: backUrls[i],
+      backUrl: backUrls[index],
     }));
   });
 
-  const getVisibleUrls = (cardStates: CardState[]) => {
-    return cardStates.map((card) => (card.visibleFace === 'front' ? card.frontUrl : card.backUrl));
-  };
+  useEffect(() => {
+    // Preload images so we avoid a flash when a card flips.
+    for (const url of IMAGES) {
+      const img = new Image();
+      img.src = url;
+    }
+  }, []);
 
-  const getAvailableUrl = (cardStates: CardState[], excludeUrls: string[] = []) => {
-    const visibleUrls = getVisibleUrls(cardStates);
-    const allExcluded = [...visibleUrls, ...excludeUrls];
-    const availableUrls = getAllAssetUrlsForFolder('images/avatars').filter(
-      (url) => !allExcluded.includes(url),
+  const findUnusedImageUrl = (cardStates: CardState[], excludeUrls: string[] = []) => {
+    const visibleUrls = cardStates.map((card) =>
+      card.visibleFace === 'front' ? card.frontUrl : card.backUrl,
     );
+    const allExcluded = [...visibleUrls, ...excludeUrls];
+    const availableUrls = IMAGES.filter((url) => !allExcluded.includes(url));
     return randomArrayElement(availableUrls);
   };
 
@@ -45,23 +51,23 @@ export function AvatarCards() {
       return newCards;
     });
 
+    // After the card flip animation has completed, change the URL of the hidden face.
     setTimeout(() => {
       setCards((prev) => {
         const newCards = [...prev];
         const card = { ...newCards[cardIndex] };
-        const newVisibleFace = card.visibleFace;
-        const hiddenFace = newVisibleFace === 'front' ? 'back' : 'front';
+        const hiddenFace = card.visibleFace === 'front' ? 'back' : 'front';
 
         if (hiddenFace === 'front') {
-          card.frontUrl = getAvailableUrl(newCards, [card.backUrl]);
+          card.frontUrl = findUnusedImageUrl(newCards, [card.backUrl]);
         } else {
-          card.backUrl = getAvailableUrl(newCards, [card.frontUrl]);
+          card.backUrl = findUnusedImageUrl(newCards, [card.frontUrl]);
         }
 
         newCards[cardIndex] = card;
         return newCards;
       });
-    }, 500);
+    }, FACE_CHANGE_DELAY_MS);
   };
 
   const items = cards.map((cardState, index) => (

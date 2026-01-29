@@ -8,7 +8,7 @@ export async function getImages({ ast, paths }: MetadataPluginParams<Metadata>) 
 
   const images = [];
   for (const node of nodes) {
-    const filename = path.resolve(paths.base, 'media/images', node.attributes.src);
+    const filename = path.resolve(paths.base, 'assets/images', node.attributes.src);
 
     try {
       const image = sharp(filename);

@@ -6,7 +6,7 @@ export async function getImageMetadata(
   src: string,
   basePath: string,
 ): Promise<ImageMetadata | undefined> {
-  const filename = path.resolve(basePath, 'media/images', src);
+  const filename = path.resolve(basePath, 'assets/images', src);
 
   try {
     const image = sharp(filename);

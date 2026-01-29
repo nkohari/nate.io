@@ -3,7 +3,7 @@
   font-weight: 200 900;
   font-style: normal;
   font-display: swap;
-  src: url("../media/fonts/IBMPlexSans-VF.woff2") format(woff2);
+  src: url("../assets/fonts/IBMPlexSans-VF.woff2") format(woff2);
 }
 
 @font-face {
@@ -11,7 +11,7 @@
   font-weight: 200 900;
   font-style: italic;
   font-display: swap;
-  src: url("../media/fonts/IBMPlexSans-Italic-VF.woff2") format(woff2);
+  src: url("../assets/fonts/IBMPlexSans-Italic-VF.woff2") format(woff2);
 }
 
 @font-face {
@@ -19,5 +19,5 @@
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
-  src: url("../media/fonts/CommitMono-VF.woff2") format(woff2);
+  src: url("../assets/fonts/CommitMono-VF.woff2") format(woff2);
 }

@@ -7,7 +7,7 @@ export async function getVideos({ ast, paths }: MetadataPluginParams<Metadata>) 
 
   const videos = [];
   for (const node of nodes) {
-    const filename = path.resolve(paths.base, 'media/videos', node.attributes.src);
+    const filename = path.resolve(paths.base, 'assets/videos', node.attributes.src);
     const { src } = node.attributes;
 
     try {

@@ -22,7 +22,7 @@ export default defineConfig({
   plugins: [
     apocrypha({
       paths: {
-        assets: 'media',
+        assets: 'assets',
         components: 'src/components',
         content: 'content',
         declarations: 'src/markdoc',

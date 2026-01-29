@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { AlbumTrackList, Link, PoweredBySpotify } from 'src/components';
 import { Album, Track } from 'src/types';
-import recordImage from '/media/images/record.webp';
+import recordImage from '/assets/images/record.webp';
 
 const albumVariants = {
   initial: {

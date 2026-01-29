@@ -50,7 +50,7 @@ The core architecture revolves around processing markdown content through a meta
   - `src/markdoc/`: Markdoc tag/node definitions that map to React components
   - `src/util/`: Utility functions and React hooks
 - `content/`: Markdown content files organized by type
-- `media/`: Static assets (fonts, images)
+- `assets/`: Static assets (fonts, images)
 - `functions/`: Cloudflare Pages Functions (API endpoints)
 
 ### Content Types

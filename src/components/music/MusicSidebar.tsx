@@ -51,7 +51,7 @@ type MusicSidebarProps = {
 
 export function MusicSidebar({ album, track }: MusicSidebarProps) {
   return (
-    <div className="w-full sm:w-72 sm:mt-6">
+    <div className="w-full sm:w-72 mt-2 sm:mt-6">
       <Link type="unstyled" href={album.url} className="flex flex-col items-center mb-8 sm:mb-12">
         <motion.div className="relative" initial="initial" animate="visible" whileHover="hover">
           <motion.img

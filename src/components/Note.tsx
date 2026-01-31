@@ -43,7 +43,7 @@ export function Note({ children, id }: NoteProps) {
   }
 
   return (
-    <div
+    <span
       className={cx(
         'flex flex-row text-sm mb-4 rounded-lg px-2 -mx-2 transition-colors duration-250',
         shouldFlash ? 'bg-background-alt' : 'bg-transparent',
@@ -52,12 +52,12 @@ export function Note({ children, id }: NoteProps) {
       <span id={`note-${id}`} className="block mr-1 w-6">
         {id}.
       </span>
-      <p className="flex-1">
+      <span className="flex-1">
         {children}
         <Link href={`#note-ref-${id}`} className="inline-flex items-center ml-1" type="subtle">
           <Icon type="jumpBack" size="12px" />
         </Link>
-      </p>
-    </div>
+      </span>
+    </span>
   );
 }

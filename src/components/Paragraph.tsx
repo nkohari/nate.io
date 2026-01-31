@@ -7,7 +7,7 @@ type ParagraphProps = {
 
 export function Paragraph({ children, id }: ParagraphProps) {
   return (
-    <p id={id} className={cx('mb-6')}>
+    <p id={id} className="mb-6">
       {children}
     </p>
   );

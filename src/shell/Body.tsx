@@ -58,7 +58,7 @@ export function Body({ path }: BodyProps) {
           <ArticleSearchProvider>
             <Meta metadata={article.metadata} />
             <Layout metadata={article.metadata}>
-              <ArticleContent path={path} />
+              <ArticleContent path={path} variables={article.metadata} />
             </Layout>
           </ArticleSearchProvider>
         </MetadataProvider>

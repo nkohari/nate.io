@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { MetadataPluginParams } from '@apocrypha/core';
-import { Metadata } from '../../src/types';
+import { Artist, Metadata } from '../../src/types';
 import { Config } from '../config';
 import { DiskCache, SpotifyClient } from '../spotify';
 
@@ -20,8 +20,18 @@ export function getSpotifyData(config: Config, cachePath: string) {
     );
     if (!album) return;
 
+    const artists: Artist[] = [];
+    for (const reference of track.artists) {
+      const artist = await cache.readThrough(`artists/${reference.id}`, () =>
+        spotify.getArtist(reference.id),
+      );
+      if (artist) {
+        artists.push(artist);
+      }
+    }
+
     return {
-      spotify: { album, track },
+      spotify: { artists, album, track },
     };
   };
 }

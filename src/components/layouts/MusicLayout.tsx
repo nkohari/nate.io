@@ -1,5 +1,5 @@
 import { ArtistList, Link, MusicSidebar } from 'src/components';
-import { Metadata } from 'src/types';
+import { Artist, Metadata } from 'src/types';
 
 type MusicLayoutProps = {
   children: React.ReactNode;
@@ -7,7 +7,9 @@ type MusicLayoutProps = {
 };
 
 export function MusicLayout({ children, metadata }: MusicLayoutProps) {
-  const { album, track } = metadata.spotify!;
+  const { artists, album, track } = metadata.spotify!;
+
+  console.log(console.log(artists));
 
   return (
     <div className="flex-1 flex flex-col">

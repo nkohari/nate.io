@@ -19,6 +19,18 @@ const transformImageSet = (images: any[]): ImageSet => {
   };
 };
 
+const transformAlbumName = (name: string): string => {
+  return name
+    .replace(/\s*\(.*?[remaster|version].*?\)\s*$/i, '')
+    .replace(/\s*\(([^)]*remix[^)]*)\)\s*$/i, ' - $1');
+};
+
+const transformTrackName = (name: string): string => {
+  return name
+    .replace(/\s*\(.*?remaster.*?\)\s*$/i, '')
+    .replace(/\s*\(([^)]*remix[^)]*)\)\s*$/i, ' - $1');
+};
+
 function createTransformer<TIn, TOut>(type: string, func: (input: TIn) => TOut) {
   return (input: TIn) => {
     try {
@@ -46,7 +58,7 @@ export const transformAlbum = createTransformer(
     artists: input.artists.map(transformArtist),
     id: input.id,
     images: transformImageSet(input.images),
-    name: input.name,
+    name: transformAlbumName(input.name),
     releaseYear: transformReleaseDate(input.release_date),
     popularity: input.popularity,
     tracks: input.tracks.items.map(transformAlbumTrack),
@@ -61,7 +73,7 @@ export const transformAlbumTrack = createTransformer(
     artists: input.artists.map(transformReference),
     id: input.id,
     duration: input.duration_ms,
-    name: input.name,
+    name: transformTrackName(input.name),
     number: input.track_number,
     previewUrl: input.preview_url,
     type: 'track',
@@ -91,6 +103,7 @@ export const transformTrack = createTransformer(
     popularity: input.popularity,
     previewUrl: input.preview_url,
     type: 'track',
+    isrc: input.external_ids.isrc,
     url: input.external_urls.spotify,
   }),
 );

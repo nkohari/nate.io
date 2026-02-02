@@ -17,7 +17,7 @@ type ArticleLayoutProps = {
 };
 
 export function ArticleLayout({ children, metadata }: ArticleLayoutProps) {
-  const { type, title, state, subtitle } = metadata;
+  const { title, state, subtitle } = metadata;
 
   let header: React.ReactNode;
 

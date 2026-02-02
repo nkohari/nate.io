@@ -39,11 +39,13 @@ export type Track = SpotifyObject & {
   artists: SpotifyObject[];
   popularity: number;
   previewUrl: string;
+  isrc: string;
 };
 
 export type ArticleState = 'archived' | 'draft' | 'live';
-export type ArticleType = 'belief' | 'essay' | 'music' | 'page';
+export type ArticleType = 'belief' | 'essay' | 'media' | 'music' | 'page';
 export type EssayFormat = 'instructional' | 'narrative' | 'vignette';
+export type MediaFormat = 'film' | 'series';
 
 export type ArticleSection = {
   id: string;
@@ -89,6 +91,7 @@ export type Metadata = {
   spotifyId?: string;
   spotify?: {
     album: Album;
+    artists: Artist[];
     track: Track;
   };
 };

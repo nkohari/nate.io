@@ -89,7 +89,7 @@ export function AlbumTrackList({ album, highlightedTrack }: AlbumTrackListProps)
     <div className="flex flex-col">
       <div className="border-b border-divider pb-2 text-center">
         <Link type="subtle" href={album.url}>
-          {album.name} ({album.releaseYear})
+          {album.name} [{album.releaseYear}]
         </Link>
       </div>
       <AnimatePresence>{items}</AnimatePresence>

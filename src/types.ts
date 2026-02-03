@@ -91,7 +91,7 @@ export type Metadata = {
   spotifyId?: string;
   spotify?: {
     album: Album;
-    artists: Artist[];
+    genres: string[];
     track: Track;
   };
 };

@@ -28,7 +28,8 @@ const transformAlbumName = (name: string): string => {
 const transformTrackName = (name: string): string => {
   return name
     .replace(/\s*\(.*?remaster.*?\)\s*$/i, '')
-    .replace(/\s*\(([^)]*remix[^)]*)\)\s*$/i, ' - $1');
+    .replace(/\s*\(([^)]*remix[^)]*)\)\s*$/i, ' - $1')
+    .replace(/\s*-\s*\d*\s*remaster(ed)?\s*\d*\s*$/i, '');
 };
 
 function createTransformer<TIn, TOut>(type: string, func: (input: TIn) => TOut) {

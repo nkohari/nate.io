@@ -35,7 +35,7 @@ function AlbumTrackListItem({ isExtra, isHighlighted, track }: AlbumTrackListIte
       variants={variants.track}
       className={cx(
         'relative flex flex-row border-b border-divider text-sm',
-        isHighlighted && 'font-semibold bg-background-alt',
+        isHighlighted ? 'font-semibold bg-background-alt' : 'bg-background',
         isExtra ? 'z-1' : 'z-10',
       )}
     >

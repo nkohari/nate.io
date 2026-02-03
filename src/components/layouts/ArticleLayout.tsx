@@ -33,7 +33,7 @@ export function ArticleLayout({ children, metadata }: ArticleLayoutProps) {
 
   return (
     <>
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1">
         <Link type="subtle" icon="backUp" href="/writing" className="mb-6 text-sm text-secondary">
           My Writing
         </Link>

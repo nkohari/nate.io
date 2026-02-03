@@ -20,18 +20,20 @@ export function getSpotifyData(config: Config, cachePath: string) {
     );
     if (!album) return;
 
-    const artists: Artist[] = [];
+    const genres = new Set<string>();
     for (const reference of track.artists) {
       const artist = await cache.readThrough(`artists/${reference.id}`, () =>
         spotify.getArtist(reference.id),
       );
       if (artist) {
-        artists.push(artist);
+        for (const genre of artist.genres) {
+          genres.add(genre);
+        }
       }
     }
 
     return {
-      spotify: { artists, album, track },
+      spotify: { album, genres: Array.from(genres), track },
     };
   };
 }

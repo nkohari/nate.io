@@ -17,6 +17,7 @@
     "node": ">=18"
   },
   "dependencies": {
+    "@base-ui/react": "^1.1.0",
     "@markdoc/markdoc": "^0.4.0",
     "classnames": "^2.3.2",
     "lodash": "^4.17.21",

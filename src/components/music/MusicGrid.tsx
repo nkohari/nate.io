@@ -75,7 +75,9 @@ export function MusicGrid() {
   const musicArticles = useMemo(
     () =>
       Object.values(articles)
-        .filter((article) => article.metadata.type === 'music')
+        .filter(
+          (article) => article.metadata.type === 'music' && article.metadata.state !== 'draft',
+        )
         .sort((a, b) =>
           a.metadata.spotify!.track.name.localeCompare(b.metadata.spotify!.track.name),
         ),
@@ -95,7 +97,7 @@ export function MusicGrid() {
         {tiles}
       </motion.div>
       <motion.div variants={poweredByVariants}>
-        <PoweredBySpotify className="mt-6" />
+        <PoweredBySpotify className="mt-6 ml-1.5" />
       </motion.div>
     </div>
   );

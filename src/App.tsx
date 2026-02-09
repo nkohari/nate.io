@@ -1,6 +1,5 @@
 import { useCatalog } from '@apocrypha/core/catalog';
 import { AnimatePresence } from 'motion/react';
-import { Suspense } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { Body, NotFound, ScrollController, SiteFooter, SiteHeader, ThemeProvider } from 'src/shell';
 

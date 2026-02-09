@@ -51,7 +51,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
       setTheme(theme);
     },
     clearPreferredTheme: () => {
-      localStorage.clearItem(LOCAL_STORAGE_KEY, theme);
+      localStorage.removeItem(LOCAL_STORAGE_KEY);
       setTheme(getDefaultTheme());
     },
   };

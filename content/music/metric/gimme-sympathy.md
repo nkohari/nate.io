@@ -3,7 +3,7 @@ type: music
 spotifyId: 4z2xy1UYMu70xCkWudeL96
 ---
 
-For whatever reason, I seem to be drawn to [alt-rock acts fronted by women](/music/rilo-kiley/the-angels-hung-around).
+For whatever reason, I seem to be drawn to [indie rock bands fronted by women](/music/rilo-kiley/the-angels-hung-around).
 
 From [Help I'm Alive](https://open.spotify.com/track/0cahtHEywK64NSWqm2SDTi) to [Gold Guns Girls](https://open.spotify.com/track/6JhUq57XpJeNMxboI4Ne3S?si=e5b553ea710f42ef), _Fantasies_ is stacked with so many great tracks that it's hard to pick a favorite. The album came out as Metric was growing in popularity, and on _Gimme Sympathy_ they're confronted with the pressure of fame and meeting the moment:
 

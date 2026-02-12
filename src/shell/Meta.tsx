@@ -3,7 +3,6 @@ import { useCatalog } from '@apocrypha/core/catalog';
 import { manifest } from '@apocrypha/core/manifest';
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { BASE_URL, SITE_NAME } from 'src/constants';
 import { Metadata } from 'src/types';
 import { getPageMetadata } from 'src/util';
 

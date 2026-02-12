@@ -4,7 +4,8 @@ import { generateOpenGraphImage } from '../opengraph';
 import { ImageCache } from '../util';
 
 function generateImageFilename(id: string) {
-  return `${id.substring(1).replaceAll('/', '-')}.jpg`;
+  const slug = id.substring(1).replaceAll('/', '-');
+  return slug.length === 0 ? 'home.jpg' : `${slug}.jpg`;
 }
 
 function getTitle(metadata: Metadata) {

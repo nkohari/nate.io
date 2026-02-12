@@ -13,7 +13,12 @@ type MetaProps = {
 export function Meta({ metadata }: MetaProps) {
   const location = useLocation();
   const articles = useCatalog();
-  const { title, canonicalUrl, properties } = getPageMetadata(location.pathname, metadata);
+
+  const { title, canonicalUrl, properties } = getPageMetadata(
+    document.location.origin,
+    location.pathname,
+    metadata,
+  );
 
   useEffect(() => {
     // The meta tags are injected by the server on the first load, but once the React app mounts,

@@ -1,4 +1,4 @@
-import { BASE_URL, SITE_NAME } from 'src/constants';
+import { SITE_NAME } from 'src/constants';
 import { Metadata } from 'src/types';
 
 export type PageMetadataProperty = {
@@ -13,9 +13,9 @@ export type PageMetadata = {
   properties: PageMetadataProperty[];
 };
 
-export function getPageMetadata(path: string, metadata: Metadata): PageMetadata {
+export function getPageMetadata(baseUrl: string, path: string, metadata: Metadata): PageMetadata {
   const title = metadata.title ? `${metadata.title} — ${SITE_NAME}` : SITE_NAME;
-  const canonicalUrl = `${BASE_URL}${path}`;
+  const canonicalUrl = `${baseUrl}${path}`;
   const description = metadata.excerpt || metadata.subtitle || '';
 
   const properties = new Map<string, string>([
@@ -41,11 +41,11 @@ export function getPageMetadata(path: string, metadata: Metadata): PageMetadata 
   }
 
   if (metadata.ogImage) {
-    properties.set('og:image', `${BASE_URL}${metadata.ogImage}`);
+    properties.set('og:image', `${baseUrl}${metadata.ogImage}`);
     properties.set('og:image:width', '1200');
     properties.set('og:image:height', '630');
     properties.set('twitter:card', 'summary_large_image');
-    properties.set('twitter:image', `${BASE_URL}${metadata.ogImage}`);
+    properties.set('twitter:image', `${baseUrl}${metadata.ogImage}`);
   }
 
   return {

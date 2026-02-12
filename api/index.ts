@@ -45,10 +45,10 @@ export default {
     const contentType = response.headers.get('content-type');
 
     if (contentType?.includes('text/html')) {
-      const metadata = getArticleMetadata(url.pathname);
+      const metadata = getArticleMetadata(url);
 
       if (metadata) {
-        const metaTags = generateMetaTags(url.pathname, metadata);
+        const metaTags = generateMetaTags(url, metadata);
         return new HTMLRewriter()
           .on('head', {
             comments(comment) {

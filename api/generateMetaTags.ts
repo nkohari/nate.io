@@ -1,9 +1,14 @@
 import { Metadata } from 'src/types';
 import { getPageMetadata } from 'src/util/getPageMetadata';
 
-export function generateMetaTags(path: string, metadata: Metadata) {
+export function generateMetaTags(requestUrl: URL, metadata: Metadata) {
+  const { title, canonicalUrl, properties } = getPageMetadata(
+    requestUrl.origin,
+    requestUrl.pathname,
+    metadata,
+  );
+
   const tags: string[] = [];
-  const { title, canonicalUrl, properties } = getPageMetadata(path, metadata);
 
   tags.push(`<title>${title}</title>`);
   tags.push(`<link rel="canonical" href="${canonicalUrl}" />`);

@@ -6,6 +6,6 @@ const metadata = Object.values(manifest).reduce((map, entry) => {
   return map;
 }, new Map<string, Metadata>());
 
-export function getArticleMetadata(pathname: string): Metadata | undefined {
-  return metadata.get(pathname);
+export function getArticleMetadata(requestUrl: URL): Metadata | undefined {
+  return metadata.get(requestUrl.pathname);
 }

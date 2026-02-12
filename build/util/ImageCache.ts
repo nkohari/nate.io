@@ -1,8 +1,8 @@
 import fs from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 
-export class DiskCache {
-  rootPath: string;
+export class ImageCache {
+  readonly rootPath: string;
 
   constructor(rootPath: string) {
     this.rootPath = rootPath;
@@ -18,11 +18,11 @@ export class DiskCache {
     });
   }
 
-  async readThrough<T>(key: string, loadCallback: () => Promise<T>) {
+  async readThrough(key: string, loadCallback: () => Promise<Buffer>) {
     await this.ensurePathExists(key);
 
     if (await this.has(key)) {
-      return this.get<T>(key);
+      return this.get(key);
     }
 
     const value = await loadCallback();
@@ -30,20 +30,18 @@ export class DiskCache {
     return value;
   }
 
-  async get<T>(key: string) {
+  async get(key: string) {
     await this.ensurePathExists(key);
 
     const filename = this.getFilename(key);
-    const json = await fs.readFile(filename, { encoding: 'utf8' });
-    return JSON.parse(json) as T;
+    return fs.readFile(filename);
   }
 
-  async set<T>(key: string, value: T) {
+  async set(key: string, value: Buffer) {
     await this.ensurePathExists(key);
 
     const filename = this.getFilename(key);
-    const json = JSON.stringify(value);
-    return fs.writeFile(filename, json, { encoding: 'utf8' });
+    return fs.writeFile(filename, value);
   }
 
   async clear() {
@@ -57,6 +55,6 @@ export class DiskCache {
   }
 
   private getFilename(key: string) {
-    return resolve(this.rootPath, `${key}.json`);
+    return resolve(this.rootPath, key);
   }
 }

@@ -2,11 +2,12 @@ import path from 'node:path';
 import { MetadataPluginParams } from '@apocrypha/core';
 import { Metadata } from '../../src/types';
 import { Config } from '../config';
-import { DiskCache, SpotifyClient } from '../spotify';
+import { SpotifyClient } from '../spotify';
+import { JsonCache } from '../util';
 
 export function getSpotifyData(config: Config, cachePath: string) {
-  const cache = new DiskCache(path.resolve(cachePath, 'spotify'));
   const spotify = new SpotifyClient(config);
+  const cache = new JsonCache(cachePath);
 
   return async ({ frontmatter }: MetadataPluginParams<Metadata>) => {
     const trackId = frontmatter.spotifyId;

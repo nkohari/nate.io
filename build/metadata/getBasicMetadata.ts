@@ -3,7 +3,7 @@ import { Metadata } from '../../src/types';
 
 export function getBasicMetadata({ frontmatter }: MetadataPluginParams<Metadata>) {
   return {
-    date: new Date(frontmatter.date),
+    date: frontmatter.date ? new Date(frontmatter.date) : undefined,
     title: frontmatter.title,
     subtitle: frontmatter.subtitle,
     state: frontmatter.state ?? 'live',

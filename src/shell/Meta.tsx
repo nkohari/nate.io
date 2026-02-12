@@ -1,21 +1,36 @@
 import { getAssetUrl } from '@apocrypha/core/assets';
-import { getArticleModuleUrl, useCatalog } from '@apocrypha/core/catalog';
+import { useCatalog } from '@apocrypha/core/catalog';
+import { manifest } from '@apocrypha/core/manifest';
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { SITE_NAME } from 'src/constants';
 import { Metadata } from 'src/types';
+import { getPageMetadata } from 'src/util';
 
 type MetaProps = {
   metadata: Metadata;
 };
 
 export function Meta({ metadata }: MetaProps) {
-  const title = metadata.title ? `${metadata.title} — Nate Kohari` : 'Nate Kohari';
   const location = useLocation();
   const articles = useCatalog();
 
+  const { title, canonicalUrl, properties } = getPageMetadata(
+    document.location.origin,
+    location.pathname,
+    metadata,
+  );
+
   useEffect(() => {
-    document.title = title;
-  }, [title]);
+    // The meta tags are injected by the server on the first load, but once the React app mounts,
+    // we take control of them to alter them as the user navigates.
+    document.title = title === SITE_NAME ? title : `${title} — ${SITE_NAME}`;
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonicalUrl);
+    for (const property of properties) {
+      const el = document.querySelector(`meta[property="${property.name}"]`);
+      el?.setAttribute('content', property.content);
+    }
+  }, [title, canonicalUrl, properties]);
 
   let images: React.ReactNode;
   let outgoingLinks: React.ReactNode;
@@ -36,7 +51,7 @@ export function Meta({ metadata }: MetaProps) {
         const article = articles[path];
         if (!article) return null;
 
-        const href = getArticleModuleUrl(article.id);
+        const href = manifest[article.id].moduleFilename;
         if (!href) return null;
 
         return <link key={path} rel="prefetch" as="script" href={href} crossOrigin="anonymous" />;
@@ -45,8 +60,6 @@ export function Meta({ metadata }: MetaProps) {
 
   return (
     <>
-      <title>{title}</title>
-      <link rel="canonical" href={`https://nate.io${location.pathname}`} />
       {images}
       {outgoingLinks}
     </>

@@ -1,6 +1,7 @@
 export * from './cosineSimilarity';
 export * from './dynamic';
 export * from './getEmbedding';
+export * from './getPageMetadata';
 export * from './ordinal';
 export * from './randomArrayElement';
 export * from './randomInteger';

@@ -1,4 +1,7 @@
+import { META_PLACEHOLDER } from 'src/constants';
 import { Environment } from './Environment';
+import { generateMetaTags } from './generateMetaTags';
+import { getArticleMetadata } from './getArticleMetadata';
 import { getRides } from './handlers/rides/getRides';
 import { ingestRides } from './handlers/rides/ingestRides';
 import { generateEmbedding } from './handlers/search/generateEmbedding';
@@ -38,6 +41,26 @@ export default {
       return response;
     }
 
-    return env.ASSETS.fetch(request);
+    const response = await env.ASSETS.fetch(request);
+    const contentType = response.headers.get('content-type');
+
+    if (contentType?.includes('text/html')) {
+      const metadata = getArticleMetadata(url);
+
+      if (metadata) {
+        const metaTags = generateMetaTags(url, metadata);
+        return new HTMLRewriter()
+          .on('head', {
+            comments(comment) {
+              if (comment.text.trim() === META_PLACEHOLDER) {
+                comment.replace(metaTags, { html: true });
+              }
+            },
+          })
+          .transform(response);
+      }
+    }
+
+    return response;
   },
 };

@@ -72,6 +72,7 @@ export type Metadata = {
   subtitle?: string;
   thumbnail?: string;
   thumbnailImage?: ImageMetadata;
+  ogImage?: string;
   images?: ImageMetadata[];
   videos?: VideoMetadata[];
   outgoingLinks?: string[];

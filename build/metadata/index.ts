@@ -3,6 +3,7 @@ export * from './getContentStats';
 export * from './getEmbeddings';
 export * from './getExcerpt';
 export * from './getImages';
+export * from './getOpenGraphImage';
 export * from './getOutgoingLinks';
 export * from './getSections';
 export * from './getSpotifyData';

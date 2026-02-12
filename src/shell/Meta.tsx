@@ -3,6 +3,7 @@ import { useCatalog } from '@apocrypha/core/catalog';
 import { manifest } from '@apocrypha/core/manifest';
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { SITE_NAME } from 'src/constants';
 import { Metadata } from 'src/types';
 import { getPageMetadata } from 'src/util';
 
@@ -23,7 +24,7 @@ export function Meta({ metadata }: MetaProps) {
   useEffect(() => {
     // The meta tags are injected by the server on the first load, but once the React app mounts,
     // we take control of them to alter them as the user navigates.
-    document.title = title;
+    document.title = title === SITE_NAME ? title : `${title} — ${SITE_NAME}`;
     document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonicalUrl);
     for (const property of properties) {
       const el = document.querySelector(`meta[property="${property.name}"]`);

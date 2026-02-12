@@ -14,14 +14,14 @@ export type PageMetadata = {
 };
 
 export function getPageMetadata(baseUrl: string, path: string, metadata: Metadata): PageMetadata {
-  const title = metadata.title ? `${metadata.title} — ${SITE_NAME}` : SITE_NAME;
+  const title = metadata.title || SITE_NAME;
   const canonicalUrl = `${baseUrl}${path}`;
   const description = metadata.excerpt || metadata.subtitle || '';
 
   const properties = new Map<string, string>([
     ['og:type', metadata.type === 'page' ? 'website' : 'article'],
     ['og:url', canonicalUrl],
-    ['og:site_name', 'Nate Kohari'],
+    ['og:site_name', SITE_NAME],
   ]);
 
   if (title) {
@@ -36,7 +36,6 @@ export function getPageMetadata(baseUrl: string, path: string, metadata: Metadat
   }
 
   if (metadata.date) {
-    console.log(typeof metadata.date);
     properties.set('article:published_time', metadata.date.toISOString());
   }
 

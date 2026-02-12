@@ -1,3 +1,4 @@
+import { SITE_NAME } from 'src/constants';
 import { Metadata } from 'src/types';
 import { getPageMetadata } from 'src/util/getPageMetadata';
 
@@ -10,7 +11,7 @@ export function generateMetaTags(requestUrl: URL, metadata: Metadata) {
 
   const tags: string[] = [];
 
-  tags.push(`<title>${title}</title>`);
+  tags.push(`<title>${title === SITE_NAME ? title : `${title} — ${SITE_NAME}`}</title>`);
   tags.push(`<link rel="canonical" href="${canonicalUrl}" />`);
 
   for (const property of properties) {

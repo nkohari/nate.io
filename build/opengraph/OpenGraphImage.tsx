@@ -30,7 +30,16 @@ export function OpenGraphImage({ title, backgroundImage }: OpenGraphImageProps) 
       >
         {title}
       </div>
-      <div style={{ color: '#fff', fontSize: '32px', lineHeight: '1.2' }}>Nate Kohari</div>
+      <div
+        style={{
+          color: '#fff',
+          fontSize: '32px',
+          lineHeight: '1.2',
+          textShadow: '1px 1px 5px rgba(0, 0, 0, 0.5)',
+        }}
+      >
+        Nate Kohari
+      </div>
     </div>
   );
 }

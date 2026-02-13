@@ -4,6 +4,7 @@ export * from './navigation/MobileNavigationOverlayToggle';
 
 export * from './ArticleSearchProvider';
 export * from './Body';
+export * from './ManifestProvider';
 export * from './Meta';
 export * from './MetadataProvider';
 export * from './NotFound';

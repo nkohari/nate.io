@@ -2,7 +2,7 @@
 title: My Work
 ---
 
-{% video src="cyberpunk-engineer.mp4" corners="xl" play="hover" width=1280 height=854 /%}
+{% glitch src="cyberpunk-engineer.webp" corners="xl" /%}
 
 {% lead-in %}I'm an internet engineer.{% /lead-in %} I build thoughtful, polished web interfaces and scalable, high-performance APIs. My goal as an engineer is to make people happier, more efficient, and more effective at their work.
 

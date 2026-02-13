@@ -1,21 +1,13 @@
 import { getAssetUrl } from '@apocrypha/core/assets';
 import cx from 'classnames';
+import { CORNER_CLASSES, Corners } from 'src/components/framework/Corners';
 import { ImageMetadata } from 'src/types';
 
-const CORNER_CLASSES = {
-  sm: 'rounded-sm',
-  md: 'rounded-md',
-  lg: 'rounded-lg',
-  xl: 'rounded-xl',
-  full: 'rounded-full',
-};
-
-export type ImageCorners = keyof typeof CORNER_CLASSES;
 export type ImageFilter = 'grayscale' | 'sepia';
 
 export type ImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
   children?: React.ReactNode;
-  corners?: ImageCorners;
+  corners?: Corners;
   filter?: ImageFilter;
   metadata: ImageMetadata;
 };

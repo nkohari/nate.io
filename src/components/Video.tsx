@@ -1,23 +1,15 @@
 import { getAssetUrl } from '@apocrypha/core/assets';
 import cx from 'classnames';
 import { useRef, useState } from 'react';
+import { CORNER_CLASSES, Corners } from 'src/components/framework/Corners';
 import { VideoMetadata } from 'src/types';
 import { useReducedMotion } from 'src/util';
 
-const CORNER_CLASSES = {
-  sm: 'rounded-sm',
-  md: 'rounded-md',
-  lg: 'rounded-lg',
-  xl: 'rounded-xl',
-  full: 'rounded-full',
-};
-
-export type VideoCorners = keyof typeof CORNER_CLASSES;
 export type VideoPlayMode = 'auto' | 'hover';
 
 export type VideoProps = React.VideoHTMLAttributes<HTMLVideoElement> & {
   children?: React.ReactNode;
-  corners?: VideoCorners;
+  corners?: Corners;
   height: number;
   width: number;
   play: VideoPlayMode;

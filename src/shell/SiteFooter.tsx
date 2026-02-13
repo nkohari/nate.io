@@ -1,4 +1,5 @@
 import { DateTime } from 'luxon';
+import { Ascii, Aurora, Shader } from 'shaders/react';
 import { IconType, Link } from 'src/components';
 
 type SiteFooterLinkProps = {
@@ -19,8 +20,15 @@ function SiteFooterLink({ href, icon, text }: SiteFooterLinkProps) {
 
 export function SiteFooter() {
   return (
-    <div className="flex flex-row justify-center w-full pt-36 text-primary bg-linear-to-b from-transparent to-40% to-accent/20">
-      <div className="flex flex-col sm:flex-row w-full sm:w-[900px] px-8 pb-12">
+    <div className="relative flex flex-col justify-end items-center min-h-[400px] w-full text-primary">
+      <div className="absolute inset-0">
+        <Shader className="h-full w-full">
+          <Ascii cellSize={20} gamma={0.1} fontFamily="IBM Plex Mono">
+            <Aurora intensity={100} speed={20} colorA="#a533f8" colorB="#2922ee" colorC="#1694e8" />
+          </Ascii>
+        </Shader>
+      </div>
+      <div className="relative flex flex-col sm:flex-row h-full w-full sm:w-[900px] px-8 pb-12 z-10">
         <div className="flex-1 text-xs">
           <div>Copyright &copy; 2006-{DateTime.now().year} Nate Kohari.</div>
           <div>

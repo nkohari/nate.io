@@ -1,9 +1,9 @@
 import { getAssetUrl } from '@apocrypha/core/assets';
 import { useCatalog } from '@apocrypha/core/catalog';
-import { manifest } from '@apocrypha/core/manifest';
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { SITE_NAME } from 'src/constants';
+import { useManifest } from 'src/shell';
 import { Metadata } from 'src/types';
 import { getPageMetadata } from 'src/util';
 
@@ -14,6 +14,7 @@ type MetaProps = {
 export function Meta({ metadata }: MetaProps) {
   const location = useLocation();
   const articles = useCatalog();
+  const manifest = useManifest();
 
   const { title, canonicalUrl, properties } = getPageMetadata(
     document.location.origin,
@@ -48,13 +49,12 @@ export function Meta({ metadata }: MetaProps) {
     outgoingLinks = metadata.outgoingLinks
       .filter((url) => url.startsWith('/'))
       .map((path: string) => {
-        const article = articles[path];
-        if (!article) return null;
-
-        const href = manifest[article.id].moduleFilename;
+        const href = manifest[path];
         if (!href) return null;
 
-        return <link key={path} rel="prefetch" as="script" href={href} crossOrigin="anonymous" />;
+        return (
+          <link key={path} rel="prefetch" as="script" href={`/${href}`} crossOrigin="anonymous" />
+        );
       });
   }
 

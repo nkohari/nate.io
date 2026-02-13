@@ -3,8 +3,13 @@ import { AstWalker, MetadataPluginParams } from '@apocrypha/core';
 import sharp from 'sharp';
 import { Metadata } from '../../src/types';
 
+const TAGS = ['image', 'glitch'];
+
 export async function getImages({ ast, paths }: MetadataPluginParams<Metadata>) {
-  const nodes = AstWalker.findTags(ast, 'image');
+  const nodes = AstWalker.findTags(
+    ast,
+    (node) => node.tag !== undefined && TAGS.includes(node.tag),
+  );
 
   const images = [];
   for (const node of nodes) {

@@ -23,7 +23,7 @@ export function SiteFooter() {
     <div className="relative flex flex-col justify-end items-center min-h-[400px] w-full text-primary">
       <div className="absolute inset-0">
         <Shader className="h-full w-full">
-          <Ascii cellSize={20} gamma={0.1} fontFamily="IBM Plex Mono">
+          <Ascii characters="#*" cellSize={20} gamma={0.5} fontFamily="IBM Plex Mono">
             <Liquify intensity={3} radius={3}>
               <Aurora
                 intensity={100}

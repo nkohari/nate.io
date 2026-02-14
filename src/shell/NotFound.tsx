@@ -1,12 +1,21 @@
 import { getAssetUrl } from '@apocrypha/core/assets';
+import { useMediaQuery } from 'react-responsive';
 import { Ascii, CursorRipples, ImageTexture, Shader, SimplexNoise } from 'shaders/react';
-import { Link } from 'src/components';
 
 export function NotFound() {
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+  console.log(isMobile);
+
   return (
-    <main className="relative flex-1 flex flex-col items-center justify-center pt-4">
+    <main className="relative flex-1 flex flex-col items-center justify-center">
       <Shader className="w-full max-w-[1200px] px-8">
-        <Ascii characters="01" cellSize={25} spacing={0.6} gamma={2} fontFamily="IBM Plex Mono">
+        <Ascii
+          characters="01"
+          cellSize={isMobile ? 50 : 25}
+          spacing={0.6}
+          gamma={2}
+          fontFamily="IBM Plex Mono"
+        >
           <CursorRipples intensity={5} decay={10} edges="transparent">
             <SimplexNoise
               colorA="#ffffff"
@@ -22,7 +31,7 @@ export function NotFound() {
           </CursorRipples>
         </Ascii>
       </Shader>
-      <div className="flex flex-row items-center text-md italic">
+      <div className="flex flex-row items-center text-sm md:text-md italic">
         That page appears to have been eaten by a grue.
       </div>
     </main>

@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import { Ascii, Aurora, Shader } from 'shaders/react';
+import { Ascii, Aurora, Liquify, Shader } from 'shaders/react';
 import { IconType, Link } from 'src/components';
 
 type SiteFooterLinkProps = {
@@ -24,7 +24,15 @@ export function SiteFooter() {
       <div className="absolute inset-0">
         <Shader className="h-full w-full">
           <Ascii cellSize={20} gamma={0.1} fontFamily="IBM Plex Mono">
-            <Aurora intensity={100} speed={20} colorA="#a533f8" colorB="#2922ee" colorC="#1694e8" />
+            <Liquify intensity={3} radius={3}>
+              <Aurora
+                intensity={100}
+                speed={20}
+                colorA="#a533f8"
+                colorB="#2922ee"
+                colorC="#1694e8"
+              />
+            </Liquify>
           </Ascii>
         </Shader>
       </div>
@@ -60,7 +68,7 @@ export function SiteFooter() {
             .{' '}
           </div>
         </div>
-        <div className="flex-none w-60 mt-8 sm:mt-0 grid grid-cols-3 text-sm">
+        <div className="flex-none w-60 mt-8 sm:mt-0 grid grid-cols-3 text-xs">
           <ul className="flex flex-col gap-1.5">
             <SiteFooterLink href="/" text="About" />
             <SiteFooterLink href="/now" text="Now" />

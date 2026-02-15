@@ -1,4 +1,4 @@
-import { useCatalog } from '@apocrypha/core/catalog';
+import { useCatalog } from '@apocrypha/core/react';
 import { AnimatePresence } from 'motion/react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import {

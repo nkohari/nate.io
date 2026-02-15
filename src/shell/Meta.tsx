@@ -1,5 +1,5 @@
 import { getAssetUrl } from '@apocrypha/core/assets';
-import { useCatalog } from '@apocrypha/core/catalog';
+import { useCatalog } from '@apocrypha/core/react';
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { SITE_NAME } from 'src/constants';

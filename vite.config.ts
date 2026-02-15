@@ -74,12 +74,16 @@ export default defineConfig({
             return 'react';
           }
 
+          if (id.includes('@markdoc') || id.includes('@apocrypha')) {
+            return 'markdoc';
+          }
+
           if (id.includes('motion')) {
             return 'motion';
           }
 
-          if (id.includes('@markdoc') || id.includes('@apocrypha')) {
-            return 'markdoc';
+          if (id.includes('shaders')) {
+            return 'shaders';
           }
 
           if (id.includes('prismjs')) {

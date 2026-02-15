@@ -1,4 +1,4 @@
-import { useCatalog } from '@apocrypha/core/catalog';
+import { useCatalog } from '@apocrypha/core/react';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { Article, Metadata } from 'src/types';
 import { cosineSimilarity, getEmbedding } from 'src/util';

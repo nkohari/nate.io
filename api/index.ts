@@ -1,7 +1,8 @@
+import { getArticle } from '@apocrypha/core/catalog';
 import { META_PLACEHOLDER } from 'src/constants';
+import { Metadata } from 'src/types';
 import { Environment } from './Environment';
 import { generateMetaTags } from './generateMetaTags';
-import { getArticleMetadata } from './getArticleMetadata';
 import { getRides } from './handlers/rides/getRides';
 import { ingestRides } from './handlers/rides/ingestRides';
 import { generateEmbedding } from './handlers/search/generateEmbedding';
@@ -45,10 +46,10 @@ export default {
     const contentType = response.headers.get('content-type');
 
     if (contentType?.includes('text/html')) {
-      const metadata = getArticleMetadata(url);
+      const article = getArticle<Metadata>(url.pathname);
 
-      if (metadata) {
-        const metaTags = generateMetaTags(url, metadata);
+      if (article) {
+        const metaTags = generateMetaTags(url, article.metadata);
         return new HTMLRewriter()
           .on('head', {
             comments(comment) {

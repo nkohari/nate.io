@@ -1,4 +1,4 @@
-import { ArticleContent, useArticle } from '@apocrypha/core/catalog';
+import { ArticleContent, useArticle } from '@apocrypha/core/react';
 import { motion } from 'motion/react';
 import { Suspense } from 'react';
 import { ArticleLayout, MusicLayout, PageLayout } from 'src/components';

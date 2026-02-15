@@ -1,6 +1,6 @@
 {% avatar-cards count=4 /%}
 
-{% lead-in %}Hi, I'm Nate.{% /lead-in %} I'm a software engineer, and occasionally an entrepreneur.
+{% lead-in %}Hi, I'm Nate.{% /lead-in %} I'm a software engineer, and occasionally a startup founder.
 
 I've been [writing software](/work) since I was nine years old, and somehow I've managed to convince people to pay me to do so for the last {% duration since="2004-06-01" /%}. For most of my career, I've been focused on building software that helps people become more efficient and happier at work. I've built dozens of products, and even shipped a few of them. I've founded three companies, and [sold one](/writing/take-the-money-and-run).
 

@@ -1,5 +1,5 @@
 import { Article } from '@apocrypha/core';
-import { useCatalog } from '@apocrypha/core/catalog';
+import { useCatalog } from '@apocrypha/core/react';
 import { motion } from 'motion/react';
 import { useMemo } from 'react';
 import { Link, PoweredBySpotify } from 'src/components';

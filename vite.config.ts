@@ -82,7 +82,7 @@ export default defineConfig({
             return 'motion';
           }
 
-          if (id.includes('shaders')) {
+          if (id.includes('shaders') || id.includes('three')) {
             return 'shaders';
           }
 

@@ -4,11 +4,10 @@ import { Ascii, CursorRipples, ImageTexture, Shader, SimplexNoise } from 'shader
 
 export function NotFound() {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
-  console.log(isMobile);
 
   return (
     <main className="relative flex-1 flex flex-col items-center justify-center">
-      <Shader className="w-full max-w-[1200px] px-8">
+      <Shader className="w-full max-w-[1200px] max-h-[600px] px-8">
         <Ascii
           characters="01"
           cellSize={isMobile ? 50 : 25}

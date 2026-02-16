@@ -30,7 +30,7 @@
     "shaders": "^2.3.61"
   },
   "devDependencies": {
-    "@apocrypha/core": "^0.5.1",
+    "@apocrypha/core": "^0.6.0",
     "@biomejs/biome": "^1.9.4",
     "@cloudflare/vite-plugin": "^1.21.0",
     "@cloudflare/workers-types": "^4.20260116.0",

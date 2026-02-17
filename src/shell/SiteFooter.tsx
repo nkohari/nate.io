@@ -20,8 +20,8 @@ function SiteFooterLink({ href, icon, text }: SiteFooterLinkProps) {
 
 export function SiteFooter() {
   return (
-    <div className="relative flex flex-col justify-end items-center min-h-[450px] w-full text-primary">
-      <div className="absolute inset-0">
+    <div className="relative flex flex-col justify-end items-center min-h-[400px] w-full text-primary">
+      <div className="absolute inset-0 mt-[-150px] sm:mt-[-50px]">
         <Shader className="h-full w-full">
           <Ascii characters="#*" cellSize={20} gamma={0.5} fontFamily="IBM Plex Mono">
             <Liquify intensity={3} radius={3}>
@@ -36,7 +36,7 @@ export function SiteFooter() {
           </Ascii>
         </Shader>
       </div>
-      <div className="relative flex flex-col md:flex-row h-full w-full md:w-[900px] px-8 pb-12 z-10">
+      <div className="relative flex flex-col sm:flex-row h-full w-full max-w-[900px] px-8 pb-12 z-10">
         <div className="flex-1 text-xs">
           <div>Copyright &copy; 2006-{DateTime.now().year} Nate Kohari.</div>
           <div>
@@ -68,7 +68,7 @@ export function SiteFooter() {
             .{' '}
           </div>
         </div>
-        <div className="flex-none w-60 mt-8 md:mt-0 grid grid-cols-3 text-xs">
+        <div className="flex-none w-60 mt-8 sm:mt-0 grid grid-cols-3 text-xs">
           <ul className="flex flex-col gap-1.5">
             <SiteFooterLink href="/" text="About" />
             <SiteFooterLink href="/now" text="Now" />

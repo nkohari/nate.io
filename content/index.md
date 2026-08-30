@@ -6,7 +6,7 @@ I've been [writing software](/work) since I was nine years old, and somehow I've
 
 Right now, I'm building [Ardent](https://ardent.ai), a platform which helps users blend the creativity of generative AI with the determinism of software. Before that, I spent a few years at [Stripe](https://stripe.com/), working on developer experience, knowledge management, and some of the company's [early work with generative AI](https://openai.com/customer-stories/stripe).
 
-I'm originally from [Akron, Ohio](/writing/the-city-of-opportunity). Now I live in Raleigh, North Carolina with my wife [Niki](https://www.linkedin.com/in/nikikohari), our two sons (one {% duration since="2018-10-01" /%} old, and one {% duration since="2021-03-01" /%} old), and our {% duration since="2025-08-30" pluralize=false /%} old dapple dachshund Poppy.
+I'm originally from [Akron, Ohio](/writing/the-city-of-opportunity). Now I live in Raleigh, North Carolina with my wife [Niki](https://www.linkedin.com/in/nikikohari), our two sons (one {% duration since="2018-10-01" /%} old, and one {% duration since="2021-03-01" /%} old), and two dapple dachshunds Poppy ({% duration since="2025-08-30" pluralize=false /%} old) and Hazel ({% duration since="2026-05-29" pluralize=false /%} old).
 
 I'm a huge nerd about sci-fi and fantasy, and I'm especially fond of retrofuturism and the cyberpunk genre. My favorite book is William Gibson's _Neuromancer_. I love videogames, and there's a special place in my heart for SNES-era classics like _Final Fantasy VI_, _Super Metroid_, and _The Legend of Zelda: A Link to the Past_. My favorite television show is _Star Trek: Deep Space Nine_.
 

@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "nate-io",
+  "account_id": "21268d66705c98a424f771f31617624a",
   "main": "api/index.ts",
   "compatibility_date": "2026-01-14",
   "preview_urls": true,

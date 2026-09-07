@@ -16,7 +16,6 @@ export async function generateEmbedding(request: Request, env: Environment): Pro
 
   const result = await env.AI.run(EMBEDDING_MODEL, {
     pooling: 'mean',
-    normalize: true,
     text,
   });
 
